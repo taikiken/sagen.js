@@ -145,7 +145,7 @@
      * @constructor
      */
     var Device = function () {
-        throw "Viewport cannot be instantiated";
+        throw "Device cannot be instantiated";
     };
 
     Device = {

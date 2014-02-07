@@ -164,7 +164,7 @@ var Sagen = {};
      * @type String
      * @static
      **/
-    s.buildDate = /*date*/"Fri, 07 Feb 2014 05:35:13 GMT"; // injected by build process
+    s.buildDate = /*date*/"Fri, 07 Feb 2014 05:45:51 GMT"; // injected by build process
 
 })( this.Sagen );
 /**
@@ -915,7 +915,7 @@ var Sagen = {};
      * @constructor
      */
     var Device = function () {
-        throw "Viewport cannot be instantiated";
+        throw "Device cannot be instantiated";
     };
 
     Device = {
