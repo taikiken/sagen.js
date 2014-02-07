@@ -212,6 +212,7 @@
      * 上書きし使用します。
      * for Device
      * @method onOrientation
+     * @static
      */
     Device.onOrientation = function ( direction ){};
 

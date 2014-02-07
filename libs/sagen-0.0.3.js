@@ -156,7 +156,7 @@ var Sagen = {};
      * @type String
      * @static
      **/
-    s.version = /*version*/"0.0.2"; // injected by build process
+    s.version = /*version*/"0.0.3"; // injected by build process
 
     /**
      * The build date for this release in UTC format.
@@ -164,7 +164,7 @@ var Sagen = {};
      * @type String
      * @static
      **/
-    s.buildDate = /*date*/"Fri, 07 Feb 2014 02:42:49 GMT"; // injected by build process
+    s.buildDate = /*date*/"Fri, 07 Feb 2014 05:35:13 GMT"; // injected by build process
 
 })( this.Sagen );
 /**
@@ -982,6 +982,7 @@ var Sagen = {};
      * 上書きし使用します。
      * for Device
      * @method onOrientation
+     * @static
      */
     Device.onOrientation = function ( direction ){};
 
@@ -1045,6 +1046,21 @@ var Sagen = {};
         }
     }() );
 
+    /**
+     *
+     * @param {String} content
+     * @returns {HTMLElement}
+     * @private
+     */
+    function _createMeta ( content ) {
+        var meta = document.createElement( "meta" );
+
+        meta.name = "viewport";
+        meta.content = content;
+
+        return meta;
+    }
+
 
     /**
     * Viewport 情報を管理します
@@ -1087,11 +1103,11 @@ var Sagen = {};
          * viewport タグを書き込みます
          * @for Viewport
          * @method write
-         * @param {Node} viewport viewport tag Node
+         * @param {String} viewport viewport content部Text
          * @static
          */
         write: function ( viewport ){
-            document.documentElement.appendChild( viewport );
+            document.getElementsByTagName( "head" )[ 0 ].appendChild( _createMeta( viewport ) );
         },
 
         /**
@@ -1101,7 +1117,7 @@ var Sagen = {};
         Android: {
             /**
              * target-densitydpi=device-dpi option を viewport content 属性に追加します
-             * @for Android
+             * @for Viewport.Android
              * @method targetDensity
              * @static
              */
@@ -1116,7 +1132,7 @@ var Sagen = {};
         iOS: {
             /**
              * minimal-ui option を viewport content 属性に追加します
-             * @for iOS
+             * @for Viewport.iOS
              * @method minimalUI
              * @static
              */

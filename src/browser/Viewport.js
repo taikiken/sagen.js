@@ -43,6 +43,21 @@
         }
     }() );
 
+    /**
+     *
+     * @param {String} content
+     * @returns {HTMLElement}
+     * @private
+     */
+    function _createMeta ( content ) {
+        var meta = document.createElement( "meta" );
+
+        meta.name = "viewport";
+        meta.content = content;
+
+        return meta;
+    }
+
 
     /**
     * Viewport 情報を管理します
@@ -85,11 +100,11 @@
          * viewport タグを書き込みます
          * @for Viewport
          * @method write
-         * @param {Node} viewport viewport tag Node
+         * @param {String} viewport viewport content部Text
          * @static
          */
         write: function ( viewport ){
-            document.documentElement.appendChild( viewport );
+            document.getElementsByTagName( "head" )[ 0 ].appendChild( _createMeta( viewport ) );
         },
 
         /**
@@ -99,7 +114,7 @@
         Android: {
             /**
              * target-densitydpi=device-dpi option を viewport content 属性に追加します
-             * @for Android
+             * @for Viewport.Android
              * @method targetDensity
              * @static
              */
@@ -114,7 +129,7 @@
         iOS: {
             /**
              * minimal-ui option を viewport content 属性に追加します
-             * @for iOS
+             * @for Viewport.iOS
              * @method minimalUI
              * @static
              */
