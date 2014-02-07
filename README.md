@@ -5,15 +5,10 @@ device detector, viewport write and rewrite
 
 # 使用方法
 `<script type="text/javascript" src="/js/sagen-VERSION.min.js"
-
     id="sagen"
-
     data-orientation="true"
-
     data-android="true"
-
     data-ios="true"
-
     data-canvas="true">
 </script>`
 
