@@ -5,10 +5,15 @@ device detector, viewport write and rewrite
 
 # 使用方法
 `<script type="text/javascript" src="/js/sagen-VERSION.min.js"
+
     id="sagen"
+
     data-orientation="true"
+
     data-android="true"
+
     data-ios="true"
+
     data-canvas="true">
 </script>`
 
@@ -45,12 +50,10 @@ html tag へ端末情報に基づくCSS classを書き込みます。
 ## オプション
 **data-orientation**
 
-
 trueに設定するとorientationchangeあるいはwindow.resizeを監視しportrait / landscapeを切り替えます。
 
 
 **data-canvas**
-
 
 trueに設定するとcanvas, webgl使用判定を行います
 * canvas
@@ -60,11 +63,9 @@ trueに設定するとcanvas, webgl使用判定を行います
 # viewport
 **data-android**
 
-
 trueに設定するとAndroid端末でChromeでない場合viewportへtarget-densitydpi=device-dpiを追加します。
 
 
 **data-ios**
-
 
 trueに設定するとiOSでiOS 7.1以上の場合にviewportへminimal-uiを追加します。
