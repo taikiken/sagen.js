@@ -1,0 +1,33 @@
+{
+  "name": "Sagen",
+  "version": "0.0.2",
+  "description": "JavaScript, device check and viewport rewrite",
+  "dependencies": {
+    "grunt": "~0.4.2",
+    "grunt-contrib-uglify": "~0.2.4",
+    "grunt-contrib-concat": "~0.3.0",
+    "grunt-contrib-compress": "~0.5.2",
+    "grunt-contrib-requirejs": "~0.4.1",
+    "grunt-contrib-yuidoc": "~0.4.0",
+    "grunt-contrib-copy": "~0.4.1",
+    "grunt-devtools": "~0.2.1",
+    "lodash": "~0.9.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/taikiken/Sagen.js.git"
+  },
+  "keywords": [
+    "javascript"
+  ],
+  "author": "taikiken",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/taikiken/Sagen.js/issues"
+  },
+  "homepage": "https://github.com/taikiken/Sagen.js"
+}

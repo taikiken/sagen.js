@@ -1,0 +1,12 @@
+{
+    "source": [
+        "../src/Sagen.js",
+        "../src/version.js",
+
+        "../src/browser/Browser.js",
+        "../src/browser/Device.js",
+        "../src/browser/Viewport.js"
+    ],
+
+    "docs_out_path": "../out/SagenDocs/"
+}
