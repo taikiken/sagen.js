@@ -3,14 +3,40 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1, maximum-scale=1.6" />
-<title>Sagen test - Viewport</title>
-<script type="text/javascript" src="../libs/sagen-0.0.2.js" id="sagen" data-orientation="true"></script>
+<script type="text/javascript" src="../libs/sagen-0.1.0.js" id="sagen" data-orientation="true"></script>
 <script type="text/javascript">
 var Sagen = window.Sagen;
 Sagen.Viewport.add( "target-densitydpi=device-dpi" );
 </script>
+<title>Sagen test - Viewport</title>
+
 </head>
 <body>
+<strong>html tag class name</strong>
+<div id="show_css" style="max-width: 100%; padding: 6px; border: 1px solid #ccc;white-space: normal;"></div>
 
+<strong>viewport</strong>
+<div id="show_viewport" style="max-width: 100%; padding: 6px; border: 1px solid #ccc;white-space: normal;"></div>
+
+<script type="text/javascript">
+	( function ( window ){
+		"use strict";
+		var document = window.document,
+			show_css = document.getElementById( "show_css" ),
+			html_element = document.documentElement,
+			show_viewport = document.getElementById( "show_viewport" ),
+			viewport
+		;
+
+		show_css.innerHTML = html_element.className;
+
+		if ( typeof document.querySelector !== "undefined" ) {
+		    // document.querySelector() defined
+			viewport = document.querySelector( "meta[name='viewport']" );
+			show_viewport.innerHTML = viewport.content;
+		}
+
+	}( window ) );
+</script>
 </body>
 </html>

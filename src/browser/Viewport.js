@@ -78,7 +78,7 @@
          */
         add: function ( option ){
             if ( _viewport && _content && option ) {
-                _viewport.content = _content + ", " + option;
+                _viewport.content = _viewport.content + ", " + option;
             }
         },
         /**
@@ -93,7 +93,7 @@
             new_option = new_option || "";
 
             if ( _viewport && _content && old_option ) {
-                _viewport.content = _content.split( old_option ).join( new_option );
+                _viewport.content = _viewport.content.split( old_option ).join( new_option );
             }
         },
         /**
@@ -149,7 +149,7 @@
     }
 
     if ( Sagen.ios() ) {
-        // android viewport added
+        // iOS 7.1 viewport added
         if ( Browser.iOS.is() && Browser.iOS.version() >= 7.1 ) {
             Viewport.iOS.minimalUI();
         }

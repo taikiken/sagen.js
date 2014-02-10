@@ -45,15 +45,12 @@
         _android_phone = false,
         _android_tablet = false,
         _ios_version = -1,
-//        _android_version = -1,
-//        _android_version_major = -1,
-//        _android_version_num = -1,
         _safari_version = -1,
 
         _safari_versions = [ -1, 0, 0 ],
         _ios_versions,
 
-        _android_version,
+        _android_version = -1,
         _android_versions,
 
         _canvas = !!window.CanvasRenderingContext2D
@@ -88,45 +85,6 @@
         return versions;
     }
     _ios_versions = _iosVersion();
-
-    // Android version
-//    /**
-//     * Android version detection
-//     * @for Browser
-//     * @method _get_androidVersion
-//     * @returns {Array} Android version 配列 2桁~3桁
-//     * @private
-//     */
-//    function _androidVersion () {
-//        var ua_lower = _ua.toLowerCase(),
-//            version,
-//            versions = [ -1, 0, 0 ];
-//
-//        if ( _android && !_firefox ) {
-//
-//            version = ua_lower.substr( ua_lower.indexOf( "_android" ) + 8, 5 ).split( "." );
-//            versions = [
-//                parseInt( version[ 0 ], 10 ),
-//                parseInt( version[ 1 ], 10 ),
-//                parseInt( version[ 2 ], 10 )
-//            ];
-//
-//            _android_version_major = versions[ 0 ];
-//
-//            var a_num = versions[ 0 ] + "." + versions[ 1 ];
-//
-//            if ( versions[ 2 ] ) {
-//                // has small version
-//                a_num += versions[ 2 ];
-//            }
-//
-//            _android_version_num = parseFloat( a_num );
-//
-//            _android_version = versions;
-//        }
-//        return versions;
-//    }
-//    _android_versions = _androidVersion();
 
     /**
      * Android version detection
@@ -296,7 +254,6 @@
              * @static
              */
             major: function (){
-//                return _android_version_major;
                 return _android_versions[ 0 ];
             },
             /**
@@ -306,7 +263,6 @@
              * @static
              */
             version: function (){
-//                return _android_version_num;
                 return _android_version;
             },
             /**
@@ -558,6 +514,22 @@
              */
             hideURLBar : function (){
                 setTimeout( function (){ scrollBy( 0, 1 ); }, 0);
+            },
+            /**
+             * @for Browser.Mobile
+             * @method phone
+             * @returns {boolean} Smart Phone(include iPod)か否かを返します
+             */
+            phone: function (){
+                return _ipod || _iphone || _android_phone;
+            },
+            /**
+             * @for Browser.Mobile
+             * @method tablet
+             * @returns {boolean} tablet か否かを返します
+             */
+            tablet: function (){
+                return _ipad || _android_tablet;
             }
         },
         /**

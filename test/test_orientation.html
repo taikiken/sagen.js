@@ -3,9 +3,22 @@
 <head>
 <meta charset="UTF-8">
 <title>Sagen test - Orientation</title>
-<script type="text/javascript" src="../libs/sagen-0.0.2.js" id="sagen" data-orientation="true"></script>
+<script type="text/javascript" src="../libs/sagen-0.1.0.js" id="sagen" data-orientation="true"></script>
 </head>
 <body>
+<strong>html tag class name</strong>
+<div id="show_css"></div>
+<script type="text/javascript">
+( function ( window ){
+	"use strict";
+	var document = window.document,
+		show_css = document.getElementById( "show_css" ),
+		html_element = document.documentElement
+	;
 
+	show_css.innerHTML = html_element.className;
+
+}( window ) );
+</script>
 </body>
 </html>

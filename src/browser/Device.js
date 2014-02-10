@@ -80,6 +80,9 @@
             class_names.push( "android" + number.join( "" ) );
             class_names.push( "android" + number[ 0 ] );
             class_names.push( "android" + number[ 0 ] + number[ 1 ] );
+        } else {
+            // not iOS and not Android
+            class_names.push( "other" );
         }
 
         if ( Browser.Touch.is() ) {
@@ -157,7 +160,10 @@
          */
         listen: function (){
             // orientation check start
-            window.addEventListener( _orientation_event, _onOrientation, false );
+            if ( typeof window.addEventListener !== "undefined" ) {
+                // window.addEventListener defined
+                window.addEventListener( _orientation_event, _onOrientation, false );
+            }
         },
         /**
          * orientation 監視を止めます。
@@ -167,7 +173,9 @@
          */
         abort: function (){
             // orientation check stop
-            window.removeEventListener( _orientation_event, _onOrientation, false );
+            if ( typeof window.addEventListener !== "undefined" ) {
+                window.removeEventListener( _orientation_event, _onOrientation, false );
+            }
         },
         /**
          * portraitか否かを返します。

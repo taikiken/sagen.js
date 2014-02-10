@@ -156,7 +156,7 @@ var Sagen = {};
      * @type String
      * @static
      **/
-    s.version = /*version*/"0.0.3"; // injected by build process
+    s.version = /*version*/"0.0.4"; // injected by build process
 
     /**
      * The build date for this release in UTC format.
@@ -164,7 +164,7 @@ var Sagen = {};
      * @type String
      * @static
      **/
-    s.buildDate = /*date*/"Fri, 07 Feb 2014 05:45:51 GMT"; // injected by build process
+    s.buildDate = /*date*/"Mon, 10 Feb 2014 03:13:11 GMT"; // injected by build process
 
 })( this.Sagen );
 /**
@@ -214,15 +214,12 @@ var Sagen = {};
         _android_phone = false,
         _android_tablet = false,
         _ios_version = -1,
-//        _android_version = -1,
-//        _android_version_major = -1,
-//        _android_version_num = -1,
         _safari_version = -1,
 
         _safari_versions = [ -1, 0, 0 ],
         _ios_versions,
 
-        _android_version,
+        _android_version = -1,
         _android_versions,
 
         _canvas = !!window.CanvasRenderingContext2D
@@ -257,45 +254,6 @@ var Sagen = {};
         return versions;
     }
     _ios_versions = _iosVersion();
-
-    // Android version
-//    /**
-//     * Android version detection
-//     * @for Browser
-//     * @method _get_androidVersion
-//     * @returns {Array} Android version 配列 2桁~3桁
-//     * @private
-//     */
-//    function _androidVersion () {
-//        var ua_lower = _ua.toLowerCase(),
-//            version,
-//            versions = [ -1, 0, 0 ];
-//
-//        if ( _android && !_firefox ) {
-//
-//            version = ua_lower.substr( ua_lower.indexOf( "_android" ) + 8, 5 ).split( "." );
-//            versions = [
-//                parseInt( version[ 0 ], 10 ),
-//                parseInt( version[ 1 ], 10 ),
-//                parseInt( version[ 2 ], 10 )
-//            ];
-//
-//            _android_version_major = versions[ 0 ];
-//
-//            var a_num = versions[ 0 ] + "." + versions[ 1 ];
-//
-//            if ( versions[ 2 ] ) {
-//                // has small version
-//                a_num += versions[ 2 ];
-//            }
-//
-//            _android_version_num = parseFloat( a_num );
-//
-//            _android_version = versions;
-//        }
-//        return versions;
-//    }
-//    _android_versions = _androidVersion();
 
     /**
      * Android version detection
@@ -465,7 +423,6 @@ var Sagen = {};
              * @static
              */
             major: function (){
-//                return _android_version_major;
                 return _android_versions[ 0 ];
             },
             /**
@@ -475,7 +432,6 @@ var Sagen = {};
              * @static
              */
             version: function (){
-//                return _android_version_num;
                 return _android_version;
             },
             /**
@@ -727,6 +683,22 @@ var Sagen = {};
              */
             hideURLBar : function (){
                 setTimeout( function (){ scrollBy( 0, 1 ); }, 0);
+            },
+            /**
+             * @for Browser.Mobile
+             * @method phone
+             * @returns {boolean} Smart Phone(include iPod)か否かを返します
+             */
+            phone: function (){
+                return _ipod || _iphone || _android_phone;
+            },
+            /**
+             * @for Browser.Mobile
+             * @method tablet
+             * @returns {boolean} tablet か否かを返します
+             */
+            tablet: function (){
+                return _ipad || _android_tablet;
             }
         },
         /**
@@ -850,6 +822,9 @@ var Sagen = {};
             class_names.push( "android" + number.join( "" ) );
             class_names.push( "android" + number[ 0 ] );
             class_names.push( "android" + number[ 0 ] + number[ 1 ] );
+        } else {
+            // not iOS and not Android
+            class_names.push( "other" );
         }
 
         if ( Browser.Touch.is() ) {
@@ -927,7 +902,10 @@ var Sagen = {};
          */
         listen: function (){
             // orientation check start
-            window.addEventListener( _orientation_event, _onOrientation, false );
+            if ( typeof window.addEventListener !== "undefined" ) {
+                // window.addEventListener defined
+                window.addEventListener( _orientation_event, _onOrientation, false );
+            }
         },
         /**
          * orientation 監視を止めます。
@@ -937,7 +915,9 @@ var Sagen = {};
          */
         abort: function (){
             // orientation check stop
-            window.removeEventListener( _orientation_event, _onOrientation, false );
+            if ( typeof window.addEventListener !== "undefined" ) {
+                window.removeEventListener( _orientation_event, _onOrientation, false );
+            }
         },
         /**
          * portraitか否かを返します。
@@ -1081,7 +1061,7 @@ var Sagen = {};
          */
         add: function ( option ){
             if ( _viewport && _content && option ) {
-                _viewport.content = _content + ", " + option;
+                _viewport.content = _viewport.content + ", " + option;
             }
         },
         /**
@@ -1096,7 +1076,7 @@ var Sagen = {};
             new_option = new_option || "";
 
             if ( _viewport && _content && old_option ) {
-                _viewport.content = _content.split( old_option ).join( new_option );
+                _viewport.content = _viewport.content.split( old_option ).join( new_option );
             }
         },
         /**
@@ -1152,7 +1132,7 @@ var Sagen = {};
     }
 
     if ( Sagen.ios() ) {
-        // android viewport added
+        // iOS 7.1 viewport added
         if ( Browser.iOS.is() && Browser.iOS.version() >= 7.1 ) {
             Viewport.iOS.minimalUI();
         }
