@@ -54,12 +54,15 @@ id: sagen に設定します。
 
 trueに設定するとorientationchangeあるいはwindow.resizeを監視しportrait / landscape CSS classを切り替えます。
 
-orientation change event handler **onOrientation** を上書きしevent通知を受け取ることも可能です。
+Sagen.Device.CHANGE_ORIENTATIONをaddEventListenerしevent通知を受け取ることも可能です。
 
-    function _onOrientationHandler ( direction ) {
+    function _onOrientation ( eventObj ) {
+        var direction = eventObj.params[ 0 ];
+
         console.log( direction );// portrait / landscape
     }
-    Sagen.Device.onOrientation = _onOrientationHandler;
+
+    Sagen.Device.addEventListener( Sagen.Device.CHANGE_ORIENTATION, _onOrientation );
 
 **data-canvas**
 

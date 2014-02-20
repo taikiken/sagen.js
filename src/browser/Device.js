@@ -21,6 +21,9 @@
         Android = Browser.Android,
         Canvas = Browser.Canvas,
 
+        EventDispatcher = Sagen.EventDispatcher,
+        EventObject = Sagen.EventObject,
+
         _is_orientation_change = "onorientationchange" in window,
         _is_orientation = "orientation" in window,
         _orientation_event = _is_orientation_change ? "orientationchange" : "resize",
@@ -139,7 +142,7 @@
             direction = "landscape"
         }
 
-        Device.onOrientation( direction );
+        Device._onOrientation( direction );
     }
 
     /**
@@ -151,78 +154,92 @@
         throw "Device cannot be instantiated";
     };
 
-    Device = {
-        /**
-         * orientation 監視を開始します。
-         * @for Device
-         * @method listen
-         * @static
-         */
-        listen: function (){
-            // orientation check start
-            if ( typeof window.addEventListener !== "undefined" ) {
-                // window.addEventListener defined
-                window.addEventListener( _orientation_event, _onOrientation, false );
-            }
-        },
-        /**
-         * orientation 監視を止めます。
-         * @for Device
-         * @method abort
-         * @static
-         */
-        abort: function (){
-            // orientation check stop
-            if ( typeof window.addEventListener !== "undefined" ) {
-                window.removeEventListener( _orientation_event, _onOrientation, false );
-            }
-        },
-        /**
-         * portraitか否かを返します。
-         * @for Device
-         * @method portrait
-         * @return {Boolean} portraitならばtrue
-         * @static
-         */
-        portrait: function (){
-            return _portrait();
-        },
-        /**
-         * landscapeか否かを返します。
-         * @for Device
-         * @method landscape
-         * @return {Boolean} landscapeならばtrue
-         * @static
-         */
-        landscape: function (){
-            return _landscape();
-        },
-        /**
-         * canvas, webglが使用可能かを調べcss classを書き込みます
-         * @for Device
-         * @method canvas
-         * @static
-         */
-        canvas: function (){
-            if ( Canvas.is() ) {
-                // canvas enable
-                _addClass( "canvas" );
+    /**
+     * @for Viewport
+     * @property
+     * @type {string}
+     * @static
+     */
+    Device.CHANGE_ORIENTATION = "changeOrientation";
 
-                if ( Canvas.webgl() ) {
-                    _addClass( "webgl" );
-                }
-            }
+    EventDispatcher.initialize( Device );
+
+    Device._onOrientation = function ( direction ){
+        Device.dispatchEvent( new EventObject( Device.CHANGE_ORIENTATION, [ direction ] ), this );
+    };
+
+    /**
+     * orientation 監視を開始します。
+     * @for Device
+     * @method listen
+     * @static
+     */
+    Device.listen = function (){
+        // orientation check start
+        if ( typeof window.addEventListener !== "undefined" ) {
+            // window.addEventListener defined
+            window.addEventListener( _orientation_event, _onOrientation, false );
+        }
+    };
+    /**
+     * orientation 監視を止めます。
+     * @for Device
+     * @method abort
+     * @static
+     */
+    Device.abort = function (){
+        // orientation check stop
+        if ( typeof window.addEventListener !== "undefined" ) {
+            window.removeEventListener( _orientation_event, _onOrientation, false );
         }
     };
 
     /**
-     * orientation が変更されると実行されます。
-     * 上書きし使用します。
-     * for Device
-     * @method onOrientation
+     * portraitか否かを返します。
+     * @for Device
+     * @method portrait
+     * @return {Boolean} portraitならばtrue
      * @static
      */
-    Device.onOrientation = function ( direction ){};
+    Device.portrait = function (){
+        return _portrait();
+    };
+    /**
+     * landscapeか否かを返します。
+     * @for Device
+     * @method landscape
+     * @return {Boolean} landscapeならばtrue
+     * @static
+     */
+    Device.landscape = function (){
+        return _landscape();
+    };
+
+    /**
+     * canvas, webglが使用可能かを調べcss classを書き込みます
+     * @for Device
+     * @method canvas
+     * @static
+     */
+    Device.canvas = function (){
+        if ( Canvas.is() ) {
+            // canvas enable
+            _addClass( "canvas" );
+
+            if ( Canvas.webgl() ) {
+                _addClass( "webgl" );
+            }
+        }
+    };
+
+//    /**
+//     * orientation が変更されると実行されます。
+//     * 上書きし使用します。
+//     * for Device
+//     * @method onOrientation
+//     * @static
+//     */
+//    Device.onOrientation = function ( direction ){};
 
     Sagen.Device = Device;
 

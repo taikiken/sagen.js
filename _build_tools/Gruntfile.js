@@ -10,7 +10,7 @@ module.exports = function(grunt) {
         pkg: grunt.file.readJSON('package.json'),
 
         // Default values
-        name: 'MITI',
+        name: 'Sagen',
         docsZip: "<%= pkg.name %>_docs-<%= version %>.zip",
 
         // Setup doc names / paths.

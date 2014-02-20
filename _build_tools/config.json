@@ -3,6 +3,9 @@
         "../src/Sagen.js",
         "../src/version.js",
 
+        "../src/events/EventDispatcher.js",
+        "../src/events/EventObject.js",
+
         "../src/browser/Browser.js",
         "../src/browser/Device.js",
         "../src/browser/Viewport.js"

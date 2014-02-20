@@ -58,7 +58,6 @@
         return meta;
     }
 
-
     /**
     * Viewport 情報を管理します
     * @class Viewport
@@ -68,74 +67,85 @@
         throw "Viewport cannot be instantiated";
     };
 
-    Viewport = {
-        /**
-         * viewport へ設定を追加します
-         * @for Viewport
-         * @method add
-         * @param {String} option
-         * @static
-         */
-        add: function ( option ){
-            if ( _viewport && _content && option ) {
-                _viewport.content = _viewport.content + ", " + option;
-            }
-        },
-        /**
-         * viewport へ設定を置き換えます
-         * @for Viewport
-         * @method replace
-         * @param {String} old_option 置換前の文字列
-         * @param {String} [new_option] 置換後の文字列 optional
-         * @static
-         */
-        replace: function ( old_option, new_option ){
-            new_option = new_option || "";
+    /**
+     * viewport へ設定を追加します
+     * @for Viewport
+     * @method add
+     * @param {String} option
+     * @static
+     */
+    Viewport.add = function ( option ) {
+        if ( _viewport && _content && option ) {
+            _viewport.content = _viewport.content + ", " + option;
+        }
+    };
 
-            if ( _viewport && _content && old_option ) {
-                _viewport.content = _viewport.content.split( old_option ).join( new_option );
-            }
-        },
-        /**
-         * viewport タグを書き込みます
-         * @for Viewport
-         * @method write
-         * @param {String} viewport viewport content部Text
-         * @static
-         */
-        write: function ( viewport ){
-            document.getElementsByTagName( "head" )[ 0 ].appendChild( _createMeta( viewport ) );
-        },
+    /**
+     * viewport へ設定を置き換えます
+     * @for Viewport
+     * @method replace
+     * @param {String} old_option 置換前の文字列
+     * @param {String} [new_option] 置換後の文字列 optional
+     * @static
+     */
+    Viewport.replace = function ( old_option, new_option ){
+        new_option = new_option || "";
 
+        if ( _viewport && _content && old_option ) {
+            _viewport.content = _viewport.content.split( old_option ).join( new_option );
+        }
+    };
+
+    /**
+     * viewport タグを書き込みます
+     * @for Viewport
+     * @method write
+     * @param {String} viewport viewport content部Text
+     * @static
+     */
+    Viewport.write = function ( viewport ) {
+        document.getElementsByTagName( "head" )[ 0 ].appendChild( _createMeta( viewport ) );
+    };
+    /**
+     * viewport content を全て書き換えます
+     * @for Viewport
+     * @method rewrite
+     * @param {string} content
+     * @static
+     */
+    Viewport.rewrite = function ( content ){
+        _viewport.content = content;
+    };
+
+    /**
+     * @for Viewport
+     * @static
+     */
+    Viewport.Android = {
         /**
-         * @for Viewport
+         * target-densitydpi=device-dpi option を viewport content 属性に追加します
+         * @for Viewport.Android
+         * @method targetDensity
          * @static
          */
-        Android: {
-            /**
-             * target-densitydpi=device-dpi option を viewport content 属性に追加します
-             * @for Viewport.Android
-             * @method targetDensity
-             * @static
-             */
-            targetDensity: function (){
-                Viewport.add( "target-densitydpi=device-dpi" );
-            }
-        },
+        targetDensity: function (){
+            Viewport.add( "target-densitydpi=device-dpi" );
+        }
+    };
+
+    /**
+     * @for Viewport
+     * @static
+     */
+    Viewport.iOS = {
         /**
-         * @for Viewport
+         * minimal-ui option を viewport content 属性に追加します
+         * @for Viewport.iOS
+         * @method minimalUI
          * @static
          */
-        iOS: {
-            /**
-             * minimal-ui option を viewport content 属性に追加します
-             * @for Viewport.iOS
-             * @method minimalUI
-             * @static
-             */
-            minimalUI: function (){
-                Viewport.add( "minimal-ui" );
-            }
+        minimalUI: function (){
+            Viewport.add( "minimal-ui" );
         }
     };
 
@@ -143,7 +153,7 @@
 
     if ( Sagen.android() && !Browser.Chrome.is() ) {
         // android viewport added
-        if ( Browser.Android.is() && !Browser.Chrome.is() ) {
+        if ( Browser.Android.is() ) {
             Viewport.Android.targetDensity();
         }
     }

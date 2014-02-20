@@ -156,7 +156,7 @@ var Sagen = {};
      * @type String
      * @static
      **/
-    s.version = /*version*/"0.0.4"; // injected by build process
+    s.version = /*version*/"0.1.0"; // injected by build process
 
     /**
      * The build date for this release in UTC format.
@@ -164,10 +164,245 @@ var Sagen = {};
      * @type String
      * @static
      **/
-    s.buildDate = /*date*/"Mon, 10 Feb 2014 03:13:11 GMT"; // injected by build process
+    s.buildDate = /*date*/"Mon, 10 Feb 2014 04:49:23 GMT"; // injected by build process
 
 })( this.Sagen );
 /**
+ * license inazumatv.com
+ * author (at)taikiken / http://inazumatv.com
+ * date 2013/12/13 - 14:26
+ *
+ * Copyright (c) 2011-2013 inazumatv.com, inc.
+ *
+ * Distributed under the terms of the MIT license.
+ * http://www.opensource.org/licenses/mit-license.html
+ *
+ * This notice shall be included in all copies or substantial portions of the Software.
+ */
+( function ( window, Sagen ){
+    "use strict";
+
+    // EventDispatcher class from EaselJS.
+    // Copyright (c) 2010 gskinner.com, inc.
+    // http://createjs.com/
+    /**
+     * The EventDispatcher provides methods for managing prioritized queues of event listeners and dispatching events. All
+     * {{#crossLink "DisplayObject"}}{{/crossLink}} classes dispatch events, as well as some of the utilities like {{#crossLink "Ticker"}}{{/crossLink}}.
+     *
+     * You can either extend this class or mix its methods into an existing prototype or instance by using the
+     * EventDispatcher {{#crossLink "EventDispatcher/initialize"}}{{/crossLink}} method.
+     *
+     * <h4>Example</h4>
+     * Add EventDispatcher capabilities to the "MyClass" class.
+     *
+     *      EventDispatcher.initialize(MyClass.prototype);
+     *
+     * Add an event (see {{#crossLink "EventDispatcher/addEventListener"}}{{/crossLink}}).
+     *
+     *      instance.addEventListener("eventName", handlerMethod);
+     *      function handlerMethod(event) {
+     *          console.log(event.target + " Was Clicked");
+     *      }
+     *
+     * <b>Maintaining proper scope</b><br />
+     * When using EventDispatcher in a class, you may need to use <code>Function.bind</code> or another approach to
+     * maintain you method scope. Note that Function.bind is not supported in some older browsers.
+     *
+     *      instance.addEventListener("click", handleClick.bind(this));
+     *      function handleClick(event) {
+     *          console.log("Method called in scope: " + this);
+     *      }
+     *
+     * Please note that currently, EventDispatcher does not support event priority or bubbling. Future versions may add
+     * support for one or both of these features.
+     *
+     * @class EventDispatcher
+     * @constructor
+     **/
+    var EventDispatcher = function() {
+        this.initialize();
+    };
+
+    var p = EventDispatcher.prototype;
+
+    p.constructor = EventDispatcher;
+
+    /**
+     * Static initializer to mix in EventDispatcher methods.
+     * @method initialize
+     * @static
+     * @param {Object} [target] The target object to inject EventDispatcher methods into. This can be an instance or a
+     * prototype.
+     **/
+    EventDispatcher.initialize = function(target) {
+        target.addEventListener = p.addEventListener;
+        target.removeEventListener = p.removeEventListener;
+        target.removeAllEventListeners = p.removeAllEventListeners;
+        target.hasEventListener = p.hasEventListener;
+        target.dispatchEvent = p.dispatchEvent;
+    };
+
+    // private properties:
+    /**
+     * @protected
+     * @property _listeners
+     * @type Object
+     **/
+    p._listeners = null;
+
+    // constructor:
+    /**
+     * Initialization method.
+     * @method initialize
+     * @protected
+     **/
+    p.initialize = function() {};
+
+    // public methods:
+    /**
+     * Adds the specified event listener.
+     * @method addEventListener
+     * @param {String} type The string type of the event.
+     * @param {Function | Object} listener An object with a handleEvent method, or a function that will be called when
+     * the event is dispatched.
+     * @return {Function | Object} Returns the listener for chaining or assignment.
+     **/
+    p.addEventListener = function(type, listener) {
+        var listeners = this._listeners;
+        if (!listeners) { listeners = this._listeners = {}; }
+        else { this.removeEventListener(type, listener); }
+        var arr = listeners[type];
+        if (!arr) { arr = listeners[type] = []; }
+        arr.push(listener);
+        return listener;
+    };
+
+    /**
+     * Removes the specified event listener.
+     * @method removeEventListener
+     * @param {String} type The string type of the event.
+     * @param {Function | Object} listener The listener function or object.
+     **/
+    p.removeEventListener = function(type, listener) {
+        var listeners = this._listeners;
+        if (!listeners) { return; }
+        var arr = listeners[type];
+        if (!arr) { return; }
+        for (var i=0,l=arr.length; i<l; i++) {
+            if (arr[i] === listener) {
+                if (l===1) { delete(listeners[type]); } // allows for faster checks.
+                else { arr.splice(i,1); }
+                break;
+            }
+        }
+    };
+
+    /**
+     * Removes all listeners for the specified type, or all listeners of all types.
+     * @method removeAllEventListeners
+     * @param {String} [type] The string type of the event. If omitted, all listeners for all types will be removed.
+     **/
+    p.removeAllEventListeners = function(type) {
+        if (!type) { this._listeners = null; }
+        else if (this._listeners) { delete(this._listeners[type]); }
+    };
+
+    /**
+     * Dispatches the specified event.
+     * @method dispatchEvent
+     * @param {Object | String} eventObj An object with a "type" property, or a string type. If a string is used,
+     * dispatchEvent will construct a generic event object with "type" and "params" properties.
+     * @param {Object} [target] The object to use as the target property of the event object. This will default to the
+     * dispatching object.
+     * @return {Boolean} Returns true if any listener returned true.
+     **/
+    p.dispatchEvent = function(eventObj, target) {
+        var ret=false, listeners = this._listeners;
+        if (eventObj && listeners) {
+            if (typeof eventObj === "string") { eventObj = {type:eventObj}; }
+            var arr = listeners[eventObj.type];
+            if (!arr) { return ret; }
+            eventObj.target = target||this;
+            arr = arr.slice(); // to avoid issues with items being removed or added during the dispatch
+            for (var i=0,l=arr.length; i<l; i++) {
+                var o = arr[i];
+                if (o.handleEvent) { ret = ret||o.handleEvent(eventObj); }
+                else { ret = ret||o(eventObj); }
+            }
+        }
+        return !!ret;
+    };
+
+    /**
+     * Indicates whether there is at least one listener for the specified event type.
+     * @method hasEventListener
+     * @param {String} type The string type of the event.
+     * @return {Boolean} Returns true if there is at least one listener for the specified event.
+     **/
+    p.hasEventListener = function(type) {
+        var listeners = this._listeners;
+        return !!(listeners && listeners[type]);
+    };
+
+    /**
+     * @method toString
+     * @return {String} a string representation of the instance.
+     **/
+    p.toString = function() {
+        return "[EventDispatcher]";
+    };
+
+    Sagen.EventDispatcher = EventDispatcher;
+}( window, this.Sagen || {} ) );/**
+ * license inazumatv.com
+ * author (at)taikiken / http://inazumatv.com
+ * date 2013/12/13 - 14:34
+ *
+ * Copyright (c) 2011-2013 inazumatv.com, inc.
+ *
+ * Distributed under the terms of the MIT license.
+ * http://www.opensource.org/licenses/mit-license.html
+ *
+ * This notice shall be included in all copies or substantial portions of the Software.
+ */
+( function ( window, Sagen ){
+    "use strict";
+
+    /**
+     * @class EventObject
+     * @param {String} eventType Event Type
+     * @param {*} [params] String || Array eventHandler へ送る値をセット。複数の時は配列にセットする
+     * @constructor
+     */
+    var EventObject = function ( eventType, params ){
+        if ( typeof params === "undefined" || params === null ) {
+
+            params = [];
+        } else if ( !Array.isArray( params ) ) {
+            // 配列へ
+            params = [ params ];
+        }
+
+        this.type = eventType;
+        this.params = params;
+    };
+
+    var p = EventObject.prototype;
+
+    p.constructor = EventObject;
+
+    /**
+     * パラメタ取出し
+     * @method getParams
+     * @returns {*} 配列を返します
+     */
+    p.getParams = function (){
+        return this.params;
+    };
+
+    Sagen.EventObject = EventObject;
+
+}( window, this.Sagen || {} ) );/**
  * license inazumatv.com
  * author (at)taikiken / http://inazumatv.com
  * date 2013/12/12 - 17:25
@@ -688,6 +923,7 @@ var Sagen = {};
              * @for Browser.Mobile
              * @method phone
              * @returns {boolean} Smart Phone(include iPod)か否かを返します
+             * @static
              */
             phone: function (){
                 return _ipod || _iphone || _android_phone;
@@ -696,6 +932,7 @@ var Sagen = {};
              * @for Browser.Mobile
              * @method tablet
              * @returns {boolean} tablet か否かを返します
+             * @static
              */
             tablet: function (){
                 return _ipad || _android_tablet;
@@ -762,6 +999,9 @@ var Sagen = {};
         iOS = Browser.iOS,
         Android = Browser.Android,
         Canvas = Browser.Canvas,
+
+        EventDispatcher = Sagen.EventDispatcher,
+        EventObject = Sagen.EventObject,
 
         _is_orientation_change = "onorientationchange" in window,
         _is_orientation = "orientation" in window,
@@ -881,7 +1121,7 @@ var Sagen = {};
             direction = "landscape"
         }
 
-        Device.onOrientation( direction );
+        Device._onOrientation( direction );
     }
 
     /**
@@ -893,78 +1133,92 @@ var Sagen = {};
         throw "Device cannot be instantiated";
     };
 
-    Device = {
-        /**
-         * orientation 監視を開始します。
-         * @for Device
-         * @method listen
-         * @static
-         */
-        listen: function (){
-            // orientation check start
-            if ( typeof window.addEventListener !== "undefined" ) {
-                // window.addEventListener defined
-                window.addEventListener( _orientation_event, _onOrientation, false );
-            }
-        },
-        /**
-         * orientation 監視を止めます。
-         * @for Device
-         * @method abort
-         * @static
-         */
-        abort: function (){
-            // orientation check stop
-            if ( typeof window.addEventListener !== "undefined" ) {
-                window.removeEventListener( _orientation_event, _onOrientation, false );
-            }
-        },
-        /**
-         * portraitか否かを返します。
-         * @for Device
-         * @method portrait
-         * @return {Boolean} portraitならばtrue
-         * @static
-         */
-        portrait: function (){
-            return _portrait();
-        },
-        /**
-         * landscapeか否かを返します。
-         * @for Device
-         * @method landscape
-         * @return {Boolean} landscapeならばtrue
-         * @static
-         */
-        landscape: function (){
-            return _landscape();
-        },
-        /**
-         * canvas, webglが使用可能かを調べcss classを書き込みます
-         * @for Device
-         * @method canvas
-         * @static
-         */
-        canvas: function (){
-            if ( Canvas.is() ) {
-                // canvas enable
-                _addClass( "canvas" );
+    /**
+     * @for Viewport
+     * @property
+     * @type {string}
+     * @static
+     */
+    Device.CHANGE_ORIENTATION = "changeOrientation";
 
-                if ( Canvas.webgl() ) {
-                    _addClass( "webgl" );
-                }
-            }
+    EventDispatcher.initialize( Device );
+
+    Device._onOrientation = function ( direction ){
+        Device.dispatchEvent( new EventObject( Device.CHANGE_ORIENTATION, [ direction ] ), this );
+    };
+
+    /**
+     * orientation 監視を開始します。
+     * @for Device
+     * @method listen
+     * @static
+     */
+    Device.listen = function (){
+        // orientation check start
+        if ( typeof window.addEventListener !== "undefined" ) {
+            // window.addEventListener defined
+            window.addEventListener( _orientation_event, _onOrientation, false );
+        }
+    };
+    /**
+     * orientation 監視を止めます。
+     * @for Device
+     * @method abort
+     * @static
+     */
+    Device.abort = function (){
+        // orientation check stop
+        if ( typeof window.addEventListener !== "undefined" ) {
+            window.removeEventListener( _orientation_event, _onOrientation, false );
         }
     };
 
     /**
-     * orientation が変更されると実行されます。
-     * 上書きし使用します。
-     * for Device
-     * @method onOrientation
+     * portraitか否かを返します。
+     * @for Device
+     * @method portrait
+     * @return {Boolean} portraitならばtrue
      * @static
      */
-    Device.onOrientation = function ( direction ){};
+    Device.portrait = function (){
+        return _portrait();
+    };
+    /**
+     * landscapeか否かを返します。
+     * @for Device
+     * @method landscape
+     * @return {Boolean} landscapeならばtrue
+     * @static
+     */
+    Device.landscape = function (){
+        return _landscape();
+    };
+
+    /**
+     * canvas, webglが使用可能かを調べcss classを書き込みます
+     * @for Device
+     * @method canvas
+     * @static
+     */
+    Device.canvas = function (){
+        if ( Canvas.is() ) {
+            // canvas enable
+            _addClass( "canvas" );
+
+            if ( Canvas.webgl() ) {
+                _addClass( "webgl" );
+            }
+        }
+    };
+
+//    /**
+//     * orientation が変更されると実行されます。
+//     * 上書きし使用します。
+//     * for Device
+//     * @method onOrientation
+//     * @static
+//     */
+//    Device.onOrientation = function ( direction ){};
 
     Sagen.Device = Device;
 
@@ -1041,7 +1295,6 @@ var Sagen = {};
         return meta;
     }
 
-
     /**
     * Viewport 情報を管理します
     * @class Viewport
@@ -1051,74 +1304,85 @@ var Sagen = {};
         throw "Viewport cannot be instantiated";
     };
 
-    Viewport = {
-        /**
-         * viewport へ設定を追加します
-         * @for Viewport
-         * @method add
-         * @param {String} option
-         * @static
-         */
-        add: function ( option ){
-            if ( _viewport && _content && option ) {
-                _viewport.content = _viewport.content + ", " + option;
-            }
-        },
-        /**
-         * viewport へ設定を置き換えます
-         * @for Viewport
-         * @method replace
-         * @param {String} old_option 置換前の文字列
-         * @param {String} [new_option] 置換後の文字列 optional
-         * @static
-         */
-        replace: function ( old_option, new_option ){
-            new_option = new_option || "";
+    /**
+     * viewport へ設定を追加します
+     * @for Viewport
+     * @method add
+     * @param {String} option
+     * @static
+     */
+    Viewport.add = function ( option ) {
+        if ( _viewport && _content && option ) {
+            _viewport.content = _viewport.content + ", " + option;
+        }
+    };
 
-            if ( _viewport && _content && old_option ) {
-                _viewport.content = _viewport.content.split( old_option ).join( new_option );
-            }
-        },
-        /**
-         * viewport タグを書き込みます
-         * @for Viewport
-         * @method write
-         * @param {String} viewport viewport content部Text
-         * @static
-         */
-        write: function ( viewport ){
-            document.getElementsByTagName( "head" )[ 0 ].appendChild( _createMeta( viewport ) );
-        },
+    /**
+     * viewport へ設定を置き換えます
+     * @for Viewport
+     * @method replace
+     * @param {String} old_option 置換前の文字列
+     * @param {String} [new_option] 置換後の文字列 optional
+     * @static
+     */
+    Viewport.replace = function ( old_option, new_option ){
+        new_option = new_option || "";
 
+        if ( _viewport && _content && old_option ) {
+            _viewport.content = _viewport.content.split( old_option ).join( new_option );
+        }
+    };
+
+    /**
+     * viewport タグを書き込みます
+     * @for Viewport
+     * @method write
+     * @param {String} viewport viewport content部Text
+     * @static
+     */
+    Viewport.write = function ( viewport ) {
+        document.getElementsByTagName( "head" )[ 0 ].appendChild( _createMeta( viewport ) );
+    };
+    /**
+     * viewport content を全て書き換えます
+     * @for Viewport
+     * @method rewrite
+     * @param {string} content
+     * @static
+     */
+    Viewport.rewrite = function ( content ){
+        _viewport.content = content;
+    };
+
+    /**
+     * @for Viewport
+     * @static
+     */
+    Viewport.Android = {
         /**
-         * @for Viewport
+         * target-densitydpi=device-dpi option を viewport content 属性に追加します
+         * @for Viewport.Android
+         * @method targetDensity
          * @static
          */
-        Android: {
-            /**
-             * target-densitydpi=device-dpi option を viewport content 属性に追加します
-             * @for Viewport.Android
-             * @method targetDensity
-             * @static
-             */
-            targetDensity: function (){
-                Viewport.add( "target-densitydpi=device-dpi" );
-            }
-        },
+        targetDensity: function (){
+            Viewport.add( "target-densitydpi=device-dpi" );
+        }
+    };
+
+    /**
+     * @for Viewport
+     * @static
+     */
+    Viewport.iOS = {
         /**
-         * @for Viewport
+         * minimal-ui option を viewport content 属性に追加します
+         * @for Viewport.iOS
+         * @method minimalUI
          * @static
          */
-        iOS: {
-            /**
-             * minimal-ui option を viewport content 属性に追加します
-             * @for Viewport.iOS
-             * @method minimalUI
-             * @static
-             */
-            minimalUI: function (){
-                Viewport.add( "minimal-ui" );
-            }
+        minimalUI: function (){
+            Viewport.add( "minimal-ui" );
         }
     };
 
@@ -1126,7 +1390,7 @@ var Sagen = {};
 
     if ( Sagen.android() && !Browser.Chrome.is() ) {
         // android viewport added
-        if ( Browser.Android.is() && !Browser.Chrome.is() ) {
+        if ( Browser.Android.is() ) {
             Viewport.Android.targetDensity();
         }
     }

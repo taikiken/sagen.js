@@ -519,6 +519,7 @@
              * @for Browser.Mobile
              * @method phone
              * @returns {boolean} Smart Phone(include iPod)か否かを返します
+             * @static
              */
             phone: function (){
                 return _ipod || _iphone || _android_phone;
@@ -527,6 +528,7 @@
              * @for Browser.Mobile
              * @method tablet
              * @returns {boolean} tablet か否かを返します
+             * @static
              */
             tablet: function (){
                 return _ipad || _android_tablet;

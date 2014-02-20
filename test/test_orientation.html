@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Sagen test - Orientation</title>
-<script type="text/javascript" src="../libs/sagen-0.1.0.js" id="sagen" data-orientation="true"></script>
+<script type="text/javascript" src="../libs/sagen-0.2.1.js" id="sagen" data-orientation="true"></script>
 </head>
 <body>
 <strong>html tag class name</strong>
@@ -13,11 +13,19 @@
 	"use strict";
 	var document = window.document,
 		show_css = document.getElementById( "show_css" ),
-		html_element = document.documentElement
+		html_element = document.documentElement,
+		Sagen = window.Sagen
 	;
 
 	show_css.innerHTML = html_element.className;
 
+	function _onOrientation ( eventObj ) {
+		var direction = eventObj.params[ 0 ];
+
+		show_css.innerHTML = html_element.className;
+	}
+
+	Sagen.Device.addEventListener( Sagen.Device.CHANGE_ORIENTATION, _onOrientation );
 }( window ) );
 </script>
 </body>
