@@ -26,7 +26,7 @@ var Sagen = {};
     Sagen.hasClass = function( element, class_name ) {
         var regex;
         regex = new RegExp(class_name, 'i');
-        return element.className.match(regex);
+        return !!element.className.match(regex);
     };
     /**
      * @for Sagen

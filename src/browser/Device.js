@@ -76,6 +76,11 @@
                 // tablet
                 class_names.push( "android" );
                 class_names.push( "tablet" );
+
+                // hd tablet or not
+                if ( window.innerWidth >= 1024 && window.innerHeight >= 1024 ) {
+                    class_names.push( "tablet-hd" );
+                }
             }
 
             // version
@@ -156,7 +161,7 @@
 
     /**
      * @for Viewport
-     * @property
+     * @property CHANGE_ORIENTATION
      * @type {string}
      * @static
      */

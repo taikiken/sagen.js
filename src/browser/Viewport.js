@@ -55,6 +55,8 @@
         meta.name = "viewport";
         meta.content = content;
 
+        _viewport = meta;
+
         return meta;
     }
 
@@ -147,6 +149,15 @@
         minimalUI: function (){
             Viewport.add( "minimal-ui" );
         }
+    };
+
+    /**
+     * @for Viewport
+     * @method getMeta
+     * @returns {DOMElement} meta: viewport DOMElement を返します
+     */
+    Viewport.getMeta = function (){
+        return _viewport;
     };
 
     Sagen.Viewport = Viewport;

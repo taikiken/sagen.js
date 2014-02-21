@@ -26,7 +26,7 @@ var Sagen = {};
     Sagen.hasClass = function( element, class_name ) {
         var regex;
         regex = new RegExp(class_name, 'i');
-        return element.className.match(regex);
+        return !!element.className.match(regex);
     };
     /**
      * @for Sagen
@@ -156,7 +156,7 @@ var Sagen = {};
      * @type String
      * @static
      **/
-    s.version = /*version*/"0.1.0"; // injected by build process
+    s.version = /*version*/"0.2.3"; // injected by build process
 
     /**
      * The build date for this release in UTC format.
@@ -164,7 +164,7 @@ var Sagen = {};
      * @type String
      * @static
      **/
-    s.buildDate = /*date*/"Mon, 10 Feb 2014 04:49:23 GMT"; // injected by build process
+    s.buildDate = /*date*/"Fri, 21 Feb 2014 06:31:27 GMT"; // injected by build process
 
 })( this.Sagen );
 /**
@@ -1055,6 +1055,11 @@ var Sagen = {};
                 // tablet
                 class_names.push( "android" );
                 class_names.push( "tablet" );
+
+                // hd tablet or not
+                if ( window.innerWidth >= 1024 && window.innerHeight >= 1024 ) {
+                    class_names.push( "tablet-hd" );
+                }
             }
 
             // version
@@ -1135,7 +1140,7 @@ var Sagen = {};
 
     /**
      * @for Viewport
-     * @property
+     * @property CHANGE_ORIENTATION
      * @type {string}
      * @static
      */
@@ -1292,6 +1297,8 @@ var Sagen = {};
         meta.name = "viewport";
         meta.content = content;
 
+        _viewport = meta;
+
         return meta;
     }
 
@@ -1384,6 +1391,15 @@ var Sagen = {};
         minimalUI: function (){
             Viewport.add( "minimal-ui" );
         }
+    };
+
+    /**
+     * @for Viewport
+     * @method getMeta
+     * @returns {DOMElement} meta: viewport DOMElement を返します
+     */
+    Viewport.getMeta = function (){
+        return _viewport;
     };
 
     Sagen.Viewport = Viewport;
