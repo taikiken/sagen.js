@@ -23,6 +23,14 @@ var Sagen = {};
 
     };
 
+    // Array.isArray
+    // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/isArray
+    if(!Array.isArray) {
+        Array.isArray = function (vArg) {
+            return Object.prototype.toString.call(vArg) === "[object Array]";
+        };
+    }
+
     /**
      * @for Sagen
      * @static
@@ -164,7 +172,7 @@ var Sagen = {};
      * @type String
      * @static
      **/
-    s.version = /*version*/"0.2.3"; // injected by build process
+    s.version = /*version*/"0.2.4"; // injected by build process
 
     /**
      * The build date for this release in UTC format.
@@ -172,7 +180,7 @@ var Sagen = {};
      * @type String
      * @static
      **/
-    s.buildDate = /*date*/"Sat, 22 Feb 2014 08:15:48 GMT"; // injected by build process
+    s.buildDate = /*date*/"Sat, 22 Feb 2014 08:25:59 GMT"; // injected by build process
 
 })( this.Sagen );
 /**

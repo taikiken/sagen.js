@@ -25,6 +25,6 @@
      * @type String
      * @static
      **/
-    s.buildDate = /*date*/"Sat, 22 Feb 2014 08:25:59 GMT"; // injected by build process
+    s.buildDate = /*date*/"Sat, 22 Feb 2014 10:36:46 GMT"; // injected by build process
 
 })( this.Sagen );
