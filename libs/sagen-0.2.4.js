@@ -15,6 +15,14 @@ var Sagen = {};
 ( function ( Sagen ){
     "use strict";
 
+    // trim
+    // three.js
+    String.prototype.trim = String.prototype.trim || function () {
+
+        return this.replace( /^\s+|\s+$/g, '' );
+
+    };
+
     /**
      * @for Sagen
      * @static
@@ -53,7 +61,7 @@ var Sagen = {};
     Sagen.removeClass = function( element, class_name ) {
         if ( Sagen.hasClass( element, class_name ) ) {
             // class があれば
-            return element.className = element.className.replace( class_name, "" );
+            return element.className = element.className.replace( class_name, "" ).trim();
         }
     };
 
@@ -164,7 +172,7 @@ var Sagen = {};
      * @type String
      * @static
      **/
-    s.buildDate = /*date*/"Fri, 21 Feb 2014 06:31:27 GMT"; // injected by build process
+    s.buildDate = /*date*/"Sat, 22 Feb 2014 08:15:48 GMT"; // injected by build process
 
 })( this.Sagen );
 /**
