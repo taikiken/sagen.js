@@ -172,7 +172,7 @@ var Sagen = {};
      * @type String
      * @static
      **/
-    s.version = /*version*/"0.2.4"; // injected by build process
+    s.version = /*version*/"0.2.5"; // injected by build process
 
     /**
      * The build date for this release in UTC format.
@@ -180,7 +180,7 @@ var Sagen = {};
      * @type String
      * @static
      **/
-    s.buildDate = /*date*/"Sat, 22 Feb 2014 08:25:59 GMT"; // injected by build process
+    s.buildDate = /*date*/"Sun, 23 Feb 2014 12:41:59 GMT"; // injected by build process
 
 })( this.Sagen );
 /**
@@ -1118,11 +1118,19 @@ var Sagen = {};
 
     // check portrait
     function _portrait () {
+//        var w = parseInt( window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth, 10 ),
+//            h = parseInt( window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight, 10);
+//
+//        return h > w;
         return abs( window.orientation ) !== 90;
     }
 
     // check landscape
     function _landscape () {
+//        var w = parseInt( window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth, 10 ),
+//            h = parseInt( window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight, 10);
+//
+//        return w > h;
         return abs( window.orientation ) === 90;
     }
 

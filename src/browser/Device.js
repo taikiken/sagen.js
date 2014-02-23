@@ -123,11 +123,19 @@
 
     // check portrait
     function _portrait () {
+//        var w = parseInt( window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth, 10 ),
+//            h = parseInt( window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight, 10);
+//
+//        return h > w;
         return abs( window.orientation ) !== 90;
     }
 
     // check landscape
     function _landscape () {
+//        var w = parseInt( window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth, 10 ),
+//            h = parseInt( window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight, 10);
+//
+//        return w > h;
         return abs( window.orientation ) === 90;
     }
 
