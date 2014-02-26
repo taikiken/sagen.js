@@ -55,7 +55,12 @@ var Sagen = {};
     Sagen.addClass = function( element, class_name ) {
         if ( !Sagen.hasClass( element, class_name ) ) {
             // class が無かったら
-            return element.className += " " + class_name;
+            var className = element.className,
+                pre_space = "";
+            if ( className !== "" ) {
+                pre_space = " ";
+            }
+            return element.className += pre_space + class_name;
         }
     };
     /**
@@ -172,7 +177,7 @@ var Sagen = {};
      * @type String
      * @static
      **/
-    s.version = /*version*/"0.2.5"; // injected by build process
+    s.version = /*version*/"0.2.6"; // injected by build process
 
     /**
      * The build date for this release in UTC format.
@@ -180,7 +185,7 @@ var Sagen = {};
      * @type String
      * @static
      **/
-    s.buildDate = /*date*/"Sun, 23 Feb 2014 12:41:59 GMT"; // injected by build process
+    s.buildDate = /*date*/"Wed, 26 Feb 2014 08:14:17 GMT"; // injected by build process
 
 })( this.Sagen );
 /**
@@ -1023,7 +1028,8 @@ var Sagen = {};
         _is_orientation = "orientation" in window,
         _orientation_event = _is_orientation_change ? "orientationchange" : "resize",
 
-        _element = document.documentElement
+        _element = document.documentElement,
+        _other = false
     ;
 
     function _initialize () {
@@ -1086,6 +1092,7 @@ var Sagen = {};
         } else {
             // not iOS and not Android
             class_names.push( "other" );
+            _other = true;
         }
 
         if ( Browser.Touch.is() ) {
@@ -1136,18 +1143,22 @@ var Sagen = {};
 
     // event handler
     function _onOrientation () {
+        if ( !_is_orientation ) {
+            return;
+        }
+
         var direction;
 
         if ( _portrait() ) {
             // portrait
             _removeClass( "landscape" );
             _addClass( "portrait" );
-            direction = "portrait"
+            direction = "portrait";
         } else if ( _landscape() ) {
             // landscape
             _removeClass( "portrait" );
             _addClass( "landscape" );
-            direction = "landscape"
+            direction = "landscape";
         }
 
         Device._onOrientation( direction );
@@ -1253,7 +1264,9 @@ var Sagen = {};
 
     // write action
     _initialize();
-    _onOrientation();
+    if ( !_other ) {
+        _onOrientation();
+    }
 
     if ( Sagen.orientation() ) {
         // orientation check

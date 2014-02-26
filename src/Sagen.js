@@ -55,7 +55,12 @@ var Sagen = {};
     Sagen.addClass = function( element, class_name ) {
         if ( !Sagen.hasClass( element, class_name ) ) {
             // class が無かったら
-            return element.className += " " + class_name;
+            var className = element.className,
+                pre_space = "";
+            if ( className !== "" ) {
+                pre_space = " ";
+            }
+            return element.className += pre_space + class_name;
         }
     };
     /**

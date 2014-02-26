@@ -107,6 +107,10 @@ viewport へ指定オプションを変更します。
     // initial-scale=1 を initial-scale=2 へ変更
     Sagen.Viewport.replace( "initial-scale=1", "initial-scale=2" );
 
+* rewrite
+
+meta viewport contentを全て書き換えます。
+
 * Viewport.Android.targetDensity
 
 viewport へ target-densitydpi=device-dpi を追加します。

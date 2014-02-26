@@ -28,7 +28,8 @@
         _is_orientation = "orientation" in window,
         _orientation_event = _is_orientation_change ? "orientationchange" : "resize",
 
-        _element = document.documentElement
+        _element = document.documentElement,
+        _other = false
     ;
 
     function _initialize () {
@@ -91,6 +92,7 @@
         } else {
             // not iOS and not Android
             class_names.push( "other" );
+            _other = true;
         }
 
         if ( Browser.Touch.is() ) {
@@ -141,18 +143,22 @@
 
     // event handler
     function _onOrientation () {
+        if ( !_is_orientation ) {
+            return;
+        }
+
         var direction;
 
         if ( _portrait() ) {
             // portrait
             _removeClass( "landscape" );
             _addClass( "portrait" );
-            direction = "portrait"
+            direction = "portrait";
         } else if ( _landscape() ) {
             // landscape
             _removeClass( "portrait" );
             _addClass( "landscape" );
-            direction = "landscape"
+            direction = "landscape";
         }
 
         Device._onOrientation( direction );
@@ -258,7 +264,9 @@
 
     // write action
     _initialize();
-    _onOrientation();
+    if ( !_other ) {
+        _onOrientation();
+    }
 
     if ( Sagen.orientation() ) {
         // orientation check
