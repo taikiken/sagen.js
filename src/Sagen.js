@@ -63,13 +63,15 @@ var Sagen = {};
             return element.className += pre_space + class_name;
         }
     };
+
     /**
+     *
      * @for Sagen
      * @static
      * @method removeClass
      * @param {DOMElement} element
      * @param {String} class_name
-     * @returns {Array|{index: number, input: string}\*}
+     * @returns {string}
      */
     Sagen.removeClass = function( element, class_name ) {
         if ( Sagen.hasClass( element, class_name ) ) {
@@ -92,19 +94,19 @@ var Sagen = {};
             if ( typeof sagen.dataset !== "undefined" ) {
                 // sagan.dataset defined
                 if ( typeof sagen.dataset.orientation !== "undefined" ) {
-                    data_orientation = !!( sagen.dataset.orientation.toLowerCase() === "true" );
+                    data_orientation = ( sagen.dataset.orientation.toLowerCase() === "true" );
                 }
 
                 if ( typeof sagen.dataset.android !== "undefined" ) {
-                    data_android = !!( sagen.dataset.android.toLowerCase() === "true" );
+                    data_android = ( sagen.dataset.android.toLowerCase() === "true" );
                 }
 
                 if ( typeof sagen.dataset.ios !== "undefined" ) {
-                    data_ios = !!( sagen.dataset.ios.toLowerCase() === "true" );
+                    data_ios = ( sagen.dataset.ios.toLowerCase() === "true" );
                 }
 
                 if ( typeof sagen.dataset.canvas !== "undefined" ) {
-                    data_canvas = !!( sagen.dataset.canvas.toLowerCase() === "true" );
+                    data_canvas = ( sagen.dataset.canvas.toLowerCase() === "true" );
                 }
             }
         }
