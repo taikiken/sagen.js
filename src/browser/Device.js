@@ -195,6 +195,7 @@
      */
     Device.listen = function (){
         // orientation check start
+
         if ( typeof window.addEventListener !== "undefined" ) {
             // window.addEventListener defined
             window.addEventListener( _orientation_event, _onOrientation, false );

@@ -12,7 +12,7 @@
  */
 var Sagen = {};
 
-( function ( Sagen ){
+( function ( window, Sagen ){
     "use strict";
 
     // trim
@@ -108,6 +108,30 @@ var Sagen = {};
                 if ( typeof sagen.dataset.canvas !== "undefined" ) {
                     data_canvas = ( sagen.dataset.canvas.toLowerCase() === "true" );
                 }
+            } else {
+                var attributes = sagen.attributes,
+                    attribute,
+                    node_name;
+
+                for ( var j = attributes.length; --j >= 0; ) {
+
+                    attribute = attributes[ j ];
+                    node_name = attribute.nodeName.toLowerCase();
+
+                    if ( node_name === 'data-orientation' ) {
+
+                        data_orientation = attribute.nodeValue.toLowerCase() === "true";
+                    } else if ( node_name === 'data-android' ) {
+
+                        data_android = attribute.nodeValue.toLowerCase() === "true";
+                    } else if ( node_name === 'data-ios' ) {
+
+                        data_ios = attribute.nodeValue.toLowerCase() === "true";
+                    } else if ( node_name === 'data-canvas' ) {
+
+                        data_canvas = attribute.nodeValue.toLowerCase() === "true";
+                    }
+                }
             }
         }
 
@@ -160,4 +184,4 @@ var Sagen = {};
         return dataset.canvas;
     };
 
-}( Sagen ) );
+}( window, Sagen ) );

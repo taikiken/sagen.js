@@ -12,7 +12,7 @@
  */
 var Sagen = {};
 
-( function ( Sagen ){
+( function ( window, Sagen ){
     "use strict";
 
     // trim
@@ -108,6 +108,30 @@ var Sagen = {};
                 if ( typeof sagen.dataset.canvas !== "undefined" ) {
                     data_canvas = ( sagen.dataset.canvas.toLowerCase() === "true" );
                 }
+            } else {
+                var attributes = sagen.attributes,
+                    attribute,
+                    node_name;
+
+                for ( var j = attributes.length; --j >= 0; ) {
+
+                    attribute = attributes[ j ];
+                    node_name = attribute.nodeName.toLowerCase();
+
+                    if ( node_name === 'data-orientation' ) {
+
+                        data_orientation = attribute.nodeValue.toLowerCase() === "true";
+                    } else if ( node_name === 'data-android' ) {
+
+                        data_android = attribute.nodeValue.toLowerCase() === "true";
+                    } else if ( node_name === 'data-ios' ) {
+
+                        data_ios = attribute.nodeValue.toLowerCase() === "true";
+                    } else if ( node_name === 'data-canvas' ) {
+
+                        data_canvas = attribute.nodeValue.toLowerCase() === "true";
+                    }
+                }
             }
         }
 
@@ -160,7 +184,7 @@ var Sagen = {};
         return dataset.canvas;
     };
 
-}( Sagen ) );/**
+}( window, Sagen ) );/**
  * @module Sagen
  */
 (function( Sagen ) {
@@ -179,7 +203,7 @@ var Sagen = {};
      * @type String
      * @static
      **/
-    s.version = /*version*/"0.2.7"; // injected by build process
+    s.version = /*version*/"0.2.8"; // injected by build process
 
     /**
      * The build date for this release in UTC format.
@@ -187,7 +211,7 @@ var Sagen = {};
      * @type String
      * @static
      **/
-    s.buildDate = /*date*/"Sat, 08 Mar 2014 07:08:35 GMT"; // injected by build process
+    s.buildDate = /*date*/"Sun, 09 Mar 2014 09:32:59 GMT"; // injected by build process
 
 })( this.Sagen );
 /**
@@ -1197,6 +1221,7 @@ var Sagen = {};
      */
     Device.listen = function (){
         // orientation check start
+
         if ( typeof window.addEventListener !== "undefined" ) {
             // window.addEventListener defined
             window.addEventListener( _orientation_event, _onOrientation, false );
