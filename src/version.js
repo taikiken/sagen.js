@@ -17,7 +17,7 @@
      * @type String
      * @static
      **/
-    s.version = /*version*/"0.2.8"; // injected by build process
+    s.version = /*version*/"0.2.10"; // injected by build process
 
     /**
      * The build date for this release in UTC format.
@@ -25,6 +25,6 @@
      * @type String
      * @static
      **/
-    s.buildDate = /*date*/"Sun, 09 Mar 2014 09:35:19 GMT"; // injected by build process
+    s.buildDate = /*date*/"Wed, 12 Mar 2014 04:22:11 GMT"; // injected by build process
 
 })( this.Sagen );
