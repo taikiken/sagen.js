@@ -64,6 +64,10 @@ Sagen.Device.CHANGE_ORIENTATIONをaddEventListenerしevent通知を受け取る�
 
     Sagen.Device.addEventListener( Sagen.Device.CHANGE_ORIENTATION, _onOrientation );
 
+**data-width**
+
+trueに設定するとAndroid tabletでの portrait / landscape checkにはorientationを使用せず幅と高さを比較します。
+
 **data-canvas**
 
 trueに設定するとcanvas, webgl使用判定を行います
@@ -81,6 +85,7 @@ trueに設定するとAndroid端末でChromeでない場合viewportへtarget-den
 **data-ios**
 
 trueに設定するとiOSでiOS 7.1以上の場合viewportへminimal-uiを追加します。
+
 
 ## API
 * write
