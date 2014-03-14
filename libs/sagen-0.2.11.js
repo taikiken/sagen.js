@@ -223,7 +223,7 @@ var Sagen = {};
      * @type String
      * @static
      **/
-    s.version = /*version*/"0.2.9"; // injected by build process
+    s.version = /*version*/"0.2.10"; // injected by build process
 
     /**
      * The build date for this release in UTC format.
@@ -231,7 +231,7 @@ var Sagen = {};
      * @type String
      * @static
      **/
-    s.buildDate = /*date*/"Wed, 12 Mar 2014 02:28:19 GMT"; // injected by build process
+    s.buildDate = /*date*/"Wed, 12 Mar 2014 12:11:58 GMT"; // injected by build process
 
 })( this.Sagen );
 /**
@@ -1078,7 +1078,10 @@ var Sagen = {};
         _other = false,
 
         _orientation_check = Sagen.orientation(),
-        _width_check = _orientation_check && Sagen.width() && Android.is() && Android.tablet()
+        _width_check = _orientation_check && Sagen.width() && Android.is() && Android.tablet(),
+
+        use_matchmedia = typeof window.matchMedia !== "undefined",
+        mql
     ;
 
     function _initialize () {
@@ -1221,6 +1224,8 @@ var Sagen = {};
         Device._onOrientation( direction );
     }
 
+    var mql_timer = 0;
+
     function _onOrientation () {
         if ( !_is_orientation ) {
             _width_onOrientation();
@@ -1229,44 +1234,36 @@ var Sagen = {};
 
         var direction;
 
-        // normal
-        if ( _portrait() ) {
-            // portrait
-            _removeClass( "landscape" );
-            _addClass( "portrait" );
-            direction = "portrait";
-        } else if ( _landscape() ) {
-            // landscape
-            _removeClass( "portrait" );
-            _addClass( "landscape" );
-            direction = "landscape";
+        if ( use_matchmedia ) {
+
+            if ( window.matchMedia( "(orientation: portrait)" ).matches ) {
+                // portrait
+                _removeClass( "landscape" );
+                _addClass( "portrait" );
+                direction = "portrait";
+            } else {
+                // landscape
+                _removeClass( "portrait" );
+                _addClass( "landscape" );
+                direction = "landscape";
+            }
+
+        } else {
+            // not matchMedia
+            if ( _portrait() ) {
+                // portrait
+                _removeClass( "landscape" );
+                _addClass( "portrait" );
+                direction = "portrait";
+            } else if ( _landscape() ) {
+                // landscape
+                _removeClass( "portrait" );
+                _addClass( "landscape" );
+                direction = "landscape";
+            }
         }
 
         Device._onOrientation( direction );
-
-        // added width / height check
-        if ( _width_check ) {
-            // un usual tablet
-            clearTimeout( android_timer );
-
-            android_timer = setTimeout( function () {
-                // delay 360ms
-                _width_onOrientation();
-            }, 360 );
-        }
-    }
-
-    // MediaQueryList
-    var mql;
-    // window.matchMedia event handler
-    function _matchMedia ( mql ) {
-        if ( mql.matches ) {
-            // portrait
-            Device._onOrientation( "portrait" );
-        } else {
-            // landscape
-            Device._onOrientation( "landscape" );
-        }
     }
 
     /**
@@ -1300,13 +1297,7 @@ var Sagen = {};
      */
     Device.listen = function (){
         // orientation check start
-
-        if ( typeof window.matchMedia !== "undefined" ) {
-            // window matchMedia defined
-            mql = window.matchMedia( "(orientation: portrait)" );
-            mql.addListener( _matchMedia );
-        } else if ( typeof window.addEventListener !== "undefined" ) {
-            // window.addEventListener defined
+        if ( typeof window.addEventListener !== "undefined" ) {
             window.addEventListener( _orientation_event, _onOrientation, false );
         }
     };
@@ -1363,15 +1354,6 @@ var Sagen = {};
             }
         }
     };
-
-//    /**
-//     * orientation が変更されると実行されます。
-//     * 上書きし使用します。
-//     * for Device
-//     * @method onOrientation
-//     * @static
-//     */
-//    Device.onOrientation = function ( direction ){};
 
     Sagen.Device = Device;
 
