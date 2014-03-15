@@ -237,7 +237,7 @@ var Sagen = {};
      * @type String
      * @static
      **/
-    s.buildDate = /*date*/"Sat, 15 Mar 2014 07:30:15 GMT"; // injected by build process
+    s.buildDate = /*date*/"Sat, 15 Mar 2014 07:34:25 GMT"; // injected by build process
 
 })( this.Sagen );
 /**
@@ -1298,7 +1298,7 @@ var Sagen = {};
 
     /**
      * orientation 監視を開始します。
-     * dataset-orientation="true"だと自動で実行されます。
+     * data-orientation="true"だと自動で実行されます。
      * @for Device
      * @method listen
      * @static
@@ -1364,7 +1364,7 @@ var Sagen = {};
     };
 
     /**
-     * 強制的にorientation eventを発火します。dataset-orientationがtrueになっている必要があります。
+     * 強制的にorientation eventを発火します。data-orientationがtrueになっている必要があります。
      * @for Device
      * @method fire
      * @static
