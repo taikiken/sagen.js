@@ -32,7 +32,7 @@
         _other = false,
 
         _orientation_check = Sagen.orientation(),
-        _width_check = _orientation_check && Sagen.width() && Android.is() && Android.tablet(),
+//        _width_check = _orientation_check && Android.is() && Android.tablet(),
 
         use_matchmedia = typeof window.matchMedia !== "undefined",
         mql

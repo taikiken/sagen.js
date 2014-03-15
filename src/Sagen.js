@@ -94,8 +94,7 @@ var Sagen = {};
             data_orientation = false,
             data_android = false,
             data_ios = false,
-            data_canvas = false,
-            data_width = false
+            data_canvas = false
         ;
 
         if ( sagen ) {
@@ -115,10 +114,6 @@ var Sagen = {};
 
                 if ( typeof sagen.dataset.canvas !== "undefined" ) {
                     data_canvas = ( sagen.dataset.canvas.toLowerCase() === "true" );
-                }
-
-                if ( typeof sagen.dataset.width !== "undefined" ) {
-                    data_width = ( sagen.dataset.strict.toLowerCase() === "true" );
                 }
             } else {
                 var attributes = sagen.attributes,
@@ -142,9 +137,6 @@ var Sagen = {};
                     } else if ( node_name === 'data-canvas' ) {
 
                         data_canvas = attribute.nodeValue.toLowerCase() === "true";
-                    } else if ( node_name === 'data-width' ) {
-
-                        data_width = attribute.nodeValue.toLowerCase() === "true";
                     }
                 }
             }
@@ -154,8 +146,7 @@ var Sagen = {};
             orientation: data_orientation,
             android: data_android,
             ios: data_ios,
-            canvas: data_canvas,
-            strict: data_width
+            canvas: data_canvas
         };
 
     }( window ) );
@@ -187,7 +178,7 @@ var Sagen = {};
      * @returns {Boolean} ios checkするかの真偽値
      */
     Sagen.ios = function (){
-        return dataset.android;
+        return dataset.ios;
     };
 
     /**
@@ -197,16 +188,6 @@ var Sagen = {};
      * @returns {Boolean} canvas checkするかの真偽値
      */
     Sagen.canvas = function (){
-        return dataset.canvas;
-    };
-
-    /**
-     * @for Sagen
-     * @static
-     * @method width
-     * @returns {Boolean} width checkするかの真偽値
-     */
-    Sagen.width = function (){
         return dataset.canvas;
     };
 
