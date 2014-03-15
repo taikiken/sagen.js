@@ -76,7 +76,13 @@ var Sagen = {};
     Sagen.removeClass = function( element, class_name ) {
         if ( Sagen.hasClass( element, class_name ) ) {
             // class があれば
-            element.className = element.className.replace( class_name, "" ).trim();
+            var pre_empty = " " + class_name;
+            if ( element.className.indexOf( pre_empty ) !== -1 ) {
+                element.className = element.className.replace( pre_empty, "" ).trim();
+            } else {
+                element.className = element.className.replace( class_name, "" ).trim();
+            }
+
             return element.className;
         }
     };
@@ -231,7 +237,7 @@ var Sagen = {};
      * @type String
      * @static
      **/
-    s.buildDate = /*date*/"Sat, 15 Mar 2014 06:09:16 GMT"; // injected by build process
+    s.buildDate = /*date*/"Sat, 15 Mar 2014 07:30:15 GMT"; // injected by build process
 
 })( this.Sagen );
 /**
@@ -1299,7 +1305,7 @@ var Sagen = {};
      */
     Device.listen = function (){
         // orientation check start
-        if ( typeof window.addEventListener !== "undefined" ) {
+        if ( typeof window.addEventListener !== "undefined" && !_other ) {
             window.addEventListener( _orientation_event, _onOrientation, false );
         }
     };
@@ -1314,9 +1320,9 @@ var Sagen = {};
         if ( typeof mql !== "undefined" ) {
             // window matchMedia defined
             mql.removeListener( _matchMedia );
-        } else if ( typeof window.addEventListener !== "undefined" ) {
-            window.removeEventListener( _orientation_event, _onOrientation, false );
         }
+
+        window.removeEventListener( _orientation_event, _onOrientation );
     };
 
     /**
@@ -1364,7 +1370,7 @@ var Sagen = {};
      * @static
      */
     Device.fire = function (){
-        if ( _orientation_check ) {
+        if ( _orientation_check && !_other ) {
             _onOrientation();
         }
     };
@@ -1373,11 +1379,14 @@ var Sagen = {};
 
     // write action
     _initialize();
+
     if ( !_other ) {
         _onOrientation();
+    } else {
+        _orientation_check = false;
     }
 
-    if ( _orientation_check ) {
+    if ( _orientation_check && !_other ) {
         // orientation check
         Device.listen();
     }

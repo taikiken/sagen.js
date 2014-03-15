@@ -76,7 +76,13 @@ var Sagen = {};
     Sagen.removeClass = function( element, class_name ) {
         if ( Sagen.hasClass( element, class_name ) ) {
             // class があれば
-            element.className = element.className.replace( class_name, "" ).trim();
+            var pre_empty = " " + class_name;
+            if ( element.className.indexOf( pre_empty ) !== -1 ) {
+                element.className = element.className.replace( pre_empty, "" ).trim();
+            } else {
+                element.className = element.className.replace( class_name, "" ).trim();
+            }
+
             return element.className;
         }
     };

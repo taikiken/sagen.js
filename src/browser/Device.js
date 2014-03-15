@@ -253,7 +253,7 @@
      */
     Device.listen = function (){
         // orientation check start
-        if ( typeof window.addEventListener !== "undefined" ) {
+        if ( typeof window.addEventListener !== "undefined" && !_other ) {
             window.addEventListener( _orientation_event, _onOrientation, false );
         }
     };
@@ -268,9 +268,9 @@
         if ( typeof mql !== "undefined" ) {
             // window matchMedia defined
             mql.removeListener( _matchMedia );
-        } else if ( typeof window.addEventListener !== "undefined" ) {
-            window.removeEventListener( _orientation_event, _onOrientation, false );
         }
+
+        window.removeEventListener( _orientation_event, _onOrientation );
     };
 
     /**
@@ -318,7 +318,7 @@
      * @static
      */
     Device.fire = function (){
-        if ( _orientation_check ) {
+        if ( _orientation_check && !_other ) {
             _onOrientation();
         }
     };
@@ -327,11 +327,14 @@
 
     // write action
     _initialize();
+
     if ( !_other ) {
         _onOrientation();
+    } else {
+        _orientation_check = false;
     }
 
-    if ( _orientation_check ) {
+    if ( _orientation_check && !_other ) {
         // orientation check
         Device.listen();
     }
