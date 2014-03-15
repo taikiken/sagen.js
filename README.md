@@ -5,6 +5,8 @@ device detector, viewport write and rewrite
 
 html tag へ端末情報に基づくCSS classを書き込みます。
 
+original idea from [device.js](https://github.com/matthewhudson/device.js).
+
 # 使用方法
     <script type="text/javascript" src="/js/sagen-VERSION.min.js"
         id="sagen"
@@ -17,7 +19,7 @@ html tag へ端末情報に基づくCSS classを書き込みます。
 
 script は viewport 指定の後にリンクして下さい。
 
-id: sagen に設定します。
+id: **sagen** に設定します。
 
 **iOS**
 
@@ -63,10 +65,6 @@ Sagen.Device.CHANGE_ORIENTATIONをaddEventListenerしevent通知を受け取る�
     }
 
     Sagen.Device.addEventListener( Sagen.Device.CHANGE_ORIENTATION, _onOrientation );
-
-**data-width**
-
-trueに設定するとAndroid tabletでの portrait / landscape checkにはorientationを使用せず幅と高さを比較します。
 
 **data-canvas**
 

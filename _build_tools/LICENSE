@@ -28,4 +28,7 @@
  * inspired by device.js http://matthewhudson.me/projects/device.js/
  * Copyright (c) 2013 Matthew Hudson
  *
+ * EventDispatcher class from CreateJS http://www.createjs.com/#!/CreateJS
+ * Copyright (c) 2010 gskinner.com, inc.
+ *
 */

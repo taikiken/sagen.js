@@ -223,7 +223,7 @@ var Sagen = {};
      * @type String
      * @static
      **/
-    s.version = /*version*/"0.2.10"; // injected by build process
+    s.version = /*version*/"0.2.11"; // injected by build process
 
     /**
      * The build date for this release in UTC format.
@@ -231,7 +231,7 @@ var Sagen = {};
      * @type String
      * @static
      **/
-    s.buildDate = /*date*/"Wed, 12 Mar 2014 12:11:58 GMT"; // injected by build process
+    s.buildDate = /*date*/"Sat, 15 Mar 2014 06:09:16 GMT"; // injected by build process
 
 })( this.Sagen );
 /**
@@ -1205,7 +1205,6 @@ var Sagen = {};
     }
 
     // event handler
-    var android_timer = 0;
     function _width_onOrientation () {
         var direction;
 
@@ -1224,8 +1223,6 @@ var Sagen = {};
         Device._onOrientation( direction );
     }
 
-    var mql_timer = 0;
-
     function _onOrientation () {
         if ( !_is_orientation ) {
             _width_onOrientation();
@@ -1234,32 +1231,36 @@ var Sagen = {};
 
         var direction;
 
+        function set_portrait () {
+            _removeClass( "landscape" );
+            _addClass( "portrait" );
+            direction = "portrait";
+        }
+
+        function set_landscape () {
+            _removeClass( "portrait" );
+            _addClass( "landscape" );
+            direction = "landscape";
+        }
+
         if ( use_matchmedia ) {
 
             if ( window.matchMedia( "(orientation: portrait)" ).matches ) {
                 // portrait
-                _removeClass( "landscape" );
-                _addClass( "portrait" );
-                direction = "portrait";
+                set_portrait();
             } else {
                 // landscape
-                _removeClass( "portrait" );
-                _addClass( "landscape" );
-                direction = "landscape";
+                set_landscape();
             }
 
         } else {
             // not matchMedia
             if ( _portrait() ) {
                 // portrait
-                _removeClass( "landscape" );
-                _addClass( "portrait" );
-                direction = "portrait";
+                set_portrait();
             } else if ( _landscape() ) {
                 // landscape
-                _removeClass( "portrait" );
-                _addClass( "landscape" );
-                direction = "landscape";
+                set_landscape();
             }
         }
 
@@ -1291,6 +1292,7 @@ var Sagen = {};
 
     /**
      * orientation 監視を開始します。
+     * dataset-orientation="true"だと自動で実行されます。
      * @for Device
      * @method listen
      * @static
@@ -1352,6 +1354,18 @@ var Sagen = {};
             if ( Canvas.webgl() ) {
                 _addClass( "webgl" );
             }
+        }
+    };
+
+    /**
+     * 強制的にorientation eventを発火します。dataset-orientationがtrueになっている必要があります。
+     * @for Device
+     * @method fire
+     * @static
+     */
+    Device.fire = function (){
+        if ( _orientation_check ) {
+            _onOrientation();
         }
     };
 

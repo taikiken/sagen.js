@@ -159,7 +159,6 @@
     }
 
     // event handler
-    var android_timer = 0;
     function _width_onOrientation () {
         var direction;
 
@@ -178,8 +177,6 @@
         Device._onOrientation( direction );
     }
 
-    var mql_timer = 0;
-
     function _onOrientation () {
         if ( !_is_orientation ) {
             _width_onOrientation();
@@ -188,32 +185,36 @@
 
         var direction;
 
+        function set_portrait () {
+            _removeClass( "landscape" );
+            _addClass( "portrait" );
+            direction = "portrait";
+        }
+
+        function set_landscape () {
+            _removeClass( "portrait" );
+            _addClass( "landscape" );
+            direction = "landscape";
+        }
+
         if ( use_matchmedia ) {
 
             if ( window.matchMedia( "(orientation: portrait)" ).matches ) {
                 // portrait
-                _removeClass( "landscape" );
-                _addClass( "portrait" );
-                direction = "portrait";
+                set_portrait();
             } else {
                 // landscape
-                _removeClass( "portrait" );
-                _addClass( "landscape" );
-                direction = "landscape";
+                set_landscape();
             }
 
         } else {
             // not matchMedia
             if ( _portrait() ) {
                 // portrait
-                _removeClass( "landscape" );
-                _addClass( "portrait" );
-                direction = "portrait";
+                set_portrait();
             } else if ( _landscape() ) {
                 // landscape
-                _removeClass( "portrait" );
-                _addClass( "landscape" );
-                direction = "landscape";
+                set_landscape();
             }
         }
 
@@ -245,6 +246,7 @@
 
     /**
      * orientation 監視を開始します。
+     * dataset-orientation="true"だと自動で実行されます。
      * @for Device
      * @method listen
      * @static
@@ -306,6 +308,18 @@
             if ( Canvas.webgl() ) {
                 _addClass( "webgl" );
             }
+        }
+    };
+
+    /**
+     * 強制的にorientation eventを発火します。dataset-orientationがtrueになっている必要があります。
+     * @for Device
+     * @method fire
+     * @static
+     */
+    Device.fire = function (){
+        if ( _orientation_check ) {
+            _onOrientation();
         }
     };
 
