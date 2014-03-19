@@ -218,7 +218,7 @@ var Sagen = {};
      * @type String
      * @static
      **/
-    s.buildDate = /*date*/"Sat, 15 Mar 2014 11:55:15 GMT"; // injected by build process
+    s.buildDate = /*date*/"Sat, 15 Mar 2014 12:01:41 GMT"; // injected by build process
 
 })( this.Sagen );
 /**
@@ -1065,10 +1065,7 @@ var Sagen = {};
         _other = false,
 
         _orientation_check = Sagen.orientation(),
-//        _width_check = _orientation_check && Android.is() && Android.tablet(),
-
-        use_matchmedia = typeof window.matchMedia !== "undefined",
-        mql
+        use_matchmedia = typeof window.matchMedia !== "undefined"
     ;
 
     function _initialize () {
@@ -1298,11 +1295,6 @@ var Sagen = {};
      */
     Device.abort = function (){
         // orientation check stop
-        if ( typeof mql !== "undefined" ) {
-            // window matchMedia defined
-            mql.removeListener( _matchMedia );
-        }
-
         window.removeEventListener( _orientation_event, _onOrientation );
     };
 

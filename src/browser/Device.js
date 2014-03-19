@@ -32,10 +32,7 @@
         _other = false,
 
         _orientation_check = Sagen.orientation(),
-//        _width_check = _orientation_check && Android.is() && Android.tablet(),
-
-        use_matchmedia = typeof window.matchMedia !== "undefined",
-        mql
+        use_matchmedia = typeof window.matchMedia !== "undefined"
     ;
 
     function _initialize () {
@@ -265,11 +262,6 @@
      */
     Device.abort = function (){
         // orientation check stop
-        if ( typeof mql !== "undefined" ) {
-            // window matchMedia defined
-            mql.removeListener( _matchMedia );
-        }
-
         window.removeEventListener( _orientation_event, _onOrientation );
     };
 
