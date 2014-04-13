@@ -180,7 +180,7 @@
             return;
         }
 
-        var direction;
+        var direction = "";
 
         function set_portrait () {
             _removeClass( "landscape" );
