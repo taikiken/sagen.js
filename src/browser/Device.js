@@ -315,6 +315,16 @@
         }
     };
 
+    /**
+     * @for Device
+     * @method getElement
+     * @returns {HTMLElement} html tag element を返します
+     * @static
+     */
+    Device.getElement = function () {
+        return _element;
+    };
+
     Sagen.Device = Device;
 
     // write action

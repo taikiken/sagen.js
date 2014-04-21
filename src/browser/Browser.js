@@ -36,7 +36,8 @@
 
         _chrome = !!_ua.match(/chrome/i),
         _firefox = !!_ua.match(/firefox/i),
-        _safari = !!_ua.match(/safari/i) && !_chrome,
+        _safari = !!_ua.match(/safari/i),
+        _android_standard = _android && _safari && !!_ua.match(/version/i),
 
         _touch = typeof window.ontouchstart !== "undefined",
 
@@ -53,6 +54,8 @@
         _android_version = -1,
         _android_versions,
 
+        _chrome_version = -1,
+
         _canvas = !!window.CanvasRenderingContext2D
     ;
 
@@ -62,6 +65,15 @@
         if ( !_android_phone ) {
             _android_tablet = true;
         }
+    }
+
+    if ( _android_standard ) {
+        _chrome = false;
+        _safari = false;
+    }
+
+    if ( _chrome ) {
+        _safari = false;
     }
     // private
     // iOS version
@@ -123,6 +135,18 @@
     if ( _safari && !_mobile ) {
         // not _mobile and _safari
         _safari_versions = _safariVersion();
+    }
+
+    function _chromeVersion () {
+        var v, versions;
+
+        v = (navigator.appVersion).match(/Chrome\/(\d+)\.(\d+)\.(\d+)\.?(\d+)?/);
+        versions = [parseInt(v[1], 10), parseInt(v[2], 10), parseInt(v[3], 10), parseInt(v[4], 10)];
+        return versions.join( "." );
+    }
+
+    if (_chrome ) {
+        _chrome_version = _chromeVersion();
     }
 
     /**
@@ -282,6 +306,15 @@
              */
             tablet: function (){
                 return _android_tablet;
+            },
+            /**
+             * @for Browser.Android
+             * @method standard
+             * @returns {boolean} Android standard Browser か否かを返します
+             * @static
+             */
+            standard: function () {
+                return _android_standard;
             }
         },
         /**
@@ -397,6 +430,14 @@
              */
             is: function (){
                 return _chrome;
+            },
+            /**
+             * @for Browser.Chrome
+             * @method version
+             * @returns {string}
+             */
+            version: function () {
+                return _chrome_version;
             }
         },
         /**
