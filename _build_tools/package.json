@@ -1,5 +1,5 @@
 {
-  "name": "Sagen",
+  "name": "sagen",
   "version": "0.2.14",
   "description": "JavaScript, device check and viewport rewrite",
   "dependencies": {
@@ -19,7 +19,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/taikiken/Sagen.js.git"
+    "url": "https://github.com/taikiken/sagen.js.git"
   },
   "keywords": [
     "javascript"
@@ -27,7 +27,7 @@
   "author": "taikiken",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/taikiken/Sagen.js/issues"
+    "url": "https://github.com/taikiken/sagen.js/issues"
   },
-  "homepage": "https://github.com/taikiken/Sagen.js"
+  "homepage": "https://github.com/taikiken/sagen.js"
 }

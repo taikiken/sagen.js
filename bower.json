@@ -1,0 +1,42 @@
+{
+  "name": "sagen.js",
+  "version": "0.2.14",
+  "homepage": "https://github.com/taikiken/sagen.js",
+  "authors": [
+    "taikiken <denkosekka@gmail.com>"
+  ],
+  "description": "JavaScript, device check and viewport rewrite",
+  "main": "sagen.min.js",
+  "moduleType": [
+    "node"
+  ],
+  "keywords": [
+    "JavaScript",
+    "Device",
+    "Browser",
+    "viewport",
+    "mobile",
+    "smart",
+    "phone",
+    "tablet",
+    "iOS",
+    "Android"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+      "docs",
+      "src",
+      "_output",
+      "_build_tools",
+      ".idea",
+      "libs",
+      "README.md",
+      "Sagen.iml",
+      "package.json"
+  ]
+}
