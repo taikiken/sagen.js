@@ -10,6 +10,35 @@
  *
  * This notice shall be included in all copies or substantial portions of the Software.
  */
+
+/**
+ * global object
+ *
+ * @example
+ *
+ *      <script type="text/javascript" src="/js/sagen-VERSION.min.js"
+ *          id="sagen"
+ *          data-orientation="true"
+ *          data-android="true"
+ *          data-ios="true"
+ *          data-canvas="true">
+ *      </script>
+ *
+ *      ( function ( window ){
+ *         "use strict";
+ *         var Sagen = window.Sagen
+ *         ;
+ *
+ *         if ( Sagen.Browser.iOS.is() ) {
+ *              // iOS
+ *         }
+ *
+ *      }( window ) );
+ *
+ *
+ * @module Sagen
+ * @type {object}
+ */
 var Sagen = {};
 
 ( function ( window, Sagen ){
@@ -34,8 +63,8 @@ var Sagen = {};
      * @static
      * @method hasClass
      * @param {DOMElement} element
-     * @param {String} class_name
-     * @returns {Array|{index: number, input: string}\*}
+     * @param {String} class_name CSS class name
+     * @returns {boolean} 指定 CSS class が存在するか否かの真偽値を返します
      */
     Sagen.hasClass = function( element, class_name ) {
         var regex;
@@ -46,9 +75,9 @@ var Sagen = {};
      * @for Sagen
      * @static
      * @method addClass
-     * @param {DOMElement} element
-     * @param {String} class_name
-     * @returns {Array|{index: number, input: string}\*}
+     * @param {DOMElement} element 対象 tag element
+     * @param {String} class_name 追加 CSS class name, 1件だけ指定可能です
+     * @returns {string} 追加後の CSS class を返します
      */
     Sagen.addClass = function( element, class_name ) {
         if ( !Sagen.hasClass( element, class_name ) ) {
@@ -67,9 +96,9 @@ var Sagen = {};
      * @for Sagen
      * @static
      * @method removeClass
-     * @param {DOMElement} element
-     * @param {String} class_name
-     * @returns {string}
+     * @param {DOMElement} element 対象 tag element
+     * @param {String} class_name 削除 CSS class name, 1件だけ指定可能です
+     * @returns {string} 削除後の CSS class を返します
      */
     Sagen.removeClass = function( element, class_name ) {
         if ( Sagen.hasClass( element, class_name ) ) {
@@ -147,7 +176,7 @@ var Sagen = {};
      * @for Sagen
      * @static
      * @method orientation
-     * @returns {Boolean} orientation checkするかの真偽値
+     * @returns {Boolean} orientation checkするか否かの真偽値
      */
     Sagen.orientation = function (){
         return dataset.orientation;
@@ -157,7 +186,7 @@ var Sagen = {};
      * @for Sagen
      * @static
      * @method android
-     * @returns {Boolean} android checkするかの真偽値
+     * @returns {Boolean} android checkするか否かの真偽値
      */
     Sagen.android = function (){
         return dataset.android;
@@ -167,7 +196,7 @@ var Sagen = {};
      * @for Sagen
      * @static
      * @method ios
-     * @returns {Boolean} ios checkするかの真偽値
+     * @returns {Boolean} ios checkするか否かの真偽値
      */
     Sagen.ios = function (){
         return dataset.ios;
@@ -177,7 +206,7 @@ var Sagen = {};
      * @for Sagen
      * @static
      * @method canvas
-     * @returns {Boolean} canvas checkするかの真偽値
+     * @returns {Boolean} canvas checkするか否かの真偽値
      */
     Sagen.canvas = function (){
         return dataset.canvas;
