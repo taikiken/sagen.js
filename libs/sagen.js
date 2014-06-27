@@ -8,6 +8,9 @@
  * Distributed under the terms of the MIT license.
  * http://www.opensource.org/licenses/mit-license.html
  *
+ *
+ *
+ *
  * This notice shall be included in all copies or substantial portions of the Software.
  */
 
@@ -62,7 +65,7 @@ var Sagen = {};
      * @for Sagen
      * @static
      * @method hasClass
-     * @param {DOMElement} element
+     * @param {HTMLElement} element
      * @param {String} class_name CSS class name
      * @returns {boolean} 指定 CSS class が存在するか否かの真偽値を返します
      */
@@ -75,7 +78,7 @@ var Sagen = {};
      * @for Sagen
      * @static
      * @method addClass
-     * @param {DOMElement} element 対象 tag element
+     * @param {HTMLElement} element 対象 tag element
      * @param {String} class_name 追加 CSS class name, 1件だけ指定可能です
      * @returns {string} 追加後の CSS class を返します
      */
@@ -96,7 +99,7 @@ var Sagen = {};
      * @for Sagen
      * @static
      * @method removeClass
-     * @param {DOMElement} element 対象 tag element
+     * @param {HTMLElement} element 対象 tag element
      * @param {String} class_name 削除 CSS class name, 1件だけ指定可能です
      * @returns {string} 削除後の CSS class を返します
      */
@@ -108,7 +111,7 @@ var Sagen = {};
         }
     };
 
-    var dataset = ( function ( window ){
+    var data_set = ( function ( window ){
         var document = window.document,
             sagen = document.getElementById( "sagen" ),
 
@@ -179,7 +182,7 @@ var Sagen = {};
      * @returns {Boolean} orientation checkするか否かの真偽値
      */
     Sagen.orientation = function (){
-        return dataset.orientation;
+        return data_set.orientation;
     };
 
     /**
@@ -189,7 +192,7 @@ var Sagen = {};
      * @returns {Boolean} android checkするか否かの真偽値
      */
     Sagen.android = function (){
-        return dataset.android;
+        return data_set.android;
     };
 
     /**
@@ -199,7 +202,7 @@ var Sagen = {};
      * @returns {Boolean} ios checkするか否かの真偽値
      */
     Sagen.ios = function (){
-        return dataset.ios;
+        return data_set.ios;
     };
 
     /**
@@ -209,7 +212,7 @@ var Sagen = {};
      * @returns {Boolean} canvas checkするか否かの真偽値
      */
     Sagen.canvas = function (){
-        return dataset.canvas;
+        return data_set.canvas;
     };
 
 }( window, Sagen ) );/**
@@ -239,7 +242,7 @@ var Sagen = {};
      * @type String
      * @static
      **/
-    s.buildDate = /*date*/"Wed, 07 May 2014 08:02:05 GMT"; // injected by build process
+    s.buildDate = /*date*/"Sun, 22 Jun 2014 05:55:59 GMT"; // injected by build process
 
 })( this.Sagen );
 /**
