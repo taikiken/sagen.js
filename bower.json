@@ -34,7 +34,6 @@
       "_output",
       "_build_tools",
       ".idea",
-      "libs",
       "README.md",
       "Sagen.iml",
       "package.json"
