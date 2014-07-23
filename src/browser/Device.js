@@ -228,7 +228,7 @@
     };
 
     /**
-     * @for Viewport
+     * @for Device
      * @property CHANGE_ORIENTATION
      * @type {string}
      * @static
