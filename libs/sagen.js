@@ -234,7 +234,7 @@ var Sagen = {};
      * @type String
      * @static
      **/
-    s.version = /*version*/"0.2.14"; // injected by build process
+    s.version = /*version*/"0.2.16"; // injected by build process
 
     /**
      * The build date for this release in UTC format.
@@ -242,7 +242,7 @@ var Sagen = {};
      * @type String
      * @static
      **/
-    s.buildDate = /*date*/"Sun, 22 Jun 2014 05:55:59 GMT"; // injected by build process
+    s.buildDate = /*date*/"Fri, 12 Sep 2014 10:46:13 GMT"; // injected by build process
 
 })( this.Sagen );
 /**
@@ -573,7 +573,7 @@ var Sagen = {};
             // supports iOS 2.0 and later: <http://bit.ly/TJjs1V>
             v = (navigator.appVersion).match(/OS (\d+)_(\d+)_?(\d+)?/);
             versions = [parseInt(v[1], 10), parseInt(v[2], 10), parseInt(v[3] || 0, 10)];
-            _ios_version = parseFloat( versions[ 0 ] + "." + versions[ 1 ] + versions[ 2 ] );
+//            _ios_version = parseFloat( versions[ 0 ] + "." + versions[ 1 ] + versions[ 2 ] );
         }
 
         return versions;
@@ -1326,7 +1326,7 @@ var Sagen = {};
     };
 
     /**
-     * @for Viewport
+     * @for Device
      * @property CHANGE_ORIENTATION
      * @type {string}
      * @static
@@ -1616,7 +1616,10 @@ var Sagen = {};
 
     if ( Sagen.ios() ) {
         // iOS 7.1 viewport added
-        if ( Browser.iOS.is() && Browser.iOS.version() >= 7.1 ) {
+        // and iOS 8 under
+        var ios_version = Browser.iOS.version();
+
+        if ( Browser.iOS.is() && ios_version >= 7.1 && ios_version < 8.0 ) {
             Viewport.iOS.minimalUI();
         }
     }

@@ -171,7 +171,10 @@
 
     if ( Sagen.ios() ) {
         // iOS 7.1 viewport added
-        if ( Browser.iOS.is() && Browser.iOS.version() >= 7.1 ) {
+        // and iOS 8 under
+        var ios_version = Browser.iOS.version();
+
+        if ( Browser.iOS.is() && ios_version >= 7.1 && ios_version < 8.0 ) {
             Viewport.iOS.minimalUI();
         }
     }
