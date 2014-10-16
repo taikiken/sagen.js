@@ -113,6 +113,29 @@
             class_names.push( "orientation" );
         }
 
+        if ( Sagen.browser() ) {
+            // browser check
+            if ( Browser.IE.is() ) {
+                // IE
+                class_names.push( "ie" );
+                class_names.push( "ie" + Browser.IE.version() );
+
+            } else if ( Browser.Chrome.is() ) {
+
+                class_names.push( "chrome" );
+                class_names.push( "chrome" + Browser.Chrome.version() );
+
+            } else if ( Browser.Safari.is() ) {
+
+                class_names.push( "safari" );
+                class_names.push( "safari" + Browser.Safari.version() );
+
+            } else if ( Browser.Firefox.is() ) {
+
+                class_names.push( "firefox" );
+            }
+        }
+
         _addClass( class_names.join( " " ) );
     }
 

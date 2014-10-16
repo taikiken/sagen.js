@@ -118,7 +118,8 @@ var Sagen = {};
             data_orientation = false,
             data_android = false,
             data_ios = false,
-            data_canvas = false
+            data_canvas = false,
+            data_browser = false
         ;
 
         if ( sagen ) {
@@ -138,6 +139,10 @@ var Sagen = {};
 
                 if ( typeof sagen.dataset.canvas !== "undefined" ) {
                     data_canvas = ( sagen.dataset.canvas.toLowerCase() === "true" );
+                }
+
+                if ( typeof sagen.dataset.browser !== "undefined" ) {
+                    data_browser = ( sagen.dataset.browser.toLowerCase() === "true" );
                 }
             } else {
                 var attributes = sagen.attributes,
@@ -161,6 +166,9 @@ var Sagen = {};
                     } else if ( node_name === 'data-canvas' ) {
 
                         data_canvas = attribute.nodeValue.toLowerCase() === "true";
+                    } else if ( node_name === 'data-browser' ) {
+
+                        data_browser = attribute.nodeValue.toLowerCase() === "true";
                     }
                 }
             }
@@ -170,7 +178,8 @@ var Sagen = {};
             orientation: data_orientation,
             android: data_android,
             ios: data_ios,
-            canvas: data_canvas
+            canvas: data_canvas,
+            browser: data_browser
         };
 
     }( window ) );
@@ -213,6 +222,16 @@ var Sagen = {};
      */
     Sagen.canvas = function (){
         return data_set.canvas;
+    };
+
+    /**
+     * @for Sagen
+     * @static
+     * @method browser
+     * @return {Boolean} Browser checkするか否かの真偽値
+     */
+    Sagen.browser = function () {
+        return data_set.browser;
     };
 
 }( window, Sagen ) );

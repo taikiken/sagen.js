@@ -118,7 +118,8 @@ var Sagen = {};
             data_orientation = false,
             data_android = false,
             data_ios = false,
-            data_canvas = false
+            data_canvas = false,
+            data_browser = false
         ;
 
         if ( sagen ) {
@@ -138,6 +139,10 @@ var Sagen = {};
 
                 if ( typeof sagen.dataset.canvas !== "undefined" ) {
                     data_canvas = ( sagen.dataset.canvas.toLowerCase() === "true" );
+                }
+
+                if ( typeof sagen.dataset.browser !== "undefined" ) {
+                    data_browser = ( sagen.dataset.browser.toLowerCase() === "true" );
                 }
             } else {
                 var attributes = sagen.attributes,
@@ -161,6 +166,9 @@ var Sagen = {};
                     } else if ( node_name === 'data-canvas' ) {
 
                         data_canvas = attribute.nodeValue.toLowerCase() === "true";
+                    } else if ( node_name === 'data-browser' ) {
+
+                        data_browser = attribute.nodeValue.toLowerCase() === "true";
                     }
                 }
             }
@@ -170,7 +178,8 @@ var Sagen = {};
             orientation: data_orientation,
             android: data_android,
             ios: data_ios,
-            canvas: data_canvas
+            canvas: data_canvas,
+            browser: data_browser
         };
 
     }( window ) );
@@ -215,6 +224,16 @@ var Sagen = {};
         return data_set.canvas;
     };
 
+    /**
+     * @for Sagen
+     * @static
+     * @method browser
+     * @return {Boolean} Browser checkするか否かの真偽値
+     */
+    Sagen.browser = function () {
+        return data_set.browser;
+    };
+
 }( window, Sagen ) );/**
  * @module Sagen
  */
@@ -242,7 +261,7 @@ var Sagen = {};
      * @type String
      * @static
      **/
-    s.buildDate = /*date*/"Fri, 12 Sep 2014 10:46:13 GMT"; // injected by build process
+    s.buildDate = /*date*/"Fri, 12 Sep 2014 10:55:50 GMT"; // injected by build process
 
 })( this.Sagen );
 /**
@@ -916,7 +935,7 @@ var Sagen = {};
             /**
              * @for Browser.Chrome
              * @method version
-             * @returns {string}
+             * @returns {string|number}
              */
             version: function () {
                 return _chrome_version;
@@ -1209,6 +1228,29 @@ var Sagen = {};
         if ( _is_orientation ) {
             // orientation
             class_names.push( "orientation" );
+        }
+
+        if ( Sagen.browser() ) {
+            // browser check
+            if ( Browser.IE.is() ) {
+                // IE
+                class_names.push( "ie" );
+                class_names.push( "ie" + Browser.IE.version() );
+
+            } else if ( Browser.Chrome.is() ) {
+
+                class_names.push( "chrome" );
+                class_names.push( "chrome" + Browser.Chrome.version() );
+
+            } else if ( Browser.Safari.is() ) {
+
+                class_names.push( "safari" );
+                class_names.push( "safari" + Browser.Safari.version() );
+
+            } else if ( Browser.Firefox.is() ) {
+
+                class_names.push( "firefox" );
+            }
         }
 
         _addClass( class_names.join( " " ) );

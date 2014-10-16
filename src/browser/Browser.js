@@ -434,7 +434,7 @@
             /**
              * @for Browser.Chrome
              * @method version
-             * @returns {string}
+             * @returns {string|number}
              */
             version: function () {
                 return _chrome_version;
