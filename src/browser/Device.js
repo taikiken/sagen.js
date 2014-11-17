@@ -126,7 +126,7 @@
 
             } else if ( Browser.Chrome.is() ) {
                 // chrome
-                version = Browser.Chrome.version();
+                version = Browser.Chrome.version() + "";
                 version_major = version.split( "." ).shift();
 
                 class_names.push( "chrome" );
@@ -135,7 +135,7 @@
 
             } else if ( Browser.Safari.is() ) {
                 // safari
-                version = Browser.Safari.version();
+                version = Browser.Safari.version() + "";
                 version_major = version.split( "." ).shift();
 
                 class_names.push( "safari" );
