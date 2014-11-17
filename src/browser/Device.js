@@ -37,7 +37,9 @@
 
     function _initialize () {
         var class_names = [],
-            number;
+            number,
+            version,
+            version_major;
 
         // write class
         if ( iOS.is() ) {
@@ -117,18 +119,28 @@
             // browser check
             if ( Browser.IE.is() ) {
                 // IE
+                version = Browser.IE.version();
+
                 class_names.push( "ie" );
-                class_names.push( "ie" + Browser.IE.version() );
+                class_names.push( "ie" + version );
 
             } else if ( Browser.Chrome.is() ) {
+                // chrome
+                version = Browser.Chrome.version();
+                version_major = version.split( "." ).shift();
 
                 class_names.push( "chrome" );
-                class_names.push( "chrome" + Browser.Chrome.version() );
+                class_names.push( "chrome" + version_major );
+                class_names.push( "chrome" + version.split( "." ).join( "_" ) );
 
             } else if ( Browser.Safari.is() ) {
+                // safari
+                version = Browser.Safari.version();
+                version_major = version.split( "." ).shift();
 
                 class_names.push( "safari" );
-                class_names.push( "safari" + Browser.Safari.version() );
+                class_names.push( "safari" + version_major );
+                class_names.push( "safari" + version.split( "." ).join( "_" ) );
 
             } else if ( Browser.Firefox.is() ) {
 
