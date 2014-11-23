@@ -39,6 +39,9 @@
         _safari = !!_ua.match(/safari/i),
         _android_standard = _android && _safari && !!_ua.match(/version/i),
 
+        _windows = !!_ua.match(/windows/i),
+        _mac = !!_ua.match(/mac os x/i),
+
         _touch = typeof window.ontouchstart !== "undefined",
 
         _fullScreen = typeof navigator.standalone !== "undefined" ? navigator.standalone : false,
@@ -56,8 +59,9 @@
 
         _chrome_version = -1,
 
-        _canvas = !!window.CanvasRenderingContext2D
-    ;
+        _canvas = !!window.CanvasRenderingContext2D,
+
+        _transition;
 
     if ( _android ) {
         _android_phone = !!_ua.match(/mobile/i);
@@ -148,6 +152,15 @@
     if (_chrome ) {
         _chrome_version = _chromeVersion();
     }
+
+    // transition support
+    // http://stackoverflow.com/questions/7264899/detect-css-transitions-using-javascript-and-without-modernizr
+    _transition = ( function (){
+        var p = document.createElement( "p" );
+
+        return "transition" in p || "WebkitTransition" in p || "MozTransition" in p || "msTransition" in p || "OTransition" in p;
+
+    }() );
 
     /**
      * Browser 情報を管理します
@@ -608,6 +621,38 @@
                 } catch( e ) {
                     return false;
                 }
+            }
+        },
+        Mac: {
+            /**
+             * @for Browser.Mac
+             * @method is
+             * @return {boolean} Mac OS X or not
+             * @static
+             */
+            is: function () {
+                return _mac;
+            }
+        },
+        Windows: {
+            /**
+             * @for Browser.Windows
+             * @method is
+             * @return {boolean} Windows or not
+             */
+            is: function () {
+                return _windows;
+            }
+        },
+        Transition: {
+            /**
+             * @for Browser.Transition
+             * @method is
+             * @return {boolean} CSS3 transition support or not
+             */
+            is: function () {
+
+                return _transition;
             }
         }
     };

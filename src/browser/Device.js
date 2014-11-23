@@ -146,6 +146,19 @@
 
                 class_names.push( "firefox" );
             }
+
+            if ( Browser.Mac.is() ) {
+
+                class_names.push( "mac" );
+            }
+            if ( Browser.Windows.is() ) {
+
+                class_names.push( "windows" );
+            }
+            if ( Browser.Transition.is() ) {
+
+                class_names.push( "transition" );
+            }
         }
 
         _addClass( class_names.join( " " ) );
