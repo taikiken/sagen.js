@@ -156,7 +156,7 @@
     // transition support
     // http://stackoverflow.com/questions/7264899/detect-css-transitions-using-javascript-and-without-modernizr
     _transition = ( function (){
-        var p = document.createElement( "p" );
+        var p = document.createElement( "p" ).style;
 
         return "transition" in p || "WebkitTransition" in p || "MozTransition" in p || "msTransition" in p || "OTransition" in p;
 
