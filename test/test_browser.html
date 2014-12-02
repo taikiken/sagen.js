@@ -56,6 +56,10 @@ Sagen.Viewport.write( "width=device-width, user-scalable=yes" );
 	browser_element.innerHTML += "devicePixelRatio: " + window.devicePixelRatio + "<br>";
 	browser_element.innerHTML += "width: " + window.innerWidth +  ", height: " + window.innerHeight + "<br>";
 
+	var sc04e = !!navigator.userAgent.match(/sc04e/i);
+
+	browser_element.innerHTML += "SC04E: " + sc04e + "<br>";
+
 }( window ) );
 </script>
 </body>
