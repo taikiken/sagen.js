@@ -77,13 +77,17 @@ trueに設定するとcanvas, webgl使用判定を行います
 # viewport
 **data-android**
 
-trueに設定するとAndroid端末でChromeでない場合viewportへtarget-densitydpi=device-dpiを追加します。
+~~trueに設定するとAndroid端末でChromeでない場合viewportへtarget-densitydpi=device-dpiを追加します。~~
+
+副作用が強いため廃止しました。
 
 
 **data-ios**
 
-trueに設定するとiOSでiOS 7.1以上の場合viewportへminimal-uiを追加します。
+trueに設定するとiOSでiOS 7.1~~以上~~の場合viewportへminimal-uiを追加します。
 
+minimal-ui option は iOS 8 で廃止になりました。  
+[iOS 8 Release Notes](https://developer.apple.com/library/prerelease/ios/releasenotes/General/RN-iOSSDK-8.0/)
 
 ## API
 * write
