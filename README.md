@@ -73,6 +73,28 @@ trueに設定するとcanvas, webgl使用判定を行います
 * canvas
 * webgl
 
+**data-transition**
+
+trueに設定すると CSS3 transition 使用判定を行います
+
+* transition
+
+**data-browser**
+
+trueに設定すると UA より PC ブラウザ判定を行います  
+PC OS も判定します。
+
+* windows
+* mac
+* ie
+* chrome
+* firefox
+* safari
+
+ブラウザ名+VERSION 形式でバージョン付も出力します。
+
+* ブラウザ名+VERSION_NUMBER(Major)
+* ブラウザ名+VERSION_NUMBER(Major_Minor_Build)
 
 # viewport
 **data-android**
@@ -88,6 +110,7 @@ trueに設定するとiOSでiOS 7.1~~以上~~の場合viewportへminimal-uiを�
 
 minimal-ui option は iOS 8 で廃止になりました。  
 [iOS 8 Release Notes](https://developer.apple.com/library/prerelease/ios/releasenotes/General/RN-iOSSDK-8.0/)
+
 
 ## API
 * write
@@ -120,15 +143,19 @@ meta viewport contentを全て書き換えます。
 
 * Viewport.Android.targetDensity
 
-viewport へ target-densitydpi=device-dpi を追加します。
+~~viewport へ target-densitydpi=device-dpi を追加します。~~
 
     Viewport.Android.targetDensity();
+
+廃止しました。
 
 * Viewport.iOS.minimalUI
 
 viewport へ minimal-ui を追加します。
 
     Viewport.iOS.minimalUI();
+
+iOS 7.1 のみ対応しています。
 
 ## API Docs
 docsフォルダzipを解凍しお使い下さい。
