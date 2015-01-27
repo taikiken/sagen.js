@@ -136,8 +136,10 @@
         return versions;
     }
 
-    if ( _safari && !_mobile ) {
-        // not _mobile and _safari
+    //if ( _safari && !_mobile ) {
+    if ( _safari ) {
+        //// not _mobile and _safari
+        // _safari, include mobile
         _safari_versions = _safariVersion();
     }
 
@@ -149,7 +151,7 @@
         return versions.join( "." );
     }
 
-    if (_chrome ) {
+    if ( _chrome ) {
         _chrome_version = _chromeVersion();
     }
 
