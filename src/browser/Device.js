@@ -36,10 +36,12 @@
     ;
 
     function _initialize () {
-        var class_names = [],
-            number,
-            version,
-            version_major;
+        var
+          class_names = [],
+          number,
+          version,
+          versions,
+          version_major;
 
         // write class
         if ( iOS.is() ) {
@@ -127,7 +129,8 @@
             } else if ( Browser.Chrome.is() ) {
                 // chrome
                 version = Browser.Chrome.version() + "";
-                version_major = version.split( "." ).shift();
+                versions = version.split( "." );
+                version_major = versions.shift();
 
                 class_names.push( "chrome" );
                 class_names.push( "chrome" + version_major );
@@ -136,7 +139,8 @@
             } else if ( Browser.Safari.is() ) {
                 // safari
                 version = Browser.Safari.version() + "";
-                version_major = version.split( "." ).shift();
+                versions = version.split( "." );
+                version_major = versions.shift();
 
                 class_names.push( "safari" );
                 class_names.push( "safari" + version_major );

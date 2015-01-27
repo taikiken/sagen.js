@@ -261,7 +261,7 @@ var Sagen = {};
      * @type String
      * @static
      **/
-    s.buildDate = /*date*/"Sun, 23 Nov 2014 11:26:41 GMT"; // injected by build process
+    s.buildDate = /*date*/"Sun, 23 Nov 2014 11:33:52 GMT"; // injected by build process
 
 })( this.Sagen );
 /**
@@ -1198,10 +1198,12 @@ var Sagen = {};
     ;
 
     function _initialize () {
-        var class_names = [],
-            number,
-            version,
-            version_major;
+        var
+          class_names = [],
+          number,
+          version,
+          versions,
+          version_major;
 
         // write class
         if ( iOS.is() ) {
@@ -1289,7 +1291,8 @@ var Sagen = {};
             } else if ( Browser.Chrome.is() ) {
                 // chrome
                 version = Browser.Chrome.version() + "";
-                version_major = version.split( "." ).shift();
+                versions = version.split( "." );
+                version_major = versions.shift();
 
                 class_names.push( "chrome" );
                 class_names.push( "chrome" + version_major );
@@ -1298,7 +1301,8 @@ var Sagen = {};
             } else if ( Browser.Safari.is() ) {
                 // safari
                 version = Browser.Safari.version() + "";
-                version_major = version.split( "." ).shift();
+                versions = version.split( "." );
+                version_major = versions.shift();
 
                 class_names.push( "safari" );
                 class_names.push( "safari" + version_major );

@@ -1,6 +1,6 @@
 {
   "name": "sagen",
-  "version": "0.2.19",
+  "version": "0.2.20",
   "description": "JavaScript, device check and viewport rewrite",
   "dependencies": {
     "grunt": "~0.4.2",
