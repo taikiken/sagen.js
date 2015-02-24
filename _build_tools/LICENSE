@@ -4,7 +4,7 @@
  *
  * Licensed under The MIT License (MIT).
  *
- * Copyright (c) 2013 - 2014 taikiken
+ * Copyright (c) 2013 - 2015 taikiken
  * @author taikiken from http://inazumatv.com
  * hosted on https://github.com/taikiken/Sagen.js
  *
@@ -30,5 +30,6 @@
  *
  * EventDispatcher class from CreateJS http://www.createjs.com/#!/CreateJS
  * Copyright (c) 2010 gskinner.com, inc.
+ * modified by @taikiken
  *
 */
