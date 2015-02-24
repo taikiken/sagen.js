@@ -292,7 +292,7 @@ var Sagen = {};
    * @type String
    * @static
    **/
-  s.version = /*version*/"0.2.21"; // injected by build process
+  s.version = /*version*/"0.2.22"; // injected by build process
 
   /**
    * The build date for this release in UTC format.
@@ -300,7 +300,7 @@ var Sagen = {};
    * @type String
    * @static
    **/
-  s.buildDate = /*date*/"Tue, 27 Jan 2015 10:03:01 GMT"; // injected by build process
+  s.buildDate = /*date*/"Tue, 24 Feb 2015 06:52:52 GMT"; // injected by build process
 
 })( this.Sagen );
 /**
@@ -1401,7 +1401,7 @@ var Sagen = {};
 
       if ( Browser.Transform.is() ) {
 
-        class_names.push( "transition" );
+        class_names.push( "transform" );
       }
     }
 

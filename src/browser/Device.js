@@ -177,7 +177,7 @@
 
       if ( Browser.Transform.is() ) {
 
-        class_names.push( "transition" );
+        class_names.push( "transform" );
       }
     }
 
