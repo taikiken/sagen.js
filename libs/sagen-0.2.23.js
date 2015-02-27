@@ -270,7 +270,7 @@ var Sagen = {};
    */
   Sagen.transform = function () {
 
-    return data_set.transition;
+    return data_set.transform;
   };
 
 }( window, Sagen ) );/**
@@ -300,7 +300,7 @@ var Sagen = {};
    * @type String
    * @static
    **/
-  s.buildDate = /*date*/"Tue, 24 Feb 2015 06:52:52 GMT"; // injected by build process
+  s.buildDate = /*date*/"Fri, 27 Feb 2015 11:03:10 GMT"; // injected by build process
 
 })( this.Sagen );
 /**

@@ -270,7 +270,7 @@ var Sagen = {};
    */
   Sagen.transform = function () {
 
-    return data_set.transition;
+    return data_set.transform;
   };
 
 }( window, Sagen ) );
