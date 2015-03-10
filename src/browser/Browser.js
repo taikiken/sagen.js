@@ -97,7 +97,7 @@
             // supports iOS 2.0 and later: <http://bit.ly/TJjs1V>
             v = (navigator.appVersion).match(/OS (\d+)_(\d+)_?(\d+)?/);
             versions = [parseInt(v[1], 10), parseInt(v[2], 10), parseInt(v[3] || 0, 10)];
-//            _ios_version = parseFloat( versions[ 0 ] + "." + versions[ 1 ] + versions[ 2 ] );
+            _ios_version = parseFloat( versions[ 0 ] + "." + versions[ 1 ] + versions[ 2 ] );
         }
 
         return versions;

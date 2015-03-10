@@ -292,7 +292,7 @@ var Sagen = {};
    * @type String
    * @static
    **/
-  s.version = /*version*/"0.2.22"; // injected by build process
+  s.version = /*version*/"0.2.23"; // injected by build process
 
   /**
    * The build date for this release in UTC format.
@@ -300,7 +300,7 @@ var Sagen = {};
    * @type String
    * @static
    **/
-  s.buildDate = /*date*/"Fri, 27 Feb 2015 11:03:10 GMT"; // injected by build process
+  s.buildDate = /*date*/"Fri, 06 Mar 2015 05:45:23 GMT"; // injected by build process
 
 })( this.Sagen );
 /**
@@ -637,7 +637,7 @@ var Sagen = {};
             // supports iOS 2.0 and later: <http://bit.ly/TJjs1V>
             v = (navigator.appVersion).match(/OS (\d+)_(\d+)_?(\d+)?/);
             versions = [parseInt(v[1], 10), parseInt(v[2], 10), parseInt(v[3] || 0, 10)];
-//            _ios_version = parseFloat( versions[ 0 ] + "." + versions[ 1 ] + versions[ 2 ] );
+            _ios_version = parseFloat( versions[ 0 ] + "." + versions[ 1 ] + versions[ 2 ] );
         }
 
         return versions;
