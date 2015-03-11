@@ -47,4 +47,4 @@
 
   Sagen.EventObject = EventObject;
 
-}( window, this.Sagen || {} ) );
+}( window, window.Sagen ) );

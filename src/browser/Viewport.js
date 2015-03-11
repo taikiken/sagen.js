@@ -179,4 +179,4 @@
     }
   }
 
-}( window, this.Sagen || {} ) );
+}( window, window.Sagen ) );

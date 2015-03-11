@@ -9,10 +9,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=320" />
   <script type="text/javascript" src="../libs/sagen.js"></script>
-  <title>Sagen test for iOS Chrome</title>
+  <title>Sagen test</title>
 </head>
 <body>
-<strong>html tag class name, test_app_version</strong>
+<strong>html className</strong>
 <div id="show_css" style="max-width: 100%; padding: 6px; border: 1px solid #ccc;white-space: normal;"></div>
 
 <strong>navigator.appVersion</strong>
@@ -21,6 +21,9 @@
 <strong>UA</strong>
 <div id="ua" style="max-width: 100%; padding: 6px; border: 1px solid #ccc;white-space: normal;"></div>
 
+<strong>Sagen</strong>
+<div id="test" style="max-width: 100%; padding: 6px; border: 1px solid #ccc;white-space: normal;"></div>
+
 <script type="text/javascript">
 ( function ( window ){
   "use strict";
@@ -28,12 +31,30 @@
     show_css = document.getElementById( "show_css" ),
     app = document.getElementById( "app" ),
     ua = document.getElementById( "ua" ),
-    html_element = document.documentElement;
+    test = document.getElementById( "test" ),
+    html_element = document.documentElement,
+
+    Sagen = window.Sagen;
 
   show_css.innerHTML = html_element.className;
 
   app.innerHTML = navigator.appVersion;
   ua.innerHTML = navigator.userAgent;
+
+  test.innerHTML += '****************************<br>' ;
+  for ( var key in Sagen ) {
+      if ( Sagen.hasOwnProperty( key ) ) {
+          var val = Sagen[ key ];
+        test.innerHTML += "key: " + key/* + ", val: " + val*/ + "<br>";
+      }
+   }
+  test.innerHTML += '****************************<br>' ;
+
+  test.innerHTML += 'Sagen.iOS.is( ' + '+++' + ' )<br>' ;
+  test.innerHTML += 'Sagen.iOS.is( ' + Sagen.Browser + ' )<br>' ;
+  test.innerHTML += 'Sagen.iOS.is( ' + '+++' + ' )<br>' ;
+  test.innerHTML += 'Array.isArray( ' + Array.isArray + ' )<br>' ;
+  test.innerHTML += '( ' + '+++' + ' )<br>' ;
 
 }( window ) );
 </script>

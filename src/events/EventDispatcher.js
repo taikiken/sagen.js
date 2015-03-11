@@ -184,4 +184,4 @@
   };
 
   Sagen.EventDispatcher = EventDispatcher;
-}( window, this.Sagen || {} ) );
+}( window, window.Sagen ) );
