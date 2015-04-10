@@ -10,7 +10,7 @@
  *
  * This notice shall be included in all copies or substantial portions of the Software.
  */
-( function ( window, Sagen ){
+( function ( window ){
   "use strict";
   var document = window.document,
 
@@ -413,4 +413,4 @@
     Device.canvas();
   }
 
-}( window, window.Sagen ) );
+}( window ) );
