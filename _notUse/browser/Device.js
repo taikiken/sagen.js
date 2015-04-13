@@ -10,12 +10,13 @@
  *
  * This notice shall be included in all copies or substantial portions of the Software.
  */
-( function ( window, Sagen ){
+( function ( window ){
   "use strict";
   var document = window.document,
 
     abs = window.Math.abs,
 
+    Sagen = window.Sagen,
     Browser = Sagen.Browser,
     iOS = Browser.iOS,
     Android = Browser.Android,
@@ -413,4 +414,4 @@
     Device.canvas();
   }
 
-}( window, window.Sagen ) );
+}( window ) );
