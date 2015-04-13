@@ -74,21 +74,64 @@
         // _viewport undefined
         _viewport = Element.find( "meta[name='viewport']" );
 
-        if ( !!_viewport ) {
+      }
 
-          _content = _viewport.content;
+      if ( !!_viewport ) {
 
-        } else {
+        _content = _viewport.content;
 
-          _viewport = "";
-          _content = "";
+      } else {
 
-        }
+        _viewport = "";
+        _content = "";
 
       }
 
       return Viewport;
 
+    };
+    /**
+     * @method Viewport
+     * @static
+     * @return {HTMLElement|*}
+     */
+    Viewport.meta = function () {
+      Viewport.find();
+      return _viewport;
+    };
+    /**
+     * @method content
+     * @static
+     * @return {string}
+     */
+    Viewport.content = function () {
+      Viewport.find();
+      return _content;
+    };
+    /**
+     * @method write
+     * @static
+     * @param {String} content
+     * @return {Viewport}
+     */
+    Viewport.write = function ( content ) {
+      var
+        meta;
+
+      Viewport.find();
+
+      if ( !_viewport ) {
+
+        meta = document.createElement( "meta" );
+        meta.name = "viewport";
+        meta.content = content;
+        _viewport = meta;
+        _content = content;
+        document.getElementsByTagName( "head" )[ 0 ].appendChild( meta );
+
+      }
+
+      return Viewport;
     };
     /**
      * @method add

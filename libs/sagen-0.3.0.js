@@ -66,7 +66,7 @@ var wakegi=wakegi||{};wakegi["int"]=parseInt,wakegi["float"]=parseFloat,function
  * This notice shall be included in all copies or substantial portions of the Software.
  *
  * @version 0.3.0
- * @build 4/13/2015, 4:48:27 PM
+ * @build 4/13/2015, 5:46:21 PM
  * @github: https://github.com/taikiken/sagen.js
  *
  * @requires kaketsugi.js, wakegi.js, gasane.js
@@ -1218,21 +1218,49 @@ var Sagen = window.Sagen || {};
         // _viewport undefined
         _viewport = Element.find( "meta[name='viewport']" );
 
-        if ( !!_viewport ) {
+      }
 
-          _content = _viewport.content;
+      if ( !!_viewport ) {
 
-        } else {
+        _content = _viewport.content;
 
-          _viewport = "";
-          _content = "";
+      } else {
 
-        }
+        _viewport = "";
+        _content = "";
 
       }
 
       return Viewport;
 
+    };
+
+    Viewport.meta = function () {
+      Viewport.find();
+      return _viewport;
+    };
+    Viewport.content = function () {
+      Viewport.find();
+      return _content;
+    };
+    Viewport.write = function ( content ) {
+      var
+        meta;
+
+      Viewport.find();
+
+      if ( !_viewport ) {
+
+        meta = document.createElement( "meta" );
+        meta.name = "viewport";
+        meta.content = content;
+        _viewport = meta;
+        _content = content;
+        document.getElementsByTagName( "head" )[ 0 ].appendChild( meta );
+
+      }
+
+      return Viewport;
     };
     /**
      * @method add
