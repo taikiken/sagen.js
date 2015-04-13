@@ -32,7 +32,12 @@
       Orientation = Sagen.Orientation,
 
       Classes = Sagen.Classes,
-
+      /**
+       * @property _classes
+       * @static
+       * @private
+       * @type {Classes}
+       */
       _classes;
 
     /**
@@ -121,7 +126,7 @@
 
       // orientation
       // ToDo: orientation change
-      if ( Sagen.dataset( "orientation" ) && (iOS.is() || Android.is()) ) {
+      if ( Sagen.dataset( "orientation" ) && ( iOS.is() || Android.is()) ) {
 
         Orientation.on( Orientation.CHANGE_ORIENTATION, Device._onOrientation );
         Orientation.init();
@@ -276,6 +281,12 @@
       if ( Css3.orientation() ) {
 
         classes.add( "orientation" );
+
+      }
+
+      if ( Css3.orientationChange() ) {
+
+        classes.add( "orientation-change" );
 
       }
 

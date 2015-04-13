@@ -22,8 +22,19 @@
       Browser = Sagen.Browser,
       iOS = Browser.iOS,
       Element = Browser.Element,
-
+      /**
+       * @property _viewport
+       * @static
+       * @type {HTMLElement}
+       * @private
+       */
       _viewport,
+      /**
+       * @property _content
+       * @static
+       * @type {string}
+       * @private
+       */
       _content;
 
     /**

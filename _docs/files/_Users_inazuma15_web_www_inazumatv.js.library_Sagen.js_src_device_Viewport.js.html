@@ -45,6 +45,8 @@
             
                 <li><a href="../classes/Device.html">Device</a></li>
             
+                <li><a href="../classes/Orientation.html">Orientation</a></li>
+            
                 <li><a href="../classes/Sagen.html">Sagen</a></li>
             
                 <li><a href="../classes/Viewport.html">Viewport</a></li>
@@ -118,8 +120,19 @@
       Browser = Sagen.Browser,
       iOS = Browser.iOS,
       Element = Browser.Element,
-
+      /**
+       * @property _viewport
+       * @static
+       * @type {HTMLElement}
+       * @private
+       */
       _viewport,
+      /**
+       * @property _content
+       * @static
+       * @type {string}
+       * @private
+       */
       _content;
 
     /**

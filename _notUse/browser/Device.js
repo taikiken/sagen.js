@@ -16,6 +16,7 @@
 
     abs = window.Math.abs,
 
+    Sagen = window.Sagen,
     Browser = Sagen.Browser,
     iOS = Browser.iOS,
     Android = Browser.Android,
