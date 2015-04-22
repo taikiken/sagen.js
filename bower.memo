@@ -1,0 +1,18 @@
+# commit
+git commit -am "changes, something update."
+
+
+// -----------------------------------------------------------
+// update 後実行
+
+# tag commit
+git tag -a vLATEST_VERSION -m "Release version LATEST_VERSION"
+
+@example
+git tag -a v0.3.1 -m "Release version 0.3.1"
+
+# tag push
+git push origin master --tags
+
+// -----------------------------------------------------------
+bower info

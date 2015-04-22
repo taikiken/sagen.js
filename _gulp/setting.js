@@ -43,6 +43,7 @@ var requireDir = require('require-dir');
 
 var src = '../src';
 var libs = '../libs';
+var old = '../old';
 var docs = '../_docs';
 var example = '../example';
 
@@ -57,6 +58,7 @@ module.exports = {
     src: src,
     libs: libs,
     docs: docs,
+    old: old,
     example: example,
     dependencies: src + '/dependencies'
   },

@@ -59,8 +59,42 @@ scripts.push( dir.src + '/execute.js' );
 // task
 // ----------------------------------------------------------------
 
+// move old folder
+gulp.task( 'script-move-old', function () {
+
+  return gulp.src( dir.libs + '/*' )
+    .pipe( gulp.dest( dir.old ) )
+    .pipe( $.size( { title: '*** script-move-old ***' } ) );
+
+} );
+
+gulp.task( 'script-clean-libs', function () {
+
+  //$.del.bind(null,
+  //  [ dir.libs + '/*' ],
+  //  {
+  //    base: process.cwd(),
+  //    dot:true,
+  //    force: true
+  //  }
+  //);
+  $.del(
+    [
+      dir.libs + '/*'
+    ],
+    {
+      base: process.cwd(),
+      dot: true,
+      force: true
+    },
+    function (err, deletedFiles) {
+      console.log('files deleted:' + deletedFiles.length + "\n" + deletedFiles.join("\n"));
+    } );
+
+} );
+
 // build
-gulp.task( 'script-build', function () {
+gulp.task( 'script-min', function () {
 
   return gulp.src( scripts )
     .pipe( $.concat( libName ) )
@@ -83,7 +117,7 @@ gulp.task( 'script-build', function () {
     }) )
     // minified libName.min
     .pipe( gulp.dest( dir.libs ) )
-    .pipe( $.size( { title: '*** script-build ***' } ) );
+    .pipe( $.size( { title: '*** script-min ***' } ) );
 } );
 
 // api
@@ -101,12 +135,24 @@ gulp.task( 'script-api', function () {
 
 } );
 
+// ----------------------------------------------------------------
+// sequence
 // compile & api
-gulp.task( 'script-build-api', function () {
+gulp.task( 'script-build', function () {
 
   $.runSequence(
-    'script-build',
-    'script-api'
+    'script-move-old',
+    'script-clean-libs',
+    'script-min'
+  );
+
+} );
+
+// compile & api
+gulp.task( 'script-build-api', [ 'script-build', 'script-api' ], function ( cb ) {
+
+  $.runSequence(
+    cb
   );
 
 } );
