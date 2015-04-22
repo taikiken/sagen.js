@@ -182,4 +182,4 @@ viewport へ minimal-ui を追加します。
 iOS 7.1 のみ対応しています。
 
 ## API Docs
-docsフォルダzipを解凍しお使い下さい。
+[API Docs](http://taikiken.github.io/sagen.js/)
