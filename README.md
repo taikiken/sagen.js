@@ -103,12 +103,6 @@ trueに設定するとcanvas, webgl使用判定を行います
 * canvas
 * webgl
 
-**data-transition**
-
-trueに設定すると CSS3 transition 使用判定を行います
-
-* transition
-
 **data-browser**
 
 trueに設定すると UA より PC ブラウザ判定を行います  
