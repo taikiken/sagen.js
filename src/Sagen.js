@@ -17,7 +17,8 @@
  * @requires kaketsugi.js, wakegi.js, gasane.js
  *
  * @module Sagen
- *
+ */
+/**
  * @example
  * htmlタグへCSS classをセットします。<br>
  * scriptタグdata属性から追加classをセットします
