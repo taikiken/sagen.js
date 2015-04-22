@@ -66,13 +66,14 @@ var wakegi=wakegi||{};wakegi["int"]=parseInt,wakegi["float"]=parseFloat,function
  * This notice shall be included in all copies or substantial portions of the Software.
  *
  * @version 0.3.1
- * @build 4/13/2015, 6:04:00 PM
+ * @build 4/22/2015, 3:34:40 PM
  * @github: https://github.com/taikiken/sagen.js
  *
  * @requires kaketsugi.js, wakegi.js, gasane.js
  *
  * @module Sagen
- *
+ */
+/**
  * @example
  * htmlタグへCSS classをセットします。<br>
  * scriptタグdata属性から追加classをセットします

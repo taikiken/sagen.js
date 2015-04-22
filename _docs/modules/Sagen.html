@@ -127,34 +127,6 @@
 </div>
 
 
-    <div class="example">
-        <h4>Example:</h4>
-        <div class="example-content">
-            <p>htmlタグへCSS classをセットします。<br>
-scriptタグdata属性から追加classをセットします</p>
-<pre class="code prettyprint"><code> &lt;script type=&quot;text/javascript&quot; src=&quot;/js/sagen.min.js&quot;
-     id=&quot;sagen&quot;
-     data-orientation=&quot;true&quot;
-     data-ios=&quot;true&quot;
-     data-canvas=&quot;true&quot;&gt;
- &lt;/script&gt;
-
- &lt;!--OS X Chrome--&gt;
- &lt;html class=&quot;transition transform matchMedia background-size mac other chrome chrome41 chrome41_0 chrome41_0_2272 chrome41_0_2272_118 canvas webgl&quot;&gt;</code></pre>
-<p>Browser / 端末判定にも使えます</p>
-<pre class="code prettyprint"><code> ( function ( window ){
-    &quot;use strict&quot;;
-    var Sagen = window.Sagen;
-
-    if ( Sagen.Browser.iOS.is() ) {
-         // iOS
-    }
-
- }( window ) );</code></pre>
-
-        </div>
-    </div>
-
 
 <div class="yui3-g">
     <div class="yui3-u-1-2">

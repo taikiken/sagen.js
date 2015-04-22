@@ -29,7 +29,7 @@
     "example",
     "src",
     "README.md",
-    "Sagen.iml",
-    "package.json"
+    "*.iml",
+    "bower.json"
   ]
 }
