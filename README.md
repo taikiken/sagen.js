@@ -8,18 +8,48 @@ html tag へ端末情報に基づくCSS classを書き込みます。
 original idea from [device.js](https://github.com/matthewhudson/device.js).
 
 # 使用方法
-    <script type="text/javascript" src="/js/sagen-VERSION.min.js"
+    <script type="text/javascript" src="/js/sagen.min.js"
         id="sagen"
         data-orientation="true"
-        data-android="true"
         data-ios="true"
-        data-canvas="true">
+        data-canvas="true"
+        data-browser="true"
+        >
     </script>
-
-
+    
 script は viewport 指定の後にリンクして下さい。
 
 id: **sagen** に設定します。
+
+【必須】
+id#sagen 
+
+## 標準(default)
+- SP 端末判定  
+    iphone, ipad, ipod, mobile, tablet
+    
+- SP OS 判定  
+    ios, android, ios_OS_VERSION, android_OS_VERSION
+    
+- SP Browser 判定  
+    safari, chrome, android-standard
+    
+- transition, transform, background-size, matchMedia, orientation, orientation-change 判定
+
+## data-オプション
+
+- browser  
+PC Browser 判定し class を設定します。
+
+- ios  
+iOS 7.1 時のみ viewport へ minimal-ui を追加します
+
+- canvas  
+canvas, web-gl 使用可否判定します
+
+- orientation  
+orientation-change(window.resize)を監視し portrait. landscape を随時変更します
+
 
 **iOS**
 
