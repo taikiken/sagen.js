@@ -1,1 +1,0 @@
-jscheckstyle --html ../libs/wakegi.js > ../check/check.html
