@@ -74,15 +74,15 @@ var Sagen = window.Sagen || {};
           key, dataKey, val;
 
         for ( key in data ) {
-
-          if ( data.hasOwnProperty( key ) ) {
+          //alert( key + ":" + typeof data.hasOwnProperty );
+          //if ( data.hasOwnProperty( key ) ) {
 
             dataKey = key;
 
             val = data[ dataKey ].toLowerCase();
             results[ key ] = val === "true";
 
-          }
+          //}
         }
 
         return result;

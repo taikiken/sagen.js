@@ -66,7 +66,7 @@ var wakegi=wakegi||{};wakegi["int"]=parseInt,wakegi["float"]=parseFloat,function
  * This notice shall be included in all copies or substantial portions of the Software.
  *
  * @version 0.3.1
- * @build 2015-04-22 19:13:12
+ * @build 5/13/2015, 7:41:26 PM
  * @github: https://github.com/taikiken/sagen.js
  *
  * @requires kaketsugi.js, wakegi.js, gasane.js
@@ -129,15 +129,15 @@ var Sagen = window.Sagen || {};
           key, dataKey, val;
 
         for ( key in data ) {
-
-          if ( data.hasOwnProperty( key ) ) {
+          //alert( key + ":" + typeof data.hasOwnProperty );
+          //if ( data.hasOwnProperty( key ) ) {
 
             dataKey = key;
 
             val = data[ dataKey ].toLowerCase();
             results[ key ] = val === "true";
 
-          }
+          //}
         }
 
         return result;
