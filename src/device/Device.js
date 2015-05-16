@@ -109,7 +109,7 @@
      */
     Device._option = function ( classes ) {
 
-      if ( Sagen.dataset( "browser" ) ) {
+      if ( Sagen.dataSet( "browser" ) ) {
 
         Device._ie( classes )
           ._chrome( classes )
@@ -118,7 +118,7 @@
 
       }
 
-      if ( Sagen.dataset( "canvas" ) ) {
+      if ( Sagen.dataSet( "canvas" ) ) {
 
         Device._canvas( classes );
 
@@ -126,7 +126,7 @@
 
       // orientation
       // ToDo: orientation change
-      if ( Sagen.dataset( "orientation" ) && ( iOS.is() || Android.is()) ) {
+      if ( Sagen.dataSet( "orientation" ) && ( iOS.is() || Android.is()) ) {
 
         Orientation.on( Orientation.CHANGE_ORIENTATION, Device._onOrientation );
         Orientation.init();

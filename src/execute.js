@@ -14,7 +14,6 @@
   "use strict";
 
   var
-    document = window.document,
     Sagen = window.Sagen,
 
     Device = Sagen.Device,

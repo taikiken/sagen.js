@@ -65,7 +65,7 @@ var Sagen = window.Sagen || {};
 
       var
         document = window.document,
-        sagen = document.getElementById( "sagen" ),
+        element = document.getElementById( "sagen" ),
         results = {},
         data;
 
@@ -74,15 +74,20 @@ var Sagen = window.Sagen || {};
           key, dataKey, val;
 
         for ( key in data ) {
-          //alert( key + ":" + typeof data.hasOwnProperty );
-          //if ( data.hasOwnProperty( key ) ) {
 
-            dataKey = key;
+          if ( typeof data.hasOwnProperty === "funcyion" && data.hasOwnProperty( key ) ) {
 
-            val = data[ dataKey ].toLowerCase();
+            //dataKey = key;
+
+            val = data[ key ].toLowerCase();
             results[ key ] = val === "true";
 
-          //}
+          } else {
+
+            val = data[ key ].toLowerCase();
+            results[ key ] = val === "true";
+
+          }
         }
 
         return result;
@@ -109,17 +114,17 @@ var Sagen = window.Sagen || {};
         return result;
       }
 
-      if ( !!sagen ) {
+      if ( !!element ) {
         // id: sagen defined
 
-        if ( typeof sagen.dataset !== "undefined" ) {
+        if ( typeof element.dataset !== "undefined" ) {
           // can use dataset
-          data = sagen.dataset;
+          data = element.dataset;
           results = modern( results, data );
 
         } else {
           // use attributes
-          data = sagen.attributes;
+          data = element.attributes;
           //attributes = true;
           results = legacy( results, data );
 
@@ -139,15 +144,17 @@ var Sagen = window.Sagen || {};
   Sagen.EventDispatcher = Gasane.EventDispatcher;
 
   /**
-   * @method dataset
+   * @method dataSet
    * @static
    * @for Sagen
    * @param {string} type
    */
-  Sagen.dataset = function ( type ) {
+  Sagen.dataSet = function ( type ) {
 
     return dataSet[ type ];
 
   };
+
+  Sagen.datase = Sagen.dataSet;
 
 }( window, Sagen ) );

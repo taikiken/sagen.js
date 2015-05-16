@@ -56,7 +56,7 @@
      */
     Viewport.init = function () {
 
-      if ( Sagen.dataset( "ios" ) ) {
+      if ( Sagen.dataSet( "ios" ) ) {
 
         Viewport.minimalUi();
 

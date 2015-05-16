@@ -12,7 +12,7 @@
  *
  * Polyfill
  *
- * @build: Mon Mar 16 2015 16:09:23 GMT+0900 (JST)
+ * @build: 5/16/2015, 11:44:07 PM
  * @version: 1.0.0
  */
 !function(t){"use strict";var n=(t.document,Math.max),e=Math.abs,r=t.self;Date.now||(Date.now=function(){return(new Date).getTime()}),function(){for(var t=0,n=["ms","moz","webkit","o"],e=0;e<n.length&&!r.requestAnimationFrame;++e)r.requestAnimationFrame=r[n[e]+"RequestAnimationFrame"],r.cancelAnimationFrame=r[n[e]+"CancelAnimationFrame"]||r[n[e]+"CancelRequestAnimationFrame"];void 0===r.requestAnimationFrame&&void 0!==r.setTimeout&&(r.requestAnimationFrame=function(n){var e=Date.now(),o=Math.max(0,16-(e-t)),i=r.setTimeout(function(){n(e+o)},o);return t=e+o,i}),void 0===r.cancelAnimationFrame&&void 0!==r.clearTimeout&&(r.cancelAnimationFrame=function(t){r.clearTimeout(t)})}(),"function"!=typeof Object.create&&(Object.create=function(){var t=function(){};return function(n){if(arguments.length>1)throw Error("Second argument not supported");if("object"!=typeof n)throw TypeError("Argument must be an object");t.prototype=n;var e=new t;return t.prototype=null,e}}()),Array.isArray||(Array.isArray=function(t){return"[object Array]"===Object.prototype.toString.call(t)}),Array.prototype.indexOf||(Array.prototype.indexOf=function(t,r){var o;if(null===this||"undefined"==typeof this)throw new TypeError('"this" is null or not defined');var i=Object(this),a=i.length>>>0;if(0===a)return-1;var u=+r||0;if(1/0===e(u)&&(u=0),u>=a)return-1;for(o=n(u>=0?u:a-e(u),0);a>o;){if(o in i&&i[o]===t)return o;o++}return-1}),Array.prototype.forEach||(Array.prototype.forEach=function(t,n){var e,r;if(null===this||"undefined"==typeof this)throw new TypeError(" this is null or not defined");var o=Object(this),i=o.length>>>0;if("function"!=typeof t)throw new TypeError(t+" is not a function");for(arguments.length>1&&(e=n),r=0;i>r;){var a;r in o&&(a=o[r],t.call(e,a,r,o)),r++}}),Function.prototype.bind||(Function.prototype.bind=function(t){if("function"!=typeof this)throw new TypeError("Function.prototype.bind - what is trying to be bound is not callable");var n=Array.prototype.slice.call(arguments,1),e=this,r=function(){},o=function(){return e.apply(this instanceof r&&t?this:t,n.concat(Array.prototype.slice.call(arguments)))};return r.prototype=this.prototype,o.prototype=new r,o}),String.prototype.trim||!function(){var t=/^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g;String.prototype.trim=function(){return this.replace(t,"")}}(),navigator.getUserMedia=navigator.getUserMedia||navigator.webkitGetUserMedia||navigator.mozGetUserMedia||navigator.msGetUserMedia,t.URL=t.URL||t.webkitURL||t.mozURL||t.msURL,r.console||(r.console={info:function(){},log:function(){},debug:function(){},warn:function(){},error:function(){},table:function(){}})}(window);
@@ -66,7 +66,7 @@ var wakegi=wakegi||{};wakegi["int"]=parseInt,wakegi["float"]=parseFloat,function
  * This notice shall be included in all copies or substantial portions of the Software.
  *
  * @version 0.3.2
- * @build 5/13/2015, 7:41:55 PM
+ * @build 5/17/2015, 12:37:14 AM
  * @github: https://github.com/taikiken/sagen.js
  *
  * @requires kaketsugi.js, wakegi.js, gasane.js
@@ -120,7 +120,7 @@ var Sagen = window.Sagen || {};
 
       var
         document = window.document,
-        sagen = document.getElementById( "sagen" ),
+        element = document.getElementById( "sagen" ),
         results = {},
         data;
 
@@ -129,15 +129,20 @@ var Sagen = window.Sagen || {};
           key, dataKey, val;
 
         for ( key in data ) {
-          //alert( key + ":" + typeof data.hasOwnProperty );
-          //if ( data.hasOwnProperty( key ) ) {
 
-            dataKey = key;
+          if ( typeof data.hasOwnProperty === "funcyion" && data.hasOwnProperty( key ) ) {
 
-            val = data[ dataKey ].toLowerCase();
+            //dataKey = key;
+
+            val = data[ key ].toLowerCase();
             results[ key ] = val === "true";
 
-          //}
+          } else {
+
+            val = data[ key ].toLowerCase();
+            results[ key ] = val === "true";
+
+          }
         }
 
         return result;
@@ -164,17 +169,17 @@ var Sagen = window.Sagen || {};
         return result;
       }
 
-      if ( !!sagen ) {
+      if ( !!element ) {
         // id: sagen defined
 
-        if ( typeof sagen.dataset !== "undefined" ) {
+        if ( typeof element.dataset !== "undefined" ) {
           // can use dataset
-          data = sagen.dataset;
+          data = element.dataset;
           results = modern( results, data );
 
         } else {
           // use attributes
-          data = sagen.attributes;
+          data = element.attributes;
           //attributes = true;
           results = legacy( results, data );
 
@@ -194,16 +199,18 @@ var Sagen = window.Sagen || {};
   Sagen.EventDispatcher = Gasane.EventDispatcher;
 
   /**
-   * @method dataset
+   * @method dataSet
    * @static
    * @for Sagen
    * @param {string} type
    */
-  Sagen.dataset = function ( type ) {
+  Sagen.dataSet = function ( type ) {
 
     return dataSet[ type ];
 
   };
+
+  Sagen.datase = Sagen.dataSet;
 
 }( window, Sagen ) );
 /**
@@ -742,7 +749,7 @@ var Sagen = window.Sagen || {};
      */
     Device._option = function ( classes ) {
 
-      if ( Sagen.dataset( "browser" ) ) {
+      if ( Sagen.dataSet( "browser" ) ) {
 
         Device._ie( classes )
           ._chrome( classes )
@@ -751,7 +758,7 @@ var Sagen = window.Sagen || {};
 
       }
 
-      if ( Sagen.dataset( "canvas" ) ) {
+      if ( Sagen.dataSet( "canvas" ) ) {
 
         Device._canvas( classes );
 
@@ -759,7 +766,7 @@ var Sagen = window.Sagen || {};
 
       // orientation
       // ToDo: orientation change
-      if ( Sagen.dataset( "orientation" ) && ( iOS.is() || Android.is()) ) {
+      if ( Sagen.dataSet( "orientation" ) && ( iOS.is() || Android.is()) ) {
 
         Orientation.on( Orientation.CHANGE_ORIENTATION, Device._onOrientation );
         Orientation.init();
@@ -1201,7 +1208,7 @@ var Sagen = window.Sagen || {};
      */
     Viewport.init = function () {
 
-      if ( Sagen.dataset( "ios" ) ) {
+      if ( Sagen.dataSet( "ios" ) ) {
 
         Viewport.minimalUi();
 
@@ -1368,7 +1375,6 @@ var Sagen = window.Sagen || {};
   "use strict";
 
   var
-    document = window.document,
     Sagen = window.Sagen,
 
     Device = Sagen.Device,
