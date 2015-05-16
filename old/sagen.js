@@ -66,7 +66,7 @@ var wakegi=wakegi||{};wakegi["int"]=parseInt,wakegi["float"]=parseFloat,function
  * This notice shall be included in all copies or substantial portions of the Software.
  *
  * @version 0.3.2
- * @build 5/17/2015, 12:35:22 AM
+ * @build 5/17/2015, 12:37:14 AM
  * @github: https://github.com/taikiken/sagen.js
  *
  * @requires kaketsugi.js, wakegi.js, gasane.js
@@ -127,10 +127,9 @@ var Sagen = window.Sagen || {};
       function modern ( result, data ) {
         var
           key, dataKey, val;
-        alert( typeof Object.hasOwnProperty );
+
         for ( key in data ) {
 
-          alert( key + ":" + typeof data.hasOwnProperty );
           if ( typeof data.hasOwnProperty === "funcyion" && data.hasOwnProperty( key ) ) {
 
             //dataKey = key;
@@ -176,26 +175,6 @@ var Sagen = window.Sagen || {};
         if ( typeof element.dataset !== "undefined" ) {
           // can use dataset
           data = element.dataset;
-          var obj = {
-            a: 10000,
-            c: "xxxx",
-            b: 100
-          };
-          //console.log( "element.dataset " + element.dataset );
-
-          for( var k in element.dataset ) {
-
-            //if ( element.dataset.hasOwnProperty( var k ) ) {
-
-              var value = element.dataset[ k ];
-            console.log( "value="+ k + ":" +element.dataset[ k ]);
-
-            //}
-          }
-          alert( "obj:" + typeof obj );
-          alert( "obj hasOwnProperty:" + typeof obj.hasOwnProperty );
-          alert( "data:" + typeof data );
-          alert( "data.hasOwnProperty:" + typeof data.hasOwnProperty );
           results = modern( results, data );
 
         } else {
@@ -230,6 +209,8 @@ var Sagen = window.Sagen || {};
     return dataSet[ type ];
 
   };
+
+  Sagen.datase = Sagen.dataSet;
 
 }( window, Sagen ) );
 /**
