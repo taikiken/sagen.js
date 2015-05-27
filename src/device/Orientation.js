@@ -53,7 +53,9 @@
        * @type {MediaQueryList}
        * @private
        */
-      _mediaQuery;
+      _mediaQuery,
+
+      _start;
 
     /**
      * @class Orientation
@@ -145,19 +147,25 @@
       var
         handler;
 
-      if ( typeof window.addEventListener !== "undefined" ) {
+      if ( !_start ) {
 
-        if ( Css3.matchMedia() ) {
-          // can use matchMedia
-          //handler = Orientation._listenMatchMedia;
+        _start = true;
 
-          Orientation._listenMatchMedia();
+        if ( typeof window.addEventListener !== "undefined" ) {
 
-        } else {
-          // matchMediaが使えないので代わりに window.orientationあるいは window 縦横比を使い判定します
-          handler = Orientation._listenOrientation;
-          _handler = handler;
-          window.addEventListener( Orientation.eventType(), handler, false );
+          if ( Css3.matchMedia() ) {
+            // can use matchMedia
+            //handler = Orientation._listenMatchMedia;
+
+            Orientation._listenMatchMedia();
+
+          } else {
+            // matchMediaが使えないので代わりに window.orientationあるいは window 縦横比を使い判定します
+            handler = Orientation._listenOrientation;
+            _handler = handler;
+            window.addEventListener( Orientation.eventType(), handler, false );
+
+          }
 
         }
 
