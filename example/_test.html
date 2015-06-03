@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head lang="ja">
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<body>
+<p>userAgent</p>
+<div id="ua"></div>
+<br/>
+<p>appVersion</p>
+<div id="av"></div>
+<script>
+	( function ( window ) {
+
+	  "use strict";
+
+	  var
+	    document = window.document;
+
+	  var ua = document.getElementById( "ua" );
+	  var av = document.getElementById( "av" );
+
+		ua.innerHTML = navigator.userAgent;
+		av.innerHTML = navigator.appVersion;
+
+	}( window ) );
+</script>
+</body>
+</html>
