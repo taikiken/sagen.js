@@ -330,8 +330,8 @@
 
     };
 
-
     return Orientation;
+
   }() );
 
 }( window ) );

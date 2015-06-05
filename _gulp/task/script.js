@@ -149,10 +149,13 @@ gulp.task( 'script-build', function () {
 } );
 
 // compile & api
-gulp.task( 'script-build-api', [ 'script-build', 'script-api' ], function ( cb ) {
+gulp.task( 'script-build-api', function () {
 
   $.runSequence(
-    cb
+    [
+      'script-build',
+      'script-api'
+    ]
   );
 
 } );

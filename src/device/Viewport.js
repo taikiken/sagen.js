@@ -180,8 +180,30 @@
         if ( content.indexOf( oldOption ) !== -1 ) {
 
           content.split( oldOption ).join( newOption );
+          _viewport.content = content;
 
         }
+
+      }
+
+      return Viewport;
+
+    };
+
+    /**
+     * viewport content 引数で書換
+     * @method rewrite
+     * @static
+     * @param {string} content
+     * @return {Viewport}
+     */
+    Viewport.rewrite = function ( content ) {
+
+      Viewport.find();
+
+      if ( !!_viewport ) {
+
+        _viewport.content = content;
 
       }
 
