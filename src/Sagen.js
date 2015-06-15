@@ -75,7 +75,7 @@ var Sagen = window.Sagen || {};
 
         for ( key in data ) {
 
-          if ( typeof data.hasOwnProperty === "funcyion" && data.hasOwnProperty( key ) ) {
+          if ( typeof data.hasOwnProperty === "function" && data.hasOwnProperty( key ) ) {
 
             //dataKey = key;
 

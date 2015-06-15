@@ -15,8 +15,7 @@
 	var document = window.document,
 		show_css = document.getElementById( "show_css" ),
 		html_element = document.documentElement,
-		Sagen = window.Sagen
-	;
+		Sagen = window.Sagen;
 
 	show_css.innerHTML = html_element.className;
 
@@ -26,7 +25,7 @@
 		show_css.innerHTML = html_element.className;
 	}
 
-	Sagen.Device.addEventListener( Sagen.Device.CHANGE_ORIENTATION, _onOrientation );
+	Sagen.Orientation.addEventListener( Sagen.Orientation.CHANGE_ORIENTATION, _onOrientation );
 }( window ) );
 </script>
 </body>

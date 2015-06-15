@@ -65,8 +65,8 @@ var wakegi=wakegi||{};wakegi["int"]=parseInt,wakegi["float"]=parseFloat,function
  *
  * This notice shall be included in all copies or substantial portions of the Software.
  *
- * @version 0.3.7
- * @build 6/5/2015, 5:37:53 PM
+ * @version 0.3.8
+ * @build 2015-06-15 16:54:41
  * @github: https://github.com/taikiken/sagen.js
  *
  * @requires kaketsugi.js, wakegi.js, gasane.js
@@ -130,7 +130,7 @@ var Sagen = window.Sagen || {};
 
         for ( key in data ) {
 
-          if ( typeof data.hasOwnProperty === "funcyion" && data.hasOwnProperty( key ) ) {
+          if ( typeof data.hasOwnProperty === "function" && data.hasOwnProperty( key ) ) {
 
             //dataKey = key;
 
@@ -238,6 +238,7 @@ var Sagen = window.Sagen || {};
       Browser = Sagen.Browser,
       Css3 = Browser.Css3,
       iOS = Browser.iOS,
+      Android = Browser.Android,
 
       _abs = Math.abs,
       _int = parseInt,
@@ -343,7 +344,21 @@ var Sagen = window.Sagen || {};
      * @static
      */
     Orientation.portrait = function () {
-      Orientation.dispatchEvent( { type: Orientation.CHANGE_ORIENTATION, direction: "portrait", scope: Orientation } );
+
+      var
+        width = window.innerWidth,
+        height = window.innerHeight;
+
+      if ( width > height ) {
+
+        Orientation.landscape();
+
+      } else {
+
+        Orientation.dispatchEvent( { type: Orientation.CHANGE_ORIENTATION, direction: "portrait", scope: Orientation } );
+
+      }
+
     };
     /**
      * Orientation.CHANGE_ORIENTATIONをdispatchし directionを "landscape" にします
@@ -351,7 +366,21 @@ var Sagen = window.Sagen || {};
      * @static
      */
     Orientation.landscape = function () {
-      Orientation.dispatchEvent( { type: Orientation.CHANGE_ORIENTATION, direction: "landscape", scope: Orientation } );
+
+      var
+        width = window.innerWidth,
+        height = window.innerHeight;
+
+      if ( height > width ) {
+
+        Orientation.portrait();
+
+      } else {
+
+        Orientation.dispatchEvent( { type: Orientation.CHANGE_ORIENTATION, direction: "landscape", scope: Orientation } );
+
+      }
+
     };
     /**
      * @method listen
@@ -503,6 +532,7 @@ var Sagen = window.Sagen || {};
         Orientation.landscape();
 
       }
+
     };
     /**
      * @method _onOrientationChange
@@ -533,7 +563,7 @@ var Sagen = window.Sagen || {};
       var mql = window.matchMedia( "(orientation: portrait)" );
       _mediaQuery = mql;
 
-      if ( iOS.is() && iOS.version() < 6 ) {
+      if ( ( iOS.is() && iOS.version() < 6 ) || ( Android.is() && Android.version() < 4.2 ) ) {
         // iOS 5 以下だと mql.addListener が作動しないのでorientationchangeを使用します
         window.addEventListener( Orientation.eventType(), Orientation._onOrientationChange, false );
 

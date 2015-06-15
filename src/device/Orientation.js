@@ -23,6 +23,7 @@
       Browser = Sagen.Browser,
       Css3 = Browser.Css3,
       iOS = Browser.iOS,
+      Android = Browser.Android,
 
       _abs = Math.abs,
       _int = parseInt,
@@ -128,7 +129,21 @@
      * @static
      */
     Orientation.portrait = function () {
-      Orientation.dispatchEvent( { type: Orientation.CHANGE_ORIENTATION, direction: "portrait", scope: Orientation } );
+
+      var
+        width = window.innerWidth,
+        height = window.innerHeight;
+
+      if ( width > height ) {
+
+        Orientation.landscape();
+
+      } else {
+
+        Orientation.dispatchEvent( { type: Orientation.CHANGE_ORIENTATION, direction: "portrait", scope: Orientation } );
+
+      }
+
     };
     /**
      * Orientation.CHANGE_ORIENTATIONをdispatchし directionを "landscape" にします
@@ -136,7 +151,21 @@
      * @static
      */
     Orientation.landscape = function () {
-      Orientation.dispatchEvent( { type: Orientation.CHANGE_ORIENTATION, direction: "landscape", scope: Orientation } );
+
+      var
+        width = window.innerWidth,
+        height = window.innerHeight;
+
+      if ( height > width ) {
+
+        Orientation.portrait();
+
+      } else {
+
+        Orientation.dispatchEvent( { type: Orientation.CHANGE_ORIENTATION, direction: "landscape", scope: Orientation } );
+
+      }
+
     };
     /**
      * @method listen
@@ -288,6 +317,7 @@
         Orientation.landscape();
 
       }
+
     };
     /**
      * @method _onOrientationChange
@@ -318,7 +348,7 @@
       var mql = window.matchMedia( "(orientation: portrait)" );
       _mediaQuery = mql;
 
-      if ( iOS.is() && iOS.version() < 6 ) {
+      if ( ( iOS.is() && iOS.version() < 6 ) || ( Android.is() && Android.version() < 4.2 ) ) {
         // iOS 5 以下だと mql.addListener が作動しないのでorientationchangeを使用します
         window.addEventListener( Orientation.eventType(), Orientation._onOrientationChange, false );
 
