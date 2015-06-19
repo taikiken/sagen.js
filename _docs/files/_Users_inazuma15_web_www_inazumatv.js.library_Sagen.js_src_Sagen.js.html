@@ -126,6 +126,9 @@
  */
 
 /**
+ *
+ * @class Sagen
+ *
  * @example
  * htmlタグへCSS classをセットします。&lt;br&gt;
  * scriptタグdata属性から追加classをセットします
@@ -133,6 +136,7 @@
  *      &lt;script type=&quot;text/javascript&quot; src=&quot;/js/sagen.min.js&quot;
  *          id=&quot;sagen&quot;
  *          data-orientation=&quot;true&quot;
+ *          data-browser=&quot;true&quot;
  *          data-ios=&quot;true&quot;
  *          data-canvas=&quot;true&quot;&gt;
  *      &lt;/script&gt;
@@ -152,7 +156,7 @@
  *
  *      }( window ) );
  *
- * @class Sagen
+ *
  */
 
 var Sagen = window.Sagen || {};
@@ -264,7 +268,15 @@ var Sagen = window.Sagen || {};
 
   };
 
-  Sagen.datase = Sagen.dataSet;
+  /**
+   * dataSet alias
+   * @deprecated instead use dataSet
+   * @method dataset
+   * @static
+   * @for Sagen
+   * @type {Function|*}
+   */
+  Sagen.dataset = Sagen.dataSet;
 
 }( window, Sagen ) );
     </pre>

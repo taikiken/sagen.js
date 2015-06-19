@@ -66,7 +66,7 @@ var wakegi=wakegi||{};wakegi["int"]=parseInt,wakegi["float"]=parseFloat,function
  * This notice shall be included in all copies or substantial portions of the Software.
  *
  * @version 0.3.9
- * @build 6/19/2015, 2:56:20 PM
+ * @build 6/19/2015, 3:10:43 PM
  * @github: https://github.com/taikiken/sagen.js
  *
  * @requires kaketsugi.js, wakegi.js, gasane.js
@@ -75,6 +75,9 @@ var wakegi=wakegi||{};wakegi["int"]=parseInt,wakegi["float"]=parseFloat,function
  */
 
 /**
+ *
+ * @class Sagen
+ *
  * @example
  * htmlタグへCSS classをセットします。<br>
  * scriptタグdata属性から追加classをセットします
@@ -82,6 +85,7 @@ var wakegi=wakegi||{};wakegi["int"]=parseInt,wakegi["float"]=parseFloat,function
  *      <script type="text/javascript" src="/js/sagen.min.js"
  *          id="sagen"
  *          data-orientation="true"
+ *          data-browser="true"
  *          data-ios="true"
  *          data-canvas="true">
  *      </script>
@@ -101,7 +105,7 @@ var wakegi=wakegi||{};wakegi["int"]=parseInt,wakegi["float"]=parseFloat,function
  *
  *      }( window ) );
  *
- * @class Sagen
+ *
  */
 
 var Sagen = window.Sagen || {};
@@ -213,7 +217,15 @@ var Sagen = window.Sagen || {};
 
   };
 
-  Sagen.datase = Sagen.dataSet;
+  /**
+   * dataSet alias
+   * @deprecated instead use dataSet
+   * @method dataset
+   * @static
+   * @for Sagen
+   * @type {Function|*}
+   */
+  Sagen.dataset = Sagen.dataSet;
 
 }( window, Sagen ) );
 /**

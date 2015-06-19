@@ -66,14 +66,18 @@ var wakegi=wakegi||{};wakegi["int"]=parseInt,wakegi["float"]=parseFloat,function
  * This notice shall be included in all copies or substantial portions of the Software.
  *
  * @version 0.3.9
- * @build 6/19/2015, 2:53:38 PM
+ * @build 6/19/2015, 3:08:51 PM
  * @github: https://github.com/taikiken/sagen.js
  *
  * @requires kaketsugi.js, wakegi.js, gasane.js
  *
  * @module Sagen
  */
+
 /**
+ *
+ * @class Sagen
+ *
  * @example
  * htmlタグへCSS classをセットします。<br>
  * scriptタグdata属性から追加classをセットします
@@ -81,6 +85,7 @@ var wakegi=wakegi||{};wakegi["int"]=parseInt,wakegi["float"]=parseFloat,function
  *      <script type="text/javascript" src="/js/sagen.min.js"
  *          id="sagen"
  *          data-orientation="true"
+ *          data-browser="true"
  *          data-ios="true"
  *          data-canvas="true">
  *      </script>
@@ -99,6 +104,8 @@ var wakegi=wakegi||{};wakegi["int"]=parseInt,wakegi["float"]=parseFloat,function
  *         }
  *
  *      }( window ) );
+ *
+ *
  */
 
 var Sagen = window.Sagen || {};
@@ -279,7 +286,7 @@ var Sagen = window.Sagen || {};
     /**
      * portrait / landscape 切替を監視
      * @class Orientation
-     * @use EventDispatcher
+     * @uses EventDispatcher
      * @static
      * @constructor
      */
@@ -1450,6 +1457,8 @@ var Sagen = window.Sagen || {};
  * http://www.opensource.org/licenses/mit-license.html
  *
  * This notice shall be included in all copies or substantial portions of the Software.
+ *
+ * @module Sagen
  */
 ( function ( window ){
   "use strict";
