@@ -1,0 +1,11 @@
+{
+  "name": "sagen.js",
+  "description": "device detection.",
+  "url": "https://github.com/taikiken/sagen.js",
+  "options": {
+    "linkNatives": "true",
+    "attributesEmit": "true",
+    "outdir": "./",
+    "paths": ["./src"]
+  }
+}

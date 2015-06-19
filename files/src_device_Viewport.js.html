@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>../src/dependencies/kaketsugi.min.js - sagen.js</title>
+    <title>src/device/Viewport.js - sagen.js</title>
     <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
     <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
     <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
@@ -17,7 +17,7 @@
                 <h1><img src="../assets/css/logo.png" title="sagen.js" width="117" height="52"></h1>
         </div>
         <div class="yui3-u-1-4 version">
-            <em>API Docs for: 0.3.9</em>
+            <em>API Docs for: </em>
         </div>
     </div>
     <div id="bd" class="yui3-g">
@@ -48,11 +48,9 @@
                             <ul id="api-modules" class="apis modules">
                                 <li><a href="../modules/Classes.html">Classes</a></li>
                                 <li><a href="../modules/Device.html">Device</a></li>
-                                <li><a href="../modules/Gasane.html">Gasane</a></li>
                                 <li><a href="../modules/Orientation.html">Orientation</a></li>
                                 <li><a href="../modules/Sagen.html">Sagen</a></li>
                                 <li><a href="../modules/Viewport.html">Viewport</a></li>
-                                <li><a href="../modules/wakegi.html">wakegi</a></li>
                             </ul>
                         </div>
                     </div>
@@ -86,14 +84,14 @@
             <div class="apidocs">
                 <div id="docs-main">
                     <div class="content">
-<h1 class="file-heading">File: ../src/dependencies/kaketsugi.min.js</h1>
+<h1 class="file-heading">File: src/device/Viewport.js</h1>
 
 <div class="file">
     <pre class="code prettyprint linenums">
 /**
- * @license inazumatv.com
- * @author (at)taikiken / http://inazumatv.com
- * @date 2015/03/16 - 14:02
+ * license inazumatv.com
+ * author (at)taikiken / http://inazumatv.com
+ * date 2015/04/10 - 18:48
  *
  * Copyright (c) 2011-2015 inazumatv.com, inc.
  *
@@ -102,12 +100,228 @@
  *
  * This notice shall be included in all copies or substantial portions of the Software.
  *
- * Polyfill
- *
- * @build: 5/17/2015, 1:05:45 AM
- * @version: 1.0.0
+ * @module Sagen
+ * @submodule Viewport
  */
-!function(t){&quot;use strict&quot;;var n=(t.document,Math.max),e=Math.abs,r=t.self;Date.now||(Date.now=function(){return(new Date).getTime()}),function(){for(var t=0,n=[&quot;ms&quot;,&quot;moz&quot;,&quot;webkit&quot;,&quot;o&quot;],e=0;e&lt;n.length&amp;&amp;!r.requestAnimationFrame;++e)r.requestAnimationFrame=r[n[e]+&quot;RequestAnimationFrame&quot;],r.cancelAnimationFrame=r[n[e]+&quot;CancelAnimationFrame&quot;]||r[n[e]+&quot;CancelRequestAnimationFrame&quot;];void 0===r.requestAnimationFrame&amp;&amp;void 0!==r.setTimeout&amp;&amp;(r.requestAnimationFrame=function(n){var e=Date.now(),o=Math.max(0,16-(e-t)),i=r.setTimeout(function(){n(e+o)},o);return t=e+o,i}),void 0===r.cancelAnimationFrame&amp;&amp;void 0!==r.clearTimeout&amp;&amp;(r.cancelAnimationFrame=function(t){r.clearTimeout(t)})}(),&quot;function&quot;!=typeof Object.create&amp;&amp;(Object.create=function(){var t=function(){};return function(n){if(arguments.length&gt;1)throw Error(&quot;Second argument not supported&quot;);if(&quot;object&quot;!=typeof n)throw TypeError(&quot;Argument must be an object&quot;);t.prototype=n;var e=new t;return t.prototype=null,e}}()),Array.isArray||(Array.isArray=function(t){return&quot;[object Array]&quot;===Object.prototype.toString.call(t)}),Array.prototype.indexOf||(Array.prototype.indexOf=function(t,r){var o;if(null===this||&quot;undefined&quot;==typeof this)throw new TypeError(&#x27;&quot;this&quot; is null or not defined&#x27;);var i=Object(this),a=i.length&gt;&gt;&gt;0;if(0===a)return-1;var u=+r||0;if(1/0===e(u)&amp;&amp;(u=0),u&gt;=a)return-1;for(o=n(u&gt;=0?u:a-e(u),0);a&gt;o;){if(o in i&amp;&amp;i[o]===t)return o;o++}return-1}),Array.prototype.forEach||(Array.prototype.forEach=function(t,n){var e,r;if(null===this||&quot;undefined&quot;==typeof this)throw new TypeError(&quot; this is null or not defined&quot;);var o=Object(this),i=o.length&gt;&gt;&gt;0;if(&quot;function&quot;!=typeof t)throw new TypeError(t+&quot; is not a function&quot;);for(arguments.length&gt;1&amp;&amp;(e=n),r=0;i&gt;r;){var a;r in o&amp;&amp;(a=o[r],t.call(e,a,r,o)),r++}}),Function.prototype.bind||(Function.prototype.bind=function(t){if(&quot;function&quot;!=typeof this)throw new TypeError(&quot;Function.prototype.bind - what is trying to be bound is not callable&quot;);var n=Array.prototype.slice.call(arguments,1),e=this,r=function(){},o=function(){return e.apply(this instanceof r&amp;&amp;t?this:t,n.concat(Array.prototype.slice.call(arguments)))};return r.prototype=this.prototype,o.prototype=new r,o}),String.prototype.trim||!function(){var t=/^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g;String.prototype.trim=function(){return this.replace(t,&quot;&quot;)}}(),navigator.getUserMedia=navigator.getUserMedia||navigator.webkitGetUserMedia||navigator.mozGetUserMedia||navigator.msGetUserMedia,t.URL=t.URL||t.webkitURL||t.mozURL||t.msURL,r.console||(r.console={info:function(){},log:function(){},debug:function(){},warn:function(){},error:function(){},table:function(){}})}(window);
+( function ( window ){
+  &quot;use strict&quot;;
+
+  var
+    document = window.document,
+    Sagen = window.Sagen;
+
+  Sagen.Viewport = ( function (){
+    var
+      Browser = Sagen.Browser,
+      iOS = Browser.iOS,
+      Element = Browser.Element,
+      /**
+       * @property _viewport
+       * @static
+       * @type {HTMLElement}
+       * @private
+       */
+      _viewport,
+      /**
+       * @property _content
+       * @static
+       * @type {string}
+       * @private
+       */
+      _content;
+
+    /**
+     * @class Viewport
+     * @static
+     * @constructor
+     */
+    function Viewport () {
+      throw new Error( &quot;Viewport can&#x27;t create instance.&quot; );
+    }
+
+    var p = Viewport.prototype;
+
+    p.constructor = Viewport;
+
+    /**
+     * @method init
+     * @static
+     */
+    Viewport.init = function () {
+
+      if ( Sagen.dataSet( &quot;ios&quot; ) ) {
+
+        Viewport.minimalUi();
+
+      }
+
+    };
+    /**
+     * @method find
+     * @static
+     * @return {Viewport}
+     */
+    Viewport.find = function () {
+
+      if ( typeof _viewport === &quot;undefined&quot; ) {
+        // _viewport undefined
+        _viewport = Element.find( &quot;meta[name=&#x27;viewport&#x27;]&quot; );
+
+      }
+
+      if ( !!_viewport ) {
+
+        _content = _viewport.content;
+
+      } else {
+
+        _viewport = &quot;&quot;;
+        _content = &quot;&quot;;
+
+      }
+
+      return Viewport;
+
+    };
+    /**
+     * @method Viewport
+     * @static
+     * @return {HTMLElement|*}
+     */
+    Viewport.meta = function () {
+      Viewport.find();
+      return _viewport;
+    };
+    /**
+     * @method content
+     * @static
+     * @return {string}
+     */
+    Viewport.content = function () {
+      Viewport.find();
+      return _content;
+    };
+    /**
+     * @method write
+     * @static
+     * @param {String} content
+     * @return {Viewport}
+     */
+    Viewport.write = function ( content ) {
+      var
+        meta;
+
+      Viewport.find();
+
+      if ( !_viewport ) {
+
+        meta = document.createElement( &quot;meta&quot; );
+        meta.name = &quot;viewport&quot;;
+        meta.content = content;
+        _viewport = meta;
+        _content = content;
+        document.getElementsByTagName( &quot;head&quot; )[ 0 ].appendChild( meta );
+
+      }
+
+      return Viewport;
+    };
+    /**
+     * @method add
+     * @static
+     * @param {string} option
+     * @return {Viewport}
+     */
+    Viewport.add = function ( option ) {
+      var
+        content;
+
+      Viewport.find();
+
+      if ( !!_viewport ) {
+
+        content = _viewport.content;
+
+        if ( content.indexOf( option ) === -1 ) {
+
+          _viewport.content = content + &quot;, &quot; + option;
+
+        }
+
+      }
+
+      return Viewport;
+
+    };
+    /**
+     * @method replace
+     * @static
+     * @param {string} oldOption
+     * @param {string} newOption
+     * @return {Viewport}
+     */
+    Viewport.replace = function ( oldOption, newOption ) {
+      var
+        content;
+
+      Viewport.find();
+
+      if ( !!_viewport ) {
+
+        content = _viewport.content;
+
+        if ( content.indexOf( oldOption ) !== -1 ) {
+
+          content.split( oldOption ).join( newOption );
+          _viewport.content = content;
+
+        }
+
+      }
+
+      return Viewport;
+
+    };
+
+    /**
+     * viewport content 引数で書換
+     * @method rewrite
+     * @static
+     * @param {string} content
+     * @return {Viewport}
+     */
+    Viewport.rewrite = function ( content ) {
+
+      Viewport.find();
+
+      if ( !!_viewport ) {
+
+        _viewport.content = content;
+
+      }
+
+      return Viewport;
+
+    };
+    /**
+     * @method minimalUi
+     * @static
+     */
+    Viewport.minimalUi = function () {
+      var version = iOS.version();
+
+      if ( version &gt;= 7.1 &amp;&amp; version &lt; 8.0 ) {
+
+        Viewport.add( &quot;minimal-ui&quot; );
+
+      }
+
+    };
+
+    return Viewport;
+  }() );
+
+}( window ) );
     </pre>
 </div>
                     </div>

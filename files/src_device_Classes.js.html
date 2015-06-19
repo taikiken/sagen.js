@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>wakegi - sagen.js</title>
+    <title>src/device/Classes.js - sagen.js</title>
     <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
     <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
     <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
@@ -17,7 +17,7 @@
                 <h1><img src="../assets/css/logo.png" title="sagen.js" width="117" height="52"></h1>
         </div>
         <div class="yui3-u-1-4 version">
-            <em>API Docs for: 0.3.9</em>
+            <em>API Docs for: </em>
         </div>
     </div>
     <div id="bd" class="yui3-g">
@@ -48,11 +48,9 @@
                             <ul id="api-modules" class="apis modules">
                                 <li><a href="../modules/Classes.html">Classes</a></li>
                                 <li><a href="../modules/Device.html">Device</a></li>
-                                <li><a href="../modules/Gasane.html">Gasane</a></li>
                                 <li><a href="../modules/Orientation.html">Orientation</a></li>
                                 <li><a href="../modules/Sagen.html">Sagen</a></li>
                                 <li><a href="../modules/Viewport.html">Viewport</a></li>
-                                <li><a href="../modules/wakegi.html">wakegi</a></li>
                             </ul>
                         </div>
                     </div>
@@ -86,28 +84,110 @@
             <div class="apidocs">
                 <div id="docs-main">
                     <div class="content">
-<h1>wakegi Module</h1>
-<div class="box clearfix meta">
+<h1 class="file-heading">File: src/device/Classes.js</h1>
 
+<div class="file">
+    <pre class="code prettyprint linenums">
+/**
+ * license inazumatv.com
+ * author (at)taikiken / http://inazumatv.com
+ * date 2015/04/10 - 16:02
+ *
+ * Copyright (c) 2011-2015 inazumatv.com, inc.
+ *
+ * Distributed under the terms of the MIT license.
+ * http://www.opensource.org/licenses/mit-license.html
+ *
+ * This notice shall be included in all copies or substantial portions of the Software.
+ *
+ * @module Sagen
+ * @submodule Classes
+ */
+( function ( window ){
+  &quot;use strict&quot;;
 
-        <div class="foundat">
-            Defined in: <a href="../files/.._src_dependencies_wakegi.min.js.html#l1"><code>..&#x2F;src&#x2F;dependencies&#x2F;wakegi.min.js:1</code></a>
-        </div>
+  var
+    document = window.document,
+    Sagen = window.Sagen;
 
-</div>
+  Sagen.Classes = ( function (){
+    var
+      Dom = Sagen.Dom;
 
+    /**
+     * @class Classes
+     * @param {Array} classes
+     * @constructor
+     */
+    function Classes ( classes ) {
+      /**
+       * @property _classes
+       * @type {Array}
+       * @private
+       */
+      this._classes = classes;
+      /**
+       * @property _dom
+       * @type {Dom}
+       * @private
+       */
+      this._dom = new Dom( document.documentElement );
+    }
 
-<div class="box intro">
-    
-</div>
+    var p = Classes.prototype;
 
+    p.constructor = Classes;
+    /**
+     * @method add
+     * @param className
+     * @return {Classes}
+     */
+    p.add = function ( className ) {
+      var
+        classes = this._classes;
 
-<div class="yui3-g">
-    <div class="yui3-u-1-2">
-    </div>
+      if ( classes.indexOf( className ) === -1 ) {
 
-    <div class="yui3-u-1-2">
-    </div>
+        classes.push( className );
+
+      }
+
+      return this;
+    };
+    /**
+     * @method write
+     */
+    p.write = function () {
+      this._dom.addClass( this._classes.join( &quot; &quot; ) );
+    };
+
+    /**
+     * @method addClass
+     * @param {string} className
+     * @return {Classes}
+     */
+    p.addClass = function ( className ) {
+
+      this._dom.addClass( className );
+      return this;
+
+    };
+    /**
+     * @method removeClass
+     * @param {string} className
+     * @return {Classes}
+     */
+    p.removeClass = function ( className ) {
+
+      this._dom.removeClass( className );
+      return this;
+
+    };
+
+    return Classes;
+  }() );
+}( window ) );
+    </pre>
 </div>
                     </div>
                 </div>
