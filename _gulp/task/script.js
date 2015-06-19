@@ -131,6 +131,7 @@ gulp.task( 'script-api', function () {
 
   ] )
     .pipe( $.yuidoc() )
+    .pipe( $.yuidoc.parser() )
     .pipe( gulp.dest( dir.docs ) );
 
 } );

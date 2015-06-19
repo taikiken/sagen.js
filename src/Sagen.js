@@ -10,9 +10,9 @@
  *
  * This notice shall be included in all copies or substantial portions of the Software.
  *
- * @version @@version
- * @build @@buildTime
- * @github: @@url
+ * version @@version
+ * build @@buildTime
+ * github: @@url
  *
  * @requires kaketsugi.js, wakegi.js, gasane.js
  *
