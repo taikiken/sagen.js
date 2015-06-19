@@ -130,19 +130,7 @@
      */
     Orientation.portrait = function () {
 
-      var
-        width = window.innerWidth,
-        height = window.innerHeight;
-
-      if ( width > height ) {
-
-        Orientation.landscape();
-
-      } else {
-
-        Orientation.dispatchEvent( { type: Orientation.CHANGE_ORIENTATION, direction: "portrait", scope: Orientation } );
-
-      }
+      Orientation.dispatchEvent( { type: Orientation.CHANGE_ORIENTATION, direction: "portrait", scope: Orientation } );
 
     };
     /**
@@ -152,19 +140,7 @@
      */
     Orientation.landscape = function () {
 
-      var
-        width = window.innerWidth,
-        height = window.innerHeight;
-
-      if ( height > width ) {
-
-        Orientation.portrait();
-
-      } else {
-
-        Orientation.dispatchEvent( { type: Orientation.CHANGE_ORIENTATION, direction: "landscape", scope: Orientation } );
-
-      }
+      Orientation.dispatchEvent( { type: Orientation.CHANGE_ORIENTATION, direction: "landscape", scope: Orientation } );
 
     };
     /**
@@ -297,6 +273,26 @@
       return h > w;
 
     };
+    /**
+     * Experia Z(Sony Tablet), portrait / landscape 表示が逆なのでwindow比率で判定する
+     * @method _experiaZ
+     * @private
+     */
+    Orientation._experiaZ = function () {
+
+      // window 幅,高さを使う
+      // aspect check
+      if ( Orientation._checkAspect() ) {
+        // portrait
+        Orientation.portrait();
+
+      } else {
+
+        Orientation.landscape();
+
+      }
+
+    };
 
     /**
      * window.matchMedia listener handler
@@ -310,11 +306,13 @@
       // use matchMediaå
       if ( mediaQuery.matches ) {
         // portrait
-        Orientation.portrait();
+        //Orientation.portrait();
+        Orientation.dispatchEvent( { type: Orientation.CHANGE_ORIENTATION, direction: "portrait", scope: Orientation } );
 
       } else {
         // landscape
-        Orientation.landscape();
+        //Orientation.landscape();
+        Orientation.dispatchEvent( { type: Orientation.CHANGE_ORIENTATION, direction: "landscape", scope: Orientation } );
 
       }
 
@@ -345,10 +343,19 @@
      */
     Orientation._listenMatchMedia = function () {
 
-      var mql = window.matchMedia( "(orientation: portrait)" );
+      var
+        mql = window.matchMedia( "(orientation: portrait)" ),
+        sgp312 = !!navigator.userAgent.match(/sgp312/i);
+
       _mediaQuery = mql;
 
-      if ( ( iOS.is() && iOS.version() < 6 ) || ( Android.is() && Android.version() < 4.2 ) ) {
+      //if ( ( iOS.is() && iOS.version() < 6 ) || ( Android.is() && Android.version() < 4.2 ) ) {
+      if ( sgp312 ) {
+        // experia z
+        window.addEventListener( Orientation.eventType(), Orientation._experiaZ, false );
+
+      }
+      else if ( iOS.is() && iOS.version() < 6 ) {
         // iOS 5 以下だと mql.addListener が作動しないのでorientationchangeを使用します
         window.addEventListener( Orientation.eventType(), Orientation._onOrientationChange, false );
 
