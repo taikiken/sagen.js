@@ -20,6 +20,9 @@
  */
 
 /**
+ *
+ * @class Sagen
+ *
  * @example
  * htmlタグへCSS classをセットします。<br>
  * scriptタグdata属性から追加classをセットします
@@ -27,6 +30,7 @@
  *      <script type="text/javascript" src="/js/sagen.min.js"
  *          id="sagen"
  *          data-orientation="true"
+ *          data-browser="true"
  *          data-ios="true"
  *          data-canvas="true">
  *      </script>
@@ -46,7 +50,11 @@
  *
  *      }( window ) );
  *
+<<<<<<< HEAD
  * @class Sagen
+=======
+ *
+>>>>>>> master
  */
 
 var Sagen = window.Sagen || {};
@@ -81,10 +89,17 @@ var Sagen = window.Sagen || {};
           if ( typeof data.hasOwnProperty === "function" && data.hasOwnProperty( key ) ) {
 
             //dataKey = key;
+<<<<<<< HEAD
 
             val = data[ key ].toLowerCase();
             results[ key ] = val === "true";
 
+=======
+
+            val = data[ key ].toLowerCase();
+            results[ key ] = val === "true";
+
+>>>>>>> master
           } else {
 
             val = data[ key ].toLowerCase();
@@ -158,6 +173,18 @@ var Sagen = window.Sagen || {};
 
   };
 
+<<<<<<< HEAD
   Sagen.datase = Sagen.dataSet;
+=======
+  /**
+   * dataSet alias
+   * @deprecated instead use dataSet
+   * @method dataset
+   * @static
+   * @for Sagen
+   * @type {Function|*}
+   */
+  Sagen.dataset = Sagen.dataSet;
+>>>>>>> master
 
 }( window, Sagen ) );

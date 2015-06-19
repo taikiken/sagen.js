@@ -152,7 +152,14 @@ gulp.task( 'script-build', function () {
 gulp.task( 'script-build-api', [ 'script-build', 'script-api' ], function ( cb ) {
 
   $.runSequence(
+<<<<<<< HEAD
     cb
+=======
+    [
+      'script-build',
+      'script-api'
+    ]
+>>>>>>> master
   );
 
 } );

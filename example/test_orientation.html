@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>Sagen test - Orientation</title>
+<meta name="viewport" content="width=320" />
+<script type="text/javascript" src="../libs/sagen.js" id="sagen" data-orientation="true"></script>
+</head>
+<body>
+<strong>html tag class name</strong>
+<div id="show_css"></div>
+<script type="text/javascript">
+( function ( window ){
+	"use strict";
+	var document = window.document,
+		show_css = document.getElementById( "show_css" ),
+		html_element = document.documentElement,
+		Sagen = window.Sagen;
+
+	show_css.innerHTML = html_element.className;
+
+	function _onOrientation ( eventObj ) {
+		var direction = eventObj.params[ 0 ];
+
+		show_css.innerHTML = html_element.className;
+	}
+
+	Sagen.Orientation.addEventListener( Sagen.Orientation.CHANGE_ORIENTATION, _onOrientation );
+}( window ) );
+</script>
+</body>
+</html>

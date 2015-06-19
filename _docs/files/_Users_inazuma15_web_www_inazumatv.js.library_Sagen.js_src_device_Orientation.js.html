@@ -55,7 +55,15 @@
 
             <ul id="api-modules" class="apis modules">
             
+                <li><a href="../modules/Classes.html">Classes</a></li>
+            
+                <li><a href="../modules/Device.html">Device</a></li>
+            
+                <li><a href="../modules/Orientation.html">Orientation</a></li>
+            
                 <li><a href="../modules/Sagen.html">Sagen</a></li>
+            
+                <li><a href="../modules/Viewport.html">Viewport</a></li>
             
             </ul>
         </div>
@@ -107,6 +115,9 @@
  * http://www.opensource.org/licenses/mit-license.html
  *
  * This notice shall be included in all copies or substantial portions of the Software.
+ *
+ * @module Sagen
+ * @submodule Orientation
  */
 ( function ( window ){
   &quot;use strict&quot;;
@@ -121,6 +132,7 @@
       Browser = Sagen.Browser,
       Css3 = Browser.Css3,
       iOS = Browser.iOS,
+      Android = Browser.Android,
 
       _abs = Math.abs,
       _int = parseInt,
@@ -151,11 +163,14 @@
        * @type {MediaQueryList}
        * @private
        */
-      _mediaQuery;
+      _mediaQuery,
+
+      _start;
 
     /**
+     * portrait / landscape 切替を監視
      * @class Orientation
-     * @use EventDispatcher
+     * @uses EventDispatcher
      * @static
      * @constructor
      */
@@ -224,7 +239,9 @@
      * @static
      */
     Orientation.portrait = function () {
+
       Orientation.dispatchEvent( { type: Orientation.CHANGE_ORIENTATION, direction: &quot;portrait&quot;, scope: Orientation } );
+
     };
     /**
      * Orientation.CHANGE_ORIENTATIONをdispatchし directionを &quot;landscape&quot; にします
@@ -232,7 +249,9 @@
      * @static
      */
     Orientation.landscape = function () {
+
       Orientation.dispatchEvent( { type: Orientation.CHANGE_ORIENTATION, direction: &quot;landscape&quot;, scope: Orientation } );
+
     };
     /**
      * @method listen
@@ -243,19 +262,25 @@
       var
         handler;
 
-      if ( typeof window.addEventListener !== &quot;undefined&quot; ) {
+      if ( !_start ) {
 
-        if ( Css3.matchMedia() ) {
-          // can use matchMedia
-          //handler = Orientation._listenMatchMedia;
+        _start = true;
 
-          Orientation._listenMatchMedia();
+        if ( typeof window.addEventListener !== &quot;undefined&quot; ) {
 
-        } else {
-          // matchMediaが使えないので代わりに window.orientationあるいは window 縦横比を使い判定します
-          handler = Orientation._listenOrientation;
-          _handler = handler;
-          window.addEventListener( Orientation.eventType(), handler, false );
+          if ( Css3.matchMedia() ) {
+            // can use matchMedia
+            //handler = Orientation._listenMatchMedia;
+
+            Orientation._listenMatchMedia();
+
+          } else {
+            // matchMediaが使えないので代わりに window.orientationあるいは window 縦横比を使い判定します
+            handler = Orientation._listenOrientation;
+            _handler = handler;
+            window.addEventListener( Orientation.eventType(), handler, false );
+
+          }
 
         }
 
@@ -358,6 +383,26 @@
       return h &gt; w;
 
     };
+    /**
+     * Experia Z(Sony Tablet), portrait / landscape 表示が逆なのでwindow比率で判定する
+     * @method _experiaZ
+     * @private
+     */
+    Orientation._experiaZ = function () {
+
+      // window 幅,高さを使う
+      // aspect check
+      if ( Orientation._checkAspect() ) {
+        // portrait
+        Orientation.portrait();
+
+      } else {
+
+        Orientation.landscape();
+
+      }
+
+    };
 
     /**
      * window.matchMedia listener handler
@@ -371,13 +416,16 @@
       // use matchMediaå
       if ( mediaQuery.matches ) {
         // portrait
-        Orientation.portrait();
+        //Orientation.portrait();
+        Orientation.dispatchEvent( { type: Orientation.CHANGE_ORIENTATION, direction: &quot;portrait&quot;, scope: Orientation } );
 
       } else {
         // landscape
-        Orientation.landscape();
+        //Orientation.landscape();
+        Orientation.dispatchEvent( { type: Orientation.CHANGE_ORIENTATION, direction: &quot;landscape&quot;, scope: Orientation } );
 
       }
+
     };
     /**
      * @method _onOrientationChange
@@ -405,10 +453,19 @@
      */
     Orientation._listenMatchMedia = function () {
 
-      var mql = window.matchMedia( &quot;(orientation: portrait)&quot; );
+      var
+        mql = window.matchMedia( &quot;(orientation: portrait)&quot; ),
+        sgp312 = !!navigator.userAgent.match(/sgp312/i);
+
       _mediaQuery = mql;
 
-      if ( iOS.is() &amp;&amp; iOS.version() &lt; 6 ) {
+      //if ( ( iOS.is() &amp;&amp; iOS.version() &lt; 6 ) || ( Android.is() &amp;&amp; Android.version() &lt; 4.2 ) ) {
+      if ( sgp312 ) {
+        // experia z
+        window.addEventListener( Orientation.eventType(), Orientation._experiaZ, false );
+
+      }
+      else if ( iOS.is() &amp;&amp; iOS.version() &lt; 6 ) {
         // iOS 5 以下だと mql.addListener が作動しないのでorientationchangeを使用します
         window.addEventListener( Orientation.eventType(), Orientation._onOrientationChange, false );
 
@@ -420,8 +477,8 @@
 
     };
 
-
     return Orientation;
+
   }() );
 
 }( window ) );

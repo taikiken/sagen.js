@@ -55,7 +55,15 @@
 
             <ul id="api-modules" class="apis modules">
             
+                <li><a href="../modules/Classes.html">Classes</a></li>
+            
+                <li><a href="../modules/Device.html">Device</a></li>
+            
+                <li><a href="../modules/Orientation.html">Orientation</a></li>
+            
                 <li><a href="../modules/Sagen.html">Sagen</a></li>
+            
+                <li><a href="../modules/Viewport.html">Viewport</a></li>
             
             </ul>
         </div>
@@ -107,6 +115,9 @@
  * http://www.opensource.org/licenses/mit-license.html
  *
  * This notice shall be included in all copies or substantial portions of the Software.
+ *
+ * @module Sagen
+ * @submodule Device
  */
 ( function ( window ){
   &quot;use strict&quot;;
@@ -207,7 +218,7 @@
      */
     Device._option = function ( classes ) {
 
-      if ( Sagen.dataset( &quot;browser&quot; ) ) {
+      if ( Sagen.dataSet( &quot;browser&quot; ) ) {
 
         Device._ie( classes )
           ._chrome( classes )
@@ -216,7 +227,7 @@
 
       }
 
-      if ( Sagen.dataset( &quot;canvas&quot; ) ) {
+      if ( Sagen.dataSet( &quot;canvas&quot; ) ) {
 
         Device._canvas( classes );
 
@@ -224,7 +235,7 @@
 
       // orientation
       // ToDo: orientation change
-      if ( Sagen.dataset( &quot;orientation&quot; ) &amp;&amp; ( iOS.is() || Android.is()) ) {
+      if ( Sagen.dataSet( &quot;orientation&quot; ) &amp;&amp; ( iOS.is() || Android.is()) ) {
 
         Orientation.on( Orientation.CHANGE_ORIENTATION, Device._onOrientation );
         Orientation.init();

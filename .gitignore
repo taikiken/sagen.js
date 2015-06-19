@@ -4,4 +4,7 @@ _output
 *.iml
 out
 *競合コピー*
+<<<<<<< HEAD
 bower.memo
+=======
+>>>>>>> master
