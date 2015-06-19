@@ -50,11 +50,7 @@
  *
  *      }( window ) );
  *
-<<<<<<< HEAD
- * @class Sagen
-=======
  *
->>>>>>> master
  */
 
 var Sagen = window.Sagen || {};
@@ -89,17 +85,10 @@ var Sagen = window.Sagen || {};
           if ( typeof data.hasOwnProperty === "function" && data.hasOwnProperty( key ) ) {
 
             //dataKey = key;
-<<<<<<< HEAD
 
             val = data[ key ].toLowerCase();
             results[ key ] = val === "true";
 
-=======
-
-            val = data[ key ].toLowerCase();
-            results[ key ] = val === "true";
-
->>>>>>> master
           } else {
 
             val = data[ key ].toLowerCase();
@@ -173,9 +162,6 @@ var Sagen = window.Sagen || {};
 
   };
 
-<<<<<<< HEAD
-  Sagen.datase = Sagen.dataSet;
-=======
   /**
    * dataSet alias
    * @deprecated instead use dataSet
@@ -185,6 +171,5 @@ var Sagen = window.Sagen || {};
    * @type {Function|*}
    */
   Sagen.dataset = Sagen.dataSet;
->>>>>>> master
 
 }( window, Sagen ) );
