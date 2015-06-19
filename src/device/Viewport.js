@@ -9,6 +9,9 @@
  * http://www.opensource.org/licenses/mit-license.html
  *
  * This notice shall be included in all copies or substantial portions of the Software.
+ *
+ * @module Sagen
+ * @submodule Viewport
  */
 ( function ( window ){
   "use strict";

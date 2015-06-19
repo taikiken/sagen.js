@@ -18,6 +18,7 @@
  *
  * @module Sagen
  */
+
 /**
  * @example
  * htmlタグへCSS classをセットします。<br>
@@ -44,6 +45,8 @@
  *         }
  *
  *      }( window ) );
+ *
+ * @class Sagen
  */
 
 var Sagen = window.Sagen || {};

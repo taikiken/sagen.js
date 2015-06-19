@@ -9,6 +9,9 @@
  * http://www.opensource.org/licenses/mit-license.html
  *
  * This notice shall be included in all copies or substantial portions of the Software.
+ *
+ * @module Sagen
+ * @submodule Orientation
  */
 ( function ( window ){
   "use strict";
@@ -59,8 +62,9 @@
       _start;
 
     /**
+     * portrait / landscape 切替を監視
      * @class Orientation
-     * @use EventDispatcher
+     * @uses EventDispatcher
      * @static
      * @constructor
      */

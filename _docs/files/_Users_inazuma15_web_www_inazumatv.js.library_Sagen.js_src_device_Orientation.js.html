@@ -55,7 +55,15 @@
 
             <ul id="api-modules" class="apis modules">
             
+                <li><a href="../modules/Classes.html">Classes</a></li>
+            
+                <li><a href="../modules/Device.html">Device</a></li>
+            
+                <li><a href="../modules/Orientation.html">Orientation</a></li>
+            
                 <li><a href="../modules/Sagen.html">Sagen</a></li>
+            
+                <li><a href="../modules/Viewport.html">Viewport</a></li>
             
             </ul>
         </div>
@@ -107,6 +115,9 @@
  * http://www.opensource.org/licenses/mit-license.html
  *
  * This notice shall be included in all copies or substantial portions of the Software.
+ *
+ * @module Sagen
+ * @submodule Orientation
  */
 ( function ( window ){
   &quot;use strict&quot;;
@@ -157,8 +168,9 @@
       _start;
 
     /**
+     * portrait / landscape 切替を監視
      * @class Orientation
-     * @use EventDispatcher
+     * @uses EventDispatcher
      * @static
      * @constructor
      */
