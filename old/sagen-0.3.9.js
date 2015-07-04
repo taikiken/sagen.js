@@ -66,7 +66,7 @@ var wakegi=wakegi||{};wakegi["int"]=parseInt,wakegi["float"]=parseFloat,function
  * This notice shall be included in all copies or substantial portions of the Software.
  *
  * @version 0.3.9
- * @build 6/19/2015, 3:08:51 PM
+ * @build 6/19/2015, 3:10:43 PM
  * @github: https://github.com/taikiken/sagen.js
  *
  * @requires kaketsugi.js, wakegi.js, gasane.js
@@ -217,7 +217,15 @@ var Sagen = window.Sagen || {};
 
   };
 
-  Sagen.datase = Sagen.dataSet;
+  /**
+   * dataSet alias
+   * @deprecated instead use dataSet
+   * @method dataset
+   * @static
+   * @for Sagen
+   * @type {Function|*}
+   */
+  Sagen.dataset = Sagen.dataSet;
 
 }( window, Sagen ) );
 /**
