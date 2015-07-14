@@ -359,7 +359,8 @@
         window.addEventListener( Orientation.eventType(), Orientation._experiaZ, false );
 
       }
-      else if ( iOS.is() && iOS.version() < 6 ) {
+      //else if ( iOS.is() && iOS.version() < 6 ) {
+      else if ( (iOS.is() && iOS.version() < 6)  || Android.standard() ) {
         // iOS 5 以下だと mql.addListener が作動しないのでorientationchangeを使用します
         window.addEventListener( Orientation.eventType(), Orientation._onOrientationChange, false );
 
