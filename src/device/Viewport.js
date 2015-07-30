@@ -46,7 +46,7 @@
      * @constructor
      */
     function Viewport () {
-      throw new Error( "Viewport can't create instance." );
+      throw new Error( 'Viewport can\'t create instance.' );
     }
 
     var p = Viewport.prototype;
@@ -59,7 +59,7 @@
      */
     Viewport.init = function () {
 
-      if ( Sagen.dataSet( "ios" ) ) {
+      if ( Sagen.dataSet( 'ios' ) ) {
 
         Viewport.minimalUi();
 
@@ -73,9 +73,9 @@
      */
     Viewport.find = function () {
 
-      if ( typeof _viewport === "undefined" ) {
+      if ( typeof _viewport === 'undefined' ) {
         // _viewport undefined
-        _viewport = Element.find( "meta[name='viewport']" );
+        _viewport = Element.find( 'meta[name=\'viewport\']' );
 
       }
 
@@ -125,12 +125,12 @@
 
       if ( !_viewport ) {
 
-        meta = document.createElement( "meta" );
-        meta.name = "viewport";
+        meta = document.createElement( 'meta' );
+        meta.name = 'viewport';
         meta.content = content;
         _viewport = meta;
         _content = content;
-        document.getElementsByTagName( "head" )[ 0 ].appendChild( meta );
+        document.getElementsByTagName( 'head' )[ 0 ].appendChild( meta );
 
       }
 
@@ -154,7 +154,7 @@
 
         if ( content.indexOf( option ) === -1 ) {
 
-          _viewport.content = content + ", " + option;
+          _viewport.content = content + ', ' + option;
 
         }
 
@@ -222,7 +222,7 @@
 
       if ( version >= 7.1 && version < 8.0 ) {
 
-        Viewport.add( "minimal-ui" );
+        Viewport.add( 'minimal-ui' );
 
       }
 

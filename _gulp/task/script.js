@@ -136,12 +136,25 @@ gulp.task( 'script-api', function () {
 
 } );
 
+
+// Lint JavaScript
+gulp.task('js-hint', function () {
+  return gulp.src( [
+    dir.src + '/**/*.js',
+    '!' + dir.src + '/dependencies/**/*.js'
+  ] )
+    .pipe( $.jshint() )
+    .pipe( $.jshint.reporter('jshint-stylish'));
+});
+
+
 // ----------------------------------------------------------------
 // sequence
 // compile & api
 gulp.task( 'script-build', function () {
 
   $.runSequence(
+    'js-hint',
     'script-move-old',
     'script-clean-libs',
     'script-min'

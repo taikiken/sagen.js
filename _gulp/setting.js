@@ -36,6 +36,7 @@ var yuidoc = require( 'gulp-yuidoc' );
 var replace = require('gulp-replace-task');
 var sourceMaps = require( 'gulp-sourcemaps' );
 var requireDir = require('require-dir');
+var jshint = require('gulp-jshint');
 
 // ----------------------------------------------------------------
 //  project directory list
@@ -84,7 +85,8 @@ module.exports = {
     yuidoc: yuidoc,
     sourceMaps: sourceMaps,
     replace: replace,
-    requireDir: requireDir
+    requireDir: requireDir,
+    jshint: jshint
   },
   patterns: [
     {
