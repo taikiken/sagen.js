@@ -32,6 +32,7 @@
       Chrome = Browser.Chrome,
       Firefox = Browser.Firefox,
       IE = Browser.IE,
+      Edge = Browser.Edge,
       Orientation = Sagen.Orientation,
 
       Classes = Sagen.Classes,
@@ -117,7 +118,8 @@
         Device._ie( classes )
           ._chrome( classes )
           ._safari( classes )
-          ._firefox( classes );
+          ._firefox( classes )
+          ._edge( classes );
 
       }
 
@@ -429,6 +431,31 @@
 
         // version
         Device._version( classes, prefix, Firefox.numbers() );
+
+      }
+
+      return Device;
+
+    };
+    /**
+     * @method _firefox
+     * @static
+     * @param {Classes} classes
+     * @return {Device}
+     * @private
+     */
+    Device._edge = function ( classes ) {
+
+      var
+        prefix;
+
+      if ( Edge.is() ) {
+
+        prefix = "edge";
+        classes.add( prefix );
+
+        // version
+        Device._version( classes, prefix, Edge.numbers() );
 
       }
 

@@ -69,7 +69,7 @@
      * @constructor
      */
     function Orientation () {
-      throw new Error( "Orientation can't create instance." );
+      throw new Error( 'Orientation can\'t create instance.' );
     }
 
     var p = Orientation.prototype;
@@ -81,7 +81,7 @@
      * @static
      * @type {string}
      */
-    Orientation.CHANGE_ORIENTATION = "changeOrientation";
+    Orientation.CHANGE_ORIENTATION = 'changeOrientation';
 
     EventDispatcher.initialize( Orientation );
 
@@ -102,7 +102,7 @@
      */
     Orientation.canOrientation = function () {
 
-      if ( typeof _orientation === "undefined" ) {
+      if ( typeof _orientation === 'undefined' ) {
 
         _orientation = Css3.orientation();
 
@@ -120,7 +120,7 @@
 
       if ( typeof _eventType === "undefined" ) {
 
-        _eventType = Css3.orientationChange() ? "orientationchange" : "resize";
+        _eventType = Css3.orientationChange() ? 'orientationchange' : 'resize';
 
       }
 
@@ -134,7 +134,7 @@
      */
     Orientation.portrait = function () {
 
-      Orientation.dispatchEvent( { type: Orientation.CHANGE_ORIENTATION, direction: "portrait", scope: Orientation } );
+      Orientation.dispatchEvent( { type: Orientation.CHANGE_ORIENTATION, direction: 'portrait', scope: Orientation } );
 
     };
     /**
@@ -144,7 +144,7 @@
      */
     Orientation.landscape = function () {
 
-      Orientation.dispatchEvent( { type: Orientation.CHANGE_ORIENTATION, direction: "landscape", scope: Orientation } );
+      Orientation.dispatchEvent( { type: Orientation.CHANGE_ORIENTATION, direction: 'landscape', scope: Orientation } );
 
     };
     /**
@@ -160,7 +160,7 @@
 
         _start = true;
 
-        if ( typeof window.addEventListener !== "undefined" ) {
+        if ( typeof window.addEventListener !== 'undefined' ) {
 
           if ( Css3.matchMedia() ) {
             // can use matchMedia
@@ -189,7 +189,7 @@
      */
     Orientation.abort = function () {
 
-      if ( !!_handler && typeof window.addEventListener !== "undefined" ) {
+      if ( !!_handler && typeof window.addEventListener !== 'undefined' ) {
 
         window.removeEventListener( Orientation.eventType(), _handler );
 
@@ -311,12 +311,12 @@
       if ( mediaQuery.matches ) {
         // portrait
         //Orientation.portrait();
-        Orientation.dispatchEvent( { type: Orientation.CHANGE_ORIENTATION, direction: "portrait", scope: Orientation } );
+        Orientation.dispatchEvent( { type: Orientation.CHANGE_ORIENTATION, direction: 'portrait', scope: Orientation } );
 
       } else {
         // landscape
         //Orientation.landscape();
-        Orientation.dispatchEvent( { type: Orientation.CHANGE_ORIENTATION, direction: "landscape", scope: Orientation } );
+        Orientation.dispatchEvent( { type: Orientation.CHANGE_ORIENTATION, direction: 'landscape', scope: Orientation } );
 
       }
 
@@ -359,7 +359,8 @@
         window.addEventListener( Orientation.eventType(), Orientation._experiaZ, false );
 
       }
-      else if ( iOS.is() && iOS.version() < 6 ) {
+      //else if ( iOS.is() && iOS.version() < 6 ) {
+      else if ( (iOS.is() && iOS.version() < 6)  || Android.standard() ) {
         // iOS 5 以下だと mql.addListener が作動しないのでorientationchangeを使用します
         window.addEventListener( Orientation.eventType(), Orientation._onOrientationChange, false );
 

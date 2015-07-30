@@ -5,7 +5,13 @@
   "options": {
     "linkNatives": "true",
     "attributesEmit": "true",
+<<<<<<< HEAD:yuidoc.json
     "outdir": "./",
     "paths": ["./src"]
+=======
+    "outdir": "./_docs",
+    "paths": ["./src"],
+    "exclude": "./src/dependencies/*.js"
+>>>>>>> master:yuidoc.json
   }
 }

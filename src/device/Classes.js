@@ -68,7 +68,7 @@
      * @method write
      */
     p.write = function () {
-      this._dom.addClass( this._classes.join( " " ) );
+      this._dom.addClass( this._classes.join( ' ' ) );
     };
 
     /**

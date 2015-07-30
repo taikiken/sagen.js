@@ -5,6 +5,11 @@ _output
 out
 *競合コピー*
 <<<<<<< HEAD
+<<<<<<< HEAD
 bower.memo
 =======
+>>>>>>> master
+=======
+
+_gulp/git_branch_conflic.txt
 >>>>>>> master

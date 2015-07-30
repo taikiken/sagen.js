@@ -5,6 +5,34 @@
         "url": "https://github.com/taikiken/sagen.js"
     },
     "files": {
+<<<<<<< HEAD:data.json
+=======
+        "src/dependencies/gasane.min.js": {
+            "name": "src/dependencies/gasane.min.js",
+            "modules": {
+                "Gasane": 1
+            },
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "src/dependencies/kaketsugi.min.js": {
+            "name": "src/dependencies/kaketsugi.min.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "src/dependencies/wakegi.min.js": {
+            "name": "src/dependencies/wakegi.min.js",
+            "modules": {
+                "wakegi": 1
+            },
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+>>>>>>> master:_docs/data.json
         "src/device/Classes.js": {
             "name": "src/device/Classes.js",
             "modules": {
@@ -54,9 +82,7 @@
             "modules": {
                 "Sagen": 1
             },
-            "classes": {
-                "Sagen": 1
-            },
+            "classes": {},
             "fors": {
                 "Sagen": 1
             },
@@ -71,6 +97,40 @@
         }
     },
     "modules": {
+<<<<<<< HEAD:data.json
+=======
+        "Gasane": {
+            "name": "Gasane",
+            "submodules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "src/dependencies/gasane.min.js",
+            "line": 1,
+            "license": "inazumatv.com",
+            "author": "(at)taikiken / http://inazumatv.com",
+            "date": "2015/03/24 - 12:10\n\nCopyright (c) 2011-2015 inazumatv.com, inc.\n\nDistributed under the terms of the MIT license.\nhttp://www.opensource.org/licenses/mit-license.html\n\nThis notice shall be included in all copies or substantial portions of the Software.",
+            "build": "7/9/2015, 1:38:18 AM",
+            "version": "0.9.1",
+            "git": "https://github.com/taikiken/gasane.js"
+        },
+        "wakegi": {
+            "name": "wakegi",
+            "submodules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "src/dependencies/wakegi.min.js",
+            "line": 1,
+            "license": "inazumatv.com",
+            "author": "(at)taikiken / http://inazumatv.com",
+            "date": "2015/03/17 - 12:37\n\nCopyright (c) 2011-2015 inazumatv.com, inc.\n\nDistributed under the terms of the MIT license.\nhttp://www.opensource.org/licenses/mit-license.html\n\nThis notice shall be included in all copies or substantial portions of the Software.",
+            "build": "2015-07-30 19:29:29",
+            "version": "0.9.3"
+        },
+>>>>>>> master:_docs/data.json
         "Sagen": {
             "name": "Sagen",
             "submodules": {
@@ -91,10 +151,16 @@
             },
             "namespaces": {},
             "tag": "module",
+<<<<<<< HEAD:data.json
             "file": "src/Sagen.js",
             "line": 22,
             "license": "inazumatv.com",
             "author": "(at)taikiken / htp://inazumatv.com\ndate 2014/02/06 - 13:17\n\nCopyright (c) 2011-@@year inazumatv.com, inc.\n\nDistributed under the terms of the MIT license.\nhttp://www.opensource.org/licenses/mit-license.html\n\nThis notice shall be included in all copies or substantial portions of the Software.\n\nversion @@version\nbuild @@buildTime\ngithub: @@url",
+=======
+            "file": "src/device/Viewport.js",
+            "line": 43,
+            "description": "htmlタグへCSS classをセットします。<br>\n scriptタグdata属性から追加classをセットします<br>\n\n     <script type=\"text/javascript\" src=\"/js/sagen.min.js\"\n          id=\"sagen\"\n          data-orientation=\"true\"\n          data-browser=\"true\">\n      </script>\n\n     // html へ class を追加した例\n      // OS X Chrome\n     <html class=\"transition transform matchMedia background-size mac other chrome chrome41 chrome41_0 chrome41_0_2272 chrome41_0_2272_118 canvas webgl\">\n\n     // Browser / 端末判定にも使えます\n     if ( Sagen.Browser.iOS.is() ) {\n        // iOS\n      }\n\n     // orientation 監視にも使えます(iOS, Android)\n      var Orientation = Sagen.Orientation;\n\n     Orientation.on( Orientation.CHANGE_ORIENTATION, function ( event ) {\n       var direction = event.direction;\n       if ( direction === 'portrait' ) {\n          // portrait\n        }\n       if ( direction === 'landscape' ) {\n          // landscape\n        }\n     } );\n     Orientation.listen();",
+>>>>>>> master:_docs/data.json
             "requires": [
                 "kaketsugi.js",
                 "wakegi.js",
@@ -128,7 +194,11 @@
             "module": "Sagen",
             "namespace": "",
             "file": "src/device/Device.js",
+<<<<<<< HEAD:data.json
             "line": 46,
+=======
+            "line": 47,
+>>>>>>> master:_docs/data.json
             "description": "license inazumatv.com\nauthor (at)taikiken / http://inazumatv.com\ndate 2015/04/10 - 15:34\n\nCopyright (c) 2011-2015 inazumatv.com, inc.\n\nDistributed under the terms of the MIT license.\nhttp://www.opensource.org/licenses/mit-license.html\n\nThis notice shall be included in all copies or substantial portions of the Software."
         },
         "Orientation": {
@@ -197,7 +267,11 @@
             "submodule": "Device",
             "namespace": "",
             "file": "src/device/Device.js",
+<<<<<<< HEAD:data.json
             "line": 46,
+=======
+            "line": 47,
+>>>>>>> master:_docs/data.json
             "static": 1,
             "is_constructor": 1
         },
@@ -246,16 +320,34 @@
             "plugin_for": [],
             "extension_for": [],
             "module": "Sagen",
+<<<<<<< HEAD:data.json
             "namespace": "",
             "file": "src/Sagen.js",
             "line": 22,
             "example": [
                 "\n htmlタグへCSS classをセットします。<br>\n scriptタグdata属性から追加classをセットします\n     <script type=\"text/javascript\" src=\"/js/sagen.min.js\"\n          id=\"sagen\"\n          data-orientation=\"true\"\n          data-browser=\"true\"\n          data-ios=\"true\"\n          data-canvas=\"true\">\n      </script>\n     <!--OS X Chrome-->\n      <html class=\"transition transform matchMedia background-size mac other chrome chrome41 chrome41_0 chrome41_0_2272 chrome41_0_2272_118 canvas webgl\">\nBrowser / 端末判定にも使えます\n     ( function ( window ){\n         \"use strict\";\n         var Sagen = window.Sagen;\n        if ( Sagen.Browser.iOS.is() ) {\n              // iOS\n         }\n     }( window ) );\n\n"
             ]
+=======
+            "namespace": ""
+>>>>>>> master:_docs/data.json
         }
     },
     "classitems": [
         {
+<<<<<<< HEAD:data.json
+=======
+            "file": "src/dependencies/kaketsugi.min.js",
+            "line": 1,
+            "license": "inazumatv.com",
+            "author": "(at)taikiken / http://inazumatv.com",
+            "date": "2015/03/16 - 14:02\n\nCopyright (c) 2011-2015 inazumatv.com, inc.\n\nDistributed under the terms of the MIT license.\nhttp://www.opensource.org/licenses/mit-license.html\n\nThis notice shall be included in all copies or substantial portions of the Software.\n\nPolyfill",
+            "build": ": 7/4/2015, 5:37:44 PM",
+            "version": ": 1.0.0",
+            "class": "Classes",
+            "module": "Gasane"
+        },
+        {
+>>>>>>> master:_docs/data.json
             "file": "src/device/Classes.js",
             "line": 33,
             "itemtype": "property",
@@ -349,7 +441,11 @@
         },
         {
             "file": "src/device/Device.js",
+<<<<<<< HEAD:data.json
             "line": 38,
+=======
+            "line": 39,
+>>>>>>> master:_docs/data.json
             "itemtype": "property",
             "name": "_classes",
             "static": 1,
@@ -362,7 +458,11 @@
         },
         {
             "file": "src/device/Device.js",
+<<<<<<< HEAD:data.json
             "line": 58,
+=======
+            "line": 59,
+>>>>>>> master:_docs/data.json
             "itemtype": "method",
             "name": "init",
             "static": 1,
@@ -372,7 +472,11 @@
         },
         {
             "file": "src/device/Device.js",
+<<<<<<< HEAD:data.json
             "line": 77,
+=======
+            "line": 78,
+>>>>>>> master:_docs/data.json
             "itemtype": "method",
             "name": "call",
             "static": 1,
@@ -389,7 +493,11 @@
         },
         {
             "file": "src/device/Device.js",
+<<<<<<< HEAD:data.json
             "line": 88,
+=======
+            "line": 89,
+>>>>>>> master:_docs/data.json
             "itemtype": "method",
             "name": "_default",
             "static": 1,
@@ -412,7 +520,11 @@
         },
         {
             "file": "src/device/Device.js",
+<<<<<<< HEAD:data.json
             "line": 106,
+=======
+            "line": 107,
+>>>>>>> master:_docs/data.json
             "itemtype": "method",
             "name": "_option",
             "static": 1,
@@ -435,7 +547,11 @@
         },
         {
             "file": "src/device/Device.js",
+<<<<<<< HEAD:data.json
             "line": 143,
+=======
+            "line": 145,
+>>>>>>> master:_docs/data.json
             "itemtype": "method",
             "name": "_version",
             "static": 1,
@@ -468,7 +584,11 @@
         },
         {
             "file": "src/device/Device.js",
+<<<<<<< HEAD:data.json
             "line": 169,
+=======
+            "line": 171,
+>>>>>>> master:_docs/data.json
             "itemtype": "method",
             "name": "_ios",
             "static": 1,
@@ -491,7 +611,11 @@
         },
         {
             "file": "src/device/Device.js",
+<<<<<<< HEAD:data.json
             "line": 210,
+=======
+            "line": 212,
+>>>>>>> master:_docs/data.json
             "itemtype": "method",
             "name": "_android",
             "static": 1,
@@ -514,7 +638,11 @@
         },
         {
             "file": "src/device/Device.js",
+<<<<<<< HEAD:data.json
             "line": 257,
+=======
+            "line": 259,
+>>>>>>> master:_docs/data.json
             "itemtype": "method",
             "name": "_css3",
             "static": 1,
@@ -537,7 +665,11 @@
         },
         {
             "file": "src/device/Device.js",
+<<<<<<< HEAD:data.json
             "line": 305,
+=======
+            "line": 307,
+>>>>>>> master:_docs/data.json
             "itemtype": "method",
             "name": "_element",
             "static": 1,
@@ -560,7 +692,11 @@
         },
         {
             "file": "src/device/Device.js",
+<<<<<<< HEAD:data.json
             "line": 329,
+=======
+            "line": 331,
+>>>>>>> master:_docs/data.json
             "itemtype": "method",
             "name": "_os",
             "static": 1,
@@ -583,7 +719,11 @@
         },
         {
             "file": "src/device/Device.js",
+<<<<<<< HEAD:data.json
             "line": 364,
+=======
+            "line": 366,
+>>>>>>> master:_docs/data.json
             "itemtype": "method",
             "name": "_safari",
             "static": 1,
@@ -606,7 +746,11 @@
         },
         {
             "file": "src/device/Device.js",
+<<<<<<< HEAD:data.json
             "line": 388,
+=======
+            "line": 390,
+>>>>>>> master:_docs/data.json
             "itemtype": "method",
             "name": "_chrome",
             "static": 1,
@@ -629,7 +773,10 @@
         },
         {
             "file": "src/device/Device.js",
+<<<<<<< HEAD:data.json
             "line": 413,
+=======
+            "line": 415,
             "itemtype": "method",
             "name": "_firefox",
             "static": 1,
@@ -652,7 +799,35 @@
         },
         {
             "file": "src/device/Device.js",
+            "line": 440,
+>>>>>>> master:_docs/data.json
+            "itemtype": "method",
+            "name": "_firefox",
+            "static": 1,
+            "params": [
+                {
+                    "name": "classes",
+                    "description": "",
+                    "type": "Classes"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Device"
+            },
+            "access": "private",
+            "tagname": "",
+            "class": "Device",
+            "module": "Sagen",
+            "submodule": "Device"
+        },
+        {
+            "file": "src/device/Device.js",
+<<<<<<< HEAD:data.json
             "line": 438,
+=======
+            "line": 465,
+>>>>>>> master:_docs/data.json
             "itemtype": "method",
             "name": "_ie",
             "static": 1,
@@ -675,7 +850,11 @@
         },
         {
             "file": "src/device/Device.js",
+<<<<<<< HEAD:data.json
             "line": 463,
+=======
+            "line": 490,
+>>>>>>> master:_docs/data.json
             "itemtype": "method",
             "name": "_canvas",
             "static": 1,
@@ -698,7 +877,11 @@
         },
         {
             "file": "src/device/Device.js",
+<<<<<<< HEAD:data.json
             "line": 488,
+=======
+            "line": 515,
+>>>>>>> master:_docs/data.json
             "description": "orientation event handler",
             "itemtype": "method",
             "name": "_onOrientation",
@@ -1154,7 +1337,19 @@
         },
         {
             "file": "src/Sagen.js",
+<<<<<<< HEAD:data.json
             "line": 153,
+=======
+            "line": 1,
+            "license": "inazumatv.com",
+            "author": "(at)taikiken / htp://inazumatv.com\ndate 2014/02/06 - 13:17\n\nCopyright (c) 2011-@@year inazumatv.com, inc.\n\nDistributed under the terms of the MIT license.\nhttp://www.opensource.org/licenses/mit-license.html\n\nThis notice shall be included in all copies or substantial portions of the Software.\n\nversion @@version\nbuild @@buildTime\ngithub: @@url",
+            "class": "Sagen",
+            "module": "Sagen"
+        },
+        {
+            "file": "src/Sagen.js",
+            "line": 170,
+>>>>>>> master:_docs/data.json
             "itemtype": "method",
             "name": "dataSet",
             "static": 1,
@@ -1170,7 +1365,11 @@
         },
         {
             "file": "src/Sagen.js",
+<<<<<<< HEAD:data.json
             "line": 165,
+=======
+            "line": 182,
+>>>>>>> master:_docs/data.json
             "description": "dataSet alias",
             "deprecated": true,
             "deprecationMessage": "instead use dataSet",
@@ -1185,6 +1384,69 @@
     "warnings": [
         {
             "message": "unknown tag: license",
+<<<<<<< HEAD:data.json
+=======
+            "line": " src/dependencies/gasane.min.js:1"
+        },
+        {
+            "message": "unknown tag: date",
+            "line": " src/dependencies/gasane.min.js:1"
+        },
+        {
+            "message": "unknown tag: build",
+            "line": " src/dependencies/gasane.min.js:1"
+        },
+        {
+            "message": "unknown tag: version",
+            "line": " src/dependencies/gasane.min.js:1"
+        },
+        {
+            "message": "unknown tag: git",
+            "line": " src/dependencies/gasane.min.js:1"
+        },
+        {
+            "message": "unknown tag: license",
+            "line": " src/dependencies/kaketsugi.min.js:1"
+        },
+        {
+            "message": "unknown tag: date",
+            "line": " src/dependencies/kaketsugi.min.js:1"
+        },
+        {
+            "message": "unknown tag: build",
+            "line": " src/dependencies/kaketsugi.min.js:1"
+        },
+        {
+            "message": "unknown tag: version",
+            "line": " src/dependencies/kaketsugi.min.js:1"
+        },
+        {
+            "message": "unknown tag: license",
+            "line": " src/dependencies/wakegi.min.js:1"
+        },
+        {
+            "message": "unknown tag: date",
+            "line": " src/dependencies/wakegi.min.js:1"
+        },
+        {
+            "message": "unknown tag: build",
+            "line": " src/dependencies/wakegi.min.js:1"
+        },
+        {
+            "message": "unknown tag: version",
+            "line": " src/dependencies/wakegi.min.js:1"
+        },
+        {
+            "message": "unknown tag: license",
+            "line": " src/Sagen.js:1"
+        },
+        {
+            "message": "Missing item type",
+            "line": " src/dependencies/kaketsugi.min.js:1"
+        },
+        {
+            "message": "Missing item type",
+>>>>>>> master:_docs/data.json
             "line": " src/Sagen.js:1"
         }
     ]

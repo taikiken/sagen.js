@@ -14,45 +14,62 @@
  * build @@buildTime
  * github: @@url
  *
- * @requires kaketsugi.js, wakegi.js, gasane.js
  *
- * @module Sagen
+ *
+ *
  */
 
 /**
  *
- * @class Sagen
- *
- * @example
  * htmlタグへCSS classをセットします。<br>
- * scriptタグdata属性から追加classをセットします
+ * scriptタグdata属性から追加classをセットします<br>
+ *
  *
  *      <script type="text/javascript" src="/js/sagen.min.js"
  *          id="sagen"
  *          data-orientation="true"
- *          data-browser="true"
- *          data-ios="true"
- *          data-canvas="true">
+ *          data-browser="true">
  *      </script>
  *
- *      <!--OS X Chrome-->
+ *
+ *      // html へ class を追加した例
+ *      // OS X Chrome
+ *
  *      <html class="transition transform matchMedia background-size mac other chrome chrome41 chrome41_0 chrome41_0_2272 chrome41_0_2272_118 canvas webgl">
  *
- * Browser / 端末判定にも使えます
  *
- *      ( function ( window ){
- *         "use strict";
- *         var Sagen = window.Sagen;
+ *      // Browser / 端末判定にも使えます
  *
- *         if ( Sagen.Browser.iOS.is() ) {
- *              // iOS
- *         }
+ *      if ( Sagen.Browser.iOS.is() ) {
+ *        // iOS
+ *      }
  *
- *      }( window ) );
+ *
+ *      // orientation 監視にも使えます(iOS, Android)
+ *      var Orientation = Sagen.Orientation;
+ *
+ *
+ *      Orientation.on( Orientation.CHANGE_ORIENTATION, function ( event ) {
+ *
+ *        var direction = event.direction;
+ *
+ *        if ( direction === 'portrait' ) {
+ *          // portrait
+ *        }
+ *
+ *        if ( direction === 'landscape' ) {
+ *          // landscape
+ *        }
+ *
+ *      } );
+ *
+ *      Orientation.listen();
+ *
+ * @module Sagen
+ * @requires kaketsugi.js, wakegi.js, gasane.js
  *
  *
  */
-
 var Sagen = window.Sagen || {};
 
 ( function ( window, Sagen ){
@@ -62,17 +79,17 @@ var Sagen = window.Sagen || {};
     Gasane = window.Gasane,
     wakegi = window.wakegi,
 
-    option = [
-      "orientation",
-      "ios",
-      "canvas",
-      "browser"
-    ],
+    //option = [
+    //  "orientation",
+    //  "ios",
+    //  "canvas",
+    //  "browser"
+    //],
     dataSet = ( function ( window ){
 
       var
         document = window.document,
-        element = document.getElementById( "sagen" ),
+        element = document.getElementById( 'sagen' ),
         results = {},
         data;
 
@@ -82,17 +99,17 @@ var Sagen = window.Sagen || {};
 
         for ( key in data ) {
 
-          if ( typeof data.hasOwnProperty === "function" && data.hasOwnProperty( key ) ) {
+          if ( typeof data.hasOwnProperty === 'function' && data.hasOwnProperty( key ) ) {
 
             //dataKey = key;
 
             val = data[ key ].toLowerCase();
-            results[ key ] = val === "true";
+            results[ key ] = val === 'true';
 
           } else {
 
             val = data[ key ].toLowerCase();
-            results[ key ] = val === "true";
+            results[ key ] = val === 'true';
 
           }
         }
@@ -109,10 +126,10 @@ var Sagen = window.Sagen || {};
           attribute = data[ i ];
           nodeName = attribute.nodeName.toLowerCase();
 
-          if ( nodeName.indexOf( "data-" ) !== -1 ) {
+          if ( nodeName.indexOf( 'data-' ) !== -1 ) {
 
-            dataKey = nodeName.replace( "data-", "" );
-            results[ dataKey ] = attribute.nodeValue.toLowerCase() === "true";
+            dataKey = nodeName.replace( 'data-', '' );
+            results[ dataKey ] = attribute.nodeValue.toLowerCase() === 'true';
 
           }
 
@@ -124,7 +141,7 @@ var Sagen = window.Sagen || {};
       if ( !!element ) {
         // id: sagen defined
 
-        if ( typeof element.dataset !== "undefined" ) {
+        if ( typeof element.dataset !== 'undefined' ) {
           // can use dataset
           data = element.dataset;
           results = modern( results, data );

@@ -1,0 +1,8 @@
+- web server start
+http-server ../ -a 192.168.1.199 -p 4040
+
+- server node plugin
+https://github.com/nodeapps/http-server
+
+- node plugin install
+sudo npm install http-server -g

@@ -97,14 +97,48 @@
         </div>
 
         <div class="foundat">
+<<<<<<< HEAD:modules/Sagen.html
             Defined in: <a href="../files/src_Sagen.js.html#l22"><code>src&#x2F;Sagen.js:22</code></a>
+=======
+            Defined in: <a href="../files/src_device_Viewport.js.html#l43"><code>src&#x2F;device&#x2F;Viewport.js:43</code></a>
+>>>>>>> master:_docs/modules/Sagen.html
         </div>
 
 </div>
 
 
 <div class="box intro">
-    
+    <p>htmlタグへCSS classをセットします。<br>
+scriptタグdata属性から追加classをセットします<br></p>
+<pre class="code prettyprint"><code> &lt;script type=&quot;text/javascript&quot; src=&quot;/js/sagen.min.js&quot;
+      id=&quot;sagen&quot;
+      data-orientation=&quot;true&quot;
+      data-browser=&quot;true&quot;&gt;
+  &lt;/script&gt;
+
+ // html へ class を追加した例
+  // OS X Chrome
+ &lt;html class=&quot;transition transform matchMedia background-size mac other chrome chrome41 chrome41_0 chrome41_0_2272 chrome41_0_2272_118 canvas webgl&quot;&gt;
+
+ // Browser / 端末判定にも使えます
+ if ( Sagen.Browser.iOS.is() ) {
+    // iOS
+  }
+
+ // orientation 監視にも使えます(iOS, Android)
+  var Orientation = Sagen.Orientation;
+
+ Orientation.on( Orientation.CHANGE_ORIENTATION, function ( event ) {
+   var direction = event.direction;
+   if ( direction === 'portrait' ) {
+      // portrait
+    }
+   if ( direction === 'landscape' ) {
+      // landscape
+    }
+ } );
+ Orientation.listen();</code></pre>
+
 </div>
 
 
