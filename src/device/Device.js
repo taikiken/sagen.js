@@ -10,11 +10,13 @@
  *
  * This notice shall be included in all copies or substantial portions of the Software.
  *
+ */
+/**
  * @module Sagen
  * @submodule Device
- */
+ * */
 ( function ( window ){
-  "use strict";
+  'use strict';
 
   var
     Sagen = window.Sagen;
@@ -50,7 +52,7 @@
      * @constructor
      */
     function Device () {
-      throw new Error( "Device can't create instance." );
+      throw new Error( 'Device can\'t create instance.' );
     }
 
     var p = Device.prototype;
@@ -113,7 +115,7 @@
      */
     Device._option = function ( classes ) {
 
-      if ( Sagen.dataSet( "browser" ) ) {
+      if ( Sagen.dataSet( 'browser' ) ) {
 
         Device._ie( classes )
           ._chrome( classes )
@@ -123,7 +125,7 @@
 
       }
 
-      if ( Sagen.dataSet( "canvas" ) ) {
+      if ( Sagen.dataSet( 'canvas' ) ) {
 
         Device._canvas( classes );
 
@@ -131,7 +133,7 @@
 
       // orientation
       // ToDo: orientation change
-      if ( Sagen.dataSet( "orientation" ) && ( iOS.is() || Android.is()) ) {
+      if ( Sagen.dataSet( 'orientation' ) && ( iOS.is() || Android.is()) ) {
 
         Orientation.on( Orientation.CHANGE_ORIENTATION, Device._onOrientation );
         Orientation.init();
@@ -147,19 +149,19 @@
      * @static
      * @param {Classes} classes
      * @param {string} prefix
-     * @param {array} numbers
+     * @param {Array} numbers
      * @return {Device}
      * @private
      */
     Device._version = function ( classes, prefix, numbers ) {
       var
-        version = "",
-        _ = "_",
+        version = '',
+        _ = '_',
         i, limit;
 
       for ( i = 0, limit = numbers.length; i < limit; i = i + 1 ) {
 
-        version += numbers[ i ] + "";
+        version += numbers[ i ] + '';
         classes.add( prefix + version );
 
         version += _;
@@ -182,22 +184,22 @@
       if ( iOS.is() ) {
 
         // iOS
-        prefix = "ios";
+        prefix = 'ios';
 
         classes.add( prefix );
 
         if ( iOS.iPad() ) {
           // ipad
-          classes.add( "ipad" ).add( "tablet" );
+          classes.add( 'ipad' ).add( 'tablet' );
 
         } else if ( iOS.iPod() ) {
           // ipod
-          classes.add( "ipod" ).add( "mobile" );
+          classes.add( 'ipod' ).add( 'mobile' );
 
 
         } else if ( iOS.iPhone() ) {
           // ipod
-          classes.add( "iphone" ).add( "mobile" );
+          classes.add( 'iphone' ).add( 'mobile' );
 
         }
 
@@ -223,29 +225,29 @@
       if ( Android.is() ) {
 
         // iOS
-        prefix = "android";
+        prefix = 'android';
 
         classes.add( prefix );
 
         if ( Android.tablet() ) {
           // ipad
-          classes.add( "tablet" );
+          classes.add( 'tablet' );
 
         } else if ( Android.phone() ) {
           // ipod
-          classes.add( "mobile" );
+          classes.add( 'mobile' );
 
         }
 
         if ( Android.standard() ) {
 
-          classes.add( "android-standard" );
+          classes.add( 'android-standard' );
 
         }
 
         if ( Android.hd() ) {
 
-          classes.add( "android-hd" );
+          classes.add( 'android-hd' );
 
         }
 
@@ -267,37 +269,37 @@
 
       if ( Css3.transition() ) {
 
-        classes.add( "transition" );
+        classes.add( 'transition' );
 
       }
 
       if ( Css3.transform() ) {
 
-        classes.add( "transform" );
+        classes.add( 'transform' );
 
       }
 
       if ( Css3.matchMedia() ) {
 
-        classes.add( "matchMedia" );
+        classes.add( 'matchMedia' );
 
       }
 
       if ( Css3.orientation() ) {
 
-        classes.add( "orientation" );
+        classes.add( 'orientation' );
 
       }
 
       if ( Css3.orientationChange() ) {
 
-        classes.add( "orientation-change" );
+        classes.add( 'orientation-change' );
 
       }
 
       if ( Css3.backgroundSize() ) {
 
-        classes.add( "background-size" );
+        classes.add( 'background-size' );
 
       }
 
@@ -315,13 +317,13 @@
 
       if ( Element.touch() ) {
 
-        classes.add( "touch" );
+        classes.add( 'touch' );
 
       }
 
       if ( Element.querySelector() ) {
 
-        classes.add( "querySelector" );
+        classes.add( 'querySelector' );
 
       }
 
@@ -342,21 +344,21 @@
 
       if ( Mac.is() ) {
 
-        classes.add( "mac" );
+        classes.add( 'mac' );
         pc = true;
 
       }
 
       if ( Windows.is() ) {
 
-        classes.add( "windows" );
+        classes.add( 'windows' );
         pc = true;
 
       }
 
       if ( pc ) {
 
-        classes.add( "other" );
+        classes.add( 'other' );
 
       }
 
@@ -376,7 +378,7 @@
 
       if ( Safari.is() ) {
 
-        prefix = "safari";
+        prefix = 'safari';
         classes.add( prefix );
 
         // version
@@ -401,7 +403,7 @@
 
       if ( Chrome.is() ) {
 
-        prefix = "chrome";
+        prefix = 'chrome';
         classes.add( prefix );
 
         // version
@@ -426,7 +428,7 @@
 
       if ( Firefox.is() ) {
 
-        prefix = "firefox";
+        prefix = 'firefox';
         classes.add( prefix );
 
         // version
@@ -451,7 +453,7 @@
 
       if ( Edge.is() ) {
 
-        prefix = "edge";
+        prefix = 'edge';
         classes.add( prefix );
 
         // version
@@ -476,7 +478,7 @@
 
       if ( IE.is() ) {
 
-        prefix = "ie";
+        prefix = 'ie';
         classes.add( prefix );
 
         // version
@@ -498,11 +500,11 @@
 
       if ( Element.canvas() ) {
 
-        classes.add( "canvas" );
+        classes.add( 'canvas' );
 
         if ( Element.webgl() ) {
 
-          classes.add( "webgl" );
+          classes.add( 'webgl' );
 
         }
 
@@ -524,13 +526,13 @@
       var
         direction = event.direction;
 
-      if ( direction === "portrait" ) {
+      if ( direction === 'portrait' ) {
 
-        _classes.removeClass( "landscape" ).addClass( "portrait" );
+        _classes.removeClass( 'landscape' ).addClass( 'portrait' );
 
-      } else if ( direction === "landscape" ) {
+      } else if ( direction === 'landscape' ) {
 
-        _classes.removeClass( "portrait" ).addClass( "landscape" );
+        _classes.removeClass( 'portrait' ).addClass( 'landscape' );
 
       }
 

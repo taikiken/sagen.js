@@ -7,9 +7,7 @@
     "files": {
         "src/dependencies/gasane.min.js": {
             "name": "src/dependencies/gasane.min.js",
-            "modules": {
-                "Gasane": 1
-            },
+            "modules": {},
             "classes": {},
             "fors": {},
             "namespaces": {}
@@ -23,9 +21,7 @@
         },
         "src/dependencies/wakegi.min.js": {
             "name": "src/dependencies/wakegi.min.js",
-            "modules": {
-                "wakegi": 1
-            },
+            "modules": {},
             "classes": {},
             "fors": {},
             "namespaces": {}
@@ -94,37 +90,6 @@
         }
     },
     "modules": {
-        "Gasane": {
-            "name": "Gasane",
-            "submodules": {},
-            "classes": {},
-            "fors": {},
-            "namespaces": {},
-            "tag": "module",
-            "file": "src/dependencies/gasane.min.js",
-            "line": 1,
-            "license": "inazumatv.com",
-            "author": "(at)taikiken / http://inazumatv.com",
-            "date": "2015/03/24 - 12:10\n\nCopyright (c) 2011-2015 inazumatv.com, inc.\n\nDistributed under the terms of the MIT license.\nhttp://www.opensource.org/licenses/mit-license.html\n\nThis notice shall be included in all copies or substantial portions of the Software.",
-            "build": "7/9/2015, 1:38:18 AM",
-            "version": "0.9.1",
-            "git": "https://github.com/taikiken/gasane.js"
-        },
-        "wakegi": {
-            "name": "wakegi",
-            "submodules": {},
-            "classes": {},
-            "fors": {},
-            "namespaces": {},
-            "tag": "module",
-            "file": "src/dependencies/wakegi.min.js",
-            "line": 1,
-            "license": "inazumatv.com",
-            "author": "(at)taikiken / http://inazumatv.com",
-            "date": "2015/03/17 - 12:37\n\nCopyright (c) 2011-2015 inazumatv.com, inc.\n\nDistributed under the terms of the MIT license.\nhttp://www.opensource.org/licenses/mit-license.html\n\nThis notice shall be included in all copies or substantial portions of the Software.",
-            "build": "2015-07-30 19:29:29",
-            "version": "0.9.3"
-        },
         "Sagen": {
             "name": "Sagen",
             "submodules": {
@@ -133,6 +98,7 @@
                 "Orientation": 1,
                 "Viewport": 1
             },
+            "elements": {},
             "classes": {
                 "Classes": 1,
                 "Device": 1,
@@ -146,7 +112,7 @@
             "namespaces": {},
             "tag": "module",
             "file": "src/device/Viewport.js",
-            "line": 43,
+            "line": 47,
             "description": "htmlタグへCSS classをセットします。<br>\n scriptタグdata属性から追加classをセットします<br>\n\n     <script type=\"text/javascript\" src=\"/js/sagen.min.js\"\n          id=\"sagen\"\n          data-orientation=\"true\"\n          data-browser=\"true\">\n      </script>\n\n     // html へ class を追加した例\n      // OS X Chrome\n     <html class=\"transition transform matchMedia background-size mac other chrome chrome41 chrome41_0 chrome41_0_2272 chrome41_0_2272_118 canvas webgl\">\n\n     // Browser / 端末判定にも使えます\n     if ( Sagen.Browser.iOS.is() ) {\n        // iOS\n      }\n\n     // orientation 監視にも使えます(iOS, Android)\n      var Orientation = Sagen.Orientation;\n\n     Orientation.on( Orientation.CHANGE_ORIENTATION, function ( event ) {\n       var direction = event.direction;\n       if ( direction === 'portrait' ) {\n          // portrait\n        }\n       if ( direction === 'landscape' ) {\n          // landscape\n        }\n     } );\n     Orientation.listen();",
             "requires": [
                 "kaketsugi.js",
@@ -157,6 +123,7 @@
         "Classes": {
             "name": "Classes",
             "submodules": {},
+            "elements": {},
             "classes": {
                 "Classes": 1
             },
@@ -166,12 +133,13 @@
             "module": "Sagen",
             "namespace": "",
             "file": "src/device/Classes.js",
-            "line": 27,
-            "description": "license inazumatv.com\nauthor (at)taikiken / http://inazumatv.com\ndate 2015/04/10 - 16:02\n\nCopyright (c) 2011-2015 inazumatv.com, inc.\n\nDistributed under the terms of the MIT license.\nhttp://www.opensource.org/licenses/mit-license.html\n\nThis notice shall be included in all copies or substantial portions of the Software."
+            "line": 31,
+            "description": "html tag へ class を付与します"
         },
         "Device": {
             "name": "Device",
             "submodules": {},
+            "elements": {},
             "classes": {
                 "Device": 1
             },
@@ -181,12 +149,12 @@
             "module": "Sagen",
             "namespace": "",
             "file": "src/device/Device.js",
-            "line": 47,
-            "description": "license inazumatv.com\nauthor (at)taikiken / http://inazumatv.com\ndate 2015/04/10 - 15:34\n\nCopyright (c) 2011-2015 inazumatv.com, inc.\n\nDistributed under the terms of the MIT license.\nhttp://www.opensource.org/licenses/mit-license.html\n\nThis notice shall be included in all copies or substantial portions of the Software."
+            "line": 49
         },
         "Orientation": {
             "name": "Orientation",
             "submodules": {},
+            "elements": {},
             "classes": {
                 "Orientation": 1
             },
@@ -196,12 +164,13 @@
             "module": "Sagen",
             "namespace": "",
             "file": "src/device/Orientation.js",
-            "line": 64,
-            "description": "license inazumatv.com\nauthor (at)taikiken / http://inazumatv.com\ndate 2015/04/10 - 19:33\n\nCopyright (c) 2011-2015 inazumatv.com, inc.\n\nDistributed under the terms of the MIT license.\nhttp://www.opensource.org/licenses/mit-license.html\n\nThis notice shall be included in all copies or substantial portions of the Software."
+            "line": 68,
+            "description": "orientation 監視"
         },
         "Viewport": {
             "name": "Viewport",
             "submodules": {},
+            "elements": {},
             "classes": {
                 "Viewport": 1
             },
@@ -211,8 +180,8 @@
             "module": "Sagen",
             "namespace": "",
             "file": "src/device/Viewport.js",
-            "line": 43,
-            "description": "license inazumatv.com\nauthor (at)taikiken / http://inazumatv.com\ndate 2015/04/10 - 18:48\n\nCopyright (c) 2011-2015 inazumatv.com, inc.\n\nDistributed under the terms of the MIT license.\nhttp://www.opensource.org/licenses/mit-license.html\n\nThis notice shall be included in all copies or substantial portions of the Software."
+            "line": 47,
+            "description": "meta viewport rewrite / write"
         }
     },
     "classes": {
@@ -228,7 +197,7 @@
             "submodule": "Classes",
             "namespace": "",
             "file": "src/device/Classes.js",
-            "line": 27,
+            "line": 31,
             "params": [
                 {
                     "name": "classes",
@@ -250,7 +219,7 @@
             "submodule": "Device",
             "namespace": "",
             "file": "src/device/Device.js",
-            "line": 47,
+            "line": 49,
             "static": 1,
             "is_constructor": 1
         },
@@ -266,7 +235,7 @@
             "submodule": "Orientation",
             "namespace": "",
             "file": "src/device/Orientation.js",
-            "line": 64,
+            "line": 68,
             "description": "portrait / landscape 切替を監視",
             "uses": [
                 "EventDispatcher"
@@ -286,7 +255,7 @@
             "submodule": "Viewport",
             "namespace": "",
             "file": "src/device/Viewport.js",
-            "line": 43,
+            "line": 47,
             "static": 1,
             "is_constructor": 1
         },
@@ -302,7 +271,19 @@
             "namespace": ""
         }
     },
+    "elements": {},
     "classitems": [
+        {
+            "file": "src/dependencies/gasane.min.js",
+            "line": 1,
+            "license": "inazumatv.com",
+            "author": "(at)taikiken / http://inazumatv.com",
+            "date": "2015/03/24 - 12:10\n\nCopyright (c) 2011-2015 inazumatv.com, inc.\n\nDistributed under the terms of the MIT license.\nhttp://www.opensource.org/licenses/mit-license.html\n\nThis notice shall be included in all copies or substantial portions of the Software.",
+            "build": "2015-09-01 13:08:06",
+            "version": "0.9.2",
+            "git": "https://github.com/taikiken/gasane.js",
+            "class": "Classes"
+        },
         {
             "file": "src/dependencies/kaketsugi.min.js",
             "line": 1,
@@ -311,12 +292,27 @@
             "date": "2015/03/16 - 14:02\n\nCopyright (c) 2011-2015 inazumatv.com, inc.\n\nDistributed under the terms of the MIT license.\nhttp://www.opensource.org/licenses/mit-license.html\n\nThis notice shall be included in all copies or substantial portions of the Software.\n\nPolyfill",
             "build": ": 7/4/2015, 5:37:44 PM",
             "version": ": 1.0.0",
-            "class": "Classes",
-            "module": "Gasane"
+            "class": "Classes"
+        },
+        {
+            "file": "src/dependencies/wakegi.min.js",
+            "line": 1,
+            "license": "inazumatv.com",
+            "author": "(at)taikiken / http://inazumatv.com",
+            "date": "2015/03/17 - 12:37\n\nCopyright (c) 2011-2015 inazumatv.com, inc.\n\nDistributed under the terms of the MIT license.\nhttp://www.opensource.org/licenses/mit-license.html\n\nThis notice shall be included in all copies or substantial portions of the Software.",
+            "build": "2015-09-01 13:19:11",
+            "version": "0.9.4",
+            "class": "Classes"
         },
         {
             "file": "src/device/Classes.js",
-            "line": 33,
+            "line": 1,
+            "description": "license inazumatv.com\nauthor (at)taikiken / http://inazumatv.com\ndate 2015/04/10 - 16:02\n\nCopyright (c) 2011-2015 inazumatv.com, inc.\n\nDistributed under the terms of the MIT license.\nhttp://www.opensource.org/licenses/mit-license.html\n\nThis notice shall be included in all copies or substantial portions of the Software.",
+            "class": "Classes"
+        },
+        {
+            "file": "src/device/Classes.js",
+            "line": 37,
             "itemtype": "property",
             "name": "_classes",
             "type": "{Array}",
@@ -328,7 +324,7 @@
         },
         {
             "file": "src/device/Classes.js",
-            "line": 39,
+            "line": 43,
             "itemtype": "property",
             "name": "_dom",
             "type": "{Dom}",
@@ -340,7 +336,7 @@
         },
         {
             "file": "src/device/Classes.js",
-            "line": 50,
+            "line": 54,
             "itemtype": "method",
             "name": "add",
             "params": [
@@ -359,7 +355,7 @@
         },
         {
             "file": "src/device/Classes.js",
-            "line": 67,
+            "line": 71,
             "itemtype": "method",
             "name": "write",
             "class": "Classes",
@@ -368,7 +364,7 @@
         },
         {
             "file": "src/device/Classes.js",
-            "line": 74,
+            "line": 78,
             "itemtype": "method",
             "name": "addClass",
             "params": [
@@ -388,7 +384,7 @@
         },
         {
             "file": "src/device/Classes.js",
-            "line": 85,
+            "line": 89,
             "itemtype": "method",
             "name": "removeClass",
             "params": [
@@ -408,7 +404,14 @@
         },
         {
             "file": "src/device/Device.js",
-            "line": 39,
+            "line": 1,
+            "description": "license inazumatv.com\nauthor (at)taikiken / http://inazumatv.com\ndate 2015/04/10 - 15:34\n\nCopyright (c) 2011-2015 inazumatv.com, inc.\n\nDistributed under the terms of the MIT license.\nhttp://www.opensource.org/licenses/mit-license.html\n\nThis notice shall be included in all copies or substantial portions of the Software.",
+            "class": "Device",
+            "module": "Sagen"
+        },
+        {
+            "file": "src/device/Device.js",
+            "line": 41,
             "itemtype": "property",
             "name": "_classes",
             "static": 1,
@@ -421,7 +424,7 @@
         },
         {
             "file": "src/device/Device.js",
-            "line": 59,
+            "line": 61,
             "itemtype": "method",
             "name": "init",
             "static": 1,
@@ -431,7 +434,7 @@
         },
         {
             "file": "src/device/Device.js",
-            "line": 78,
+            "line": 80,
             "itemtype": "method",
             "name": "call",
             "static": 1,
@@ -448,7 +451,7 @@
         },
         {
             "file": "src/device/Device.js",
-            "line": 89,
+            "line": 91,
             "itemtype": "method",
             "name": "_default",
             "static": 1,
@@ -471,7 +474,7 @@
         },
         {
             "file": "src/device/Device.js",
-            "line": 107,
+            "line": 109,
             "itemtype": "method",
             "name": "_option",
             "static": 1,
@@ -494,7 +497,7 @@
         },
         {
             "file": "src/device/Device.js",
-            "line": 145,
+            "line": 147,
             "itemtype": "method",
             "name": "_version",
             "static": 1,
@@ -527,7 +530,7 @@
         },
         {
             "file": "src/device/Device.js",
-            "line": 171,
+            "line": 173,
             "itemtype": "method",
             "name": "_ios",
             "static": 1,
@@ -550,7 +553,7 @@
         },
         {
             "file": "src/device/Device.js",
-            "line": 212,
+            "line": 214,
             "itemtype": "method",
             "name": "_android",
             "static": 1,
@@ -573,7 +576,7 @@
         },
         {
             "file": "src/device/Device.js",
-            "line": 259,
+            "line": 261,
             "itemtype": "method",
             "name": "_css3",
             "static": 1,
@@ -596,7 +599,7 @@
         },
         {
             "file": "src/device/Device.js",
-            "line": 307,
+            "line": 309,
             "itemtype": "method",
             "name": "_element",
             "static": 1,
@@ -619,7 +622,7 @@
         },
         {
             "file": "src/device/Device.js",
-            "line": 331,
+            "line": 333,
             "itemtype": "method",
             "name": "_os",
             "static": 1,
@@ -642,7 +645,7 @@
         },
         {
             "file": "src/device/Device.js",
-            "line": 366,
+            "line": 368,
             "itemtype": "method",
             "name": "_safari",
             "static": 1,
@@ -665,7 +668,7 @@
         },
         {
             "file": "src/device/Device.js",
-            "line": 390,
+            "line": 392,
             "itemtype": "method",
             "name": "_chrome",
             "static": 1,
@@ -688,7 +691,7 @@
         },
         {
             "file": "src/device/Device.js",
-            "line": 415,
+            "line": 417,
             "itemtype": "method",
             "name": "_firefox",
             "static": 1,
@@ -711,7 +714,7 @@
         },
         {
             "file": "src/device/Device.js",
-            "line": 440,
+            "line": 442,
             "itemtype": "method",
             "name": "_firefox",
             "static": 1,
@@ -734,7 +737,7 @@
         },
         {
             "file": "src/device/Device.js",
-            "line": 465,
+            "line": 467,
             "itemtype": "method",
             "name": "_ie",
             "static": 1,
@@ -757,7 +760,7 @@
         },
         {
             "file": "src/device/Device.js",
-            "line": 490,
+            "line": 492,
             "itemtype": "method",
             "name": "_canvas",
             "static": 1,
@@ -780,7 +783,7 @@
         },
         {
             "file": "src/device/Device.js",
-            "line": 515,
+            "line": 517,
             "description": "orientation event handler",
             "itemtype": "method",
             "name": "_onOrientation",
@@ -800,7 +803,14 @@
         },
         {
             "file": "src/device/Orientation.js",
-            "line": 33,
+            "line": 1,
+            "description": "license inazumatv.com\nauthor (at)taikiken / http://inazumatv.com\ndate 2015/04/10 - 19:33\n\nCopyright (c) 2011-2015 inazumatv.com, inc.\n\nDistributed under the terms of the MIT license.\nhttp://www.opensource.org/licenses/mit-license.html\n\nThis notice shall be included in all copies or substantial portions of the Software.",
+            "class": "Orientation",
+            "module": "Sagen"
+        },
+        {
+            "file": "src/device/Orientation.js",
+            "line": 37,
             "itemtype": "property",
             "name": "_orientation",
             "static": 1,
@@ -813,7 +823,7 @@
         },
         {
             "file": "src/device/Orientation.js",
-            "line": 40,
+            "line": 44,
             "itemtype": "property",
             "name": "_eventType",
             "static": 1,
@@ -826,7 +836,7 @@
         },
         {
             "file": "src/device/Orientation.js",
-            "line": 47,
+            "line": 51,
             "itemtype": "property",
             "name": "_handler",
             "static": 1,
@@ -839,7 +849,7 @@
         },
         {
             "file": "src/device/Orientation.js",
-            "line": 54,
+            "line": 58,
             "itemtype": "property",
             "name": "_mediaQuery",
             "static": 1,
@@ -852,7 +862,7 @@
         },
         {
             "file": "src/device/Orientation.js",
-            "line": 79,
+            "line": 83,
             "itemtype": "event",
             "name": "CHANGE_ORIENTATION",
             "static": 1,
@@ -863,7 +873,7 @@
         },
         {
             "file": "src/device/Orientation.js",
-            "line": 88,
+            "line": 92,
             "itemtype": "method",
             "name": "init",
             "static": 1,
@@ -873,7 +883,7 @@
         },
         {
             "file": "src/device/Orientation.js",
-            "line": 98,
+            "line": 102,
             "itemtype": "method",
             "name": "canOrientation",
             "static": 1,
@@ -887,7 +897,7 @@
         },
         {
             "file": "src/device/Orientation.js",
-            "line": 114,
+            "line": 118,
             "itemtype": "method",
             "name": "eventType",
             "static": 1,
@@ -901,7 +911,7 @@
         },
         {
             "file": "src/device/Orientation.js",
-            "line": 130,
+            "line": 134,
             "description": "Orientation.CHANGE_ORIENTATIONをdispatchし directionを \"portrait\" にします",
             "itemtype": "method",
             "name": "portrait",
@@ -912,7 +922,7 @@
         },
         {
             "file": "src/device/Orientation.js",
-            "line": 140,
+            "line": 144,
             "description": "Orientation.CHANGE_ORIENTATIONをdispatchし directionを \"landscape\" にします",
             "itemtype": "method",
             "name": "landscape",
@@ -923,7 +933,7 @@
         },
         {
             "file": "src/device/Orientation.js",
-            "line": 150,
+            "line": 154,
             "itemtype": "method",
             "name": "listen",
             "static": 1,
@@ -937,7 +947,7 @@
         },
         {
             "file": "src/device/Orientation.js",
-            "line": 186,
+            "line": 190,
             "itemtype": "method",
             "name": "abort",
             "static": 1,
@@ -947,7 +957,7 @@
         },
         {
             "file": "src/device/Orientation.js",
-            "line": 199,
+            "line": 203,
             "description": "イベントを強制的に発火させます",
             "itemtype": "method",
             "name": "fire",
@@ -958,7 +968,7 @@
         },
         {
             "file": "src/device/Orientation.js",
-            "line": 217,
+            "line": 221,
             "itemtype": "method",
             "name": "_listenOrientation",
             "static": 1,
@@ -970,7 +980,7 @@
         },
         {
             "file": "src/device/Orientation.js",
-            "line": 254,
+            "line": 258,
             "itemtype": "method",
             "name": "_checkDegree",
             "static": 1,
@@ -986,7 +996,7 @@
         },
         {
             "file": "src/device/Orientation.js",
-            "line": 265,
+            "line": 269,
             "itemtype": "method",
             "name": "_checkAspect",
             "static": 1,
@@ -1002,7 +1012,7 @@
         },
         {
             "file": "src/device/Orientation.js",
-            "line": 280,
+            "line": 284,
             "description": "Experia Z(Sony Tablet), portrait / landscape 表示が逆なのでwindow比率で判定する",
             "itemtype": "method",
             "name": "_experiaZ",
@@ -1014,7 +1024,7 @@
         },
         {
             "file": "src/device/Orientation.js",
-            "line": 301,
+            "line": 305,
             "description": "window.matchMedia listener handler",
             "itemtype": "method",
             "name": "_onRotate",
@@ -1034,7 +1044,7 @@
         },
         {
             "file": "src/device/Orientation.js",
-            "line": 324,
+            "line": 328,
             "itemtype": "method",
             "name": "_onOrientationChange",
             "static": 1,
@@ -1046,7 +1056,7 @@
         },
         {
             "file": "src/device/Orientation.js",
-            "line": 343,
+            "line": 347,
             "itemtype": "method",
             "name": "_listenMatchMedia",
             "static": 1,
@@ -1058,7 +1068,14 @@
         },
         {
             "file": "src/device/Viewport.js",
-            "line": 28,
+            "line": 1,
+            "description": "license inazumatv.com\nauthor (at)taikiken / http://inazumatv.com\ndate 2015/04/10 - 18:48\n\nCopyright (c) 2011-2015 inazumatv.com, inc.\n\nDistributed under the terms of the MIT license.\nhttp://www.opensource.org/licenses/mit-license.html\n\nThis notice shall be included in all copies or substantial portions of the Software.",
+            "class": "Viewport",
+            "module": "Sagen"
+        },
+        {
+            "file": "src/device/Viewport.js",
+            "line": 32,
             "itemtype": "property",
             "name": "_viewport",
             "static": 1,
@@ -1071,7 +1088,7 @@
         },
         {
             "file": "src/device/Viewport.js",
-            "line": 35,
+            "line": 39,
             "itemtype": "property",
             "name": "_content",
             "static": 1,
@@ -1084,7 +1101,7 @@
         },
         {
             "file": "src/device/Viewport.js",
-            "line": 56,
+            "line": 60,
             "itemtype": "method",
             "name": "init",
             "static": 1,
@@ -1094,7 +1111,7 @@
         },
         {
             "file": "src/device/Viewport.js",
-            "line": 69,
+            "line": 73,
             "itemtype": "method",
             "name": "find",
             "static": 1,
@@ -1108,7 +1125,7 @@
         },
         {
             "file": "src/device/Viewport.js",
-            "line": 96,
+            "line": 100,
             "itemtype": "method",
             "name": "Viewport",
             "static": 1,
@@ -1122,7 +1139,7 @@
         },
         {
             "file": "src/device/Viewport.js",
-            "line": 105,
+            "line": 111,
             "itemtype": "method",
             "name": "content",
             "static": 1,
@@ -1136,7 +1153,7 @@
         },
         {
             "file": "src/device/Viewport.js",
-            "line": 114,
+            "line": 122,
             "itemtype": "method",
             "name": "write",
             "static": 1,
@@ -1157,7 +1174,7 @@
         },
         {
             "file": "src/device/Viewport.js",
-            "line": 139,
+            "line": 149,
             "itemtype": "method",
             "name": "add",
             "static": 1,
@@ -1178,7 +1195,7 @@
         },
         {
             "file": "src/device/Viewport.js",
-            "line": 166,
+            "line": 177,
             "itemtype": "method",
             "name": "replace",
             "static": 1,
@@ -1204,7 +1221,7 @@
         },
         {
             "file": "src/device/Viewport.js",
-            "line": 196,
+            "line": 208,
             "description": "viewport content 引数で書換",
             "itemtype": "method",
             "name": "rewrite",
@@ -1226,7 +1243,7 @@
         },
         {
             "file": "src/device/Viewport.js",
-            "line": 216,
+            "line": 228,
             "itemtype": "method",
             "name": "minimalUi",
             "static": 1,
@@ -1244,7 +1261,7 @@
         },
         {
             "file": "src/Sagen.js",
-            "line": 170,
+            "line": 168,
             "itemtype": "method",
             "name": "dataSet",
             "static": 1,
@@ -1260,7 +1277,7 @@
         },
         {
             "file": "src/Sagen.js",
-            "line": 182,
+            "line": 180,
             "description": "dataSet alias",
             "deprecated": true,
             "deprecationMessage": "instead use dataSet",
@@ -1269,6 +1286,13 @@
             "static": 1,
             "type": "{Function|*}",
             "class": "Sagen",
+            "module": "Sagen"
+        },
+        {
+            "file": "src/execute.js",
+            "line": 1,
+            "description": "license inazumatv.com\nauthor (at)taikiken / http://inazumatv.com\ndate 2015/04/10 - 15:42\n\nCopyright (c) 2011-2015 inazumatv.com, inc.\n\nDistributed under the terms of the MIT license.\nhttp://www.opensource.org/licenses/mit-license.html\n\nThis notice shall be included in all copies or substantial portions of the Software.",
+            "class": "",
             "module": "Sagen"
         }
     ],
@@ -1331,11 +1355,39 @@
         },
         {
             "message": "Missing item type",
+            "line": " src/dependencies/gasane.min.js:1"
+        },
+        {
+            "message": "Missing item type",
             "line": " src/dependencies/kaketsugi.min.js:1"
         },
         {
             "message": "Missing item type",
+            "line": " src/dependencies/wakegi.min.js:1"
+        },
+        {
+            "message": "Missing item type\nlicense inazumatv.com\nauthor (at)taikiken / http://inazumatv.com\ndate 2015/04/10 - 16:02\n\nCopyright (c) 2011-2015 inazumatv.com, inc.\n\nDistributed under the terms of the MIT license.\nhttp://www.opensource.org/licenses/mit-license.html\n\nThis notice shall be included in all copies or substantial portions of the Software.",
+            "line": " src/device/Classes.js:1"
+        },
+        {
+            "message": "Missing item type\nlicense inazumatv.com\nauthor (at)taikiken / http://inazumatv.com\ndate 2015/04/10 - 15:34\n\nCopyright (c) 2011-2015 inazumatv.com, inc.\n\nDistributed under the terms of the MIT license.\nhttp://www.opensource.org/licenses/mit-license.html\n\nThis notice shall be included in all copies or substantial portions of the Software.",
+            "line": " src/device/Device.js:1"
+        },
+        {
+            "message": "Missing item type\nlicense inazumatv.com\nauthor (at)taikiken / http://inazumatv.com\ndate 2015/04/10 - 19:33\n\nCopyright (c) 2011-2015 inazumatv.com, inc.\n\nDistributed under the terms of the MIT license.\nhttp://www.opensource.org/licenses/mit-license.html\n\nThis notice shall be included in all copies or substantial portions of the Software.",
+            "line": " src/device/Orientation.js:1"
+        },
+        {
+            "message": "Missing item type\nlicense inazumatv.com\nauthor (at)taikiken / http://inazumatv.com\ndate 2015/04/10 - 18:48\n\nCopyright (c) 2011-2015 inazumatv.com, inc.\n\nDistributed under the terms of the MIT license.\nhttp://www.opensource.org/licenses/mit-license.html\n\nThis notice shall be included in all copies or substantial portions of the Software.",
+            "line": " src/device/Viewport.js:1"
+        },
+        {
+            "message": "Missing item type",
             "line": " src/Sagen.js:1"
+        },
+        {
+            "message": "Missing item type\nlicense inazumatv.com\nauthor (at)taikiken / http://inazumatv.com\ndate 2015/04/10 - 15:42\n\nCopyright (c) 2011-2015 inazumatv.com, inc.\n\nDistributed under the terms of the MIT license.\nhttp://www.opensource.org/licenses/mit-license.html\n\nThis notice shall be included in all copies or substantial portions of the Software.",
+            "line": " src/execute.js:1"
         }
     ]
 }

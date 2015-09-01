@@ -10,9 +10,13 @@
  *
  * This notice shall be included in all copies or substantial portions of the Software.
  *
+ */
+/**
+ * html tag へ class を付与します
+ *
  * @module Sagen
  * @submodule Classes
- */
+ * */
 ( function ( window ){
   "use strict";
 

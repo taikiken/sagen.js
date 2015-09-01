@@ -10,10 +10,14 @@
  *
  * This notice shall be included in all copies or substantial portions of the Software.
  *
+ */
+/**
+ * execute Sagen default method
+ *
  * @module Sagen
  */
 ( function ( window ){
-  "use strict";
+  'use strict';
 
   var
     Sagen = window.Sagen,

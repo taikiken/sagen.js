@@ -10,11 +10,15 @@
  *
  * This notice shall be included in all copies or substantial portions of the Software.
  *
+ */
+/**
+ * orientation 監視
+ *
  * @module Sagen
  * @submodule Orientation
- */
+ * */
 ( function ( window ){
-  "use strict";
+  'use strict';
 
   var
     document = window.document,
@@ -118,7 +122,7 @@
      */
     Orientation.eventType = function () {
 
-      if ( typeof _eventType === "undefined" ) {
+      if ( typeof _eventType === 'undefined' ) {
 
         _eventType = Css3.orientationChange() ? 'orientationchange' : 'resize';
 
@@ -348,7 +352,7 @@
     Orientation._listenMatchMedia = function () {
 
       var
-        mql = window.matchMedia( "(orientation: portrait)" ),
+        mql = window.matchMedia( '(orientation: portrait)' ),
         sgp312 = !!navigator.userAgent.match(/sgp312/i);
 
       _mediaQuery = mql;

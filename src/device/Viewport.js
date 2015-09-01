@@ -10,11 +10,15 @@
  *
  * This notice shall be included in all copies or substantial portions of the Software.
  *
+ */
+/**
+ * meta viewport rewrite / write
+ *
  * @module Sagen
  * @submodule Viewport
- */
+ * */
 ( function ( window ){
-  "use strict";
+  'use strict';
 
   var
     document = window.document,
@@ -99,8 +103,10 @@
      * @return {HTMLElement|*}
      */
     Viewport.meta = function () {
+
       Viewport.find();
       return _viewport;
+
     };
     /**
      * @method content
@@ -108,8 +114,10 @@
      * @return {string}
      */
     Viewport.content = function () {
+
       Viewport.find();
       return _content;
+
     };
     /**
      * @method write
@@ -118,6 +126,7 @@
      * @return {Viewport}
      */
     Viewport.write = function ( content ) {
+
       var
         meta;
 
@@ -135,6 +144,7 @@
       }
 
       return Viewport;
+
     };
     /**
      * @method add
@@ -143,6 +153,7 @@
      * @return {Viewport}
      */
     Viewport.add = function ( option ) {
+
       var
         content;
 
@@ -171,6 +182,7 @@
      * @return {Viewport}
      */
     Viewport.replace = function ( oldOption, newOption ) {
+
       var
         content;
 
@@ -218,6 +230,7 @@
      * @static
      */
     Viewport.minimalUi = function () {
+
       var version = iOS.version();
 
       if ( version >= 7.1 && version < 8.0 ) {
