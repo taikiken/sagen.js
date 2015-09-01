@@ -45,6 +45,7 @@
                                 <li><a href="../classes/Viewport.html">Viewport</a></li>
                             </ul>
                 
+                
                             <ul id="api-modules" class="apis modules">
                                 <li><a href="../modules/Classes.html">Classes</a></li>
                                 <li><a href="../modules/Device.html">Device</a></li>
@@ -100,11 +101,13 @@
  *
  * This notice shall be included in all copies or substantial portions of the Software.
  *
+ */
+/**
  * @module Sagen
  * @submodule Device
- */
+ * */
 ( function ( window ){
-  &quot;use strict&quot;;
+  &#x27;use strict&#x27;;
 
   var
     Sagen = window.Sagen;
@@ -122,6 +125,7 @@
       Chrome = Browser.Chrome,
       Firefox = Browser.Firefox,
       IE = Browser.IE,
+      Edge = Browser.Edge,
       Orientation = Sagen.Orientation,
 
       Classes = Sagen.Classes,
@@ -139,7 +143,7 @@
      * @constructor
      */
     function Device () {
-      throw new Error( &quot;Device can&#x27;t create instance.&quot; );
+      throw new Error( &#x27;Device can\&#x27;t create instance.&#x27; );
     }
 
     var p = Device.prototype;
@@ -202,16 +206,17 @@
      */
     Device._option = function ( classes ) {
 
-      if ( Sagen.dataSet( &quot;browser&quot; ) ) {
+      if ( Sagen.dataSet( &#x27;browser&#x27; ) ) {
 
         Device._ie( classes )
           ._chrome( classes )
           ._safari( classes )
-          ._firefox( classes );
+          ._firefox( classes )
+          ._edge( classes );
 
       }
 
-      if ( Sagen.dataSet( &quot;canvas&quot; ) ) {
+      if ( Sagen.dataSet( &#x27;canvas&#x27; ) ) {
 
         Device._canvas( classes );
 
@@ -219,7 +224,7 @@
 
       // orientation
       // ToDo: orientation change
-      if ( Sagen.dataSet( &quot;orientation&quot; ) &amp;&amp; ( iOS.is() || Android.is()) ) {
+      if ( Sagen.dataSet( &#x27;orientation&#x27; ) &amp;&amp; ( iOS.is() || Android.is()) ) {
 
         Orientation.on( Orientation.CHANGE_ORIENTATION, Device._onOrientation );
         Orientation.init();
@@ -235,19 +240,19 @@
      * @static
      * @param {Classes} classes
      * @param {string} prefix
-     * @param {array} numbers
+     * @param {Array} numbers
      * @return {Device}
      * @private
      */
     Device._version = function ( classes, prefix, numbers ) {
       var
-        version = &quot;&quot;,
-        _ = &quot;_&quot;,
+        version = &#x27;&#x27;,
+        _ = &#x27;_&#x27;,
         i, limit;
 
       for ( i = 0, limit = numbers.length; i &lt; limit; i = i + 1 ) {
 
-        version += numbers[ i ] + &quot;&quot;;
+        version += numbers[ i ] + &#x27;&#x27;;
         classes.add( prefix + version );
 
         version += _;
@@ -270,22 +275,22 @@
       if ( iOS.is() ) {
 
         // iOS
-        prefix = &quot;ios&quot;;
+        prefix = &#x27;ios&#x27;;
 
         classes.add( prefix );
 
         if ( iOS.iPad() ) {
           // ipad
-          classes.add( &quot;ipad&quot; ).add( &quot;tablet&quot; );
+          classes.add( &#x27;ipad&#x27; ).add( &#x27;tablet&#x27; );
 
         } else if ( iOS.iPod() ) {
           // ipod
-          classes.add( &quot;ipod&quot; ).add( &quot;mobile&quot; );
+          classes.add( &#x27;ipod&#x27; ).add( &#x27;mobile&#x27; );
 
 
         } else if ( iOS.iPhone() ) {
           // ipod
-          classes.add( &quot;iphone&quot; ).add( &quot;mobile&quot; );
+          classes.add( &#x27;iphone&#x27; ).add( &#x27;mobile&#x27; );
 
         }
 
@@ -311,29 +316,29 @@
       if ( Android.is() ) {
 
         // iOS
-        prefix = &quot;android&quot;;
+        prefix = &#x27;android&#x27;;
 
         classes.add( prefix );
 
         if ( Android.tablet() ) {
           // ipad
-          classes.add( &quot;tablet&quot; );
+          classes.add( &#x27;tablet&#x27; );
 
         } else if ( Android.phone() ) {
           // ipod
-          classes.add( &quot;mobile&quot; );
+          classes.add( &#x27;mobile&#x27; );
 
         }
 
         if ( Android.standard() ) {
 
-          classes.add( &quot;android-standard&quot; );
+          classes.add( &#x27;android-standard&#x27; );
 
         }
 
         if ( Android.hd() ) {
 
-          classes.add( &quot;android-hd&quot; );
+          classes.add( &#x27;android-hd&#x27; );
 
         }
 
@@ -355,37 +360,37 @@
 
       if ( Css3.transition() ) {
 
-        classes.add( &quot;transition&quot; );
+        classes.add( &#x27;transition&#x27; );
 
       }
 
       if ( Css3.transform() ) {
 
-        classes.add( &quot;transform&quot; );
+        classes.add( &#x27;transform&#x27; );
 
       }
 
       if ( Css3.matchMedia() ) {
 
-        classes.add( &quot;matchMedia&quot; );
+        classes.add( &#x27;matchMedia&#x27; );
 
       }
 
       if ( Css3.orientation() ) {
 
-        classes.add( &quot;orientation&quot; );
+        classes.add( &#x27;orientation&#x27; );
 
       }
 
       if ( Css3.orientationChange() ) {
 
-        classes.add( &quot;orientation-change&quot; );
+        classes.add( &#x27;orientation-change&#x27; );
 
       }
 
       if ( Css3.backgroundSize() ) {
 
-        classes.add( &quot;background-size&quot; );
+        classes.add( &#x27;background-size&#x27; );
 
       }
 
@@ -403,13 +408,13 @@
 
       if ( Element.touch() ) {
 
-        classes.add( &quot;touch&quot; );
+        classes.add( &#x27;touch&#x27; );
 
       }
 
       if ( Element.querySelector() ) {
 
-        classes.add( &quot;querySelector&quot; );
+        classes.add( &#x27;querySelector&#x27; );
 
       }
 
@@ -430,21 +435,21 @@
 
       if ( Mac.is() ) {
 
-        classes.add( &quot;mac&quot; );
+        classes.add( &#x27;mac&#x27; );
         pc = true;
 
       }
 
       if ( Windows.is() ) {
 
-        classes.add( &quot;windows&quot; );
+        classes.add( &#x27;windows&#x27; );
         pc = true;
 
       }
 
       if ( pc ) {
 
-        classes.add( &quot;other&quot; );
+        classes.add( &#x27;other&#x27; );
 
       }
 
@@ -464,7 +469,7 @@
 
       if ( Safari.is() ) {
 
-        prefix = &quot;safari&quot;;
+        prefix = &#x27;safari&#x27;;
         classes.add( prefix );
 
         // version
@@ -489,7 +494,7 @@
 
       if ( Chrome.is() ) {
 
-        prefix = &quot;chrome&quot;;
+        prefix = &#x27;chrome&#x27;;
         classes.add( prefix );
 
         // version
@@ -514,11 +519,36 @@
 
       if ( Firefox.is() ) {
 
-        prefix = &quot;firefox&quot;;
+        prefix = &#x27;firefox&#x27;;
         classes.add( prefix );
 
         // version
         Device._version( classes, prefix, Firefox.numbers() );
+
+      }
+
+      return Device;
+
+    };
+    /**
+     * @method _firefox
+     * @static
+     * @param {Classes} classes
+     * @return {Device}
+     * @private
+     */
+    Device._edge = function ( classes ) {
+
+      var
+        prefix;
+
+      if ( Edge.is() ) {
+
+        prefix = &#x27;edge&#x27;;
+        classes.add( prefix );
+
+        // version
+        Device._version( classes, prefix, Edge.numbers() );
 
       }
 
@@ -539,7 +569,7 @@
 
       if ( IE.is() ) {
 
-        prefix = &quot;ie&quot;;
+        prefix = &#x27;ie&#x27;;
         classes.add( prefix );
 
         // version
@@ -561,11 +591,11 @@
 
       if ( Element.canvas() ) {
 
-        classes.add( &quot;canvas&quot; );
+        classes.add( &#x27;canvas&#x27; );
 
         if ( Element.webgl() ) {
 
-          classes.add( &quot;webgl&quot; );
+          classes.add( &#x27;webgl&#x27; );
 
         }
 
@@ -587,13 +617,13 @@
       var
         direction = event.direction;
 
-      if ( direction === &quot;portrait&quot; ) {
+      if ( direction === &#x27;portrait&#x27; ) {
 
-        _classes.removeClass( &quot;landscape&quot; ).addClass( &quot;portrait&quot; );
+        _classes.removeClass( &#x27;landscape&#x27; ).addClass( &#x27;portrait&#x27; );
 
-      } else if ( direction === &quot;landscape&quot; ) {
+      } else if ( direction === &#x27;landscape&#x27; ) {
 
-        _classes.removeClass( &quot;portrait&quot; ).addClass( &quot;landscape&quot; );
+        _classes.removeClass( &#x27;portrait&#x27; ).addClass( &#x27;landscape&#x27; );
 
       }
 

@@ -164,7 +164,7 @@
      * @constructor
      */
     function Orientation () {
-      throw new Error( &quot;Orientation can&#x27;t create instance.&quot; );
+      throw new Error( &#x27;Orientation can\&#x27;t create instance.&#x27; );
     }
 
     var p = Orientation.prototype;
@@ -176,7 +176,7 @@
      * @static
      * @type {string}
      */
-    Orientation.CHANGE_ORIENTATION = &quot;changeOrientation&quot;;
+    Orientation.CHANGE_ORIENTATION = &#x27;changeOrientation&#x27;;
 
     EventDispatcher.initialize( Orientation );
 
@@ -197,7 +197,7 @@
      */
     Orientation.canOrientation = function () {
 
-      if ( typeof _orientation === &quot;undefined&quot; ) {
+      if ( typeof _orientation === &#x27;undefined&#x27; ) {
 
         _orientation = Css3.orientation();
 
@@ -215,7 +215,7 @@
 
       if ( typeof _eventType === &#x27;undefined&#x27; ) {
 
-        _eventType = Css3.orientationChange() ? &quot;orientationchange&quot; : &quot;resize&quot;;
+        _eventType = Css3.orientationChange() ? &#x27;orientationchange&#x27; : &#x27;resize&#x27;;
 
       }
 
@@ -229,7 +229,7 @@
      */
     Orientation.portrait = function () {
 
-      Orientation.dispatchEvent( { type: Orientation.CHANGE_ORIENTATION, direction: &quot;portrait&quot;, scope: Orientation } );
+      Orientation.dispatchEvent( { type: Orientation.CHANGE_ORIENTATION, direction: &#x27;portrait&#x27;, scope: Orientation } );
 
     };
     /**
@@ -239,7 +239,7 @@
      */
     Orientation.landscape = function () {
 
-      Orientation.dispatchEvent( { type: Orientation.CHANGE_ORIENTATION, direction: &quot;landscape&quot;, scope: Orientation } );
+      Orientation.dispatchEvent( { type: Orientation.CHANGE_ORIENTATION, direction: &#x27;landscape&#x27;, scope: Orientation } );
 
     };
     /**
@@ -255,7 +255,7 @@
 
         _start = true;
 
-        if ( typeof window.addEventListener !== &quot;undefined&quot; ) {
+        if ( typeof window.addEventListener !== &#x27;undefined&#x27; ) {
 
           if ( Css3.matchMedia() ) {
             // can use matchMedia
@@ -284,7 +284,7 @@
      */
     Orientation.abort = function () {
 
-      if ( !!_handler &amp;&amp; typeof window.addEventListener !== &quot;undefined&quot; ) {
+      if ( !!_handler &amp;&amp; typeof window.addEventListener !== &#x27;undefined&#x27; ) {
 
         window.removeEventListener( Orientation.eventType(), _handler );
 
@@ -406,12 +406,12 @@
       if ( mediaQuery.matches ) {
         // portrait
         //Orientation.portrait();
-        Orientation.dispatchEvent( { type: Orientation.CHANGE_ORIENTATION, direction: &quot;portrait&quot;, scope: Orientation } );
+        Orientation.dispatchEvent( { type: Orientation.CHANGE_ORIENTATION, direction: &#x27;portrait&#x27;, scope: Orientation } );
 
       } else {
         // landscape
         //Orientation.landscape();
-        Orientation.dispatchEvent( { type: Orientation.CHANGE_ORIENTATION, direction: &quot;landscape&quot;, scope: Orientation } );
+        Orientation.dispatchEvent( { type: Orientation.CHANGE_ORIENTATION, direction: &#x27;landscape&#x27;, scope: Orientation } );
 
       }
 
@@ -454,7 +454,8 @@
         window.addEventListener( Orientation.eventType(), Orientation._experiaZ, false );
 
       }
-      else if ( iOS.is() &amp;&amp; iOS.version() &lt; 6 ) {
+      //else if ( iOS.is() &amp;&amp; iOS.version() &lt; 6 ) {
+      else if ( (iOS.is() &amp;&amp; iOS.version() &lt; 6)  || Android.standard() ) {
         // iOS 5 以下だと mql.addListener が作動しないのでorientationchangeを使用します
         window.addEventListener( Orientation.eventType(), Orientation._onOrientationChange, false );
 

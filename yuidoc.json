@@ -5,8 +5,8 @@
   "options": {
     "linkNatives": "true",
     "attributesEmit": "true",
-    "outdir": "./_docs",
-    "paths": ["./src"],
+    "outdir": "./",
+    "paths": "./src",
     "exclude": "./src/dependencies/*.js"
   }
 }

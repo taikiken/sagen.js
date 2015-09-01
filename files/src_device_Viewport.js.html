@@ -141,7 +141,7 @@
      * @constructor
      */
     function Viewport () {
-      throw new Error( &quot;Viewport can&#x27;t create instance.&quot; );
+      throw new Error( &#x27;Viewport can\&#x27;t create instance.&#x27; );
     }
 
     var p = Viewport.prototype;
@@ -154,7 +154,7 @@
      */
     Viewport.init = function () {
 
-      if ( Sagen.dataSet( &quot;ios&quot; ) ) {
+      if ( Sagen.dataSet( &#x27;ios&#x27; ) ) {
 
         Viewport.minimalUi();
 
@@ -168,9 +168,9 @@
      */
     Viewport.find = function () {
 
-      if ( typeof _viewport === &quot;undefined&quot; ) {
+      if ( typeof _viewport === &#x27;undefined&#x27; ) {
         // _viewport undefined
-        _viewport = Element.find( &quot;meta[name=&#x27;viewport&#x27;]&quot; );
+        _viewport = Element.find( &#x27;meta[name=\&#x27;viewport\&#x27;]&#x27; );
 
       }
 
@@ -225,12 +225,12 @@
 
       if ( !_viewport ) {
 
-        meta = document.createElement( &quot;meta&quot; );
-        meta.name = &quot;viewport&quot;;
+        meta = document.createElement( &#x27;meta&#x27; );
+        meta.name = &#x27;viewport&#x27;;
         meta.content = content;
         _viewport = meta;
         _content = content;
-        document.getElementsByTagName( &quot;head&quot; )[ 0 ].appendChild( meta );
+        document.getElementsByTagName( &#x27;head&#x27; )[ 0 ].appendChild( meta );
 
       }
 
@@ -256,7 +256,7 @@
 
         if ( content.indexOf( option ) === -1 ) {
 
-          _viewport.content = content + &quot;, &quot; + option;
+          _viewport.content = content + &#x27;, &#x27; + option;
 
         }
 
@@ -326,7 +326,7 @@
 
       if ( version &gt;= 7.1 &amp;&amp; version &lt; 8.0 ) {
 
-        Viewport.add( &quot;minimal-ui&quot; );
+        Viewport.add( &#x27;minimal-ui&#x27; );
 
       }
 
