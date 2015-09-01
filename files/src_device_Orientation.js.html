@@ -45,6 +45,7 @@
                                 <li><a href="../classes/Viewport.html">Viewport</a></li>
                             </ul>
                 
+                
                             <ul id="api-modules" class="apis modules">
                                 <li><a href="../modules/Classes.html">Classes</a></li>
                                 <li><a href="../modules/Device.html">Device</a></li>
@@ -100,11 +101,15 @@
  *
  * This notice shall be included in all copies or substantial portions of the Software.
  *
+ */
+/**
+ * orientation 監視
+ *
  * @module Sagen
  * @submodule Orientation
- */
+ * */
 ( function ( window ){
-  &quot;use strict&quot;;
+  &#x27;use strict&#x27;;
 
   var
     document = window.document,
@@ -208,7 +213,7 @@
      */
     Orientation.eventType = function () {
 
-      if ( typeof _eventType === &quot;undefined&quot; ) {
+      if ( typeof _eventType === &#x27;undefined&#x27; ) {
 
         _eventType = Css3.orientationChange() ? &quot;orientationchange&quot; : &quot;resize&quot;;
 
@@ -438,7 +443,7 @@
     Orientation._listenMatchMedia = function () {
 
       var
-        mql = window.matchMedia( &quot;(orientation: portrait)&quot; ),
+        mql = window.matchMedia( &#x27;(orientation: portrait)&#x27; ),
         sgp312 = !!navigator.userAgent.match(/sgp312/i);
 
       _mediaQuery = mql;

@@ -13,10 +13,6 @@
  * version @@version
  * build @@buildTime
  * github: @@url
- *
- *
- *
- *
  */
 
 /**
@@ -95,7 +91,9 @@ var Sagen = window.Sagen || {};
 
       function modern ( result, data ) {
         var
-          key, dataKey, val;
+          key,
+          //dataKey,
+          val;
 
         for ( key in data ) {
 
