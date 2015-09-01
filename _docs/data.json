@@ -1,0 +1,1277 @@
+{
+    "project": {
+        "name": "sagen.js",
+        "description": "device detection.",
+        "url": "https://github.com/taikiken/sagen.js"
+    },
+    "files": {
+        "src/device/Classes.js": {
+            "name": "src/device/Classes.js",
+            "modules": {
+                "Classes": 1
+            },
+            "classes": {
+                "Classes": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src/device/Device.js": {
+            "name": "src/device/Device.js",
+            "modules": {
+                "Device": 1
+            },
+            "classes": {
+                "Device": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src/device/Orientation.js": {
+            "name": "src/device/Orientation.js",
+            "modules": {
+                "Orientation": 1
+            },
+            "classes": {
+                "Orientation": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src/device/Viewport.js": {
+            "name": "src/device/Viewport.js",
+            "modules": {
+                "Viewport": 1
+            },
+            "classes": {
+                "Viewport": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src/Sagen.js": {
+            "name": "src/Sagen.js",
+            "modules": {
+                "Sagen": 1
+            },
+            "classes": {},
+            "fors": {
+                "Sagen": 1
+            },
+            "namespaces": {}
+        },
+        "src/execute.js": {
+            "name": "src/execute.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        }
+    },
+    "modules": {
+        "Sagen": {
+            "name": "Sagen",
+            "submodules": {
+                "Classes": 1,
+                "Device": 1,
+                "Orientation": 1,
+                "Viewport": 1
+            },
+            "elements": {},
+            "classes": {
+                "Classes": 1,
+                "Device": 1,
+                "Orientation": 1,
+                "Viewport": 1,
+                "Sagen": 1
+            },
+            "fors": {
+                "Sagen": 1
+            },
+            "namespaces": {},
+            "tag": "module",
+            "file": "src/device/Viewport.js",
+            "line": 47,
+            "description": "htmlタグへCSS classをセットします。<br>\n scriptタグdata属性から追加classをセットします<br>\n\n     <script type=\"text/javascript\" src=\"/js/sagen.min.js\"\n          id=\"sagen\"\n          data-orientation=\"true\"\n          data-browser=\"true\">\n      </script>\n\n     // html へ class を追加した例\n      // OS X Chrome\n     <html class=\"transition transform matchMedia background-size mac other chrome chrome41 chrome41_0 chrome41_0_2272 chrome41_0_2272_118 canvas webgl\">\n\n     // Browser / 端末判定にも使えます\n     if ( Sagen.Browser.iOS.is() ) {\n        // iOS\n      }\n\n     // orientation 監視にも使えます(iOS, Android)\n      var Orientation = Sagen.Orientation;\n\n     Orientation.on( Orientation.CHANGE_ORIENTATION, function ( event ) {\n       var direction = event.direction;\n       if ( direction === 'portrait' ) {\n          // portrait\n        }\n       if ( direction === 'landscape' ) {\n          // landscape\n        }\n     } );\n     Orientation.listen();",
+            "requires": [
+                "kaketsugi.js",
+                "wakegi.js",
+                "gasane.js"
+            ]
+        },
+        "Classes": {
+            "name": "Classes",
+            "submodules": {},
+            "elements": {},
+            "classes": {
+                "Classes": 1
+            },
+            "fors": {},
+            "is_submodule": 1,
+            "namespaces": {},
+            "module": "Sagen",
+            "namespace": "",
+            "file": "src/device/Classes.js",
+            "line": 31,
+            "description": "html tag へ class を付与します"
+        },
+        "Device": {
+            "name": "Device",
+            "submodules": {},
+            "elements": {},
+            "classes": {
+                "Device": 1
+            },
+            "fors": {},
+            "is_submodule": 1,
+            "namespaces": {},
+            "module": "Sagen",
+            "namespace": "",
+            "file": "src/device/Device.js",
+            "line": 49
+        },
+        "Orientation": {
+            "name": "Orientation",
+            "submodules": {},
+            "elements": {},
+            "classes": {
+                "Orientation": 1
+            },
+            "fors": {},
+            "is_submodule": 1,
+            "namespaces": {},
+            "module": "Sagen",
+            "namespace": "",
+            "file": "src/device/Orientation.js",
+            "line": 68,
+            "description": "orientation 監視"
+        },
+        "Viewport": {
+            "name": "Viewport",
+            "submodules": {},
+            "elements": {},
+            "classes": {
+                "Viewport": 1
+            },
+            "fors": {},
+            "is_submodule": 1,
+            "namespaces": {},
+            "module": "Sagen",
+            "namespace": "",
+            "file": "src/device/Viewport.js",
+            "line": 47,
+            "description": "meta viewport rewrite / write"
+        }
+    },
+    "classes": {
+        "Classes": {
+            "name": "Classes",
+            "shortname": "Classes",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "Sagen",
+            "submodule": "Classes",
+            "namespace": "",
+            "file": "src/device/Classes.js",
+            "line": 31,
+            "params": [
+                {
+                    "name": "classes",
+                    "description": "",
+                    "type": "Array"
+                }
+            ],
+            "is_constructor": 1
+        },
+        "Device": {
+            "name": "Device",
+            "shortname": "Device",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "Sagen",
+            "submodule": "Device",
+            "namespace": "",
+            "file": "src/device/Device.js",
+            "line": 49,
+            "static": 1,
+            "is_constructor": 1
+        },
+        "Orientation": {
+            "name": "Orientation",
+            "shortname": "Orientation",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "Sagen",
+            "submodule": "Orientation",
+            "namespace": "",
+            "file": "src/device/Orientation.js",
+            "line": 68,
+            "description": "portrait / landscape 切替を監視",
+            "uses": [
+                "EventDispatcher"
+            ],
+            "static": 1,
+            "is_constructor": 1
+        },
+        "Viewport": {
+            "name": "Viewport",
+            "shortname": "Viewport",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "Sagen",
+            "submodule": "Viewport",
+            "namespace": "",
+            "file": "src/device/Viewport.js",
+            "line": 47,
+            "static": 1,
+            "is_constructor": 1
+        },
+        "Sagen": {
+            "name": "Sagen",
+            "shortname": "Sagen",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "Sagen",
+            "namespace": ""
+        }
+    },
+    "elements": {},
+    "classitems": [
+        {
+            "file": "src/device/Classes.js",
+            "line": 1,
+            "description": "license inazumatv.com\nauthor (at)taikiken / http://inazumatv.com\ndate 2015/04/10 - 16:02\n\nCopyright (c) 2011-2015 inazumatv.com, inc.\n\nDistributed under the terms of the MIT license.\nhttp://www.opensource.org/licenses/mit-license.html\n\nThis notice shall be included in all copies or substantial portions of the Software.",
+            "class": "Classes"
+        },
+        {
+            "file": "src/device/Classes.js",
+            "line": 37,
+            "itemtype": "property",
+            "name": "_classes",
+            "type": "{Array}",
+            "access": "private",
+            "tagname": "",
+            "class": "Classes",
+            "module": "Sagen",
+            "submodule": "Classes"
+        },
+        {
+            "file": "src/device/Classes.js",
+            "line": 43,
+            "itemtype": "property",
+            "name": "_dom",
+            "type": "{Dom}",
+            "access": "private",
+            "tagname": "",
+            "class": "Classes",
+            "module": "Sagen",
+            "submodule": "Classes"
+        },
+        {
+            "file": "src/device/Classes.js",
+            "line": 54,
+            "itemtype": "method",
+            "name": "add",
+            "params": [
+                {
+                    "name": "className",
+                    "description": ""
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Classes"
+            },
+            "class": "Classes",
+            "module": "Sagen",
+            "submodule": "Classes"
+        },
+        {
+            "file": "src/device/Classes.js",
+            "line": 71,
+            "itemtype": "method",
+            "name": "write",
+            "class": "Classes",
+            "module": "Sagen",
+            "submodule": "Classes"
+        },
+        {
+            "file": "src/device/Classes.js",
+            "line": 78,
+            "itemtype": "method",
+            "name": "addClass",
+            "params": [
+                {
+                    "name": "className",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Classes"
+            },
+            "class": "Classes",
+            "module": "Sagen",
+            "submodule": "Classes"
+        },
+        {
+            "file": "src/device/Classes.js",
+            "line": 89,
+            "itemtype": "method",
+            "name": "removeClass",
+            "params": [
+                {
+                    "name": "className",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Classes"
+            },
+            "class": "Classes",
+            "module": "Sagen",
+            "submodule": "Classes"
+        },
+        {
+            "file": "src/device/Device.js",
+            "line": 1,
+            "description": "license inazumatv.com\nauthor (at)taikiken / http://inazumatv.com\ndate 2015/04/10 - 15:34\n\nCopyright (c) 2011-2015 inazumatv.com, inc.\n\nDistributed under the terms of the MIT license.\nhttp://www.opensource.org/licenses/mit-license.html\n\nThis notice shall be included in all copies or substantial portions of the Software.",
+            "class": "Device",
+            "module": "Sagen"
+        },
+        {
+            "file": "src/device/Device.js",
+            "line": 41,
+            "itemtype": "property",
+            "name": "_classes",
+            "static": 1,
+            "access": "private",
+            "tagname": "",
+            "type": "{Classes}",
+            "class": "Device",
+            "module": "Sagen",
+            "submodule": "Device"
+        },
+        {
+            "file": "src/device/Device.js",
+            "line": 61,
+            "itemtype": "method",
+            "name": "init",
+            "static": 1,
+            "class": "Device",
+            "module": "Sagen",
+            "submodule": "Device"
+        },
+        {
+            "file": "src/device/Device.js",
+            "line": 80,
+            "itemtype": "method",
+            "name": "call",
+            "static": 1,
+            "params": [
+                {
+                    "name": "func",
+                    "description": "",
+                    "type": "Function"
+                }
+            ],
+            "class": "Device",
+            "module": "Sagen",
+            "submodule": "Device"
+        },
+        {
+            "file": "src/device/Device.js",
+            "line": 91,
+            "itemtype": "method",
+            "name": "_default",
+            "static": 1,
+            "params": [
+                {
+                    "name": "classes",
+                    "description": "",
+                    "type": "Classes"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Device"
+            },
+            "access": "private",
+            "tagname": "",
+            "class": "Device",
+            "module": "Sagen",
+            "submodule": "Device"
+        },
+        {
+            "file": "src/device/Device.js",
+            "line": 109,
+            "itemtype": "method",
+            "name": "_option",
+            "static": 1,
+            "params": [
+                {
+                    "name": "classes",
+                    "description": "",
+                    "type": "Classes"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Device"
+            },
+            "access": "private",
+            "tagname": "",
+            "class": "Device",
+            "module": "Sagen",
+            "submodule": "Device"
+        },
+        {
+            "file": "src/device/Device.js",
+            "line": 147,
+            "itemtype": "method",
+            "name": "_version",
+            "static": 1,
+            "params": [
+                {
+                    "name": "classes",
+                    "description": "",
+                    "type": "Classes"
+                },
+                {
+                    "name": "prefix",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "numbers",
+                    "description": "",
+                    "type": "Array"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Device"
+            },
+            "access": "private",
+            "tagname": "",
+            "class": "Device",
+            "module": "Sagen",
+            "submodule": "Device"
+        },
+        {
+            "file": "src/device/Device.js",
+            "line": 173,
+            "itemtype": "method",
+            "name": "_ios",
+            "static": 1,
+            "params": [
+                {
+                    "name": "classes",
+                    "description": "",
+                    "type": "Classes"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Device"
+            },
+            "access": "private",
+            "tagname": "",
+            "class": "Device",
+            "module": "Sagen",
+            "submodule": "Device"
+        },
+        {
+            "file": "src/device/Device.js",
+            "line": 214,
+            "itemtype": "method",
+            "name": "_android",
+            "static": 1,
+            "params": [
+                {
+                    "name": "classes",
+                    "description": "",
+                    "type": "Classes"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Device"
+            },
+            "access": "private",
+            "tagname": "",
+            "class": "Device",
+            "module": "Sagen",
+            "submodule": "Device"
+        },
+        {
+            "file": "src/device/Device.js",
+            "line": 261,
+            "itemtype": "method",
+            "name": "_css3",
+            "static": 1,
+            "params": [
+                {
+                    "name": "classes",
+                    "description": "",
+                    "type": "Classes"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Device"
+            },
+            "access": "private",
+            "tagname": "",
+            "class": "Device",
+            "module": "Sagen",
+            "submodule": "Device"
+        },
+        {
+            "file": "src/device/Device.js",
+            "line": 309,
+            "itemtype": "method",
+            "name": "_element",
+            "static": 1,
+            "params": [
+                {
+                    "name": "classes",
+                    "description": "",
+                    "type": "Classes"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Device"
+            },
+            "access": "private",
+            "tagname": "",
+            "class": "Device",
+            "module": "Sagen",
+            "submodule": "Device"
+        },
+        {
+            "file": "src/device/Device.js",
+            "line": 333,
+            "itemtype": "method",
+            "name": "_os",
+            "static": 1,
+            "params": [
+                {
+                    "name": "classes",
+                    "description": "",
+                    "type": "Classes"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Device"
+            },
+            "access": "private",
+            "tagname": "",
+            "class": "Device",
+            "module": "Sagen",
+            "submodule": "Device"
+        },
+        {
+            "file": "src/device/Device.js",
+            "line": 368,
+            "itemtype": "method",
+            "name": "_safari",
+            "static": 1,
+            "params": [
+                {
+                    "name": "classes",
+                    "description": "",
+                    "type": "Classes"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Device"
+            },
+            "access": "private",
+            "tagname": "",
+            "class": "Device",
+            "module": "Sagen",
+            "submodule": "Device"
+        },
+        {
+            "file": "src/device/Device.js",
+            "line": 392,
+            "itemtype": "method",
+            "name": "_chrome",
+            "static": 1,
+            "params": [
+                {
+                    "name": "classes",
+                    "description": "",
+                    "type": "Classes"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Device"
+            },
+            "access": "private",
+            "tagname": "",
+            "class": "Device",
+            "module": "Sagen",
+            "submodule": "Device"
+        },
+        {
+            "file": "src/device/Device.js",
+            "line": 417,
+            "itemtype": "method",
+            "name": "_firefox",
+            "static": 1,
+            "params": [
+                {
+                    "name": "classes",
+                    "description": "",
+                    "type": "Classes"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Device"
+            },
+            "access": "private",
+            "tagname": "",
+            "class": "Device",
+            "module": "Sagen",
+            "submodule": "Device"
+        },
+        {
+            "file": "src/device/Device.js",
+            "line": 442,
+            "itemtype": "method",
+            "name": "_firefox",
+            "static": 1,
+            "params": [
+                {
+                    "name": "classes",
+                    "description": "",
+                    "type": "Classes"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Device"
+            },
+            "access": "private",
+            "tagname": "",
+            "class": "Device",
+            "module": "Sagen",
+            "submodule": "Device"
+        },
+        {
+            "file": "src/device/Device.js",
+            "line": 467,
+            "itemtype": "method",
+            "name": "_ie",
+            "static": 1,
+            "params": [
+                {
+                    "name": "classes",
+                    "description": "",
+                    "type": "Classes"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Device"
+            },
+            "access": "private",
+            "tagname": "",
+            "class": "Device",
+            "module": "Sagen",
+            "submodule": "Device"
+        },
+        {
+            "file": "src/device/Device.js",
+            "line": 492,
+            "itemtype": "method",
+            "name": "_canvas",
+            "static": 1,
+            "params": [
+                {
+                    "name": "classes",
+                    "description": "",
+                    "type": "Classes"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Device"
+            },
+            "access": "private",
+            "tagname": "",
+            "class": "Device",
+            "module": "Sagen",
+            "submodule": "Device"
+        },
+        {
+            "file": "src/device/Device.js",
+            "line": 517,
+            "description": "orientation event handler",
+            "itemtype": "method",
+            "name": "_onOrientation",
+            "static": 1,
+            "params": [
+                {
+                    "name": "event",
+                    "description": "",
+                    "type": "Object"
+                }
+            ],
+            "access": "private",
+            "tagname": "",
+            "class": "Device",
+            "module": "Sagen",
+            "submodule": "Device"
+        },
+        {
+            "file": "src/device/Orientation.js",
+            "line": 1,
+            "description": "license inazumatv.com\nauthor (at)taikiken / http://inazumatv.com\ndate 2015/04/10 - 19:33\n\nCopyright (c) 2011-2015 inazumatv.com, inc.\n\nDistributed under the terms of the MIT license.\nhttp://www.opensource.org/licenses/mit-license.html\n\nThis notice shall be included in all copies or substantial portions of the Software.",
+            "class": "Orientation",
+            "module": "Sagen"
+        },
+        {
+            "file": "src/device/Orientation.js",
+            "line": 37,
+            "itemtype": "property",
+            "name": "_orientation",
+            "static": 1,
+            "type": "{boolean}",
+            "access": "private",
+            "tagname": "",
+            "class": "Orientation",
+            "module": "Sagen",
+            "submodule": "Orientation"
+        },
+        {
+            "file": "src/device/Orientation.js",
+            "line": 44,
+            "itemtype": "property",
+            "name": "_eventType",
+            "static": 1,
+            "type": "{string}",
+            "access": "private",
+            "tagname": "",
+            "class": "Orientation",
+            "module": "Sagen",
+            "submodule": "Orientation"
+        },
+        {
+            "file": "src/device/Orientation.js",
+            "line": 51,
+            "itemtype": "property",
+            "name": "_handler",
+            "static": 1,
+            "type": "{Function}",
+            "access": "private",
+            "tagname": "",
+            "class": "Orientation",
+            "module": "Sagen",
+            "submodule": "Orientation"
+        },
+        {
+            "file": "src/device/Orientation.js",
+            "line": 58,
+            "itemtype": "property",
+            "name": "_mediaQuery",
+            "static": 1,
+            "type": "{MediaQueryList}",
+            "access": "private",
+            "tagname": "",
+            "class": "Orientation",
+            "module": "Sagen",
+            "submodule": "Orientation"
+        },
+        {
+            "file": "src/device/Orientation.js",
+            "line": 83,
+            "itemtype": "event",
+            "name": "CHANGE_ORIENTATION",
+            "static": 1,
+            "type": "{string}",
+            "class": "Orientation",
+            "module": "Sagen",
+            "submodule": "Orientation"
+        },
+        {
+            "file": "src/device/Orientation.js",
+            "line": 92,
+            "itemtype": "method",
+            "name": "init",
+            "static": 1,
+            "class": "Orientation",
+            "module": "Sagen",
+            "submodule": "Orientation"
+        },
+        {
+            "file": "src/device/Orientation.js",
+            "line": 102,
+            "itemtype": "method",
+            "name": "canOrientation",
+            "static": 1,
+            "return": {
+                "description": "",
+                "type": "Boolean"
+            },
+            "class": "Orientation",
+            "module": "Sagen",
+            "submodule": "Orientation"
+        },
+        {
+            "file": "src/device/Orientation.js",
+            "line": 118,
+            "itemtype": "method",
+            "name": "eventType",
+            "static": 1,
+            "return": {
+                "description": "",
+                "type": "String"
+            },
+            "class": "Orientation",
+            "module": "Sagen",
+            "submodule": "Orientation"
+        },
+        {
+            "file": "src/device/Orientation.js",
+            "line": 134,
+            "description": "Orientation.CHANGE_ORIENTATIONをdispatchし directionを \"portrait\" にします",
+            "itemtype": "method",
+            "name": "portrait",
+            "static": 1,
+            "class": "Orientation",
+            "module": "Sagen",
+            "submodule": "Orientation"
+        },
+        {
+            "file": "src/device/Orientation.js",
+            "line": 144,
+            "description": "Orientation.CHANGE_ORIENTATIONをdispatchし directionを \"landscape\" にします",
+            "itemtype": "method",
+            "name": "landscape",
+            "static": 1,
+            "class": "Orientation",
+            "module": "Sagen",
+            "submodule": "Orientation"
+        },
+        {
+            "file": "src/device/Orientation.js",
+            "line": 154,
+            "itemtype": "method",
+            "name": "listen",
+            "static": 1,
+            "return": {
+                "description": "",
+                "type": "Orientation"
+            },
+            "class": "Orientation",
+            "module": "Sagen",
+            "submodule": "Orientation"
+        },
+        {
+            "file": "src/device/Orientation.js",
+            "line": 190,
+            "itemtype": "method",
+            "name": "abort",
+            "static": 1,
+            "class": "Orientation",
+            "module": "Sagen",
+            "submodule": "Orientation"
+        },
+        {
+            "file": "src/device/Orientation.js",
+            "line": 203,
+            "description": "イベントを強制的に発火させます",
+            "itemtype": "method",
+            "name": "fire",
+            "static": 1,
+            "class": "Orientation",
+            "module": "Sagen",
+            "submodule": "Orientation"
+        },
+        {
+            "file": "src/device/Orientation.js",
+            "line": 221,
+            "itemtype": "method",
+            "name": "_listenOrientation",
+            "static": 1,
+            "access": "private",
+            "tagname": "",
+            "class": "Orientation",
+            "module": "Sagen",
+            "submodule": "Orientation"
+        },
+        {
+            "file": "src/device/Orientation.js",
+            "line": 258,
+            "itemtype": "method",
+            "name": "_checkDegree",
+            "static": 1,
+            "return": {
+                "description": "",
+                "type": "Boolean"
+            },
+            "access": "private",
+            "tagname": "",
+            "class": "Orientation",
+            "module": "Sagen",
+            "submodule": "Orientation"
+        },
+        {
+            "file": "src/device/Orientation.js",
+            "line": 269,
+            "itemtype": "method",
+            "name": "_checkAspect",
+            "static": 1,
+            "return": {
+                "description": "",
+                "type": "Boolean"
+            },
+            "access": "private",
+            "tagname": "",
+            "class": "Orientation",
+            "module": "Sagen",
+            "submodule": "Orientation"
+        },
+        {
+            "file": "src/device/Orientation.js",
+            "line": 284,
+            "description": "Experia Z(Sony Tablet), portrait / landscape 表示が逆なのでwindow比率で判定する",
+            "itemtype": "method",
+            "name": "_experiaZ",
+            "access": "private",
+            "tagname": "",
+            "class": "Orientation",
+            "module": "Sagen",
+            "submodule": "Orientation"
+        },
+        {
+            "file": "src/device/Orientation.js",
+            "line": 305,
+            "description": "window.matchMedia listener handler",
+            "itemtype": "method",
+            "name": "_onRotate",
+            "static": 1,
+            "params": [
+                {
+                    "name": "mediaQuery",
+                    "description": "",
+                    "type": "MediaQueryList"
+                }
+            ],
+            "access": "private",
+            "tagname": "",
+            "class": "Orientation",
+            "module": "Sagen",
+            "submodule": "Orientation"
+        },
+        {
+            "file": "src/device/Orientation.js",
+            "line": 328,
+            "itemtype": "method",
+            "name": "_onOrientationChange",
+            "static": 1,
+            "access": "private",
+            "tagname": "",
+            "class": "Orientation",
+            "module": "Sagen",
+            "submodule": "Orientation"
+        },
+        {
+            "file": "src/device/Orientation.js",
+            "line": 347,
+            "itemtype": "method",
+            "name": "_listenMatchMedia",
+            "static": 1,
+            "access": "private",
+            "tagname": "",
+            "class": "Orientation",
+            "module": "Sagen",
+            "submodule": "Orientation"
+        },
+        {
+            "file": "src/device/Viewport.js",
+            "line": 1,
+            "description": "license inazumatv.com\nauthor (at)taikiken / http://inazumatv.com\ndate 2015/04/10 - 18:48\n\nCopyright (c) 2011-2015 inazumatv.com, inc.\n\nDistributed under the terms of the MIT license.\nhttp://www.opensource.org/licenses/mit-license.html\n\nThis notice shall be included in all copies or substantial portions of the Software.",
+            "class": "Viewport",
+            "module": "Sagen"
+        },
+        {
+            "file": "src/device/Viewport.js",
+            "line": 32,
+            "itemtype": "property",
+            "name": "_viewport",
+            "static": 1,
+            "type": "{HTMLElement}",
+            "access": "private",
+            "tagname": "",
+            "class": "Viewport",
+            "module": "Sagen",
+            "submodule": "Viewport"
+        },
+        {
+            "file": "src/device/Viewport.js",
+            "line": 39,
+            "itemtype": "property",
+            "name": "_content",
+            "static": 1,
+            "type": "{string}",
+            "access": "private",
+            "tagname": "",
+            "class": "Viewport",
+            "module": "Sagen",
+            "submodule": "Viewport"
+        },
+        {
+            "file": "src/device/Viewport.js",
+            "line": 60,
+            "itemtype": "method",
+            "name": "init",
+            "static": 1,
+            "class": "Viewport",
+            "module": "Sagen",
+            "submodule": "Viewport"
+        },
+        {
+            "file": "src/device/Viewport.js",
+            "line": 73,
+            "itemtype": "method",
+            "name": "find",
+            "static": 1,
+            "return": {
+                "description": "",
+                "type": "Viewport"
+            },
+            "class": "Viewport",
+            "module": "Sagen",
+            "submodule": "Viewport"
+        },
+        {
+            "file": "src/device/Viewport.js",
+            "line": 100,
+            "itemtype": "method",
+            "name": "Viewport",
+            "static": 1,
+            "return": {
+                "description": "",
+                "type": "HTMLElement|*"
+            },
+            "class": "Viewport",
+            "module": "Sagen",
+            "submodule": "Viewport"
+        },
+        {
+            "file": "src/device/Viewport.js",
+            "line": 111,
+            "itemtype": "method",
+            "name": "content",
+            "static": 1,
+            "return": {
+                "description": "",
+                "type": "String"
+            },
+            "class": "Viewport",
+            "module": "Sagen",
+            "submodule": "Viewport"
+        },
+        {
+            "file": "src/device/Viewport.js",
+            "line": 122,
+            "itemtype": "method",
+            "name": "write",
+            "static": 1,
+            "params": [
+                {
+                    "name": "content",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Viewport"
+            },
+            "class": "Viewport",
+            "module": "Sagen",
+            "submodule": "Viewport"
+        },
+        {
+            "file": "src/device/Viewport.js",
+            "line": 149,
+            "itemtype": "method",
+            "name": "add",
+            "static": 1,
+            "params": [
+                {
+                    "name": "option",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Viewport"
+            },
+            "class": "Viewport",
+            "module": "Sagen",
+            "submodule": "Viewport"
+        },
+        {
+            "file": "src/device/Viewport.js",
+            "line": 177,
+            "itemtype": "method",
+            "name": "replace",
+            "static": 1,
+            "params": [
+                {
+                    "name": "oldOption",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "newOption",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Viewport"
+            },
+            "class": "Viewport",
+            "module": "Sagen",
+            "submodule": "Viewport"
+        },
+        {
+            "file": "src/device/Viewport.js",
+            "line": 208,
+            "description": "viewport content 引数で書換",
+            "itemtype": "method",
+            "name": "rewrite",
+            "static": 1,
+            "params": [
+                {
+                    "name": "content",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Viewport"
+            },
+            "class": "Viewport",
+            "module": "Sagen",
+            "submodule": "Viewport"
+        },
+        {
+            "file": "src/device/Viewport.js",
+            "line": 228,
+            "itemtype": "method",
+            "name": "minimalUi",
+            "static": 1,
+            "class": "Viewport",
+            "module": "Sagen",
+            "submodule": "Viewport"
+        },
+        {
+            "file": "src/Sagen.js",
+            "line": 1,
+            "license": "inazumatv.com",
+            "author": "(at)taikiken / htp://inazumatv.com\ndate 2014/02/06 - 13:17\n\nCopyright (c) 2011-@@year inazumatv.com, inc.\n\nDistributed under the terms of the MIT license.\nhttp://www.opensource.org/licenses/mit-license.html\n\nThis notice shall be included in all copies or substantial portions of the Software.\n\nversion @@version\nbuild @@buildTime\ngithub: @@url",
+            "class": "Sagen",
+            "module": "Sagen"
+        },
+        {
+            "file": "src/Sagen.js",
+            "line": 168,
+            "itemtype": "method",
+            "name": "dataSet",
+            "static": 1,
+            "params": [
+                {
+                    "name": "type",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "class": "Sagen",
+            "module": "Sagen"
+        },
+        {
+            "file": "src/Sagen.js",
+            "line": 180,
+            "description": "dataSet alias",
+            "deprecated": true,
+            "deprecationMessage": "instead use dataSet",
+            "itemtype": "method",
+            "name": "dataset",
+            "static": 1,
+            "type": "{Function|*}",
+            "class": "Sagen",
+            "module": "Sagen"
+        },
+        {
+            "file": "src/execute.js",
+            "line": 1,
+            "description": "license inazumatv.com\nauthor (at)taikiken / http://inazumatv.com\ndate 2015/04/10 - 15:42\n\nCopyright (c) 2011-2015 inazumatv.com, inc.\n\nDistributed under the terms of the MIT license.\nhttp://www.opensource.org/licenses/mit-license.html\n\nThis notice shall be included in all copies or substantial portions of the Software.",
+            "class": "",
+            "module": "Sagen"
+        }
+    ],
+    "warnings": [
+        {
+            "message": "unknown tag: license",
+            "line": " src/Sagen.js:1"
+        },
+        {
+            "message": "Missing item type\nlicense inazumatv.com\nauthor (at)taikiken / http://inazumatv.com\ndate 2015/04/10 - 16:02\n\nCopyright (c) 2011-2015 inazumatv.com, inc.\n\nDistributed under the terms of the MIT license.\nhttp://www.opensource.org/licenses/mit-license.html\n\nThis notice shall be included in all copies or substantial portions of the Software.",
+            "line": " src/device/Classes.js:1"
+        },
+        {
+            "message": "Missing item type\nlicense inazumatv.com\nauthor (at)taikiken / http://inazumatv.com\ndate 2015/04/10 - 15:34\n\nCopyright (c) 2011-2015 inazumatv.com, inc.\n\nDistributed under the terms of the MIT license.\nhttp://www.opensource.org/licenses/mit-license.html\n\nThis notice shall be included in all copies or substantial portions of the Software.",
+            "line": " src/device/Device.js:1"
+        },
+        {
+            "message": "Missing item type\nlicense inazumatv.com\nauthor (at)taikiken / http://inazumatv.com\ndate 2015/04/10 - 19:33\n\nCopyright (c) 2011-2015 inazumatv.com, inc.\n\nDistributed under the terms of the MIT license.\nhttp://www.opensource.org/licenses/mit-license.html\n\nThis notice shall be included in all copies or substantial portions of the Software.",
+            "line": " src/device/Orientation.js:1"
+        },
+        {
+            "message": "Missing item type\nlicense inazumatv.com\nauthor (at)taikiken / http://inazumatv.com\ndate 2015/04/10 - 18:48\n\nCopyright (c) 2011-2015 inazumatv.com, inc.\n\nDistributed under the terms of the MIT license.\nhttp://www.opensource.org/licenses/mit-license.html\n\nThis notice shall be included in all copies or substantial portions of the Software.",
+            "line": " src/device/Viewport.js:1"
+        },
+        {
+            "message": "Missing item type",
+            "line": " src/Sagen.js:1"
+        },
+        {
+            "message": "Missing item type\nlicense inazumatv.com\nauthor (at)taikiken / http://inazumatv.com\ndate 2015/04/10 - 15:42\n\nCopyright (c) 2011-2015 inazumatv.com, inc.\n\nDistributed under the terms of the MIT license.\nhttp://www.opensource.org/licenses/mit-license.html\n\nThis notice shall be included in all copies or substantial portions of the Software.",
+            "line": " src/execute.js:1"
+        }
+    ]
+}

@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>src/device/Device.js - sagen.js</title>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
+    <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
+    <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
+    <link rel="icon" href="../assets/favicon.ico">
+    <script src="http://yui.yahooapis.com/combo?3.9.1/build/yui/yui-min.js"></script>
+</head>
+<body class="yui3-skin-sam">
+
+<div id="doc">
+    <div id="hd" class="yui3-g header">
+        <div class="yui3-u-3-4">
+                <h1><img src="../assets/css/logo.png" title="sagen.js" width="117" height="52"></h1>
+        </div>
+        <div class="yui3-u-1-4 version">
+            <em>API Docs for: </em>
+        </div>
+    </div>
+    <div id="bd" class="yui3-g">
+
+        <div class="yui3-u-1-4">
+            <div id="docs-sidebar" class="sidebar apidocs">
+                <div id="api-list">
+                    <h2 class="off-left">APIs</h2>
+                    <div id="api-tabview" class="tabview">
+                        <ul class="tabs">
+                            <li><a href="#api-classes">Classes</a></li>
+                            <li><a href="#api-modules">Modules</a></li>
+                        </ul>
+                
+                        <div id="api-tabview-filter">
+                            <input type="search" id="api-filter" placeholder="Type to filter APIs">
+                        </div>
+                
+                        <div id="api-tabview-panel">
+                            <ul id="api-classes" class="apis classes">
+                                <li><a href="../classes/Classes.html">Classes</a></li>
+                                <li><a href="../classes/Device.html">Device</a></li>
+                                <li><a href="../classes/Orientation.html">Orientation</a></li>
+                                <li><a href="../classes/Sagen.html">Sagen</a></li>
+                                <li><a href="../classes/Viewport.html">Viewport</a></li>
+                            </ul>
+                
+                
+                            <ul id="api-modules" class="apis modules">
+                                <li><a href="../modules/Classes.html">Classes</a></li>
+                                <li><a href="../modules/Device.html">Device</a></li>
+                                <li><a href="../modules/Orientation.html">Orientation</a></li>
+                                <li><a href="../modules/Sagen.html">Sagen</a></li>
+                                <li><a href="../modules/Viewport.html">Viewport</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="yui3-u-3-4">
+                <div id="api-options">
+                    Show:
+                    <label for="api-show-inherited">
+                        <input type="checkbox" id="api-show-inherited" checked>
+                        Inherited
+                    </label>
+            
+                    <label for="api-show-protected">
+                        <input type="checkbox" id="api-show-protected">
+                        Protected
+                    </label>
+            
+                    <label for="api-show-private">
+                        <input type="checkbox" id="api-show-private">
+                        Private
+                    </label>
+                    <label for="api-show-deprecated">
+                        <input type="checkbox" id="api-show-deprecated">
+                        Deprecated
+                    </label>
+            
+                </div>
+            
+            <div class="apidocs">
+                <div id="docs-main">
+                    <div class="content">
+<h1 class="file-heading">File: src/device/Device.js</h1>
+
+<div class="file">
+    <pre class="code prettyprint linenums">
+/**
+ * license inazumatv.com
+ * author (at)taikiken / http://inazumatv.com
+ * date 2015/04/10 - 15:34
+ *
+ * Copyright (c) 2011-2015 inazumatv.com, inc.
+ *
+ * Distributed under the terms of the MIT license.
+ * http://www.opensource.org/licenses/mit-license.html
+ *
+ * This notice shall be included in all copies or substantial portions of the Software.
+ *
+ */
+/**
+ * @module Sagen
+ * @submodule Device
+ * */
+( function ( window ){
+  &#x27;use strict&#x27;;
+
+  var
+    Sagen = window.Sagen;
+
+  Sagen.Device = ( function (){
+    var
+      Browser = Sagen.Browser,
+      Android = Browser.Android,
+      iOS = Browser.iOS,
+      Mac = Browser.Mac,
+      Windows = Browser.Windows,
+      Css3 = Browser.Css3,
+      Element = Browser.Element,
+      Safari = Browser.Safari,
+      Chrome = Browser.Chrome,
+      Firefox = Browser.Firefox,
+      IE = Browser.IE,
+      Edge = Browser.Edge,
+      Orientation = Sagen.Orientation,
+
+      Classes = Sagen.Classes,
+      /**
+       * @property _classes
+       * @static
+       * @private
+       * @type {Classes}
+       */
+      _classes;
+
+    /**
+     * @class Device
+     * @static
+     * @constructor
+     */
+    function Device () {
+      throw new Error( &#x27;Device can\&#x27;t create instance.&#x27; );
+    }
+
+    var p = Device.prototype;
+
+    p.constructor = Device;
+    /**
+     * @method init
+     * @static
+     */
+    Device.init = function () {
+      var
+        classes = new Classes( [] );
+
+      _classes = classes;
+
+      Device._default( classes )
+        ._option( classes )
+        .call( function () {
+
+          classes.write();
+
+        } );
+
+    };
+    /**
+     * @method call
+     * @static
+     * @param {function} func
+     */
+    Device.call = function ( func ) {
+
+      func();
+
+    };
+
+    /**
+     * @method _default
+     * @static
+     * @param {Classes} classes
+     * @return {Device}
+     * @private
+     */
+    Device._default = function ( classes ) {
+      // default
+
+      Device._ios( classes )
+        ._android( classes )
+        ._css3( classes )
+        ._os( classes );
+
+      return Device;
+
+    };
+    /**
+     * @method _option
+     * @static
+     * @param {Classes} classes
+     * @return {Device}
+     * @private
+     */
+    Device._option = function ( classes ) {
+
+      if ( Sagen.dataSet( &#x27;browser&#x27; ) ) {
+
+        Device._ie( classes )
+          ._chrome( classes )
+          ._safari( classes )
+          ._firefox( classes )
+          ._edge( classes );
+
+      }
+
+      if ( Sagen.dataSet( &#x27;canvas&#x27; ) ) {
+
+        Device._canvas( classes );
+
+      }
+
+      // orientation
+      // ToDo: orientation change
+      if ( Sagen.dataSet( &#x27;orientation&#x27; ) &amp;&amp; ( iOS.is() || Android.is()) ) {
+
+        Orientation.on( Orientation.CHANGE_ORIENTATION, Device._onOrientation );
+        Orientation.init();
+
+      }
+
+      return Device;
+
+    };
+
+    /**
+     * @method _version
+     * @static
+     * @param {Classes} classes
+     * @param {string} prefix
+     * @param {Array} numbers
+     * @return {Device}
+     * @private
+     */
+    Device._version = function ( classes, prefix, numbers ) {
+      var
+        version = &#x27;&#x27;,
+        _ = &#x27;_&#x27;,
+        i, limit;
+
+      for ( i = 0, limit = numbers.length; i &lt; limit; i = i + 1 ) {
+
+        version += numbers[ i ] + &#x27;&#x27;;
+        classes.add( prefix + version );
+
+        version += _;
+
+      }
+
+      return Device;
+    };
+    /**
+     * @method _ios
+     * @static
+     * @param {Classes} classes
+     * @return {Device}
+     * @private
+     */
+    Device._ios = function ( classes ) {
+      var
+        prefix;
+
+      if ( iOS.is() ) {
+
+        // iOS
+        prefix = &#x27;ios&#x27;;
+
+        classes.add( prefix );
+
+        if ( iOS.iPad() ) {
+          // ipad
+          classes.add( &#x27;ipad&#x27; ).add( &#x27;tablet&#x27; );
+
+        } else if ( iOS.iPod() ) {
+          // ipod
+          classes.add( &#x27;ipod&#x27; ).add( &#x27;mobile&#x27; );
+
+
+        } else if ( iOS.iPhone() ) {
+          // ipod
+          classes.add( &#x27;iphone&#x27; ).add( &#x27;mobile&#x27; );
+
+        }
+
+        // version
+        Device._version( classes, prefix, iOS.numbers() );
+
+      }
+
+      return Device;
+
+    };
+    /**
+     * @method _android
+     * @static
+     * @param {Classes} classes
+     * @return {Device}
+     * @private
+     */
+    Device._android = function ( classes ) {
+      var
+        prefix;
+
+      if ( Android.is() ) {
+
+        // iOS
+        prefix = &#x27;android&#x27;;
+
+        classes.add( prefix );
+
+        if ( Android.tablet() ) {
+          // ipad
+          classes.add( &#x27;tablet&#x27; );
+
+        } else if ( Android.phone() ) {
+          // ipod
+          classes.add( &#x27;mobile&#x27; );
+
+        }
+
+        if ( Android.standard() ) {
+
+          classes.add( &#x27;android-standard&#x27; );
+
+        }
+
+        if ( Android.hd() ) {
+
+          classes.add( &#x27;android-hd&#x27; );
+
+        }
+
+        // version
+        Device._version( classes, prefix, Android.numbers() );
+
+      }
+
+      return Device;
+    };
+    /**
+     * @method _css3
+     * @static
+     * @param {Classes} classes
+     * @return {Device}
+     * @private
+     */
+    Device._css3 = function ( classes ) {
+
+      if ( Css3.transition() ) {
+
+        classes.add( &#x27;transition&#x27; );
+
+      }
+
+      if ( Css3.transform() ) {
+
+        classes.add( &#x27;transform&#x27; );
+
+      }
+
+      if ( Css3.matchMedia() ) {
+
+        classes.add( &#x27;matchMedia&#x27; );
+
+      }
+
+      if ( Css3.orientation() ) {
+
+        classes.add( &#x27;orientation&#x27; );
+
+      }
+
+      if ( Css3.orientationChange() ) {
+
+        classes.add( &#x27;orientation-change&#x27; );
+
+      }
+
+      if ( Css3.backgroundSize() ) {
+
+        classes.add( &#x27;background-size&#x27; );
+
+      }
+
+      return Device;
+
+    };
+    /**
+     * @method _element
+     * @static
+     * @param {Classes} classes
+     * @return {Device}
+     * @private
+     */
+    Device._element = function ( classes ) {
+
+      if ( Element.touch() ) {
+
+        classes.add( &#x27;touch&#x27; );
+
+      }
+
+      if ( Element.querySelector() ) {
+
+        classes.add( &#x27;querySelector&#x27; );
+
+      }
+
+      return Device;
+
+    };
+    /**
+     * @method _os
+     * @static
+     * @param {Classes} classes
+     * @return {Device}
+     * @private
+     */
+    Device._os = function ( classes ) {
+
+      var
+        pc = false;
+
+      if ( Mac.is() ) {
+
+        classes.add( &#x27;mac&#x27; );
+        pc = true;
+
+      }
+
+      if ( Windows.is() ) {
+
+        classes.add( &#x27;windows&#x27; );
+        pc = true;
+
+      }
+
+      if ( pc ) {
+
+        classes.add( &#x27;other&#x27; );
+
+      }
+
+      return Device;
+
+    };
+    /**
+     * @method _safari
+     * @static
+     * @param {Classes} classes
+     * @return {Device}
+     * @private
+     */
+    Device._safari = function ( classes ) {
+      var
+        prefix;
+
+      if ( Safari.is() ) {
+
+        prefix = &#x27;safari&#x27;;
+        classes.add( prefix );
+
+        // version
+        Device._version( classes, prefix, Safari.numbers() );
+
+      }
+
+      return Device;
+
+    };
+    /**
+     * @method _chrome
+     * @static
+     * @param {Classes} classes
+     * @return {Device}
+     * @private
+     */
+    Device._chrome = function ( classes ) {
+
+      var
+        prefix;
+
+      if ( Chrome.is() ) {
+
+        prefix = &#x27;chrome&#x27;;
+        classes.add( prefix );
+
+        // version
+        Device._version( classes, prefix, Chrome.numbers() );
+
+      }
+
+      return Device;
+
+    };
+    /**
+     * @method _firefox
+     * @static
+     * @param {Classes} classes
+     * @return {Device}
+     * @private
+     */
+    Device._firefox = function ( classes ) {
+
+      var
+        prefix;
+
+      if ( Firefox.is() ) {
+
+        prefix = &#x27;firefox&#x27;;
+        classes.add( prefix );
+
+        // version
+        Device._version( classes, prefix, Firefox.numbers() );
+
+      }
+
+      return Device;
+
+    };
+    /**
+     * @method _firefox
+     * @static
+     * @param {Classes} classes
+     * @return {Device}
+     * @private
+     */
+    Device._edge = function ( classes ) {
+
+      var
+        prefix;
+
+      if ( Edge.is() ) {
+
+        prefix = &#x27;edge&#x27;;
+        classes.add( prefix );
+
+        // version
+        Device._version( classes, prefix, Edge.numbers() );
+
+      }
+
+      return Device;
+
+    };
+    /**
+     * @method _ie
+     * @static
+     * @param {Classes} classes
+     * @return {Device}
+     * @private
+     */
+    Device._ie = function ( classes ) {
+
+      var
+        prefix;
+
+      if ( IE.is() ) {
+
+        prefix = &#x27;ie&#x27;;
+        classes.add( prefix );
+
+        // version
+        Device._version( classes, prefix, String( IE.version() ).split( &quot;.&quot; ) );
+
+      }
+
+      return Device;
+
+    };
+    /**
+     * @method _canvas
+     * @static
+     * @param {Classes} classes
+     * @return {Device}
+     * @private
+     */
+    Device._canvas = function ( classes ) {
+
+      if ( Element.canvas() ) {
+
+        classes.add( &#x27;canvas&#x27; );
+
+        if ( Element.webgl() ) {
+
+          classes.add( &#x27;webgl&#x27; );
+
+        }
+
+      }
+
+      return Device;
+
+    };
+
+    /**
+     * orientation event handler
+     * @method _onOrientation
+     * @static
+     * @param {Object} event
+     * @private
+     */
+    Device._onOrientation = function ( event ) {
+
+      var
+        direction = event.direction;
+
+      if ( direction === &#x27;portrait&#x27; ) {
+
+        _classes.removeClass( &#x27;landscape&#x27; ).addClass( &#x27;portrait&#x27; );
+
+      } else if ( direction === &#x27;landscape&#x27; ) {
+
+        _classes.removeClass( &#x27;portrait&#x27; ).addClass( &#x27;landscape&#x27; );
+
+      }
+
+    };
+
+    return Device;
+  }() );
+
+}( window ) );
+    </pre>
+</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../assets/vendor/prettify/prettify-min.js"></script>
+<script>prettyPrint();</script>
+<script src="../assets/js/yui-prettify.js"></script>
+<script src="../assets/../api.js"></script>
+<script src="../assets/js/api-filter.js"></script>
+<script src="../assets/js/api-list.js"></script>
+<script src="../assets/js/api-search.js"></script>
+<script src="../assets/js/apidocs.js"></script>
+</body>
+</html>
