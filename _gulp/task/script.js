@@ -138,7 +138,7 @@ gulp.task( 'script-api', function () {
 
 
 // Lint JavaScript
-gulp.task('js-hint', function () {
+gulp.task('script-hint', function () {
   return gulp.src( [
     dir.src + '/**/*.js',
     '!' + dir.src + '/dependencies/**/*.js'
@@ -154,7 +154,7 @@ gulp.task('js-hint', function () {
 gulp.task( 'script-build', function () {
 
   $.runSequence(
-    'js-hint',
+    'script-hint',
     'script-move-old',
     'script-clean-libs',
     'script-min'
