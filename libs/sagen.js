@@ -28,8 +28,8 @@
  *
  * This notice shall be included in all copies or substantial portions of the Software.
  *
- * @build 2015-09-01 13:08:06
- * @version 0.9.2
+ * @build 2015-10-08 19:06:07
+ * @version 0.9.3
  * @git https://github.com/taikiken/gasane.js
  *
  */
@@ -63,8 +63,8 @@ var wakegi=wakegi||{};wakegi["int"]=parseInt,wakegi["float"]=parseFloat,function
  *
  * This notice shall be included in all copies or substantial portions of the Software.
  *
- * version 0.3.12
- * build 2015-09-01 13:29:33
+ * version 0.3.13
+ * build 2015-10-09 17:29:32
  * github: https://github.com/taikiken/sagen.js
  */
 
@@ -122,7 +122,7 @@ var wakegi=wakegi||{};wakegi["int"]=parseInt,wakegi["float"]=parseFloat,function
 var Sagen = window.Sagen || {};
 
 ( function ( window, Sagen ){
-  "use strict";
+  'use strict';
 
   var
     Gasane = window.Gasane,
@@ -241,6 +241,7 @@ var Sagen = window.Sagen || {};
   Sagen.dataset = Sagen.dataSet;
 
 }( window, Sagen ) );
+
 /**
  * license inazumatv.com
  * author (at)taikiken / http://inazumatv.com
@@ -258,7 +259,6 @@ var Sagen = window.Sagen || {};
  * orientation 監視
  *
  * @module Sagen
- * @submodule Orientation
  * */
 ( function ( window ){
   'use strict';
@@ -624,6 +624,7 @@ var Sagen = window.Sagen || {};
   }() );
 
 }( window ) );
+
 /**
  * license inazumatv.com
  * author (at)taikiken / http://inazumatv.com
@@ -641,10 +642,9 @@ var Sagen = window.Sagen || {};
  * html tag へ class を付与します
  *
  * @module Sagen
- * @submodule Classes
  * */
 ( function ( window ){
-  "use strict";
+  'use strict';
 
   var
     document = window.document,
@@ -727,6 +727,7 @@ var Sagen = window.Sagen || {};
     return Classes;
   }() );
 }( window ) );
+
 /**
  * license inazumatv.com
  * author (at)taikiken / http://inazumatv.com
@@ -742,7 +743,6 @@ var Sagen = window.Sagen || {};
  */
 /**
  * @module Sagen
- * @submodule Device
  * */
 ( function ( window ){
   'use strict';
@@ -1211,7 +1211,7 @@ var Sagen = window.Sagen || {};
         classes.add( prefix );
 
         // version
-        Device._version( classes, prefix, String( IE.version() ).split( "." ) );
+        Device._version( classes, prefix, String( IE.version() ).split( '.' ) );
 
       }
 
@@ -1271,6 +1271,7 @@ var Sagen = window.Sagen || {};
   }() );
 
 }( window ) );
+
 /**
  * license inazumatv.com
  * author (at)taikiken / http://inazumatv.com
@@ -1362,8 +1363,8 @@ var Sagen = window.Sagen || {};
 
       } else {
 
-        _viewport = "";
-        _content = "";
+        _viewport = '';
+        _content = '';
 
       }
 
@@ -1518,6 +1519,7 @@ var Sagen = window.Sagen || {};
   }() );
 
 }( window ) );
+
 /**
  * license inazumatv.com
  * author (at)taikiken / http://inazumatv.com

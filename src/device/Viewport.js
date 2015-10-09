@@ -89,8 +89,8 @@
 
       } else {
 
-        _viewport = "";
-        _content = "";
+        _viewport = '';
+        _content = '';
 
       }
 

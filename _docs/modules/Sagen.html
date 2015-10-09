@@ -88,14 +88,6 @@
 <h1>Sagen Module</h1>
 <div class="box clearfix meta">
 
-        <div class="uses">
-            Requires
-            <ul class="inline commas">
-                    <li>kaketsugi.js</li>
-                    <li>wakegi.js</li>
-                    <li>gasane.js</li>
-            </ul>
-        </div>
 
         <div class="foundat">
             Defined in: <a href="../files/src_device_Viewport.js.html#l47"><code>src&#x2F;device&#x2F;Viewport.js:47</code></a>
@@ -105,36 +97,39 @@
 
 
 <div class="box intro">
-    <p>htmlタグへCSS classをセットします。<br>
-scriptタグdata属性から追加classをセットします<br></p>
-<pre class="code prettyprint"><code> &lt;script type=&quot;text/javascript&quot; src=&quot;/js/sagen.min.js&quot;
-      id=&quot;sagen&quot;
-      data-orientation=&quot;true&quot;
-      data-browser=&quot;true&quot;&gt;
-  &lt;/script&gt;
-
- // html へ class を追加した例
-  // OS X Chrome
- &lt;html class=&quot;transition transform matchMedia background-size mac other chrome chrome41 chrome41_0 chrome41_0_2272 chrome41_0_2272_118 canvas webgl&quot;&gt;
-
+    <h2>Browser detect helper</h2>
+<p>htmlタグへCSS classをセットします。<br>
+scriptタグdata属性から追加classをセットします<br>
+<script type="text/javascript" src="/js/sagen.min.js"
+          id="sagen"
+          data-orientation="true"
+          data-browser="true">
+</script>
+// html へ class を追加した例
+// OS X Chrome</p>
+<pre class="code prettyprint"><code>  &lt;html class=&quot;transition transform matchMedia background-size mac other chrome chrome41 chrome41_0 chrome41_0_2272 chrome41_0_2272_118 canvas webgl&quot;&gt;
  // Browser / 端末判定にも使えます
- if ( Sagen.Browser.iOS.is() ) {
+
+  if ( Sagen.Browser.iOS.is() ) {
     // iOS
   }
-
  // orientation 監視にも使えます(iOS, Android)
   var Orientation = Sagen.Orientation;
-
  Orientation.on( Orientation.CHANGE_ORIENTATION, function ( event ) {
-   var direction = event.direction;
-   if ( direction === 'portrait' ) {
+
+    var direction = event.direction;
+
+    if ( direction === 'portrait' ) {
       // portrait
     }
-   if ( direction === 'landscape' ) {
+
+    if ( direction === 'landscape' ) {
       // landscape
     }
- } );
- Orientation.listen();</code></pre>
+
+  } );
+
+  Orientation.listen();</code></pre>
 
 </div>
 

@@ -7,6 +7,9 @@ html tag へ端末情報に基づくCSS classを書き込みます。
 
 original idea from [device.js](https://github.com/matthewhudson/device.js).
 
+# API Docs
+[API Docs](http://taikiken.github.io/sagen.js/)
+
 # 使用方法
     <script type="text/javascript" src="/js/sagen.min.js"
         id="sagen"
@@ -180,6 +183,3 @@ viewport へ minimal-ui を追加します。
     Viewport.iOS.minimalUI();
 
 iOS 7.1 のみ対応しています。
-
-## API Docs
-[API Docs](http://taikiken.github.io/sagen.js/)

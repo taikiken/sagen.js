@@ -1,8 +1,4 @@
 .idea
 node_modules
-_output
 *.iml
-out
-*競合コピー*
-
-_gulp/git_branch_conflic.txt
+dependencies
