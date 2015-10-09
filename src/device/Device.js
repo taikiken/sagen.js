@@ -482,7 +482,7 @@
         classes.add( prefix );
 
         // version
-        Device._version( classes, prefix, String( IE.version() ).split( "." ) );
+        Device._version( classes, prefix, String( IE.version() ).split( '.' ) );
 
       }
 

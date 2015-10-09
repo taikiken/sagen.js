@@ -104,9 +104,14 @@
  * version @@version
  * build @@buildTime
  * github: @@url
+ *
+ * @requires kaketsugi.js, wakegi.js, gasane.js
  */
 
 /**
+ *
+ *
+ * ## Browser detect helper
  *
  * htmlタグへCSS classをセットします。&lt;br&gt;
  * scriptタグdata属性から追加classをセットします&lt;br&gt;
@@ -153,14 +158,13 @@
  *      Orientation.listen();
  *
  * @module Sagen
- * @requires kaketsugi.js, wakegi.js, gasane.js
- *
- *
- */
+ * @type {{}}
+ * 
+ * */
 var Sagen = window.Sagen || {};
 
 ( function ( window, Sagen ){
-  &quot;use strict&quot;;
+  &#x27;use strict&#x27;;
 
   var
     Gasane = window.Gasane,
@@ -279,6 +283,7 @@ var Sagen = window.Sagen || {};
   Sagen.dataset = Sagen.dataSet;
 
 }( window, Sagen ) );
+
     </pre>
 </div>
                     </div>

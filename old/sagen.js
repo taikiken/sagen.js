@@ -28,13 +28,12 @@
  *
  * This notice shall be included in all copies or substantial portions of the Software.
  *
- * @build 7/9/2015, 1:38:18 AM
- * @version 0.9.1
+ * @build 2015-09-01 13:08:06
+ * @version 0.9.2
  * @git https://github.com/taikiken/gasane.js
  *
- * @module Gasane
  */
-var Gasane=Gasane||{};!function(t){"use strict";var n=t.self;Date.now||(Date.now=function(){return(new Date).getTime()}),function(){var t,e,i,s,r,o,a=0,u=["ms","moz","webkit","o"];for(t=0,e=u.length;e>t&&!n.requestAnimationFrame;++t)n.requestAnimationFrame=n[u[t]+"RequestAnimationFrame"],n.cancelAnimationFrame=n[u[t]+"CancelAnimationFrame"]||n[u[t]+"CancelRequestAnimationFrame"];void 0===n.requestAnimationFrame&&void 0!==n.setTimeout&&(o=Math.max,n.requestAnimationFrame=function(t){return i=Date.now(),s=o(0,16-(i-a)),r=n.setTimeout(function(){t(i+s)},s),a=i+s,r}),void 0===n.cancelAnimationFrame&&void 0!==n.clearTimeout&&(n.cancelAnimationFrame=function(t){n.clearTimeout(t)})}()}(window),function(t){"use strict";var n=t.Gasane;n.EventDispatcher=function(){function t(){}var n=t.prototype;return n.constructor=t,n.addEventListener=function(t,n){this.on(t,n)},n.on=function(t,n){if("undefined"!=typeof n){"undefined"==typeof this._listeners&&(this._listeners={});var e=this._listeners;"undefined"==typeof e[t]&&(e[t]=[]),-1===e[t].indexOf(n)&&e[t].push(n)}},n.hasEventListener=function(t,n){var e=this._listeners;return"undefined"==typeof e?!1:"undefined"!=typeof n[t]&&-1!==e[t].indexOf(n)?!0:!1},n.removeEventListener=function(t,n){this.off(t,n)},n.off=function(t,n){var e,i,s=this._listeners;"undefined"!=typeof s&&(e=s[t],"undefined"!=typeof e&&(i=e.indexOf(n),-1!==i&&e.splice(i,1)))},n.dispatchEvent=function(t){var n,e,i,s,r=this._listeners;if("undefined"!=typeof r&&"undefined"!=typeof t.type&&(n=r[t.type],"undefined"!=typeof n))for(t.target=this,i=0,s=n.length;s>i;i++)e=n[i],e&&e.call(this,t)},t.initialize=function(t){t.addEventListener=n.addEventListener,t.on=n.on,t.hasEventListener=n.hasEventListener,t.removeEventListener=n.removeEventListener,t.off=n.off,t.dispatchEvent=n.dispatchEvent},t}()}(window),function(t){"use strict";var n=t.Gasane;n.Cycle=function(){function e(){throw new Error("Cycle can't create instance.")}var i=n.EventDispatcher,s=t.self.requestAnimationFrame,r=t.self.cancelAnimationFrame;e.started=!1,e.id=0,e.UPDATE="cycleUpdate",e.event={type:e.UPDATE,scope:e},i.initialize(e);var o=e.prototype;return o.constructor=e,e.start=function(){e.started||(e.started=!0,e.update())},e.stop=function(){e.started&&(r(e.id),e.started=!1,e.id=0)},e.update=function(){e.id=s(e.update),e.dispatchEvent(e.event)},e}()}(window),function(t){"use strict";var n=t.Gasane;n.Polling=function(){function t(n){this._polling=n,this._started=!1,this._start=0,this._boundUpdate=this.update.bind(this),this._event={type:t.PAST,scope:this}}var e=n.EventDispatcher,i=n.Cycle,s=Date.now;t.PAST="pollingPast";var r=t.prototype;return e.initialize(r),r.constructor=t,r.start=function(){return this._started||(this._started=!0,this.setPolling(this._polling),i.on(i.UPDATE,this._boundUpdate),i.start()),this},r.stop=function(){return this._started&&(this._started=!1,i.off(i.UPDATE,this._boundUpdate)),this},r.polling=function(){return this._polling},r.setPolling=function(t){return this._start=this.now(),this._polling=t,this},r.changePolling=function(t){return this.setPolling(t),this},r.now=function(){return s()},r.update=function(){var t=this.now();t-this._start>=this._polling&&(this._start=t,this.dispatchEvent(this._event))},t}()}(window),function(t){"use strict";var n=t.Gasane;n.Fps=function(){function t(n){this._fps=n,this._started=!1,this._start=0,this._polling=0,this._boundUpdate=this.update.bind(this),this._event={type:t.ENTER_FRAME,scope:this}}var e=n.EventDispatcher,i=n.Cycle,s=Date.now;t.ENTER_FRAME="enterFrame";var r=t.prototype;return e.initialize(r),r.constructor=t,r.start=function(){return this._started||(this._started=!0,this.setFps(this._fps),i.on(i.UPDATE,this._boundUpdate),i.start()),this},r.stop=function(){return this._started&&(this._started=!1,i.off(i.UPDATE,this._boundUpdate)),this._polling=Number.MAX_VALUE,this},r.fps=function(){return this._fps},r.setFps=function(t){return this._start=this.now(),this._polling=1e3/t,this._fps=t,this},r.changeFps=function(t){return this.setFps(t),this},r.now=function(){return s()},r.update=function(){var t=this.now();t-this._start>=this._polling&&(this._start=t,this.dispatchEvent(this._event))},t}()}(window);
+var Gasane=Gasane||{};!function(t){"use strict";var n=t.self;Date.now||(Date.now=function(){return(new Date).getTime()}),function(){var t,e,i,s,r,o,a=0,u=["ms","moz","webkit","o"];for(t=0,e=u.length;e>t&&!n.requestAnimationFrame;++t)n.requestAnimationFrame=n[u[t]+"RequestAnimationFrame"],n.cancelAnimationFrame=n[u[t]+"CancelAnimationFrame"]||n[u[t]+"CancelRequestAnimationFrame"];void 0===n.requestAnimationFrame&&void 0!==n.setTimeout&&(o=Math.max,n.requestAnimationFrame=function(t){return i=Date.now(),s=o(0,16-(i-a)),r=n.setTimeout(function(){t(i+s)},s),a=i+s,r}),void 0===n.cancelAnimationFrame&&void 0!==n.clearTimeout&&(n.cancelAnimationFrame=function(t){n.clearTimeout(t)})}()}(window),function(t){"use strict";var n=t.Gasane;n.EventDispatcher=function(){function t(){}var n=t.prototype;return n.constructor=t,n.addEventListener=function(t,n){this.on(t,n)},n.on=function(t,n){if("undefined"!=typeof n){"undefined"==typeof this._listeners&&(this._listeners={});var e=this._listeners;"undefined"==typeof e[t]&&(e[t]=[]),-1===e[t].indexOf(n)&&e[t].push(n)}},n.hasEventListener=function(t,n){var e=this._listeners;return"undefined"==typeof e?!1:"undefined"!=typeof n[t]&&-1!==e[t].indexOf(n)?!0:!1},n.removeEventListener=function(t,n){this.off(t,n)},n.off=function(t,n){var e,i,s=this._listeners;"undefined"!=typeof s&&(e=s[t],"undefined"!=typeof e&&(i=e.indexOf(n),-1!==i&&e.splice(i,1)))},n.dispatchEvent=function(t){var n,e,i,s,r=this._listeners;if("undefined"!=typeof r&&"undefined"!=typeof t.type&&(n=r[t.type],"undefined"!=typeof n))for(t.target=this,i=0,s=n.length;s>i;i=i+1|0)e=n[i],e&&e.call(this,t)},t.initialize=function(t){t.addEventListener=n.addEventListener,t.on=n.on,t.hasEventListener=n.hasEventListener,t.removeEventListener=n.removeEventListener,t.off=n.off,t.dispatchEvent=n.dispatchEvent},t}()}(window),function(t){"use strict";var n=t.Gasane;n.Cycle=function(){function e(){throw new Error("Cycle can't create instance.")}var i=n.EventDispatcher,s=t.self.requestAnimationFrame,r=t.self.cancelAnimationFrame;e.started=!1,e.id=0,e.UPDATE="cycleUpdate",e.event={type:e.UPDATE,scope:e},i.initialize(e);var o=e.prototype;return o.constructor=e,e.start=function(){e.started||(e.started=!0,e.update())},e.stop=function(){e.started&&(r(e.id),e.started=!1,e.id=0)},e.update=function(){e.id=s(e.update),e.dispatchEvent(e.event)},e}()}(window),function(t){"use strict";var n=t.Gasane;n.Polling=function(){function t(n){this._polling=n,this._started=!1,this._start=0,this._boundUpdate=this.update.bind(this),this._event={type:t.PAST,scope:this}}var e=n.EventDispatcher,i=n.Cycle,s=Date.now;t.PAST="pollingPast";var r=t.prototype;return e.initialize(r),r.constructor=t,r.start=function(){return this._started||(this._started=!0,this.setPolling(this._polling),i.on(i.UPDATE,this._boundUpdate),i.start()),this},r.stop=function(){return this._started&&(this._started=!1,i.off(i.UPDATE,this._boundUpdate)),this},r.polling=function(){return this._polling},r.setPolling=function(t){return this._start=this.now(),this._polling=t,this},r.changePolling=function(t){return this.setPolling(t),this},r.now=function(){return s()},r.update=function(){var t,n=this.now();n-this._start>=this._polling&&(this._start=n,t=this._event,t.current=n,this.dispatchEvent(t))},t}()}(window),function(t){"use strict";var n=t.Gasane;n.Fps=function(){function t(n){this._fps=n,this._started=!1,this._start=0,this._polling=0,this._boundUpdate=this.update.bind(this),this._event={type:t.ENTER_FRAME,scope:this}}var e=n.EventDispatcher,i=n.Cycle,s=Date.now;t.ENTER_FRAME="enterFrame";var r=t.prototype;return e.initialize(r),r.constructor=t,r.start=function(){return this._started||(this._started=!0,this.setFps(this._fps),i.on(i.UPDATE,this._boundUpdate),i.start()),this},r.stop=function(){return this._started&&(this._started=!1,i.off(i.UPDATE,this._boundUpdate)),this._polling=Number.MAX_VALUE,this},r.fps=function(){return this._fps},r.setFps=function(t){return this._start=this.now(),this._polling=1e3/t,this._fps=t,this},r.changeFps=function(t){return this.setFps(t),this},r.now=function(){return s()},r.update=function(){var t,n=this.now();n-this._start>=this._polling&&(this._start=n,t=this._event,t.current=n,this.dispatchEvent(t))},t}()}(window);
 /**
  * @license inazumatv.com
  * @author (at)taikiken / http://inazumatv.com
@@ -47,12 +46,11 @@ var Gasane=Gasane||{};!function(t){"use strict";var n=t.self;Date.now||(Date.now
  *
  * This notice shall be included in all copies or substantial portions of the Software.
  *
- * @build 2015-07-30 19:29:29
- * @version 0.9.3
+ * @build 2015-09-01 13:19:11
+ * @version 0.9.4
  *
- * @module wakegi
  */
-var wakegi=wakegi||{};wakegi["int"]=parseInt,wakegi["float"]=parseFloat,function(){"use strict";Array.isArray||(Array.isArray=function(n){return"[object Array]"===Object.prototype.toString.call(n)})}(),function(n){"use strict";var t=n.wakegi;t.Browser=function(){function t(){throw new Error("Browser can't create instance.")}var r,e,i=n.navigator,o=t.prototype;return o.constructor=t,t.init=function(){("undefined"==typeof r||"undefined"==typeof e)&&(r=i.userAgent,e=i.appVersion)},t.navigator=function(){return i},t.ua=function(){return t.init(),r},t.app=function(){return t.init(),e},t.matchSafari=function(){return t.init(),!!r.match(/safari/i)},t}()}(window),function(n){"use strict";var t=n.document,r=n.wakegi,e=r.Browser;e.Css3=function(){function r(){throw new Error("Css3 can't create instance.")}var e,i,o,u,c,a,f=r.prototype;return f.constructor=r,r.transition=function(){var n;return"undefined"==typeof e&&(n=t.createElement("p").style,e="transition"in n||"WebkitTransition"in n||"MozTransition"in n||"msTransition"in n||"OTransition"in n),e},r.transform=function(){var n;return"undefined"==typeof i&&(n=t.createElement("p").style,i="transform"in n||"WebkitTransform"in n||"MozTransform"in n||"OTransform"in n||"msTransform"in n),i},r.matchMedia=function(){return"undefined"==typeof o&&(o="function"==typeof n.matchMedia),o},r.orientationChange=function(){return"undefined"==typeof u&&(u="onorientationchange"in n),u},r.orientation=function(){return"undefined"==typeof c&&(c="orientation"in n),c},r.backgroundSize=function(){return"undefined"==typeof a&&(a="backgroundSize"in t.documentElement.style),a},r}()}(window),function(n){"use strict";var t=n.wakegi,r=t.Browser;r.Transition=function(){function n(){throw new Error("Transition can't create instance.")}var t=r.Css3,e=n.prototype;return e.constructor=n,n.is=function(){return t.transition()},n}()}(window),function(n){"use strict";var t=n.wakegi,r=t.Browser;r.Transform=function(){function n(){throw new Error("Transform can't create instance.")}var t=r.Css3,e=n.prototype;return e.constructor=n,n.is=function(){return t.transform()},n}()}(window),function(n){"use strict";var t=n.document,r=n.wakegi,e=r.Browser;e.Element=function(){function r(){throw new Error("Element can't create instance.")}var e,i,o,u,c=r.prototype;return c.constructor=r,r.touch=function(){return"undefined"==typeof e&&(e="ontouchstart"in t.documentElement),e},r.querySelector=function(){return"undefined"==typeof i&&(i="undefined"!=typeof t.querySelector),i},r.canvas=function(){return"undefined"==typeof o&&(o=!!n.CanvasRenderingContext2D),o},r.webgl=function(){if("undefined"==typeof u&&(u=r.canvas()))try{u=!!n.WebGLRenderingContext&&!!t.createElement("canvas").getContext("experimental-webgl")}catch(e){u=!1}return u},r.find=function(n){var e;return r.querySelector()&&(e=t.querySelector(n)),e},r}()}(window),function(n){"use strict";var t=n.wakegi;t.Dom=function(){function n(n){this._element=n}var t=n.prototype;return t.constructor=n,t.hasClass=function(t){return n.hasClass(this._element,t)},t.addClass=function(t){return n.addClass(this._element,t),this},t.removeClass=function(t){return n.removeClass(this._element,t),this},t.style=function(t){return n.getStyle(this._element,t)},n.hasClass=function(n,t){return!!n.className.match(new RegExp(t,"i"))},n.addClass=function(t,r){var e,i="";return n.hasClass(t,r)||(e="",i=t.className,""!==i&&(e=" "),i+=e+r,i=i.split("  ").join(" "),t.className=i),n},n.removeClass=function(t,r){var e="";return n.hasClass(t,r)&&(e=t.className,e=e.replace(r,"").split("  ").join(" ")," "===e.substr(0,1)&&(e=e.substr(1))," "===e&&(e=""),t.className=e),n},n.styleCompute=function(n,t,r){var e=n.getComputedStyle(t,null);return r?(r=r.replace(/([A-Z])/g,"-$1").toLowerCase(),e.getPropertyValue(r)):e},n.styleCurrent=function(n,t){var r,e=n.currentStyle;return t?(t=t.replace(/\-(\w)/g,function(n,t){return t.toUpperCase()}),r=e[t],/^\d+(em|pt|%|ex)?$/i.test(r)?function(t){var r=n.style.left,e=n.runtimeStyle.left;return n.runtimeStyle.left=n.currentStyle.left,n.style.left=t||0,t=n.style.pixelLeft+"px",n.style.left=r,n.runtimeStyle.left=e,t}(r):r):e},n.getStyle=function(t,r){var e,i=t.ownerDocument.defaultView;return i&&i.getComputedStyle?e=n.styleCompute(i,t,r):t.currentStyle&&(e=n.styleCurrent(t,r)),e},n}()}(window),function(n){"use strict";var t=n.wakegi,r=t.Browser;r.iOS=function(){function n(){throw new Error("iOS can't create instance.")}var e,i,o,u,c,a,f,s,d=[-1,-1,-1],l=n.prototype;return l.constructor=n,n.init=function(){var t;"undefined"==typeof e&&(t=r.ua(),u=!!t.match(/ipad/i),o=!!t.match(/ipod/i),i=!!t.match(/iphone/i)&&!u&&!o,e=u||o||i,c=e&&!n.standalone()&&!r.matchSafari())},n.calculate=function(){var e,i,o,u,c,l,p=[];if("undefined"==typeof a&&(s="",a=-1,f=-1,n.is()&&(e=r.app().match(/OS (\d+)_(\d+)_?(\d+)?/),Array.isArray(e)))){for(i=t["int"],o=t["float"],u=1,c=e.length;c>u;u=u+1|0)l=e[u],p.push("undefined"!=typeof l?i(l,10):0);s=p.join("."),f=p[0],d=p,a=o(p[0]+"."+p[1]+p[2])}},n.is=function(){return n.init(),e},n.iPhone=function(){return n.init(),i},n.iPad=function(){return n.init(),u},n.iPod=function(){return n.init(),o},n.standalone=function(){var n=r.navigator();return n.standalone?n.standalone:!1},n.fullScreen=function(){return n.standalone()},n.version=function(){return n.calculate(),a},n.build=function(){return n.calculate(),s},n.major=function(){return n.calculate(),f},n.numbers=function(){return n.calculate(),d},n.number=function(){return n.numbers()},n.webView=function(){return n.init(),c},n}()}(window),function(n){"use strict";var t=n.wakegi,r=t.Browser;r.Android=function(){function e(){throw new Error("Android can't create instance.")}var i,o,u,c,a,f,s,d,l=Math.max,p=[-1,-1,-1],w=e.prototype;return w.constructor=e,e.init=function(){var t,e;"undefined"==typeof o&&(t=r.ua(),o=!!t.match(/android/i),u=!1,c=!1,i=!1,a=!1,o&&(e=l(n.innerWidth,n.innerHeight),a=e>=1024,u=!!t.match(/mobile/i),u||(c=!0),i=r.matchSafari()&&!!t.match(/version/i)))},e.calculate=function(){var n,i,o,u,c,a,l=[];if("undefined"==typeof f&&(d="",f=-1,s=-1,e.is()&&(n=r.app().match(/Android (\d+)\.(\d+)\.?(\d+)?/),Array.isArray(n)))){for(i=t["int"],o=t["float"],u=1,c=n.length;c>u;u=u+1|0)a=n[u],l.push("undefined"!=typeof a?i(a,10):0);d=l.join("."),s=l[0],p=l,f=o(l[0]+"."+l[1]+l[2])}},e.is=function(){return e.init(),o},e.standard=function(){return e.init(),i},e.phone=function(){return e.init(),u},e.tablet=function(){return e.init(),c},e.hd=function(){return e.init(),a},e.version=function(){return e.calculate(),f},e.build=function(){return e.calculate(),d},e.major=function(){return e.calculate(),s},e.numbers=function(){return e.calculate(),p},e.number=function(){return e.numbers()},e}()}(window),function(n){"use strict";var t=n.wakegi,r=t.Browser;r.Touch=function(){function n(){throw new Error("Touch can't create instance.")}var t=n.prototype;return t.constructor=n,n.is=function(){return Element.touch()},n}()}(window),function(n){"use strict";var t=n.wakegi,r=t.Browser;r.Mobile=function(){function n(){throw new Error("Mobile can't create instance.")}var t=r.iOS,e=r.Android,i=n.prototype;return i.constructor=n,n.is=function(){return t.is()||e.is()},n.phone=function(){return t.iPhone()||t.iPod()||e.phone()},n.tablet=function(){return t.iPad()||e.tablet()},n.hideBar=function(){setTimeout(function(){scrollBy(0,1)},0)},n.hideURLBar=function(){n.hideBar()},n}()}(window),function(n){"use strict";var t=n.wakegi,r=t.Browser;r.Mac=function(){function n(){throw new Error("Mac can't create instance.")}var t,e=r.iOS,i=n.prototype;return i.constructor=n,n.init=function(){"undefined"==typeof t&&(t=!e.is()&&!!r.ua().match(/mac os x/i))},n.is=function(){return n.init(),t},n}()}(window),function(n){"use strict";var t=n.wakegi,r=t.Browser;r.Windows=function(){function n(){throw new Error("Windows can't create instance.")}var t,e=n.prototype;return e.constructor=n,n.init=function(){"undefined"==typeof t&&(t=!!r.ua().match(/windows/i))},n.is=function(){return n.init(),t},n}()}(window),function(n){"use strict";var t=n.wakegi,r=t.Browser;r.Edge=function(){function n(){throw new Error("Edge can't create instance.")}var e,i,o,u,c=[-1,-1],a=n.prototype;return a.constructor=n,n.init=function(){"undefined"==typeof e&&(e=!!r.ua().match(/edge/i))},n.calculate=function(){var e,a,f,s,d,l=[];if("undefined"==typeof i&&(u="",i=-1,o=-1,n.is()&&(e=r.ua().match(/edge\/(\d+)\.?(\d+)?/i),Array.isArray(e)))){for(a=t["int"],f=t["float"],s=1,d=e.length;d>s;s=s+1|0)l.push(a(e[s],10));u=l.join("."),o=l[0],i=f(l[0]+"."+l[1]),c=l}},n.is=function(){return n.init(),e},n.version=function(){return n.calculate(),i},n.major=function(){return n.calculate(),o},n.build=function(){return n.calculate(),u},n.numbers=function(){return n.calculate(),c},n}()}(window),function(n){"use strict";var t=n.wakegi,r=t.Browser;r.IE=function(){function n(){throw new Error("IE can't create instance.")}var t,e,i,o,u,c,a,f,s=n.prototype;return s.constructor=n,n.init=function(){var n;("undefined"==typeof a||"undefined"==typeof t||"undefined"==typeof e||"undefined"==typeof i||"undefined"==typeof o||"undefined"==typeof u||"undefined"==typeof c)&&(n=r.ua(),t=!1,e=!1,i=!1,o=!1,u=!1,c=!1,a=!!n.match(/msie/i),a?(u=!!n.match(/msie [10]/i),u||(o=!!n.match(/msie [9]/i),o||(i=!!n.match(/msie [8]/i),i||(e=!!n.match(/msie [7]/i),e||(t=!!n.match(/msie [6]/i)))))):(c=!!n.match(/trident\/[7]/i)&&!!n.match(/rv:[11]/i),a=c))},n.calculate=function(){n.init(),"undefined"==typeof f&&(f=-1,n.is()&&(c?f=11:u?f=10:o?f=9:i?f=8:e?f=7:t&&(f=6)))},n.is=function(){return n.init(),a},n.is6=function(){return n.init(),t},n.is7=function(){return n.init(),e},n.is8=function(){return n.init(),i},n.is9=function(){return n.init(),o},n.is10=function(){return n.init(),u},n.is11=function(){return n.init(),c},n.version=function(){return n.calculate(),f},n.major=function(){return n.version()},n.legacy=function(){return n.init(),t||e||i},n}()}(window),function(n){"use strict";var t=n.wakegi,r=t.Browser;r.CriOS=function(){function n(){throw new Error("CriOS can't create instance.")}var e,i,o,u,c=[-1,-1,-1,-1],a=n.prototype;return a.constructor=n,n.init=function(){"undefined"==typeof e&&(e=!!r.ua().match(/crios/i))},n.calculate=function(){var e,a,f,s,d,l=[];if("undefined"==typeof i&&(u="",i=-1,o=-1,n.is()&&(e=r.app().match(/CriOS\/(\d+)\.(\d+)\.(\d+)\.?(\d+)?/),Array.isArray(e)))){for(a=t["int"],f=t["float"],s=1,d=e.length;d>s;s=s+1|0)l.push(a(e[s],10));u=l.join("."),o=l[0],c=l,i=f(l[0]+"."+l[1]+l[2]+l[3])}},n.is=function(){return n.init(),e},n.version=function(){return n.calculate(),i},n.build=function(){return n.calculate(),u},n.major=function(){return n.calculate(),o},n.numbers=function(){return n.calculate(),c},n}()}(window),function(n){"use strict";var t=n.wakegi,r=t.Browser;r.Chrome=function(){function n(){throw new Error("Chrome can't create instance.")}var e,i,o,u,c,a,f=r.CriOS,s=r.Android,d=r.Edge,l=[-1,-1,-1,-1],p=n.prototype;return p.constructor=n,n.init=function(){"undefined"==typeof o&&(e=f.is(),i=d.is(),o=!1,i||(e?o=!0:s.standard()||(o=!!r.ua().match(/chrome/i))))},n.calculate=function(){var i,o,s,d,p,w=[];if("undefined"==typeof u&&(a="",u=-1,c=-1,n.is()))if(e)a=f.build(),c=f.major(),l=f.numbers(),u=f.version();else if(i=r.app().match(/Chrome\/(\d+)\.(\d+)\.(\d+)\.?(\d+)?/),Array.isArray(i)){for(o=t["int"],s=t["float"],d=1,p=i.length;p>d;d=d+1|0)w.push(o(i[d],10));a=w.join("."),c=w[0],l=w,u=s(w[0]+"."+w[1]+w[2]+w[3])}},n.is=function(){return n.init(),o},n.version=function(){return n.calculate(),u},n.build=function(){return n.calculate(),a},n.major=function(){return n.calculate(),c},n.numbers=function(){return n.calculate(),l},n}()}(window),function(n){"use strict";var t=n.wakegi,r=t.Browser;r.Firefox=function(){function n(){throw new Error("Firefox can't create instance.")}var e,i,o,u,c=[-1,-1],a=n.prototype;return a.constructor=n,n.init=function(){"undefined"==typeof e&&(e=!!r.ua().match(/firefox/i))},n.calculate=function(){var e,a,f,s,d,l=[];if("undefined"==typeof i&&(u="",i=-1,o=-1,n.is()&&(e=r.ua().match(/Firefox\/(\d+)\.?(\d+)?/),Array.isArray(e)))){for(a=t["int"],f=t["float"],s=1,d=e.length;d>s;s=s+1|0)l.push(a(e[s],10));u=l.join("."),o=l[0],i=f(l[0]+"."+l[1]),c=l}},n.is=function(){return n.init(),e},n.version=function(){return n.calculate(),i},n.major=function(){return n.calculate(),o},n.build=function(){return n.calculate(),u},n.numbers=function(){return n.calculate(),c},n}()}(window),function(n){"use strict";var t=n.wakegi,r=t.Browser;r.Safari=function(){function n(){throw new Error("Safari can't create instance.")}var e,i,o,u,c,a,f,s=r.CriOS,d=r.Chrome,l=r.Android,p=r.Edge,w=[-1,-1,-1],m=n.prototype;return m.constructor=n,n.init=function(){"undefined"==typeof u&&(e=s.is(),i=d.is(),o=p.is(),u=e||i||o||l.standard()?!1:r.matchSafari())},n.calculate=function(){var e,i,o,u,s,d,l=[];if("undefined"==typeof c&&(f="",c=-1,a=-1,n.is()&&(e=r.app().match(/Version\/(\d+)\.(\d+)\.?(\d+)?/),Array.isArray(e)))){for(i=t["int"],o=t["float"],u=1,s=e.length;s>u;u=u+1|0)d=e[u],l.push("undefined"!=typeof d?i(d,10):0);f=l.join("."),c=o(l[0]+"."+l[1]+l[2]),a=l[0],w=l}},n.is=function(){return n.init(),u},n.set=function(t){n.init(),u=t},n.version=function(){return n.calculate(),c},n.major=function(){return n.calculate(),a},n.build=function(){return n.calculate(),f},n.numbers=function(){return n.calculate(),w},n.number=function(){return n.numbers()},n}()}(window);
+var wakegi=wakegi||{};wakegi["int"]=parseInt,wakegi["float"]=parseFloat,function(){"use strict";Array.isArray||(Array.isArray=function(n){return"[object Array]"===Object.prototype.toString.call(n)})}(),function(n){"use strict";var t=n.wakegi;t.Browser=function(){function t(){throw new Error("Browser can't create instance.")}var e,r,i=n.navigator,o=t.prototype;return o.constructor=t,t.init=function(){("undefined"==typeof e||"undefined"==typeof r)&&(e=i.userAgent,r=i.appVersion)},t.navigator=function(){return i},t.ua=function(){return t.init(),e},t.app=function(){return t.init(),r},t.matchSafari=function(){return t.init(),!!e.match(/safari/i)},t}()}(window),function(n){"use strict";var t=n.document,e=n.wakegi,r=e.Browser;r.Css3=function(){function e(){throw new Error("Css3 can't create instance.")}var r,i,o,u,a,c,f=e.prototype;return f.constructor=e,e.transition=function(){var n;return"undefined"==typeof r&&(n=t.createElement("p").style,r="transition"in n||"WebkitTransition"in n||"MozTransition"in n||"msTransition"in n||"OTransition"in n),r},e.transform=function(){var n;return"undefined"==typeof i&&(n=t.createElement("p").style,i="transform"in n||"WebkitTransform"in n||"MozTransform"in n||"OTransform"in n||"msTransform"in n),i},e.matchMedia=function(){return"undefined"==typeof o&&(o="function"==typeof n.matchMedia),o},e.orientationChange=function(){return"undefined"==typeof u&&(u="onorientationchange"in n),u},e.orientation=function(){return"undefined"==typeof a&&(a="orientation"in n),a},e.backgroundSize=function(){return"undefined"==typeof c&&(c="backgroundSize"in t.documentElement.style),c},e}()}(window),function(n){"use strict";var t=n.wakegi,e=t.Browser;e.Transition=function(){function n(){throw new Error("Transition can't create instance.")}var t=e.Css3,r=n.prototype;return r.constructor=n,n.is=function(){return t.transition()},n}()}(window),function(n){"use strict";var t=n.wakegi,e=t.Browser;e.Transform=function(){function n(){throw new Error("Transform can't create instance.")}var t=e.Css3,r=n.prototype;return r.constructor=n,n.is=function(){return t.transform()},n}()}(window),function(n){"use strict";var t=n.document,e=n.wakegi,r=e.Browser;r.Element=function(){function e(){throw new Error("Element can't create instance.")}var r,i,o,u,a=e.prototype;return a.constructor=e,e.touch=function(){return"undefined"==typeof r&&(r="ontouchstart"in t.documentElement),r},e.querySelector=function(){return"undefined"==typeof i&&(i="undefined"!=typeof t.querySelector),i},e.canvas=function(){return"undefined"==typeof o&&(o=!!n.CanvasRenderingContext2D),o},e.webgl=function(){if("undefined"==typeof u&&(u=e.canvas()))try{u=!!n.WebGLRenderingContext&&!!t.createElement("canvas").getContext("experimental-webgl")}catch(r){u=!1}return u},e.find=function(n){var r;return e.querySelector()&&(r=t.querySelector(n)),r},e}()}(window),function(n){"use strict";var t=n.wakegi;t.Dom=function(){function n(n){this._element=n}var t=n.prototype;return t.constructor=n,t.hasClass=function(t){return n.hasClass(this._element,t)},t.addClass=function(t){return n.addClass(this._element,t),this},t.removeClass=function(t){return n.removeClass(this._element,t),this},t.style=function(t){return n.getStyle(this._element,t)},n.hasClass=function(n,t){return!!n.className.match(new RegExp(t,"i"))},n.addClass=function(t,e){var r,i="";return n.hasClass(t,e)||(r="",i=t.className,""!==i&&(r=" "),i+=r+e,i=i.split("  ").join(" "),t.className=i),n},n.removeClass=function(t,e){var r="";return n.hasClass(t,e)&&(r=t.className,r=r.replace(e,"").split("  ").join(" ")," "===r.substr(0,1)&&(r=r.substr(1))," "===r&&(r=""),t.className=r),n},n.styleCompute=function(n,t,e){var r=n.getComputedStyle(t,null);return e?(e=e.replace(/([A-Z])/g,"-$1").toLowerCase(),r.getPropertyValue(e)):r},n.styleCurrent=function(n,t){var e,r=n.currentStyle;return t?(t=t.replace(/\-(\w)/g,function(n,t){return t.toUpperCase()}),e=r[t],/^\d+(em|pt|%|ex)?$/i.test(e)?function(t){var e=n.style.left,r=n.runtimeStyle.left;return n.runtimeStyle.left=n.currentStyle.left,n.style.left=t||0,t=n.style.pixelLeft+"px",n.style.left=e,n.runtimeStyle.left=r,t}(e):e):r},n.getStyle=function(t,e){var r,i,o=t.ownerDocument;return o&&(r=o.defaultView),r&&r.getComputedStyle?i=n.styleCompute(r,t,e):t.currentStyle&&(i=n.styleCurrent(t,e)),i},n}()}(window),function(n){"use strict";n.wakegi.Util=function(){function n(){}var t=n.prototype;return t.constructor=n,n.camelize=function(n){return n.toLowerCase().replace(/-(.)/g,function(n,t){return t.toUpperCase()})},n.dash=function(n){return n.replace(/([a-z])([A-Z])/g,"$1-$2").toLowerCase()},n}()}(window),function(n){"use strict";var t=n.wakegi;t.Dataset=function(){function n(){}var e=t.Util,r=n.prototype;return r.constructor=n,n.parse=function(t){return"undefined"!=typeof t.dataset?n.modern(t):n.legacy(t)},n.modern=function(n){var t,e,r,i=n.dataset,o=!1,u={};for(t in i)r="",e="","function"==typeof i.hasOwnProperty?i.hasOwnProperty(t)&&(e=i[t],r=t):(e=i[t],r=t),r&&(o=!0,u[r]=e);return o?u:null},n.legacy=function(n){var t,r,i,o,u,a=n.attributes,c=!1,f={};for(t=0,r=a.length;r>t;t+=1)i=a[t],o=i.nodeName.toLowerCase(),-1!==o.indexOf("data-")&&(u=o.replace("data-",""),u=e.camelize(u),c=!0,f[u]=i.nodeValue.toLowerCase());return c?f:null},n}()}(window),function(n){"use strict";var t=n.wakegi,e=t.Browser;e.iOS=function(){function n(){throw new Error("iOS can't create instance.")}var r,i,o,u,a,c,f,s,d=[-1,-1,-1],l=n.prototype;return l.constructor=n,n.init=function(){var t;"undefined"==typeof r&&(t=e.ua(),u=!!t.match(/ipad/i),o=!!t.match(/ipod/i),i=!!t.match(/iphone/i)&&!u&&!o,r=u||o||i,a=r&&!n.standalone()&&!e.matchSafari())},n.calculate=function(){var r,i,o,u,a,l,p=[];if("undefined"==typeof c&&(s="",c=-1,f=-1,n.is()&&(r=e.app().match(/OS (\d+)_(\d+)_?(\d+)?/),Array.isArray(r)))){for(i=t["int"],o=t["float"],u=1,a=r.length;a>u;u=u+1|0)l=r[u],p.push("undefined"!=typeof l?i(l,10):0);s=p.join("."),f=p[0],d=p,c=o(p[0]+"."+p[1]+p[2])}},n.is=function(){return n.init(),r},n.iPhone=function(){return n.init(),i},n.iPad=function(){return n.init(),u},n.iPod=function(){return n.init(),o},n.standalone=function(){var n=e.navigator();return n.standalone?n.standalone:!1},n.fullScreen=function(){return n.standalone()},n.version=function(){return n.calculate(),c},n.build=function(){return n.calculate(),s},n.major=function(){return n.calculate(),f},n.numbers=function(){return n.calculate(),d},n.number=function(){return n.numbers()},n.webView=function(){return n.init(),a},n}()}(window),function(n){"use strict";var t=n.wakegi,e=t.Browser;e.Android=function(){function r(){throw new Error("Android can't create instance.")}var i,o,u,a,c,f,s,d,l=Math.max,p=[-1,-1,-1],w=r.prototype;return w.constructor=r,r.init=function(){var t,r;"undefined"==typeof o&&(t=e.ua(),o=!!t.match(/android/i),u=!1,a=!1,i=!1,c=!1,o&&(r=l(n.innerWidth,n.innerHeight),c=r>=1024,u=!!t.match(/mobile/i),u||(a=!0),i=e.matchSafari()&&!!t.match(/version/i)))},r.calculate=function(){var n,i,o,u,a,c,l=[];if("undefined"==typeof f&&(d="",f=-1,s=-1,r.is()&&(n=e.app().match(/Android (\d+)\.(\d+)\.?(\d+)?/),Array.isArray(n)))){for(i=t["int"],o=t["float"],u=1,a=n.length;a>u;u=u+1|0)c=n[u],l.push("undefined"!=typeof c?i(c,10):0);d=l.join("."),s=l[0],p=l,f=o(l[0]+"."+l[1]+l[2])}},r.is=function(){return r.init(),o},r.standard=function(){return r.init(),i},r.phone=function(){return r.init(),u},r.tablet=function(){return r.init(),a},r.hd=function(){return r.init(),c},r.version=function(){return r.calculate(),f},r.build=function(){return r.calculate(),d},r.major=function(){return r.calculate(),s},r.numbers=function(){return r.calculate(),p},r.number=function(){return r.numbers()},r}()}(window),function(n){"use strict";var t=n.wakegi,e=t.Browser;e.Touch=function(){function n(){throw new Error("Touch can't create instance.")}var t=n.prototype;return t.constructor=n,n.is=function(){return Element.touch()},n}()}(window),function(n){"use strict";var t=n.wakegi,e=t.Browser;e.Mobile=function(){function n(){throw new Error("Mobile can't create instance.")}var t=e.iOS,r=e.Android,i=n.prototype;return i.constructor=n,n.is=function(){return t.is()||r.is()},n.phone=function(){return t.iPhone()||t.iPod()||r.phone()},n.tablet=function(){return t.iPad()||r.tablet()},n.hideBar=function(){setTimeout(function(){scrollBy(0,1)},0)},n.hideURLBar=function(){n.hideBar()},n}()}(window),function(n){"use strict";var t=n.wakegi,e=t.Browser;e.Mac=function(){function n(){throw new Error("Mac can't create instance.")}var t,r=e.iOS,i=n.prototype;return i.constructor=n,n.init=function(){"undefined"==typeof t&&(t=!r.is()&&!!e.ua().match(/mac os x/i))},n.is=function(){return n.init(),t},n}()}(window),function(n){"use strict";var t=n.wakegi,e=t.Browser;e.Windows=function(){function n(){throw new Error("Windows can't create instance.")}var t,r=n.prototype;return r.constructor=n,n.init=function(){"undefined"==typeof t&&(t=!!e.ua().match(/windows/i))},n.is=function(){return n.init(),t},n}()}(window),function(n){"use strict";var t=n.wakegi,e=t.Browser;e.Edge=function(){function n(){throw new Error("Edge can't create instance.")}var r,i,o,u,a=[-1,-1],c=n.prototype;return c.constructor=n,n.init=function(){"undefined"==typeof r&&(r=!!e.ua().match(/edge/i))},n.calculate=function(){var r,c,f,s,d,l=[];if("undefined"==typeof i&&(u="",i=-1,o=-1,n.is()&&(r=e.ua().match(/edge\/(\d+)\.?(\d+)?/i),Array.isArray(r)))){for(c=t["int"],f=t["float"],s=1,d=r.length;d>s;s=s+1|0)l.push(c(r[s],10));u=l.join("."),o=l[0],i=f(l[0]+"."+l[1]),a=l}},n.is=function(){return n.init(),r},n.version=function(){return n.calculate(),i},n.major=function(){return n.calculate(),o},n.build=function(){return n.calculate(),u},n.numbers=function(){return n.calculate(),a},n}()}(window),function(n){"use strict";var t=n.wakegi,e=t.Browser;e.IE=function(){function n(){throw new Error("IE can't create instance.")}var t,r,i,o,u,a,c,f,s=n.prototype;return s.constructor=n,n.init=function(){var n;("undefined"==typeof c||"undefined"==typeof t||"undefined"==typeof r||"undefined"==typeof i||"undefined"==typeof o||"undefined"==typeof u||"undefined"==typeof a)&&(n=e.ua(),t=!1,r=!1,i=!1,o=!1,u=!1,a=!1,c=!!n.match(/msie/i),c?(u=!!n.match(/msie [10]/i),u||(o=!!n.match(/msie [9]/i),o||(i=!!n.match(/msie [8]/i),i||(r=!!n.match(/msie [7]/i),r||(t=!!n.match(/msie [6]/i)))))):(a=!!n.match(/trident\/[7]/i)&&!!n.match(/rv:[11]/i),c=a))},n.calculate=function(){n.init(),"undefined"==typeof f&&(f=-1,n.is()&&(a?f=11:u?f=10:o?f=9:i?f=8:r?f=7:t&&(f=6)))},n.is=function(){return n.init(),c},n.is6=function(){return n.init(),t},n.is7=function(){return n.init(),r},n.is8=function(){return n.init(),i},n.is9=function(){return n.init(),o},n.is10=function(){return n.init(),u},n.is11=function(){return n.init(),a},n.version=function(){return n.calculate(),f},n.major=function(){return n.version()},n.legacy=function(){return n.init(),t||r||i},n}()}(window),function(n){"use strict";var t=n.wakegi,e=t.Browser;e.CriOS=function(){function n(){throw new Error("CriOS can't create instance.")}var r,i,o,u,a=[-1,-1,-1,-1],c=n.prototype;return c.constructor=n,n.init=function(){"undefined"==typeof r&&(r=!!e.ua().match(/crios/i))},n.calculate=function(){var r,c,f,s,d,l=[];if("undefined"==typeof i&&(u="",i=-1,o=-1,n.is()&&(r=e.app().match(/CriOS\/(\d+)\.(\d+)\.(\d+)\.?(\d+)?/),Array.isArray(r)))){for(c=t["int"],f=t["float"],s=1,d=r.length;d>s;s=s+1|0)l.push(c(r[s],10));u=l.join("."),o=l[0],a=l,i=f(l[0]+"."+l[1]+l[2]+l[3])}},n.is=function(){return n.init(),r},n.version=function(){return n.calculate(),i},n.build=function(){return n.calculate(),u},n.major=function(){return n.calculate(),o},n.numbers=function(){return n.calculate(),a},n}()}(window),function(n){"use strict";var t=n.wakegi,e=t.Browser;e.Chrome=function(){function n(){throw new Error("Chrome can't create instance.")}var r,i,o,u,a,c,f=e.CriOS,s=e.Android,d=e.Edge,l=[-1,-1,-1,-1],p=n.prototype;return p.constructor=n,n.init=function(){"undefined"==typeof o&&(r=f.is(),i=d.is(),o=!1,i||(r?o=!0:s.standard()||(o=!!e.ua().match(/chrome/i))))},n.calculate=function(){var i,o,s,d,p,w=[];if("undefined"==typeof u&&(c="",u=-1,a=-1,n.is()))if(r)c=f.build(),a=f.major(),l=f.numbers(),u=f.version();else if(i=e.app().match(/Chrome\/(\d+)\.(\d+)\.(\d+)\.?(\d+)?/),Array.isArray(i)){for(o=t["int"],s=t["float"],d=1,p=i.length;p>d;d=d+1|0)w.push(o(i[d],10));c=w.join("."),a=w[0],l=w,u=s(w[0]+"."+w[1]+w[2]+w[3])}},n.is=function(){return n.init(),o},n.version=function(){return n.calculate(),u},n.build=function(){return n.calculate(),c},n.major=function(){return n.calculate(),a},n.numbers=function(){return n.calculate(),l},n}()}(window),function(n){"use strict";var t=n.wakegi,e=t.Browser;e.Firefox=function(){function n(){throw new Error("Firefox can't create instance.")}var r,i,o,u,a=[-1,-1],c=n.prototype;return c.constructor=n,n.init=function(){"undefined"==typeof r&&(r=!!e.ua().match(/firefox/i))},n.calculate=function(){var r,c,f,s,d,l=[];if("undefined"==typeof i&&(u="",i=-1,o=-1,n.is()&&(r=e.ua().match(/Firefox\/(\d+)\.?(\d+)?/),Array.isArray(r)))){for(c=t["int"],f=t["float"],s=1,d=r.length;d>s;s=s+1|0)l.push(c(r[s],10));u=l.join("."),o=l[0],i=f(l[0]+"."+l[1]),a=l}},n.is=function(){return n.init(),r},n.version=function(){return n.calculate(),i},n.major=function(){return n.calculate(),o},n.build=function(){return n.calculate(),u},n.numbers=function(){return n.calculate(),a},n}()}(window),function(n){"use strict";var t=n.wakegi,e=t.Browser;e.Safari=function(){function n(){throw new Error("Safari can't create instance.")}var r,i,o,u,a,c,f,s=e.CriOS,d=e.Chrome,l=e.Android,p=e.Edge,w=[-1,-1,-1],m=n.prototype;return m.constructor=n,n.init=function(){"undefined"==typeof u&&(r=s.is(),i=d.is(),o=p.is(),u=r||i||o||l.standard()?!1:e.matchSafari())},n.calculate=function(){var r,i,o,u,s,d,l=[];if("undefined"==typeof a&&(f="",a=-1,c=-1,n.is()&&(r=e.app().match(/Version\/(\d+)\.(\d+)\.?(\d+)?/),Array.isArray(r)))){for(i=t["int"],o=t["float"],u=1,s=r.length;s>u;u=u+1|0)d=r[u],l.push("undefined"!=typeof d?i(d,10):0);f=l.join("."),a=o(l[0]+"."+l[1]+l[2]),c=l[0],w=l}},n.is=function(){return n.init(),u},n.set=function(t){n.init(),u=t},n.version=function(){return n.calculate(),a},n.major=function(){return n.calculate(),c},n.build=function(){return n.calculate(),f},n.numbers=function(){return n.calculate(),w},n.number=function(){return n.numbers()},n}()}(window);
 /**
  * @license inazumatv.com
  * @author (at)taikiken / htp://inazumatv.com
@@ -66,48 +64,61 @@ var wakegi=wakegi||{};wakegi["int"]=parseInt,wakegi["float"]=parseFloat,function
  * This notice shall be included in all copies or substantial portions of the Software.
  *
  * version 0.3.12
- * build 2015-07-30 20:37:34
+ * build 2015-09-01 13:29:33
  * github: https://github.com/taikiken/sagen.js
- *
- * @requires kaketsugi.js, wakegi.js, gasane.js
- *
- * @module Sagen
  */
 
 /**
  *
- * @class Sagen
- *
- * @example
  * htmlタグへCSS classをセットします。<br>
- * scriptタグdata属性から追加classをセットします
+ * scriptタグdata属性から追加classをセットします<br>
+ *
  *
  *      <script type="text/javascript" src="/js/sagen.min.js"
  *          id="sagen"
  *          data-orientation="true"
- *          data-browser="true"
- *          data-ios="true"
- *          data-canvas="true">
+ *          data-browser="true">
  *      </script>
  *
- *      <!--OS X Chrome-->
+ *
+ *      // html へ class を追加した例
+ *      // OS X Chrome
+ *
  *      <html class="transition transform matchMedia background-size mac other chrome chrome41 chrome41_0 chrome41_0_2272 chrome41_0_2272_118 canvas webgl">
  *
- * Browser / 端末判定にも使えます
  *
- *      ( function ( window ){
- *         "use strict";
- *         var Sagen = window.Sagen;
+ *      // Browser / 端末判定にも使えます
  *
- *         if ( Sagen.Browser.iOS.is() ) {
- *              // iOS
- *         }
+ *      if ( Sagen.Browser.iOS.is() ) {
+ *        // iOS
+ *      }
  *
- *      }( window ) );
+ *
+ *      // orientation 監視にも使えます(iOS, Android)
+ *      var Orientation = Sagen.Orientation;
+ *
+ *
+ *      Orientation.on( Orientation.CHANGE_ORIENTATION, function ( event ) {
+ *
+ *        var direction = event.direction;
+ *
+ *        if ( direction === 'portrait' ) {
+ *          // portrait
+ *        }
+ *
+ *        if ( direction === 'landscape' ) {
+ *          // landscape
+ *        }
+ *
+ *      } );
+ *
+ *      Orientation.listen();
+ *
+ * @module Sagen
+ * @requires kaketsugi.js, wakegi.js, gasane.js
  *
  *
  */
-
 var Sagen = window.Sagen || {};
 
 ( function ( window, Sagen ){
@@ -133,7 +144,9 @@ var Sagen = window.Sagen || {};
 
       function modern ( result, data ) {
         var
-          key, dataKey, val;
+          key,
+          //dataKey,
+          val;
 
         for ( key in data ) {
 
@@ -240,11 +253,15 @@ var Sagen = window.Sagen || {};
  *
  * This notice shall be included in all copies or substantial portions of the Software.
  *
+ */
+/**
+ * orientation 監視
+ *
  * @module Sagen
  * @submodule Orientation
- */
+ * */
 ( function ( window ){
-  "use strict";
+  'use strict';
 
   var
     document = window.document,
@@ -348,7 +365,7 @@ var Sagen = window.Sagen || {};
      */
     Orientation.eventType = function () {
 
-      if ( typeof _eventType === "undefined" ) {
+      if ( typeof _eventType === 'undefined' ) {
 
         _eventType = Css3.orientationChange() ? 'orientationchange' : 'resize';
 
@@ -578,7 +595,7 @@ var Sagen = window.Sagen || {};
     Orientation._listenMatchMedia = function () {
 
       var
-        mql = window.matchMedia( "(orientation: portrait)" ),
+        mql = window.matchMedia( '(orientation: portrait)' ),
         sgp312 = !!navigator.userAgent.match(/sgp312/i);
 
       _mediaQuery = mql;
@@ -619,9 +636,13 @@ var Sagen = window.Sagen || {};
  *
  * This notice shall be included in all copies or substantial portions of the Software.
  *
+ */
+/**
+ * html tag へ class を付与します
+ *
  * @module Sagen
  * @submodule Classes
- */
+ * */
 ( function ( window ){
   "use strict";
 
@@ -718,11 +739,13 @@ var Sagen = window.Sagen || {};
  *
  * This notice shall be included in all copies or substantial portions of the Software.
  *
+ */
+/**
  * @module Sagen
  * @submodule Device
- */
+ * */
 ( function ( window ){
-  "use strict";
+  'use strict';
 
   var
     Sagen = window.Sagen;
@@ -758,7 +781,7 @@ var Sagen = window.Sagen || {};
      * @constructor
      */
     function Device () {
-      throw new Error( "Device can't create instance." );
+      throw new Error( 'Device can\'t create instance.' );
     }
 
     var p = Device.prototype;
@@ -821,7 +844,7 @@ var Sagen = window.Sagen || {};
      */
     Device._option = function ( classes ) {
 
-      if ( Sagen.dataSet( "browser" ) ) {
+      if ( Sagen.dataSet( 'browser' ) ) {
 
         Device._ie( classes )
           ._chrome( classes )
@@ -831,7 +854,7 @@ var Sagen = window.Sagen || {};
 
       }
 
-      if ( Sagen.dataSet( "canvas" ) ) {
+      if ( Sagen.dataSet( 'canvas' ) ) {
 
         Device._canvas( classes );
 
@@ -839,7 +862,7 @@ var Sagen = window.Sagen || {};
 
       // orientation
       // ToDo: orientation change
-      if ( Sagen.dataSet( "orientation" ) && ( iOS.is() || Android.is()) ) {
+      if ( Sagen.dataSet( 'orientation' ) && ( iOS.is() || Android.is()) ) {
 
         Orientation.on( Orientation.CHANGE_ORIENTATION, Device._onOrientation );
         Orientation.init();
@@ -855,19 +878,19 @@ var Sagen = window.Sagen || {};
      * @static
      * @param {Classes} classes
      * @param {string} prefix
-     * @param {array} numbers
+     * @param {Array} numbers
      * @return {Device}
      * @private
      */
     Device._version = function ( classes, prefix, numbers ) {
       var
-        version = "",
-        _ = "_",
+        version = '',
+        _ = '_',
         i, limit;
 
       for ( i = 0, limit = numbers.length; i < limit; i = i + 1 ) {
 
-        version += numbers[ i ] + "";
+        version += numbers[ i ] + '';
         classes.add( prefix + version );
 
         version += _;
@@ -890,22 +913,22 @@ var Sagen = window.Sagen || {};
       if ( iOS.is() ) {
 
         // iOS
-        prefix = "ios";
+        prefix = 'ios';
 
         classes.add( prefix );
 
         if ( iOS.iPad() ) {
           // ipad
-          classes.add( "ipad" ).add( "tablet" );
+          classes.add( 'ipad' ).add( 'tablet' );
 
         } else if ( iOS.iPod() ) {
           // ipod
-          classes.add( "ipod" ).add( "mobile" );
+          classes.add( 'ipod' ).add( 'mobile' );
 
 
         } else if ( iOS.iPhone() ) {
           // ipod
-          classes.add( "iphone" ).add( "mobile" );
+          classes.add( 'iphone' ).add( 'mobile' );
 
         }
 
@@ -931,29 +954,29 @@ var Sagen = window.Sagen || {};
       if ( Android.is() ) {
 
         // iOS
-        prefix = "android";
+        prefix = 'android';
 
         classes.add( prefix );
 
         if ( Android.tablet() ) {
           // ipad
-          classes.add( "tablet" );
+          classes.add( 'tablet' );
 
         } else if ( Android.phone() ) {
           // ipod
-          classes.add( "mobile" );
+          classes.add( 'mobile' );
 
         }
 
         if ( Android.standard() ) {
 
-          classes.add( "android-standard" );
+          classes.add( 'android-standard' );
 
         }
 
         if ( Android.hd() ) {
 
-          classes.add( "android-hd" );
+          classes.add( 'android-hd' );
 
         }
 
@@ -975,37 +998,37 @@ var Sagen = window.Sagen || {};
 
       if ( Css3.transition() ) {
 
-        classes.add( "transition" );
+        classes.add( 'transition' );
 
       }
 
       if ( Css3.transform() ) {
 
-        classes.add( "transform" );
+        classes.add( 'transform' );
 
       }
 
       if ( Css3.matchMedia() ) {
 
-        classes.add( "matchMedia" );
+        classes.add( 'matchMedia' );
 
       }
 
       if ( Css3.orientation() ) {
 
-        classes.add( "orientation" );
+        classes.add( 'orientation' );
 
       }
 
       if ( Css3.orientationChange() ) {
 
-        classes.add( "orientation-change" );
+        classes.add( 'orientation-change' );
 
       }
 
       if ( Css3.backgroundSize() ) {
 
-        classes.add( "background-size" );
+        classes.add( 'background-size' );
 
       }
 
@@ -1023,13 +1046,13 @@ var Sagen = window.Sagen || {};
 
       if ( Element.touch() ) {
 
-        classes.add( "touch" );
+        classes.add( 'touch' );
 
       }
 
       if ( Element.querySelector() ) {
 
-        classes.add( "querySelector" );
+        classes.add( 'querySelector' );
 
       }
 
@@ -1050,21 +1073,21 @@ var Sagen = window.Sagen || {};
 
       if ( Mac.is() ) {
 
-        classes.add( "mac" );
+        classes.add( 'mac' );
         pc = true;
 
       }
 
       if ( Windows.is() ) {
 
-        classes.add( "windows" );
+        classes.add( 'windows' );
         pc = true;
 
       }
 
       if ( pc ) {
 
-        classes.add( "other" );
+        classes.add( 'other' );
 
       }
 
@@ -1084,7 +1107,7 @@ var Sagen = window.Sagen || {};
 
       if ( Safari.is() ) {
 
-        prefix = "safari";
+        prefix = 'safari';
         classes.add( prefix );
 
         // version
@@ -1109,7 +1132,7 @@ var Sagen = window.Sagen || {};
 
       if ( Chrome.is() ) {
 
-        prefix = "chrome";
+        prefix = 'chrome';
         classes.add( prefix );
 
         // version
@@ -1134,7 +1157,7 @@ var Sagen = window.Sagen || {};
 
       if ( Firefox.is() ) {
 
-        prefix = "firefox";
+        prefix = 'firefox';
         classes.add( prefix );
 
         // version
@@ -1159,7 +1182,7 @@ var Sagen = window.Sagen || {};
 
       if ( Edge.is() ) {
 
-        prefix = "edge";
+        prefix = 'edge';
         classes.add( prefix );
 
         // version
@@ -1184,7 +1207,7 @@ var Sagen = window.Sagen || {};
 
       if ( IE.is() ) {
 
-        prefix = "ie";
+        prefix = 'ie';
         classes.add( prefix );
 
         // version
@@ -1206,11 +1229,11 @@ var Sagen = window.Sagen || {};
 
       if ( Element.canvas() ) {
 
-        classes.add( "canvas" );
+        classes.add( 'canvas' );
 
         if ( Element.webgl() ) {
 
-          classes.add( "webgl" );
+          classes.add( 'webgl' );
 
         }
 
@@ -1232,13 +1255,13 @@ var Sagen = window.Sagen || {};
       var
         direction = event.direction;
 
-      if ( direction === "portrait" ) {
+      if ( direction === 'portrait' ) {
 
-        _classes.removeClass( "landscape" ).addClass( "portrait" );
+        _classes.removeClass( 'landscape' ).addClass( 'portrait' );
 
-      } else if ( direction === "landscape" ) {
+      } else if ( direction === 'landscape' ) {
 
-        _classes.removeClass( "portrait" ).addClass( "landscape" );
+        _classes.removeClass( 'portrait' ).addClass( 'landscape' );
 
       }
 
@@ -1260,11 +1283,15 @@ var Sagen = window.Sagen || {};
  *
  * This notice shall be included in all copies or substantial portions of the Software.
  *
+ */
+/**
+ * meta viewport rewrite / write
+ *
  * @module Sagen
  * @submodule Viewport
- */
+ * */
 ( function ( window ){
-  "use strict";
+  'use strict';
 
   var
     document = window.document,
@@ -1349,8 +1376,10 @@ var Sagen = window.Sagen || {};
      * @return {HTMLElement|*}
      */
     Viewport.meta = function () {
+
       Viewport.find();
       return _viewport;
+
     };
     /**
      * @method content
@@ -1358,8 +1387,10 @@ var Sagen = window.Sagen || {};
      * @return {string}
      */
     Viewport.content = function () {
+
       Viewport.find();
       return _content;
+
     };
     /**
      * @method write
@@ -1368,6 +1399,7 @@ var Sagen = window.Sagen || {};
      * @return {Viewport}
      */
     Viewport.write = function ( content ) {
+
       var
         meta;
 
@@ -1385,6 +1417,7 @@ var Sagen = window.Sagen || {};
       }
 
       return Viewport;
+
     };
     /**
      * @method add
@@ -1393,6 +1426,7 @@ var Sagen = window.Sagen || {};
      * @return {Viewport}
      */
     Viewport.add = function ( option ) {
+
       var
         content;
 
@@ -1421,6 +1455,7 @@ var Sagen = window.Sagen || {};
      * @return {Viewport}
      */
     Viewport.replace = function ( oldOption, newOption ) {
+
       var
         content;
 
@@ -1468,6 +1503,7 @@ var Sagen = window.Sagen || {};
      * @static
      */
     Viewport.minimalUi = function () {
+
       var version = iOS.version();
 
       if ( version >= 7.1 && version < 8.0 ) {
@@ -1494,10 +1530,14 @@ var Sagen = window.Sagen || {};
  *
  * This notice shall be included in all copies or substantial portions of the Software.
  *
+ */
+/**
+ * execute Sagen default method
+ *
  * @module Sagen
  */
 ( function ( window ){
-  "use strict";
+  'use strict';
 
   var
     Sagen = window.Sagen,

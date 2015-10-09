@@ -18,7 +18,7 @@
  * @submodule Classes
  * */
 ( function ( window ){
-  "use strict";
+  'use strict';
 
   var
     document = window.document,

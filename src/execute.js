@@ -14,7 +14,7 @@
 /**
  * execute Sagen default method
  *
- * @module Sagen
+ *
  */
 ( function ( window ){
   'use strict';

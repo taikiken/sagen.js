@@ -47,6 +47,7 @@ var libs = '../libs';
 var old = '../old';
 var docs = '../_docs';
 var example = '../example';
+var dependencies = '../dependencies';
 
 // ----------------------------------------------------------------
 // package.json
@@ -61,7 +62,7 @@ module.exports = {
     docs: docs,
     old: old,
     example: example,
-    dependencies: src + '/dependencies'
+    dependencies: dependencies
   },
   pkg: pkg,
   version: version,
