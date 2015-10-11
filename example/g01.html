@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head lang="ja">
+	<meta charset="UTF-8">
+	<title>gasane</title>
+	<script src="../dependencies/gasane.min.js"></script>
+	<script src="../dependencies/wakegi.min.js"></script>
+	<script src="../dependencies/kaketsugi.min.js"></script>
+</head>
+<body>
+gasane
+<script>
+	( function ( window ) {
+
+	  "use strict";
+
+	  var
+	    document = window.document;
+
+		var data = {
+			a: 10000,
+				c: "xxxx",
+			b: 100
+		},
+			key,
+			value;
+//		alert(data.hasOwnProperty( "a" ));
+//		if ( data.hasOwnProperty( "a" ) ) {
+//			alert( data.a );
+//		}
+		for( key in data ) {
+			alert( key + ":" + typeof data.hasOwnProperty );
+		  if ( data.hasOwnProperty( key ) ) {
+
+		   value  = data[ key ];
+
+		  }
+		}
+
+	}( window ) );
+</script>
+</body>
+</html>
