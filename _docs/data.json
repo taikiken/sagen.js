@@ -1220,20 +1220,7 @@
         },
         {
             "file": "src/Sagen.js",
-            "line": 1,
-            "license": "inazumatv.com",
-            "author": "(at)taikiken / htp://inazumatv.com\ndate 2014/02/06 - 13:17\n\nCopyright (c) 2011-@@year inazumatv.com, inc.\n\nDistributed under the terms of the MIT license.\nhttp://www.opensource.org/licenses/mit-license.html\n\nThis notice shall be included in all copies or substantial portions of the Software.\n\nversion @@version\nbuild @@buildTime\ngithub: @@url",
-            "requires": [
-                "kaketsugi.js",
-                "wakegi.js",
-                "gasane.js"
-            ],
-            "class": "Sagen",
-            "module": "Sagen"
-        },
-        {
-            "file": "src/Sagen.js",
-            "line": 172,
+            "line": 170,
             "itemtype": "method",
             "name": "dataSet",
             "static": 1,
@@ -1249,7 +1236,7 @@
         },
         {
             "file": "src/Sagen.js",
-            "line": 184,
+            "line": 182,
             "description": "dataSet alias",
             "deprecated": true,
             "deprecationMessage": "instead use dataSet",
@@ -1277,10 +1264,6 @@
     ],
     "warnings": [
         {
-            "message": "unknown tag: license",
-            "line": " src/Sagen.js:1"
-        },
-        {
             "message": "Missing item type\nlicense inazumatv.com\nauthor (at)taikiken / http://inazumatv.com\ndate 2015/04/10 - 16:02\n\nCopyright (c) 2011-2015 inazumatv.com, inc.\n\nDistributed under the terms of the MIT license.\nhttp://www.opensource.org/licenses/mit-license.html\n\nThis notice shall be included in all copies or substantial portions of the Software.",
             "line": " src/device/Classes.js:1"
         },
@@ -1295,10 +1278,6 @@
         {
             "message": "Missing item type\nlicense inazumatv.com\nauthor (at)taikiken / http://inazumatv.com\ndate 2015/04/10 - 18:48\n\nCopyright (c) 2011-2015 inazumatv.com, inc.\n\nDistributed under the terms of the MIT license.\nhttp://www.opensource.org/licenses/mit-license.html\n\nThis notice shall be included in all copies or substantial portions of the Software.",
             "line": " src/device/Viewport.js:1"
-        },
-        {
-            "message": "Missing item type",
-            "line": " src/Sagen.js:1"
         },
         {
             "message": "Missing item type\nlicense inazumatv.com\nauthor (at)taikiken / http://inazumatv.com\ndate 2015/04/10 - 15:42\n\nCopyright (c) 2011-2015 inazumatv.com, inc.\n\nDistributed under the terms of the MIT license.\nhttp://www.opensource.org/licenses/mit-license.html\n\nThis notice shall be included in all copies or substantial portions of the Software.",
