@@ -33,6 +33,7 @@
       Safari = Browser.Safari,
       Chrome = Browser.Chrome,
       Firefox = Browser.Firefox,
+      FxiOS = Browser.FxiOS,
       IE = Browser.IE,
       Edge = Browser.Edge,
       Orientation = Sagen.Orientation,
@@ -121,7 +122,8 @@
           ._chrome( classes )
           ._safari( classes )
           ._firefox( classes )
-          ._edge( classes );
+          ._edge( classes )
+          ._fxios( classes );
 
       }
 
@@ -458,6 +460,32 @@
 
         // version
         Device._version( classes, prefix, Edge.numbers() );
+
+      }
+
+      return Device;
+
+    };
+    /**
+     * @method _fxios
+     * @static
+     * @param {Classes} classes
+     * @return {Device}
+     * @private
+     */
+    Device._fxios = function ( classes ) {
+
+      var
+        prefix;
+
+      if ( FxiOS.is() ) {
+
+        // FxiOS is true
+        prefix = 'fxios';
+        classes.add( prefix );
+
+        // version
+        Device._version( classes, prefix, FxiOS.numbers() );
 
       }
 
