@@ -64,7 +64,7 @@ var wakegi=wakegi||{};wakegi["int"]=parseInt,wakegi["float"]=parseFloat,function
  * This notice shall be included in all copies or substantial portions of the Software.
  *
  * version 0.3.16
- * build 2015-11-02 15:12:26
+ * build 2015-11-02 15:13:38
  * github: https://github.com/taikiken/sagen.js
  *
  * @requires kaketsugi.js, wakegi.js, gasane.js
