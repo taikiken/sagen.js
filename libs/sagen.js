@@ -1,9 +1,7 @@
-/**
- * @license inazumatv.com
+/*!
+ * Copyright (c) 2011-2015 inazumatv.com, inc.
  * @author (at)taikiken / http://inazumatv.com
  * @date 2015/03/16 - 14:02
- *
- * Copyright (c) 2011-2015 inazumatv.com, inc.
  *
  * Distributed under the terms of the MIT license.
  * http://www.opensource.org/licenses/mit-license.html
@@ -12,10 +10,12 @@
  *
  * Polyfill
  *
- * @build: 7/4/2015, 5:37:44 PM
- * @version: 1.0.0
+ * build: 2015-11-24 20:21:10
+ * version: 1.0.0
+ * url https://github.com/taikiken/kaketsugi.js
+ *
  */
-!function(t){"use strict";var n=(t.document,Math.max),e=Math.abs,r=t.self;Date.now||(Date.now=function(){return(new Date).getTime()}),function(){for(var t=0,n=["ms","moz","webkit","o"],e=0;e<n.length&&!r.requestAnimationFrame;++e)r.requestAnimationFrame=r[n[e]+"RequestAnimationFrame"],r.cancelAnimationFrame=r[n[e]+"CancelAnimationFrame"]||r[n[e]+"CancelRequestAnimationFrame"];void 0===r.requestAnimationFrame&&void 0!==r.setTimeout&&(r.requestAnimationFrame=function(n){var e=Date.now(),o=Math.max(0,16-(e-t)),i=r.setTimeout(function(){n(e+o)},o);return t=e+o,i}),void 0===r.cancelAnimationFrame&&void 0!==r.clearTimeout&&(r.cancelAnimationFrame=function(t){r.clearTimeout(t)})}(),"function"!=typeof Object.create&&(Object.create=function(){function t(){}var n=Object.prototype.hasOwnProperty;return function(e){if("object"!=typeof e)throw new TypeError("Object prototype may only be an Object or null");t.prototype=e;var r=new t;if(t.prototype=null,arguments.length>1){var o=Object(arguments[1]);for(var i in o)n.call(o,i)&&(r[i]=o[i])}return r}}()),Array.isArray||(Array.isArray=function(t){return"[object Array]"===Object.prototype.toString.call(t)}),Array.prototype.indexOf||(Array.prototype.indexOf=function(t,r){var o;if(null===this||"undefined"==typeof this)throw new TypeError('"this" is null or not defined');var i=Object(this),a=i.length>>>0;if(0===a)return-1;var c=+r||0;if(1/0===e(c)&&(c=0),c>=a)return-1;for(o=n(c>=0?c:a-e(c),0);a>o;){if(o in i&&i[o]===t)return o;o++}return-1}),Array.prototype.forEach||(Array.prototype.forEach=function(t,n){var e,r;if(null===this||"undefined"==typeof this)throw new TypeError(" this is null or not defined");var o=Object(this),i=o.length>>>0;if("function"!=typeof t)throw new TypeError(t+" is not a function");for(arguments.length>1&&(e=n),r=0;i>r;){var a;r in o&&(a=o[r],t.call(e,a,r,o)),r++}}),Function.prototype.bind||(Function.prototype.bind=function(t){if("function"!=typeof this)throw new TypeError("Function.prototype.bind - what is trying to be bound is not callable");var n=Array.prototype.slice.call(arguments,1),e=this,r=function(){},o=function(){return e.apply(this instanceof r&&t?this:t,n.concat(Array.prototype.slice.call(arguments)))};return r.prototype=this.prototype,o.prototype=new r,o}),String.prototype.trim||!function(){var t=/^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g;String.prototype.trim=function(){return this.replace(t,"")}}(),navigator.getUserMedia=navigator.getUserMedia||navigator.webkitGetUserMedia||navigator.mozGetUserMedia||navigator.msGetUserMedia,t.URL=t.URL||t.webkitURL||t.mozURL||t.msURL,r.console||(r.console={info:function(){},log:function(){},debug:function(){},warn:function(){},error:function(){},table:function(){}})}(window);
+!function(t){"use strict";var r=Math.max,e=Math.abs,n=t.self;Date.now||(Date.now=function(){return(new Date).getTime()}),function(){for(var t=0,r=["ms","moz","webkit","o"],e=0;e<r.length&&!n.requestAnimationFrame;++e)n.requestAnimationFrame=n[r[e]+"RequestAnimationFrame"],n.cancelAnimationFrame=n[r[e]+"CancelAnimationFrame"]||n[r[e]+"CancelRequestAnimationFrame"];void 0===n.requestAnimationFrame&&void 0!==n.setTimeout&&(n.requestAnimationFrame=function(r){var e=Date.now(),o=Math.max(0,16-(e-t)),i=n.setTimeout(function(){r(e+o)},o);return t=e+o,i}),void 0===n.cancelAnimationFrame&&void 0!==n.clearTimeout&&(n.cancelAnimationFrame=function(t){n.clearTimeout(t)})}(),"function"!=typeof Object.create&&(Object.create=function(){function t(){}var r=Object.prototype.hasOwnProperty;return function(e){if("object"!=typeof e)throw new TypeError("Object prototype may only be an Object or null");t.prototype=e;var n=new t;if(t.prototype=null,arguments.length>1){var o=Object(arguments[1]);for(var i in o)r.call(o,i)&&(n[i]=o[i])}return n}}()),Array.isArray||(Array.isArray=function(t){return"[object Array]"===Object.prototype.toString.call(t)}),Array.prototype.indexOf||(Array.prototype.indexOf=function(t,n){var o;if(null===this||"undefined"==typeof this)throw new TypeError('"this" is null or not defined');var i=Object(this),a=i.length>>>0;if(0===a)return-1;var u=+n||0;if(e(u)===1/0&&(u=0),u>=a)return-1;for(o=r(u>=0?u:a-e(u),0);a>o;){if(o in i&&i[o]===t)return o;o++}return-1}),Array.prototype.forEach||(Array.prototype.forEach=function(t,r){var e,n;if(null===this||"undefined"==typeof this)throw new TypeError(" this is null or not defined");var o=Object(this),i=o.length>>>0;if("function"!=typeof t)throw new TypeError(t+" is not a function");for(arguments.length>1&&(e=r),n=0;i>n;){var a;n in o&&(a=o[n],t.call(e,a,n,o)),n++}}),"undefined"===Array.prototype.reduce&&(Array.prototype.reduce=function(t){if(void 0===this||null===this)throw new TypeError;var r,e=Object(this),n=e.length>>>0,o=0;if("function"!=typeof t)throw new TypeError;if(0===n&&1===arguments.length)throw new TypeError;if(arguments.length>=2)r=arguments[1];else for(;;){if(o in e){r=e[o++];break}if(++o>=n)throw new TypeError}for(;n>o;)o in e&&(r=t.call(void 0,r,e[o],o,e)),o++;return r}),Function.prototype.bind||(Function.prototype.bind=function(t){if("function"!=typeof this)throw new TypeError("Function.prototype.bind - what is trying to be bound is not callable");var r=Array.prototype.slice.call(arguments,1),e=this,n=function(){},o=function(){return e.apply(this instanceof n&&t?this:t,r.concat(Array.prototype.slice.call(arguments)))};return n.prototype=this.prototype,o.prototype=new n,o}),String.prototype.trim||!function(){var t=/^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g;String.prototype.trim=function(){return this.replace(t,"")}}(),navigator.getUserMedia=navigator.getUserMedia||navigator.webkitGetUserMedia||navigator.mozGetUserMedia||navigator.msGetUserMedia,t.URL=t.URL||t.webkitURL||t.mozURL||t.msURL,n.console||(n.console={info:function(){},log:function(){},debug:function(){},warn:function(){},error:function(){},table:function(){}})}(window);
 /**
  * @license inazumatv.com
  * @author (at)taikiken / http://inazumatv.com
@@ -59,8 +59,8 @@ var wakegi=wakegi||{};wakegi["int"]=parseInt,wakegi["float"]=parseFloat,function
  *
  * This notice shall be included in all copies or substantial portions of the Software.
  *
- * version 0.4.10
- * build 2015-11-20 22:15:05
+ * version 0.4.11
+ * build 2015-11-24 20:23:00
  * github: https://github.com/taikiken/sagen.js
  *
  * @requires kaketsugi.js, wakegi.js, gasane.js
