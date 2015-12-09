@@ -9,7 +9,7 @@ git commit -am "changes, something update."
 git tag -a vLATEST_VERSION -m "Release version LATEST_VERSION"
 
 @example
-git tag -a v0.4.10 -m "Release version 0.4.10"
+git tag -a v0.4.12 -m "Release version 0.4.12"
 
 # tag push
 git push origin master --tags

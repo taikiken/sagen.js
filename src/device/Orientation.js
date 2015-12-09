@@ -25,6 +25,7 @@
     Sagen = window.Sagen;
 
   Sagen.Orientation = ( function (){
+
     var
       EventDispatcher = Sagen.EventDispatcher,
       Browser = Sagen.Browser,
@@ -157,6 +158,7 @@
      * @return {Orientation}
      */
     Orientation.listen = function () {
+
       var
         handler;
 
@@ -167,12 +169,14 @@
         if ( typeof window.addEventListener !== 'undefined' ) {
 
           if ( Css3.matchMedia() ) {
+
             // can use matchMedia
             //handler = Orientation._listenMatchMedia;
 
             Orientation._listenMatchMedia();
 
           } else {
+
             // matchMediaが使えないので代わりに window.orientationあるいは window 縦横比を使い判定します
             handler = Orientation._listenOrientation;
             _handler = handler;
@@ -226,10 +230,12 @@
     Orientation._listenOrientation = function () {
 
       if ( Orientation.canOrientation() ) {
+
         // window.orientation が使える
         // degree check
 
         if ( Orientation._checkDegree() ) {
+
           // portrait
           Orientation.portrait();
 
@@ -240,9 +246,11 @@
         }
 
       } else {
+
         // window 幅,高さを使う
         // aspect check
         if ( Orientation._checkAspect() ) {
+
           // portrait
           Orientation.portrait();
 
@@ -291,6 +299,7 @@
       // window 幅,高さを使う
       // aspect check
       if ( Orientation._checkAspect() ) {
+
         // portrait
         Orientation.portrait();
 
@@ -311,13 +320,15 @@
      */
     Orientation._onRotate = function ( mediaQuery ) {
 
-      // use matchMediaå
+      // use matchMedia
       if ( mediaQuery.matches ) {
+
         // portrait
         //Orientation.portrait();
         Orientation.dispatchEvent( { type: Orientation.CHANGE_ORIENTATION, direction: 'portrait', scope: Orientation } );
 
       } else {
+
         // landscape
         //Orientation.landscape();
         Orientation.dispatchEvent( { type: Orientation.CHANGE_ORIENTATION, direction: 'landscape', scope: Orientation } );
@@ -333,10 +344,12 @@
     Orientation._onOrientationChange = function () {
 
       if ( Orientation._checkDegree() ) {
+
         // portrait
         Orientation.portrait();
 
       } else {
+
         // landscape
         Orientation.landscape();
 
@@ -359,12 +372,14 @@
 
       //if ( ( iOS.is() && iOS.version() < 6 ) || ( Android.is() && Android.version() < 4.2 ) ) {
       if ( sgp312 ) {
+
         // experia z
         window.addEventListener( Orientation.eventType(), Orientation._experiaZ, false );
 
       }
       //else if ( iOS.is() && iOS.version() < 6 ) {
       else if ( (iOS.is() && iOS.version() < 6)  || Android.standard() ) {
+
         // iOS 5 以下だと mql.addListener が作動しないのでorientationchangeを使用します
         window.addEventListener( Orientation.eventType(), Orientation._onOrientationChange, false );
 

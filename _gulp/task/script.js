@@ -162,16 +162,16 @@ gulp.task( 'script-build', function () {
 
 } );
 
-gulp.task( 'build', ['script-build'], function () {} );
+//gulp.task( 'build', ['script-build'], function () {} );
 
 // compile & api
-gulp.task( 'script-build-api', function () {
+//gulp.task( 'script-build-api', function () {
+//
+//  $.runSequence(
+//    [
+//      'script-build',
+//      'script-api'
+//    ]
+//  );
 
-  $.runSequence(
-    [
-      'script-build',
-      'script-api'
-    ]
-  );
-
-} );
+//} );

@@ -116,6 +116,7 @@
     Sagen = window.Sagen;
 
   Sagen.Viewport = ( function (){
+
     var
       Browser = Sagen.Browser,
       iOS = Browser.iOS,
@@ -123,7 +124,7 @@
       /**
        * @property _viewport
        * @static
-       * @type {HTMLElement}
+       * @type {HTMLElement|String}
        * @private
        */
       _viewport,
@@ -169,6 +170,7 @@
     Viewport.find = function () {
 
       if ( typeof _viewport === &#x27;undefined&#x27; ) {
+
         // _viewport undefined
         _viewport = Element.find( &#x27;meta[name=\&#x27;viewport\&#x27;]&#x27; );
 
@@ -333,6 +335,7 @@
     };
 
     return Viewport;
+
   }() );
 
 }( window ) );

@@ -64,6 +64,7 @@
      * @static
      */
     Device.init = function () {
+
       var
         classes = new Classes( [] );
 
@@ -97,8 +98,8 @@
      * @private
      */
     Device._default = function ( classes ) {
-      // default
 
+      // default
       Device._ios( classes )
         ._android( classes )
         ._css3( classes )
@@ -156,6 +157,7 @@
      * @private
      */
     Device._version = function ( classes, prefix, numbers ) {
+
       var
         version = '',
         _ = '_',
@@ -171,6 +173,7 @@
       }
 
       return Device;
+
     };
     /**
      * @method _ios
@@ -180,6 +183,7 @@
      * @private
      */
     Device._ios = function ( classes ) {
+
       var
         prefix;
 
@@ -191,15 +195,18 @@
         classes.add( prefix );
 
         if ( iOS.iPad() ) {
+
           // ipad
           classes.add( 'ipad' ).add( 'tablet' );
 
         } else if ( iOS.iPod() ) {
+
           // ipod
           classes.add( 'ipod' ).add( 'mobile' );
 
 
         } else if ( iOS.iPhone() ) {
+
           // ipod
           classes.add( 'iphone' ).add( 'mobile' );
 
@@ -221,22 +228,25 @@
      * @private
      */
     Device._android = function ( classes ) {
+
       var
         prefix;
 
       if ( Android.is() ) {
 
-        // iOS
+        // Android
         prefix = 'android';
 
         classes.add( prefix );
 
         if ( Android.tablet() ) {
-          // ipad
+
+          // Android.tablet
           classes.add( 'tablet' );
 
         } else if ( Android.phone() ) {
-          // ipod
+
+          // Android.phone
           classes.add( 'mobile' );
 
         }
@@ -259,6 +269,7 @@
       }
 
       return Device;
+
     };
     /**
      * @method _css3
@@ -356,6 +367,15 @@
         classes.add( 'windows' );
         pc = true;
 
+        if ( Windows.phone() ) {
+
+          // windows phone は pc false
+          pc = false;
+          classes.add( 'windows-phone' );
+          classes.add( 'mobile' );
+
+        }
+
       }
 
       if ( pc ) {
@@ -375,6 +395,7 @@
      * @private
      */
     Device._safari = function ( classes ) {
+
       var
         prefix;
 
@@ -467,6 +488,7 @@
 
     };
     /**
+     * Mac Firefox check
      * @method _fxios
      * @static
      * @param {Classes} classes
@@ -567,6 +589,7 @@
     };
 
     return Device;
+
   }() );
 
 }( window ) );

@@ -14,6 +14,8 @@
 /**
  * html tag へ class を付与します
  *
+ * @requires Sagen.Dom
+ *
  * @module Sagen
  * @submodule Classes
  * */
@@ -25,15 +27,23 @@
     Sagen = window.Sagen;
 
   Sagen.Classes = ( function (){
+
     var
       Dom = Sagen.Dom;
 
     /**
      * @class Classes
-     * @param {Array} classes
+     * @param {Array} [classes]
+     * @default []
+     * @param {Element} [dom] CSS Class Add target HTML Element, default document.documentElement (html)
+     * @default document.documentElement
      * @constructor
      */
-    function Classes ( classes ) {
+    function Classes ( classes, dom ) {
+
+      classes = Array.isArray( classes ) ? classes : [];
+      dom = !!dom || document.documentElement;
+
       /**
        * @property _classes
        * @type {Array}
@@ -45,11 +55,11 @@
        * @type {Dom}
        * @private
        */
-      this._dom = new Dom( document.documentElement );
+      this._dom = new Dom( dom );
+
     }
 
     var p = Classes.prototype;
-
     p.constructor = Classes;
     /**
      * @method add
@@ -57,6 +67,7 @@
      * @return {Classes}
      */
     p.add = function ( className ) {
+
       var
         classes = this._classes;
 
@@ -67,12 +78,17 @@
       }
 
       return this;
+
     };
     /**
      * @method write
+     * @return {Classes}
      */
     p.write = function () {
+
       this._dom.addClass( this._classes.join( ' ' ) );
+      return this;
+
     };
 
     /**

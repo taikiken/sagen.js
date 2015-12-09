@@ -77,12 +77,6 @@ var Sagen = window.Sagen || {};
     Gasane = window.Gasane,
     wakegi = window.wakegi,
 
-    //option = [
-    //  "orientation",
-    //  "ios",
-    //  "canvas",
-    //  "browser"
-    //],
     dataSet = ( function ( window ){
 
       var
@@ -92,6 +86,7 @@ var Sagen = window.Sagen || {};
         data;
 
       function modern ( result, data ) {
+
         var
           key,
           //dataKey,
@@ -115,9 +110,11 @@ var Sagen = window.Sagen || {};
         }
 
         return result;
+
       }
 
       function legacy ( result, data ) {
+
         var
           i, limit, attribute, nodeName, dataKey;
 
@@ -136,17 +133,21 @@ var Sagen = window.Sagen || {};
         }
 
         return result;
+
       }
 
       if ( !!element ) {
+
         // id: sagen defined
 
         if ( typeof element.dataset !== 'undefined' ) {
+
           // can use dataset
           data = element.dataset;
           results = modern( results, data );
 
         } else {
+
           // use attributes
           data = element.attributes;
           //attributes = true;
@@ -160,11 +161,9 @@ var Sagen = window.Sagen || {};
 
   }( window ) );
 
-
+  // copy Class
   Sagen.Browser = wakegi.Browser;
-
   Sagen.Dom = wakegi.Dom;
-
   Sagen.EventDispatcher = Gasane.EventDispatcher;
 
   /**

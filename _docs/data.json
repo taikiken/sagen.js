@@ -91,7 +91,7 @@
             "namespaces": {},
             "tag": "module",
             "file": "src/device/Viewport.js",
-            "line": 47,
+            "line": 48,
             "description": "## Browser detect helper\n\n htmlタグへCSS classをセットします。<br>\n scriptタグdata属性から追加classをセットします<br>\n     <script type=\"text/javascript\" src=\"/js/sagen.min.js\"\n          id=\"sagen\"\n          data-orientation=\"true\"\n          data-browser=\"true\">\n      </script>\n     // html へ class を追加した例\n      // OS X Chrome\n\n      <html class=\"transition transform matchMedia background-size mac other chrome chrome41 chrome41_0 chrome41_0_2272 chrome41_0_2272_118 canvas webgl\">\n     // Browser / 端末判定にも使えます\n\n      if ( Sagen.Browser.iOS.is() ) {\n        // iOS\n      }\n     // orientation 監視にも使えます(iOS, Android)\n      var Orientation = Sagen.Orientation;\n     Orientation.on( Orientation.CHANGE_ORIENTATION, function ( event ) {\n\n        var direction = event.direction;\n\n        if ( direction === 'portrait' ) {\n          // portrait\n        }\n\n        if ( direction === 'landscape' ) {\n          // landscape\n        }\n\n      } );\n\n      Orientation.listen();",
             "type": "{{}}"
         },
@@ -108,8 +108,11 @@
             "module": "Sagen",
             "namespace": "",
             "file": "src/device/Classes.js",
-            "line": 31,
-            "description": "html tag へ class を付与します"
+            "line": 34,
+            "description": "html tag へ class を付与します",
+            "requires": [
+                "Sagen.Dom"
+            ]
         },
         "Device": {
             "name": "Device",
@@ -139,7 +142,7 @@
             "module": "Sagen",
             "namespace": "",
             "file": "src/device/Orientation.js",
-            "line": 68,
+            "line": 69,
             "description": "orientation 監視"
         },
         "Viewport": {
@@ -155,7 +158,7 @@
             "module": "Sagen",
             "namespace": "",
             "file": "src/device/Viewport.js",
-            "line": 47,
+            "line": 48,
             "description": "meta viewport rewrite / write"
         }
     },
@@ -172,14 +175,22 @@
             "submodule": "Classes",
             "namespace": "",
             "file": "src/device/Classes.js",
-            "line": 31,
+            "line": 34,
             "params": [
                 {
                     "name": "classes",
                     "description": "",
-                    "type": "Array"
+                    "type": "Array",
+                    "optional": true
+                },
+                {
+                    "name": "dom",
+                    "description": "CSS Class Add target HTML Element, default document.documentElement (html)",
+                    "type": "Element",
+                    "optional": true
                 }
             ],
+            "default": "document.documentElement",
             "is_constructor": 1
         },
         "Device": {
@@ -210,7 +221,7 @@
             "submodule": "Orientation",
             "namespace": "",
             "file": "src/device/Orientation.js",
-            "line": 68,
+            "line": 69,
             "description": "portrait / landscape 切替を監視",
             "uses": [
                 "EventDispatcher"
@@ -230,7 +241,7 @@
             "submodule": "Viewport",
             "namespace": "",
             "file": "src/device/Viewport.js",
-            "line": 47,
+            "line": 48,
             "static": 1,
             "is_constructor": 1
         },
@@ -256,7 +267,7 @@
         },
         {
             "file": "src/device/Classes.js",
-            "line": 37,
+            "line": 47,
             "itemtype": "property",
             "name": "_classes",
             "type": "{Array}",
@@ -268,7 +279,7 @@
         },
         {
             "file": "src/device/Classes.js",
-            "line": 43,
+            "line": 53,
             "itemtype": "property",
             "name": "_dom",
             "type": "{Dom}",
@@ -280,7 +291,7 @@
         },
         {
             "file": "src/device/Classes.js",
-            "line": 54,
+            "line": 64,
             "itemtype": "method",
             "name": "add",
             "params": [
@@ -299,16 +310,20 @@
         },
         {
             "file": "src/device/Classes.js",
-            "line": 71,
+            "line": 83,
             "itemtype": "method",
             "name": "write",
+            "return": {
+                "description": "",
+                "type": "Classes"
+            },
             "class": "Classes",
             "module": "Sagen",
             "submodule": "Classes"
         },
         {
             "file": "src/device/Classes.js",
-            "line": 78,
+            "line": 94,
             "itemtype": "method",
             "name": "addClass",
             "params": [
@@ -328,7 +343,7 @@
         },
         {
             "file": "src/device/Classes.js",
-            "line": 89,
+            "line": 105,
             "itemtype": "method",
             "name": "removeClass",
             "params": [
@@ -378,7 +393,7 @@
         },
         {
             "file": "src/device/Device.js",
-            "line": 81,
+            "line": 82,
             "itemtype": "method",
             "name": "call",
             "static": 1,
@@ -395,7 +410,7 @@
         },
         {
             "file": "src/device/Device.js",
-            "line": 92,
+            "line": 93,
             "itemtype": "method",
             "name": "_default",
             "static": 1,
@@ -418,7 +433,7 @@
         },
         {
             "file": "src/device/Device.js",
-            "line": 110,
+            "line": 111,
             "itemtype": "method",
             "name": "_option",
             "static": 1,
@@ -441,7 +456,7 @@
         },
         {
             "file": "src/device/Device.js",
-            "line": 149,
+            "line": 150,
             "itemtype": "method",
             "name": "_version",
             "static": 1,
@@ -474,7 +489,7 @@
         },
         {
             "file": "src/device/Device.js",
-            "line": 175,
+            "line": 178,
             "itemtype": "method",
             "name": "_ios",
             "static": 1,
@@ -497,7 +512,7 @@
         },
         {
             "file": "src/device/Device.js",
-            "line": 216,
+            "line": 223,
             "itemtype": "method",
             "name": "_android",
             "static": 1,
@@ -520,7 +535,7 @@
         },
         {
             "file": "src/device/Device.js",
-            "line": 263,
+            "line": 274,
             "itemtype": "method",
             "name": "_css3",
             "static": 1,
@@ -543,7 +558,7 @@
         },
         {
             "file": "src/device/Device.js",
-            "line": 311,
+            "line": 322,
             "itemtype": "method",
             "name": "_element",
             "static": 1,
@@ -566,7 +581,7 @@
         },
         {
             "file": "src/device/Device.js",
-            "line": 335,
+            "line": 346,
             "itemtype": "method",
             "name": "_os",
             "static": 1,
@@ -589,7 +604,7 @@
         },
         {
             "file": "src/device/Device.js",
-            "line": 370,
+            "line": 390,
             "itemtype": "method",
             "name": "_safari",
             "static": 1,
@@ -612,7 +627,7 @@
         },
         {
             "file": "src/device/Device.js",
-            "line": 394,
+            "line": 415,
             "itemtype": "method",
             "name": "_chrome",
             "static": 1,
@@ -635,7 +650,7 @@
         },
         {
             "file": "src/device/Device.js",
-            "line": 419,
+            "line": 440,
             "itemtype": "method",
             "name": "_firefox",
             "static": 1,
@@ -658,7 +673,7 @@
         },
         {
             "file": "src/device/Device.js",
-            "line": 444,
+            "line": 465,
             "itemtype": "method",
             "name": "_firefox",
             "static": 1,
@@ -681,7 +696,8 @@
         },
         {
             "file": "src/device/Device.js",
-            "line": 469,
+            "line": 490,
+            "description": "Mac Firefox check",
             "itemtype": "method",
             "name": "_fxios",
             "static": 1,
@@ -704,7 +720,7 @@
         },
         {
             "file": "src/device/Device.js",
-            "line": 495,
+            "line": 517,
             "itemtype": "method",
             "name": "_ie",
             "static": 1,
@@ -727,7 +743,7 @@
         },
         {
             "file": "src/device/Device.js",
-            "line": 520,
+            "line": 542,
             "itemtype": "method",
             "name": "_canvas",
             "static": 1,
@@ -750,7 +766,7 @@
         },
         {
             "file": "src/device/Device.js",
-            "line": 545,
+            "line": 567,
             "description": "orientation event handler",
             "itemtype": "method",
             "name": "_onOrientation",
@@ -777,7 +793,7 @@
         },
         {
             "file": "src/device/Orientation.js",
-            "line": 37,
+            "line": 38,
             "itemtype": "property",
             "name": "_orientation",
             "static": 1,
@@ -790,7 +806,7 @@
         },
         {
             "file": "src/device/Orientation.js",
-            "line": 44,
+            "line": 45,
             "itemtype": "property",
             "name": "_eventType",
             "static": 1,
@@ -803,7 +819,7 @@
         },
         {
             "file": "src/device/Orientation.js",
-            "line": 51,
+            "line": 52,
             "itemtype": "property",
             "name": "_handler",
             "static": 1,
@@ -816,7 +832,7 @@
         },
         {
             "file": "src/device/Orientation.js",
-            "line": 58,
+            "line": 59,
             "itemtype": "property",
             "name": "_mediaQuery",
             "static": 1,
@@ -829,7 +845,7 @@
         },
         {
             "file": "src/device/Orientation.js",
-            "line": 83,
+            "line": 84,
             "itemtype": "event",
             "name": "CHANGE_ORIENTATION",
             "static": 1,
@@ -840,7 +856,7 @@
         },
         {
             "file": "src/device/Orientation.js",
-            "line": 92,
+            "line": 93,
             "itemtype": "method",
             "name": "init",
             "static": 1,
@@ -850,7 +866,7 @@
         },
         {
             "file": "src/device/Orientation.js",
-            "line": 102,
+            "line": 103,
             "itemtype": "method",
             "name": "canOrientation",
             "static": 1,
@@ -864,7 +880,7 @@
         },
         {
             "file": "src/device/Orientation.js",
-            "line": 118,
+            "line": 119,
             "itemtype": "method",
             "name": "eventType",
             "static": 1,
@@ -878,7 +894,7 @@
         },
         {
             "file": "src/device/Orientation.js",
-            "line": 134,
+            "line": 135,
             "description": "Orientation.CHANGE_ORIENTATIONをdispatchし directionを \"portrait\" にします",
             "itemtype": "method",
             "name": "portrait",
@@ -889,7 +905,7 @@
         },
         {
             "file": "src/device/Orientation.js",
-            "line": 144,
+            "line": 145,
             "description": "Orientation.CHANGE_ORIENTATIONをdispatchし directionを \"landscape\" にします",
             "itemtype": "method",
             "name": "landscape",
@@ -900,7 +916,7 @@
         },
         {
             "file": "src/device/Orientation.js",
-            "line": 154,
+            "line": 155,
             "itemtype": "method",
             "name": "listen",
             "static": 1,
@@ -914,7 +930,7 @@
         },
         {
             "file": "src/device/Orientation.js",
-            "line": 190,
+            "line": 194,
             "itemtype": "method",
             "name": "abort",
             "static": 1,
@@ -924,7 +940,7 @@
         },
         {
             "file": "src/device/Orientation.js",
-            "line": 203,
+            "line": 207,
             "description": "イベントを強制的に発火させます",
             "itemtype": "method",
             "name": "fire",
@@ -935,7 +951,7 @@
         },
         {
             "file": "src/device/Orientation.js",
-            "line": 221,
+            "line": 225,
             "itemtype": "method",
             "name": "_listenOrientation",
             "static": 1,
@@ -947,7 +963,7 @@
         },
         {
             "file": "src/device/Orientation.js",
-            "line": 258,
+            "line": 266,
             "itemtype": "method",
             "name": "_checkDegree",
             "static": 1,
@@ -963,7 +979,7 @@
         },
         {
             "file": "src/device/Orientation.js",
-            "line": 269,
+            "line": 277,
             "itemtype": "method",
             "name": "_checkAspect",
             "static": 1,
@@ -979,7 +995,7 @@
         },
         {
             "file": "src/device/Orientation.js",
-            "line": 284,
+            "line": 292,
             "description": "Experia Z(Sony Tablet), portrait / landscape 表示が逆なのでwindow比率で判定する",
             "itemtype": "method",
             "name": "_experiaZ",
@@ -991,7 +1007,7 @@
         },
         {
             "file": "src/device/Orientation.js",
-            "line": 305,
+            "line": 314,
             "description": "window.matchMedia listener handler",
             "itemtype": "method",
             "name": "_onRotate",
@@ -1011,7 +1027,7 @@
         },
         {
             "file": "src/device/Orientation.js",
-            "line": 328,
+            "line": 339,
             "itemtype": "method",
             "name": "_onOrientationChange",
             "static": 1,
@@ -1023,7 +1039,7 @@
         },
         {
             "file": "src/device/Orientation.js",
-            "line": 347,
+            "line": 360,
             "itemtype": "method",
             "name": "_listenMatchMedia",
             "static": 1,
@@ -1042,11 +1058,11 @@
         },
         {
             "file": "src/device/Viewport.js",
-            "line": 32,
+            "line": 33,
             "itemtype": "property",
             "name": "_viewport",
             "static": 1,
-            "type": "{HTMLElement}",
+            "type": "{HTMLElement|String}",
             "access": "private",
             "tagname": "",
             "class": "Viewport",
@@ -1055,7 +1071,7 @@
         },
         {
             "file": "src/device/Viewport.js",
-            "line": 39,
+            "line": 40,
             "itemtype": "property",
             "name": "_content",
             "static": 1,
@@ -1068,7 +1084,7 @@
         },
         {
             "file": "src/device/Viewport.js",
-            "line": 60,
+            "line": 61,
             "itemtype": "method",
             "name": "init",
             "static": 1,
@@ -1078,7 +1094,7 @@
         },
         {
             "file": "src/device/Viewport.js",
-            "line": 73,
+            "line": 74,
             "itemtype": "method",
             "name": "find",
             "static": 1,
@@ -1092,7 +1108,7 @@
         },
         {
             "file": "src/device/Viewport.js",
-            "line": 100,
+            "line": 102,
             "itemtype": "method",
             "name": "Viewport",
             "static": 1,
@@ -1106,7 +1122,7 @@
         },
         {
             "file": "src/device/Viewport.js",
-            "line": 111,
+            "line": 113,
             "itemtype": "method",
             "name": "content",
             "static": 1,
@@ -1120,7 +1136,7 @@
         },
         {
             "file": "src/device/Viewport.js",
-            "line": 122,
+            "line": 124,
             "itemtype": "method",
             "name": "write",
             "static": 1,
@@ -1141,7 +1157,7 @@
         },
         {
             "file": "src/device/Viewport.js",
-            "line": 149,
+            "line": 151,
             "itemtype": "method",
             "name": "add",
             "static": 1,
@@ -1162,7 +1178,7 @@
         },
         {
             "file": "src/device/Viewport.js",
-            "line": 177,
+            "line": 179,
             "itemtype": "method",
             "name": "replace",
             "static": 1,
@@ -1188,7 +1204,7 @@
         },
         {
             "file": "src/device/Viewport.js",
-            "line": 208,
+            "line": 210,
             "description": "viewport content 引数で書換",
             "itemtype": "method",
             "name": "rewrite",
@@ -1210,7 +1226,7 @@
         },
         {
             "file": "src/device/Viewport.js",
-            "line": 228,
+            "line": 230,
             "itemtype": "method",
             "name": "minimalUi",
             "static": 1,
@@ -1220,7 +1236,7 @@
         },
         {
             "file": "src/Sagen.js",
-            "line": 170,
+            "line": 169,
             "itemtype": "method",
             "name": "dataSet",
             "static": 1,
@@ -1236,7 +1252,7 @@
         },
         {
             "file": "src/Sagen.js",
-            "line": 182,
+            "line": 181,
             "description": "dataSet alias",
             "deprecated": true,
             "deprecationMessage": "instead use dataSet",

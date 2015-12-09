@@ -155,6 +155,7 @@
      * @static
      */
     Device.init = function () {
+
       var
         classes = new Classes( [] );
 
@@ -188,8 +189,8 @@
      * @private
      */
     Device._default = function ( classes ) {
-      // default
 
+      // default
       Device._ios( classes )
         ._android( classes )
         ._css3( classes )
@@ -247,6 +248,7 @@
      * @private
      */
     Device._version = function ( classes, prefix, numbers ) {
+
       var
         version = &#x27;&#x27;,
         _ = &#x27;_&#x27;,
@@ -262,6 +264,7 @@
       }
 
       return Device;
+
     };
     /**
      * @method _ios
@@ -271,6 +274,7 @@
      * @private
      */
     Device._ios = function ( classes ) {
+
       var
         prefix;
 
@@ -282,15 +286,18 @@
         classes.add( prefix );
 
         if ( iOS.iPad() ) {
+
           // ipad
           classes.add( &#x27;ipad&#x27; ).add( &#x27;tablet&#x27; );
 
         } else if ( iOS.iPod() ) {
+
           // ipod
           classes.add( &#x27;ipod&#x27; ).add( &#x27;mobile&#x27; );
 
 
         } else if ( iOS.iPhone() ) {
+
           // ipod
           classes.add( &#x27;iphone&#x27; ).add( &#x27;mobile&#x27; );
 
@@ -312,22 +319,25 @@
      * @private
      */
     Device._android = function ( classes ) {
+
       var
         prefix;
 
       if ( Android.is() ) {
 
-        // iOS
+        // Android
         prefix = &#x27;android&#x27;;
 
         classes.add( prefix );
 
         if ( Android.tablet() ) {
-          // ipad
+
+          // Android.tablet
           classes.add( &#x27;tablet&#x27; );
 
         } else if ( Android.phone() ) {
-          // ipod
+
+          // Android.phone
           classes.add( &#x27;mobile&#x27; );
 
         }
@@ -350,6 +360,7 @@
       }
 
       return Device;
+
     };
     /**
      * @method _css3
@@ -447,6 +458,15 @@
         classes.add( &#x27;windows&#x27; );
         pc = true;
 
+        if ( Windows.phone() ) {
+
+          // windows phone は pc false
+          pc = false;
+          classes.add( &#x27;windows-phone&#x27; );
+          classes.add( &#x27;mobile&#x27; );
+
+        }
+
       }
 
       if ( pc ) {
@@ -466,6 +486,7 @@
      * @private
      */
     Device._safari = function ( classes ) {
+
       var
         prefix;
 
@@ -558,6 +579,7 @@
 
     };
     /**
+     * Mac Firefox check
      * @method _fxios
      * @static
      * @param {Classes} classes
@@ -658,6 +680,7 @@
     };
 
     return Device;
+
   }() );
 
 }( window ) );
