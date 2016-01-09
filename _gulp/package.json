@@ -1,6 +1,6 @@
 {
   "name": "Sagen.js",
-  "version": "0.4.12",
+  "version": "0.4.13",
   "description": "【Gulp Task 開発環境構築】を行い環境構築後作業します",
   "main": "gulpfile.js",
   "dependencies": {
