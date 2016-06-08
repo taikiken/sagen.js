@@ -151,7 +151,7 @@ gulp.task('script-hint', function () {
 // ----------------------------------------------------------------
 // sequence
 // compile & api
-gulp.task( 'script-build', function () {
+gulp.task( 'script:build', function () {
 
   $.runSequence(
     'script-hint',
