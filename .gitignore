@@ -2,3 +2,7 @@
 node_modules
 *.iml
 dependencies
+
+# out
+out
+_output
