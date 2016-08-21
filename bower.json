@@ -1,6 +1,6 @@
 {
   "name": "sagen.js",
-  "version": "0.4.12",
+  "version": "0.4.15",
   "homepage": "https://github.com/taikiken/sagen.js",
   "authors": [
     "taikiken <okubo@inazumatv.com>"
@@ -22,6 +22,8 @@
     "**/.*",
     "node_modules",
     "bower_components",
+    "dependencies",
+    "example",
     "test",
     "old",
     "tests",
