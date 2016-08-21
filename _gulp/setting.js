@@ -22,9 +22,9 @@ var runSequence = require('run-sequence');
 var size = require('gulp-size');
 var concat = require( 'gulp-concat' );
 var rename = require( 'gulp-rename' );
-var uglifyJs = require( 'gulp-uglifyjs' );
+// var uglifyJs = require( 'gulp-uglifyjs' );
 var uglify = require( 'gulp-uglify' );
-var shell = require( 'gulp-shell' );
+// var shell = require( 'gulp-shell' );
 var plumber = require( 'gulp-plumber' );
 var changed = require('gulp-changed');
 var cache = require('gulp-cache');
@@ -32,7 +32,7 @@ var rimraf = require('rimraf');
 var del = require('del');
 var path = require( 'path' );
 var cached = require( 'gulp-cached' );
-var yuidoc = require( 'gulp-yuidoc' );
+// var yuidoc = require( 'gulp-yuidoc' );
 var replace = require('gulp-replace-task');
 var sourceMaps = require( 'gulp-sourcemaps' );
 var requireDir = require('require-dir');
@@ -73,17 +73,17 @@ module.exports = {
     size: size,
     concat: concat,
     rename: rename,
-    uglifyJs: uglifyJs,
+    // uglifyJs: uglifyJs,
     uglify: uglify,
     plumber: plumber,
-    shell: shell,
+    // shell: shell,
     changed: changed,
     cache: cache,
     rimraf: rimraf,
     del: del,
     path: path,
     cached: cached,
-    yuidoc: yuidoc,
+    // yuidoc: yuidoc,
     sourceMaps: sourceMaps,
     replace: replace,
     requireDir: requireDir,
