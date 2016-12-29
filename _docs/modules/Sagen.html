@@ -38,8 +38,11 @@
                 
                         <div id="api-tabview-panel">
                             <ul id="api-classes" class="apis classes">
+                                <li><a href="../classes/Browser.html">Browser</a></li>
                                 <li><a href="../classes/Classes.html">Classes</a></li>
                                 <li><a href="../classes/Device.html">Device</a></li>
+                                <li><a href="../classes/Dom.html">Dom</a></li>
+                                <li><a href="../classes/EventDispatcher.html">EventDispatcher</a></li>
                                 <li><a href="../classes/Orientation.html">Orientation</a></li>
                                 <li><a href="../classes/Sagen.html">Sagen</a></li>
                                 <li><a href="../classes/Viewport.html">Viewport</a></li>
@@ -90,7 +93,7 @@
 
 
         <div class="foundat">
-            Defined in: <a href="../files/src_device_Viewport.js.html#l48"><code>src&#x2F;device&#x2F;Viewport.js:48</code></a>
+            Defined in: <a href="../files/src_Sagen.js.html#l176"><code>src&#x2F;Sagen.js:176</code></a>
         </div>
 
 </div>
@@ -99,37 +102,46 @@
 <div class="box intro">
     <h2>Browser detect helper</h2>
 <p>htmlタグへCSS classをセットします。<br>
-scriptタグdata属性から追加classをセットします<br>
-<script type="text/javascript" src="/js/sagen.min.js"
-          id="sagen"
-          data-orientation="true"
-          data-browser="true">
-</script>
-// html へ class を追加した例
-// OS X Chrome</p>
-<pre class="code prettyprint"><code>  &lt;html class=&quot;transition transform matchMedia background-size mac other chrome chrome41 chrome41_0 chrome41_0_2272 chrome41_0_2272_118 canvas webgl&quot;&gt;
+scriptタグdata属性から追加classをセットします<br></p>
+<pre class="code prettyprint"><code> &lt;script type=&quot;text/javascript&quot; src=&quot;/js/sagen.min.js&quot;
+     id=&quot;sagen&quot;
+     data-orientation=&quot;true&quot;
+     data-browser=&quot;true&quot;&gt;
+ &lt;/script&gt;
+
+
+ // html へ class を追加した例
+ // OS X Chrome
+
+ &lt;html class=&quot;transition transform matchMedia background-size mac other chrome chrome41 chrome41_0 chrome41_0_2272 chrome41_0_2272_118 canvas webgl&quot;&gt;
+
+
  // Browser / 端末判定にも使えます
 
-  if ( Sagen.Browser.iOS.is() ) {
-    // iOS
-  }
+ if ( Sagen.Browser.iOS.is() ) {
+   // iOS
+ }
+
+
  // orientation 監視にも使えます(iOS, Android)
-  var Orientation = Sagen.Orientation;
+ var Orientation = Sagen.Orientation;
+
+
  Orientation.on( Orientation.CHANGE_ORIENTATION, function ( event ) {
 
-    var direction = event.direction;
+   var direction = event.direction;
 
-    if ( direction === 'portrait' ) {
-      // portrait
-    }
+   if ( direction === 'portrait' ) {
+     // portrait
+   }
 
-    if ( direction === 'landscape' ) {
-      // landscape
-    }
+   if ( direction === 'landscape' ) {
+     // landscape
+   }
 
-  } );
+ } );
 
-  Orientation.listen();</code></pre>
+ Orientation.listen();</code></pre>
 
 </div>
 
@@ -140,6 +152,11 @@ scriptタグdata属性から追加classをセットします<br>
 
             <ul class="module-classes">
                 <li class="module-class">
+                    <a href="../classes/Browser.html">
+                        Browser
+                    </a>
+                </li>
+                <li class="module-class">
                     <a href="../classes/Classes.html">
                         Classes
                     </a>
@@ -147,6 +164,16 @@ scriptタグdata属性から追加classをセットします<br>
                 <li class="module-class">
                     <a href="../classes/Device.html">
                         Device
+                    </a>
+                </li>
+                <li class="module-class">
+                    <a href="../classes/Dom.html">
+                        Dom
+                    </a>
+                </li>
+                <li class="module-class">
+                    <a href="../classes/EventDispatcher.html">
+                        EventDispatcher
                     </a>
                 </li>
                 <li class="module-class">
@@ -187,7 +214,7 @@ scriptタグdata属性から追加classをセットします<br>
                     </a>
 
                     <div class="module-submodule-description">
-                        
+                        端末判定を行います
                     </div>
                 </li>
                 <li class="module-submodule">

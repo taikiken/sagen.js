@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>src/device/Classes.js - sagen.js</title>
+    <title>EventDispatcher - sagen.js</title>
     <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
     <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
     <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
@@ -88,146 +88,178 @@
             <div class="apidocs">
                 <div id="docs-main">
                     <div class="content">
-<h1 class="file-heading">File: src/device/Classes.js</h1>
+<h1>EventDispatcher Class</h1>
+<div class="box meta">
 
-<div class="file">
-    <pre class="code prettyprint linenums">
-/**
- * license inazumatv.com
- * author (at)taikiken / http://inazumatv.com
- * date 2015/04/10 - 16:02
- *
- * Copyright (c) 2011-2015 inazumatv.com, inc.
- *
- * Distributed under the terms of the MIT license.
- * http://www.opensource.org/licenses/mit-license.html
- *
- * This notice shall be included in all copies or substantial portions of the Software.
- *
- */
-/**
- * html tag へ class を付与します
- *
- * @requires Sagen.Dom
- *
- * @module Sagen
- * @submodule Classes
- * */
-( function(window) {
-  &#x27;use strict&#x27;;
-  var
-    document = window.document,
-    Sagen = window.Sagen,
-    Dom = Sagen.Dom;
-  /**
-   * html tag へ class を追加・削除します
-   * @class Classes
-   * @param {Array} [classes=[]] 処理クラス名称配列
-   * @param {Element} [dom=document.documentElement] CSS Class Add target HTML Element, default document.documentElement (html)
-   * @constructor
-   */
-  function Classes(classes, dom) {
-    classes = Array.isArray(classes) ? classes : [];
-    // dom = !!dom || document.documentElement;
-    if (!dom) {
-      dom = document.documentElement;
-    }
 
-    /**
-     * 処理クラス名称配列
-     * @property classes
-     * @type {Array}
-     */
-    this.classes = classes;
-    /**
-     * class tag を追加する element を wakegi.Dom instance
-     * @property dom
-     * @type {Dom}
-     */
-    this.dom = new Dom(dom);
-    /**
-     * class を追加する Element
-     * @property tag
-     * @type {Element}
-     */
-    this.tag = dom;
-  }
+        <div class="foundat">
+            Defined in: <a href="../files/src_Sagen.js.html#l176"><code>src&#x2F;Sagen.js:176</code></a>
+        </div>
 
-  var p = Classes.prototype;
-  p.constructor = Classes;
+            Module: <a href="../modules/Sagen.html">Sagen</a>
 
-  /**
-   * 不正値を削除します
-   * @method clean
-   * @return {Array} クリーン後の classes 配列
-   */
-  p.clean = function() {
-    var
-      classes = this.classes,
-      alt = [],
-      i = 0,
-      limit = classes.length,
-      value;
-    for (;i &lt; limit; i = (i + 1) | 0) {
-      value = classes[i];
-      if (!!value &amp;&amp; value !== &#x27; &#x27;) {
-        alt.push(value);
-      }
-    }
-    this.classes = alt;
-    return alt;
-  };
-  /**
-   * class 追加
-   * @method add
-   * @param {string} className 追加するクラス名称
-   * @return {boolean} true: added
-   */
-  p.add = function(className) {
-    var
-      classes = this.classes,
-      result = false;
+</div>
 
-    if (classes.indexOf(className) === -1) {
-      classes.push(className);
-      result = true;
-    }
 
-    return result;
-  };
-  /**
-   * tag へクラスを書き込みます
-   * @method write
-   * @return {string} write したクラス名称
-   */
-  p.write = function() {
-    // return this.dom.addClass(this.classes.join(&#x27; &#x27;));
-    var classNames = this.classes.join(&#x27; &#x27;);
-    this.tag.className = classNames;
-    return classNames;
-  };
-  /**
-   * tag へ class を追加します
-   * @method addClass
-   * @param {string} className 追加する class 名称
-   * @return {boolean} true: 追加成功
-   */
-  p.addClass = function(className) {
-    return this.dom.addClass( className );
-  };
-  /**
-   * tag から class を削除します
-   * @method removeClass
-   * @param {string} className 削除する class 名称
-   * @return {boolean} true: 削除成功
-   */
-  p.removeClass = function(className) {
-    return this.dom.removeClass(className);
-  };
-  Sagen.Classes = Classes;
-}(window));
+<div class="box intro">
+    <p>Gasane.EventDispatcher</p>
 
-    </pre>
+</div>
+
+
+<div id="classdocs" class="tabview">
+    <ul class="api-class-tabs">
+        <li class="api-class-tab index"><a href="#index">Index</a></li>
+
+            <li class="api-class-tab methods"><a href="#methods">Methods</a></li>
+    </ul>
+
+    <div>
+        <div id="index" class="api-class-tabpanel index">
+            <h2 class="off-left">Item Index</h2>
+
+                <div class="index-section methods">
+                    <h3>Methods</h3>
+
+                    <ul class="index-list methods">
+                            <li class="index-item method private">
+                                <a href="#method_check">check</a>
+
+                                    <span class="flag static">static</span>
+                            </li>
+                            <li class="index-item method private">
+                                <a href="#method_init">init</a>
+
+                                    <span class="flag static">static</span>
+                            </li>
+                    </ul>
+                </div>
+
+
+
+        </div>
+
+            <div id="methods" class="api-class-tabpanel">
+                <h2 class="off-left">Methods</h2>
+
+<div id="method_check" class="method item private">
+    <h3 class="name"><code>check</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>data</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+        <span class="returns-inline">
+            <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>
+        </span>
+
+
+        <span class="flag private">private</span>
+
+
+        <span class="flag static">static</span>
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/src_Sagen.js.html#l214"><code>src&#x2F;Sagen.js:214</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>data option が存在するかを調べます</p>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">data</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+
+
+                    <div class="param-description">
+                        <p>data 属性パース済み object</p>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                        <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>:
+                    <p>true: data 属性あり</p>
+
+            </div>
+        </div>
+
+
+</div>
+<div id="method_init" class="method item private">
+    <h3 class="name"><code>init</code></h3>
+
+        <span class="paren">()</span>
+
+        <span class="returns-inline">
+            <span class="type"></span>
+        </span>
+
+
+        <span class="flag private">private</span>
+
+
+        <span class="flag static">static</span>
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/src_Sagen.js.html#l182"><code>src&#x2F;Sagen.js:182</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>script#sagen data 属性を捜査しオプションフラッグを調べます</p>
+
+    </div>
+
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                        <span class="type"></span>:
+                    <p>Object を保障します</p>
+
+            </div>
+        </div>
+
+
+</div>
+            </div>
+
+
+
+    </div>
 </div>
                     </div>
                 </div>

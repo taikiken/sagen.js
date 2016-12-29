@@ -243,6 +243,7 @@
   /**
    * Experia Z(Sony Tablet), portrait / landscape 表示が逆なのでwindow比率で判定する
    * @method onExperiaZ
+   * @static
    */
   Orientation.onExperiaZ = function() {
     // window 幅,高さを使う
