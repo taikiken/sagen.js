@@ -27,6 +27,7 @@
     iOS = Browser.iOS,
     Element = Browser.Element,
     /**
+     * viewport tag
      * @property viewport
      * @static
      * @type {HTMLElement|String}
@@ -34,6 +35,7 @@
      */
     viewport,
     /**
+     * viewport.content
      * @property content
      * @static
      * @type {string}
