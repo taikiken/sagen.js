@@ -58,7 +58,7 @@ var wakegi=window.wakegi||{};wakegi.int=parseInt,wakegi.float=parseFloat,functio
  * This notice shall be included in all copies or substantial portions of the Software.
  *
  * version 0.4.15
- * build 2016-12-31 16:17:16
+ * build 2016-12-31 16:17:53
  * github: https://github.com/taikiken/sagen.js
  *
  * @requires kaketsugi.js, wakegi.js, gasane.js
@@ -476,7 +476,7 @@ var Sagen = window.Sagen || {};
       started = true;
       // addEventListener が使えるは必須
       if (typeof window.addEventListener !== 'undefined') {
-        console.log('Css3.matchMedia()', Css3.matchMedia());
+        // console.log('Css3.matchMedia()', Css3.matchMedia());
         if (Css3.matchMedia()) {
           // can use matchMedia
           // handler = Orientation.listenMatchMedia;
@@ -1251,8 +1251,7 @@ var Sagen = window.Sagen || {};
     // console.log('Device.onOrientation', event, direction, direction === 'portrait');
     if (direction === 'portrait') {
       classSymbol.removeClass('landscape');
-      var result = classSymbol.addClass('portrait');
-      // console.log('classSymbol.addClass portrait', result);
+      classSymbol.addClass('portrait');
     } else if (direction === 'landscape') {
       classSymbol.removeClass('portrait');
       classSymbol.addClass('landscape');
