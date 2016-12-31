@@ -16,8 +16,6 @@
  */
 
 /**
- *
- *
  * ## Browser detect helper
  *
  * htmlタグへCSS classをセットします。<br>
@@ -70,122 +68,201 @@
  * */
 var Sagen = window.Sagen || {};
 
-( function ( window, Sagen ){
+(function(window) {
   'use strict';
-
   var
     Gasane = window.Gasane,
     wakegi = window.wakegi,
+    dataSet = {},
+    flag = false;
 
-    dataSet = ( function ( window ){
-
-      var
-        document = window.document,
-        element = document.getElementById( 'sagen' ),
-        results = {},
-        data;
-
-      function modern ( result, data ) {
-
-        var
-          key,
-          //dataKey,
-          val;
-
-        for ( key in data ) {
-
-          if ( typeof data.hasOwnProperty === 'function' && data.hasOwnProperty( key ) ) {
-
-            //dataKey = key;
-
-            val = data[ key ].toLowerCase();
-            results[ key ] = val === 'true';
-
-          } else {
-
-            val = data[ key ].toLowerCase();
-            results[ key ] = val === 'true';
-
-          }
-        }
-
-        return result;
-
-      }
-
-      function legacy ( result, data ) {
-
-        var
-          i, limit, attribute, nodeName, dataKey;
-
-        for ( i = 0, limit = data.length; i < limit; i = i + 1 ) {
-
-          attribute = data[ i ];
-          nodeName = attribute.nodeName.toLowerCase();
-
-          if ( nodeName.indexOf( 'data-' ) !== -1 ) {
-
-            dataKey = nodeName.replace( 'data-', '' );
-            results[ dataKey ] = attribute.nodeValue.toLowerCase() === 'true';
-
-          }
-
-        }
-
-        return result;
-
-      }
-
-      if ( !!element ) {
-
-        // id: sagen defined
-
-        if ( typeof element.dataset !== 'undefined' ) {
-
-          // can use dataset
-          data = element.dataset;
-          results = modern( results, data );
-
-        } else {
-
-          // use attributes
-          data = element.attributes;
-          //attributes = true;
-          results = legacy( results, data );
-
-        }
-
-      }// sagen
-
-      return results;
-
-  }( window ) );
+  //   dataSet = ( function ( window ){
+  //
+  //     var
+  //       document = window.document,
+  //       element = document.getElementById( 'sagen' ),
+  //       results = {},
+  //       data;
+  //
+  //     function modern ( result, data ) {
+  //
+  //       var
+  //         key,
+  //         //dataKey,
+  //         val;
+  //
+  //       for ( key in data ) {
+  //
+  //         if ( typeof data.hasOwnProperty === 'function' && data.hasOwnProperty( key ) ) {
+  //
+  //           //dataKey = key;
+  //
+  //           val = data[ key ].toLowerCase();
+  //           results[ key ] = val === 'true';
+  //
+  //         } else {
+  //
+  //           val = data[ key ].toLowerCase();
+  //           results[ key ] = val === 'true';
+  //
+  //         }
+  //       }
+  //
+  //       return result;
+  //
+  //     }
+  //
+  //     function legacy ( result, data ) {
+  //
+  //       var
+  //         i, limit, attribute, nodeName, dataKey;
+  //
+  //       for ( i = 0, limit = data.length; i < limit; i = i + 1 ) {
+  //
+  //         attribute = data[ i ];
+  //         nodeName = attribute.nodeName.toLowerCase();
+  //
+  //         if ( nodeName.indexOf( 'data-' ) !== -1 ) {
+  //
+  //           dataKey = nodeName.replace( 'data-', '' );
+  //           results[ dataKey ] = attribute.nodeValue.toLowerCase() === 'true';
+  //
+  //         }
+  //
+  //       }
+  //
+  //       return result;
+  //
+  //     }
+  //
+  //     if ( !!element ) {
+  //
+  //       // id: sagen defined
+  //
+  //       if ( typeof element.dataset !== 'undefined' ) {
+  //
+  //         // can use dataset
+  //         data = element.dataset;
+  //         results = modern( results, data );
+  //
+  //       } else {
+  //
+  //         // use attributes
+  //         data = element.attributes;
+  //         //attributes = true;
+  //         results = legacy( results, data );
+  //
+  //       }
+  //
+  //     }// sagen
+  //
+  //     return results;
+  //
+  // }( window ) );
 
   // copy Class
+  /**
+   * wakegi.Browser
+   * @class Browser
+   * @type {wakegi.Browser}
+   */
   Sagen.Browser = wakegi.Browser;
+  /**
+   * wakegi.Dom
+   * @class Dom
+   * @type {wakegi.Dom}
+   */
   Sagen.Dom = wakegi.Dom;
+  /**
+   * Gasane.EventDispatcher
+   * @class EventDispatcher
+   * @type {Gasane.EventDispatcher}
+   */
   Sagen.EventDispatcher = Gasane.EventDispatcher;
+  /**
+   * script#sagen data 属性を捜査しオプションフラッグを調べます
+   * @method init
+   * @static
+   * @private
+   * @returns {*} Object を保障します
+   */
+  function init() {
+    var
+      element = document.getElementById('sagen'),
+      data,
+      results,
+      key,
+      val;
+    if (!element) {
+      return {};
+    }
+    data = wakegi.Dataset.parse(element);
+    if (!data) {
+      return {};
+    }
+    results = {};
+    // loop
+    for (key in data) {
+      if (data.hasOwnProperty(key)) {
+        val = data[key].toLowerCase();
+        results[key] = val === 'true';
+      }
+    }
+    return results;
+  }
 
   /**
+   * data option が存在するかを調べます
+   * @method check
+   * @private
+   * @static
+   * @param {object} data data 属性パース済み object
+   * @return {boolean} true: data 属性あり
+   */
+  function check(data) {
+    var result;
+    for (var key in data) {
+      if (data.hasOwnProperty(key)) {
+        result = data[key];
+        if (result) {
+          break;
+        }
+      }
+    }
+    return result;
+  }
+  // 初期処理を行います
+  dataSet = init();
+  flag = check(dataSet);
+
+  /**
+   * data 属性オプション を調べます
    * @method dataSet
    * @static
    * @for Sagen
-   * @param {string} type
+   * @param {string} type data key 名称 `data-xxx` `xxx` 部分
+   * @return {boolean} オプション有無
    */
-  Sagen.dataSet = function ( type ) {
-
-    return dataSet[ type ];
-
+  Sagen.dataSet = function(type) {
+    return !!dataSet[type];
   };
-
   /**
-   * dataSet alias
-   * @deprecated instead use dataSet
-   * @method dataset
+   * data 属性オプションが存在するかを調べます
+   * @method flag
    * @static
-   * @for Sagen
-   * @type {Function|*}
+   * @return {boolean} true: 存在します
    */
-  Sagen.dataset = Sagen.dataSet;
+  Sagen.flag = function() {
+    return flag;
+  };
+  // /**
+  //  * dataSet alias
+  //  * @deprecated instead use dataSet
+  //  * @method dataset
+  //  * @static
+  //  * @for Sagen
+  //  * @type {Function|*}
+  //  */
+  // Sagen.dataset = Sagen.dataSet;
 
-}( window, Sagen ) );
+}(window));

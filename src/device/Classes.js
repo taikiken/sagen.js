@@ -19,101 +19,125 @@
  * @module Sagen
  * @submodule Classes
  * */
-( function ( window ){
+( function(window) {
   'use strict';
-
   var
     document = window.document,
-    Sagen = window.Sagen;
-
-  Sagen.Classes = ( function (){
-
-    var
-      Dom = Sagen.Dom;
-
-    /**
-     * @class Classes
-     * @param {Array} [classes]
-     * @default []
-     * @param {Element} [dom] CSS Class Add target HTML Element, default document.documentElement (html)
-     * @default document.documentElement
-     * @constructor
-     */
-    function Classes ( classes, dom ) {
-
-      classes = Array.isArray( classes ) ? classes : [];
-      dom = !!dom || document.documentElement;
-
-      /**
-       * @property _classes
-       * @type {Array}
-       * @private
-       */
-      this._classes = classes;
-      /**
-       * @property _dom
-       * @type {Dom}
-       * @private
-       */
-      this._dom = new Dom( dom );
-
+    Sagen = window.Sagen,
+    Dom = Sagen.Dom;
+  /**
+   * html tag へ class を追加・削除します
+   * @class Classes
+   * @param {Array} [classes=[]] 処理クラス名称配列
+   * @param {Element} [dom=document.documentElement] CSS Class Add target HTML Element, default document.documentElement (html)
+   * @constructor
+   */
+  function Classes(classes, dom) {
+    classes = Array.isArray(classes) ? classes : [];
+    // dom = !!dom || document.documentElement;
+    if (!dom) {
+      dom = document.documentElement;
     }
 
-    var p = Classes.prototype;
-    p.constructor = Classes;
     /**
-     * @method add
-     * @param className
-     * @return {Classes}
+     * 処理クラス名称配列
+     * @property classes
+     * @type {Array}
      */
-    p.add = function ( className ) {
+    this.classes = classes;
+    /**
+     * class tag を追加する element を wakegi.Dom instance
+     * @property dom
+     * @type {Dom}
+     */
+    this.dom = new Dom(dom);
+    /**
+     * class を追加する Element
+     * @property tag
+     * @type {Element}
+     */
+    this.tag = dom;
+  }
 
-      var
-        classes = this._classes;
+  var p = Classes.prototype;
+  p.constructor = Classes;
 
-      if ( classes.indexOf( className ) === -1 ) {
-
-        classes.push( className );
-
+  /**
+   * 不正値を削除します
+   * @method clean
+   * @return {Array} クリーン後の classes 配列
+   */
+  p.clean = function() {
+    var
+      classes = this.classes,
+      alt = [],
+      i = 0,
+      limit = classes.length,
+      value;
+    for (;i < limit; i = (i + 1) | 0) {
+      value = classes[i];
+      if (!!value && value !== ' ') {
+        alt.push(value);
       }
+    }
+    this.classes = alt;
+    return alt;
+  };
+  /**
+   * class 追加
+   * @method add
+   * @param {string} className 追加するクラス名称
+   * @return {boolean} true: added
+   */
+  p.add = function(className) {
+    var
+      classes = this.classes,
+      result = false;
 
-      return this;
+    if (classes.indexOf(className) === -1) {
+      classes.push(className);
+      result = true;
+    }
 
-    };
-    /**
-     * @method write
-     * @return {Classes}
-     */
-    p.write = function () {
-
-      this._dom.addClass( this._classes.join( ' ' ) );
-      return this;
-
-    };
-
-    /**
-     * @method addClass
-     * @param {string} className
-     * @return {Classes}
-     */
-    p.addClass = function ( className ) {
-
-      this._dom.addClass( className );
-      return this;
-
-    };
-    /**
-     * @method removeClass
-     * @param {string} className
-     * @return {Classes}
-     */
-    p.removeClass = function ( className ) {
-
-      this._dom.removeClass( className );
-      return this;
-
-    };
-
-    return Classes;
-  }() );
-}( window ) );
+    return result;
+  };
+  /**
+   * tag へクラスを書き込みます
+   * @method write
+   * @return {string} write したクラス名称
+   */
+  p.write = function() {
+    // return this.dom.addClass(this.classes.join(' '));
+    // var classNames = this.classes.join(' ');
+    var
+      classes = this.classes,
+      classNames = classes.join(' '),
+      dom = this.dom,
+      i = 0,
+      limit = classes.length;
+    for(;i < limit; i = (i + 1) | 0) {
+      dom.addClass(classes[i]);
+    }
+    // this.tag.className = classNames;
+    return classNames;
+  };
+  /**
+   * tag へ class を追加します
+   * @method addClass
+   * @param {string} className 追加する class 名称
+   * @return {boolean} true: 追加成功
+   */
+  p.addClass = function(className) {
+    return this.dom.addClass(className);
+  };
+  /**
+   * tag から class を削除します
+   * @method removeClass
+   * @param {string} className 削除する class 名称
+   * @return {boolean} true: 削除成功
+   */
+  p.removeClass = function(className) {
+    return this.dom.removeClass(className);
+  };
+  Sagen.Classes = Classes;
+}(window));

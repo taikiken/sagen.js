@@ -11,22 +11,23 @@
 <div id="show_css"></div>
 <script type="text/javascript">
 ( function ( window ){
-	"use strict";
-	var document = window.document,
-		show_css = document.getElementById( "show_css" ),
-		html_element = document.documentElement,
-		Sagen = window.Sagen
-	;
+  "use strict";
+  var document = window.document,
+    show_css = document.getElementById( "show_css" ),
+    html_element = document.documentElement,
+    Sagen = window.Sagen
+  ;
 
-	show_css.innerHTML = html_element.className;
+  show_css.innerHTML = html_element.className;
 
-	function _onOrientation ( eventObj ) {
-		var direction = eventObj.params[ 0 ];
+  function _onOrientation ( eventObj ) {
+    console.log(eventObj);
+//    var direction = eventObj.params[ 0 ];
 
-		show_css.innerHTML = html_element.className;
-	}
+    show_css.innerHTML += '<p>' + eventObj.direction + ': ' + html_element.className + '</p>';
+  }
 
-	Sagen.Device.addEventListener( Sagen.Device.CHANGE_ORIENTATION, _onOrientation );
+  Sagen.Orientation.addEventListener(Sagen.Orientation.CHANGE_ORIENTATION, _onOrientation);
 }( window ) );
 </script>
 </body>
