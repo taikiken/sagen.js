@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<meta charset="UTF-8">
-<script type="text/javascript" src="../libs/sagen.js" id="sagen" data-orientation="true" data-android="true" data-ios="true" data-canvas="true"></script>
-<script type="text/javascript">
-Sagen.Viewport.write( "width=device-width, user-scalable=yes" );
-</script>
-<title>Sagen test - Viewport</title>
+  <meta charset="UTF-8">
+  <script type="text/javascript" src="../libs/sagen.js" id="sagen" data-orientation="true" data-android="true" data-ios="true" data-canvas="true"></script>
+  <script type="text/javascript">
+    Sagen.Viewport.write( "width=device-width, user-scalable=yes" );
+  </script>
+  <title>Sagen test - Viewport</title>
 
 </head>
 <body>
@@ -17,29 +17,31 @@ Sagen.Viewport.write( "width=device-width, user-scalable=yes" );
 <div id="show_viewport" style="max-width: 100%; padding: 6px; border: 1px solid #ccc;white-space: normal;"></div>
 
 <script type="text/javascript">
-	( function ( window ){
-		"use strict";
-		var document = window.document,
-			show_css = document.getElementById( "show_css" ),
-			html_element = document.documentElement,
-			show_viewport = document.getElementById( "show_viewport" ),
-			viewport
-			;
+  ( function ( window ){
+    "use strict";
+    var document = window.document,
+      show_css = document.getElementById( "show_css" ),
+      html_element = document.documentElement,
+      show_viewport = document.getElementById( "show_viewport" ),
+      viewport
+      ;
 
-		function _onOrientation ( direction ) {
-			show_css.innerHTML = html_element.className;
-		}
-		_onOrientation();
+    function _onOrientation ( eventObj ) {
+      console.log( eventObj && eventObj.direction );
+      show_css.innerHTML = html_element.className;
+    }
+    _onOrientation();
 
-		Sagen.Device.onOrientation = _onOrientation;
+//		Sagen.Device.onOrientation = _onOrientation;
+    Sagen.Orientation.addEventListener( Sagen.Orientation.CHANGE_ORIENTATION, _onOrientation );
 
-		if ( typeof document.querySelector !== "undefined" ) {
-			// document.querySelector() defined
-			viewport = document.querySelector( "meta[name='viewport']" );
-			show_viewport.innerHTML = viewport.content;
-		}
+    if ( typeof document.querySelector !== "undefined" ) {
+      // document.querySelector() defined
+      viewport = document.querySelector( "meta[name='viewport']" );
+      show_viewport.innerHTML = viewport.content;
+    }
 
-	}( window ) );
+  }( window ) );
 </script>
 </body>
 </html>

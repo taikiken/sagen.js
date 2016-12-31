@@ -38,8 +38,11 @@
                 
                         <div id="api-tabview-panel">
                             <ul id="api-classes" class="apis classes">
+                                <li><a href="../classes/Browser.html">Browser</a></li>
                                 <li><a href="../classes/Classes.html">Classes</a></li>
                                 <li><a href="../classes/Device.html">Device</a></li>
+                                <li><a href="../classes/Dom.html">Dom</a></li>
+                                <li><a href="../classes/EventDispatcher.html">EventDispatcher</a></li>
                                 <li><a href="../classes/Orientation.html">Orientation</a></li>
                                 <li><a href="../classes/Sagen.html">Sagen</a></li>
                                 <li><a href="../classes/Viewport.html">Viewport</a></li>
@@ -90,7 +93,7 @@
 
 
         <div class="foundat">
-            Defined in: <a href="../files/src_device_Classes.js.html#l34"><code>src&#x2F;device&#x2F;Classes.js:34</code></a>
+            Defined in: <a href="../files/src_device_Classes.js.html#l28"><code>src&#x2F;device&#x2F;Classes.js:28</code></a>
         </div>
 
             Module: <a href="../modules/Classes.html">Classes</a><br>
@@ -100,7 +103,8 @@
 
 
 <div class="box intro">
-    
+    <p>html tag へ class を追加・削除します</p>
+
 </div>
 
     <div class="constructor">
@@ -111,10 +115,10 @@
         <div class="args">
             <span class="paren">(</span><ul class="args-list inline commas">
                 <li class="arg">
-                        <code class="optional">[classes]</code>
+                        <code class="optional">[classes=[]]</code>
                 </li>
                 <li class="arg">
-                        <code class="optional">[dom]</code>
+                        <code class="optional">[dom=document.documentElement]</code>
                 </li>
             </ul><span class="paren">)</span>
         </div>
@@ -129,7 +133,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_device_Classes.js.html#l34"><code>src&#x2F;device&#x2F;Classes.js:34</code></a>
+        <a href="../files/src_device_Classes.js.html#l28"><code>src&#x2F;device&#x2F;Classes.js:28</code></a>
         </p>
 
 
@@ -145,18 +149,19 @@
 
             <ul class="params-list">
                 <li class="param">
-                        <code class="param-name optional">[classes]</code>
+                        <code class="param-name optional">[classes=[]]</code>
                         <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array" class="crosslink external" target="_blank">Array</a></span>
                         <span class="flag optional" title="This parameter is optional.">optional</span>
 
 
                     <div class="param-description">
-                         
+                        <p>処理クラス名称配列</p>
+
                     </div>
 
                 </li>
                 <li class="param">
-                        <code class="param-name optional">[dom]</code>
+                        <code class="param-name optional">[dom=document.documentElement]</code>
                         <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/API/Element" class="crosslink external" target="_blank">Element</a></span>
                         <span class="flag optional" title="This parameter is optional.">optional</span>
 
@@ -200,6 +205,10 @@
 
                             </li>
                             <li class="index-item method">
+                                <a href="#method_clean">clean</a>
+
+                            </li>
+                            <li class="index-item method">
                                 <a href="#method_removeClass">removeClass</a>
 
                             </li>
@@ -214,12 +223,16 @@
                     <h3>Properties</h3>
 
                     <ul class="index-list properties">
-                            <li class="index-item property private">
-                                <a href="#property__classes">_classes</a>
+                            <li class="index-item property">
+                                <a href="#property_classes">classes</a>
 
                             </li>
-                            <li class="index-item property private">
-                                <a href="#property__dom">_dom</a>
+                            <li class="index-item property">
+                                <a href="#property_dom">dom</a>
+
+                            </li>
+                            <li class="index-item property">
+                                <a href="#property_tag">tag</a>
 
                             </li>
                     </ul>
@@ -243,7 +256,7 @@
         </div>
 
         <span class="returns-inline">
-            <span class="type"><a href="../classes/Classes.html" class="crosslink">Classes</a></span>
+            <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>
         </span>
 
 
@@ -255,7 +268,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_device_Classes.js.html#l64"><code>src&#x2F;device&#x2F;Classes.js:64</code></a>
+        <a href="../files/src_device_Classes.js.html#l86"><code>src&#x2F;device&#x2F;Classes.js:86</code></a>
         </p>
 
 
@@ -263,7 +276,8 @@
     </div>
 
     <div class="description">
-        
+        <p>class 追加</p>
+
     </div>
 
         <div class="params">
@@ -272,11 +286,12 @@
             <ul class="params-list">
                 <li class="param">
                         <code class="param-name">className</code>
-                        <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+                        <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
 
 
                     <div class="param-description">
-                         
+                        <p>追加するクラス名称</p>
+
                     </div>
 
                 </li>
@@ -287,7 +302,9 @@
             <h4>Returns:</h4>
 
             <div class="returns-description">
-                        <span class="type"><a href="../classes/Classes.html" class="crosslink">Classes</a></span>:
+                        <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>:
+                    <p>true: added</p>
+
             </div>
         </div>
 
@@ -305,7 +322,7 @@
         </div>
 
         <span class="returns-inline">
-            <span class="type"><a href="../classes/Classes.html" class="crosslink">Classes</a></span>
+            <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>
         </span>
 
 
@@ -317,7 +334,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_device_Classes.js.html#l94"><code>src&#x2F;device&#x2F;Classes.js:94</code></a>
+        <a href="../files/src_device_Classes.js.html#l115"><code>src&#x2F;device&#x2F;Classes.js:115</code></a>
         </p>
 
 
@@ -325,7 +342,8 @@
     </div>
 
     <div class="description">
-        
+        <p>tag へ class を追加します</p>
+
     </div>
 
         <div class="params">
@@ -338,7 +356,8 @@
 
 
                     <div class="param-description">
-                         
+                        <p>追加する class 名称</p>
+
                     </div>
 
                 </li>
@@ -349,7 +368,52 @@
             <h4>Returns:</h4>
 
             <div class="returns-description">
-                        <span class="type"><a href="../classes/Classes.html" class="crosslink">Classes</a></span>:
+                        <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>:
+                    <p>true: 追加成功</p>
+
+            </div>
+        </div>
+
+
+</div>
+<div id="method_clean" class="method item">
+    <h3 class="name"><code>clean</code></h3>
+
+        <span class="paren">()</span>
+
+        <span class="returns-inline">
+            <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array" class="crosslink external" target="_blank">Array</a></span>
+        </span>
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/src_device_Classes.js.html#l65"><code>src&#x2F;device&#x2F;Classes.js:65</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>不正値を削除します</p>
+
+    </div>
+
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                        <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array" class="crosslink external" target="_blank">Array</a></span>:
+                    <p>クリーン後の classes 配列</p>
+
             </div>
         </div>
 
@@ -367,7 +431,7 @@
         </div>
 
         <span class="returns-inline">
-            <span class="type"><a href="../classes/Classes.html" class="crosslink">Classes</a></span>
+            <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>
         </span>
 
 
@@ -379,7 +443,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_device_Classes.js.html#l105"><code>src&#x2F;device&#x2F;Classes.js:105</code></a>
+        <a href="../files/src_device_Classes.js.html#l124"><code>src&#x2F;device&#x2F;Classes.js:124</code></a>
         </p>
 
 
@@ -387,7 +451,8 @@
     </div>
 
     <div class="description">
-        
+        <p>tag から class を削除します</p>
+
     </div>
 
         <div class="params">
@@ -400,7 +465,8 @@
 
 
                     <div class="param-description">
-                         
+                        <p>削除する class 名称</p>
+
                     </div>
 
                 </li>
@@ -411,7 +477,9 @@
             <h4>Returns:</h4>
 
             <div class="returns-description">
-                        <span class="type"><a href="../classes/Classes.html" class="crosslink">Classes</a></span>:
+                        <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>:
+                    <p>true: 削除成功</p>
+
             </div>
         </div>
 
@@ -423,7 +491,7 @@
         <span class="paren">()</span>
 
         <span class="returns-inline">
-            <span class="type"><a href="../classes/Classes.html" class="crosslink">Classes</a></span>
+            <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
         </span>
 
 
@@ -435,7 +503,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_device_Classes.js.html#l83"><code>src&#x2F;device&#x2F;Classes.js:83</code></a>
+        <a href="../files/src_device_Classes.js.html#l104"><code>src&#x2F;device&#x2F;Classes.js:104</code></a>
         </p>
 
 
@@ -443,7 +511,8 @@
     </div>
 
     <div class="description">
-        
+        <p>tag へクラスを書き込みます</p>
+
     </div>
 
 
@@ -451,7 +520,9 @@
             <h4>Returns:</h4>
 
             <div class="returns-description">
-                        <span class="type"><a href="../classes/Classes.html" class="crosslink">Classes</a></span>:
+                        <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>:
+                    <p>write したクラス名称</p>
+
             </div>
         </div>
 
@@ -462,51 +533,76 @@
             <div id="properties" class="api-class-tabpanel">
                 <h2 class="off-left">Properties</h2>
 
-<div id="property__classes" class="property item private">
-    <h3 class="name"><code>_classes</code></h3>
+<div id="property_classes" class="property item">
+    <h3 class="name"><code>classes</code></h3>
     <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array" class="crosslink external" target="_blank">Array</a></span>
 
 
-        <span class="flag private">private</span>
 
 
 
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_device_Classes.js.html#l47"><code>src&#x2F;device&#x2F;Classes.js:47</code></a>
+        <a href="../files/src_device_Classes.js.html#l42"><code>src&#x2F;device&#x2F;Classes.js:42</code></a>
         </p>
 
 
     </div>
 
     <div class="description">
-        
+        <p>処理クラス名称配列</p>
+
     </div>
 
 
 
 </div>
-<div id="property__dom" class="property item private">
-    <h3 class="name"><code>_dom</code></h3>
-    <span class="type">Dom</span>
+<div id="property_dom" class="property item">
+    <h3 class="name"><code>dom</code></h3>
+    <span class="type"><a href="../classes/Dom.html" class="crosslink">Dom</a></span>
 
 
-        <span class="flag private">private</span>
 
 
 
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_device_Classes.js.html#l53"><code>src&#x2F;device&#x2F;Classes.js:53</code></a>
+        <a href="../files/src_device_Classes.js.html#l48"><code>src&#x2F;device&#x2F;Classes.js:48</code></a>
         </p>
 
 
     </div>
 
     <div class="description">
-        
+        <p>class tag を追加する element を wakegi.Dom instance</p>
+
+    </div>
+
+
+
+</div>
+<div id="property_tag" class="property item">
+    <h3 class="name"><code>tag</code></h3>
+    <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/API/Element" class="crosslink external" target="_blank">Element</a></span>
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/src_device_Classes.js.html#l54"><code>src&#x2F;device&#x2F;Classes.js:54</code></a>
+        </p>
+
+
+    </div>
+
+    <div class="description">
+        <p>class を追加する Element</p>
+
     </div>
 
 

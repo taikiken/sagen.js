@@ -38,8 +38,11 @@
                 
                         <div id="api-tabview-panel">
                             <ul id="api-classes" class="apis classes">
+                                <li><a href="../classes/Browser.html">Browser</a></li>
                                 <li><a href="../classes/Classes.html">Classes</a></li>
                                 <li><a href="../classes/Device.html">Device</a></li>
+                                <li><a href="../classes/Dom.html">Dom</a></li>
+                                <li><a href="../classes/EventDispatcher.html">EventDispatcher</a></li>
                                 <li><a href="../classes/Orientation.html">Orientation</a></li>
                                 <li><a href="../classes/Sagen.html">Sagen</a></li>
                                 <li><a href="../classes/Viewport.html">Viewport</a></li>
@@ -120,11 +123,10 @@
 
                                     <span class="flag static">static</span>
                             </li>
-                            <li class="index-item method deprecated">
-                                <a href="#method_dataset">dataset</a>
+                            <li class="index-item method">
+                                <a href="#method_flag">flag</a>
 
                                     <span class="flag static">static</span>
-                                    <span class="flag deprecated">deprecated</span>
                             </li>
                     </ul>
                 </div>
@@ -147,6 +149,9 @@
             </ul><span class="paren">)</span>
         </div>
 
+        <span class="returns-inline">
+            <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>
+        </span>
 
 
 
@@ -158,7 +163,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_Sagen.js.html#l169"><code>src&#x2F;Sagen.js:169</code></a>
+        <a href="../files/src_Sagen.js.html#l238"><code>src&#x2F;Sagen.js:238</code></a>
         </p>
 
 
@@ -166,7 +171,8 @@
     </div>
 
     <div class="description">
-        
+        <p>data 属性オプション を調べます</p>
+
     </div>
 
         <div class="params">
@@ -179,23 +185,35 @@
 
 
                     <div class="param-description">
-                         
+                        <p>data key 名称 <code>data-xxx</code> <code>xxx</code> 部分</p>
+
                     </div>
 
                 </li>
             </ul>
         </div>
 
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                        <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>:
+                    <p>オプション有無</p>
+
+            </div>
+        </div>
 
 
 </div>
-<div id="method_dataset" class="method item deprecated">
-    <h3 class="name"><code>dataset</code></h3>
+<div id="method_flag" class="method item">
+    <h3 class="name"><code>flag</code></h3>
 
         <span class="paren">()</span>
 
+        <span class="returns-inline">
+            <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>
+        </span>
 
-        <span class="flag deprecated" title="instead use dataSet">deprecated</span>
 
 
 
@@ -206,20 +224,28 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_Sagen.js.html#l181"><code>src&#x2F;Sagen.js:181</code></a>
+        <a href="../files/src_Sagen.js.html#l249"><code>src&#x2F;Sagen.js:249</code></a>
         </p>
 
 
-            <p>Deprecated: instead use dataSet</p>
 
     </div>
 
     <div class="description">
-        <p>dataSet alias</p>
+        <p>data 属性オプションが存在するかを調べます</p>
 
     </div>
 
 
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                        <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>:
+                    <p>true: 存在します</p>
+
+            </div>
+        </div>
 
 
 </div>

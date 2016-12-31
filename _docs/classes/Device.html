@@ -38,8 +38,11 @@
                 
                         <div id="api-tabview-panel">
                             <ul id="api-classes" class="apis classes">
+                                <li><a href="../classes/Browser.html">Browser</a></li>
                                 <li><a href="../classes/Classes.html">Classes</a></li>
                                 <li><a href="../classes/Device.html">Device</a></li>
+                                <li><a href="../classes/Dom.html">Dom</a></li>
+                                <li><a href="../classes/EventDispatcher.html">EventDispatcher</a></li>
                                 <li><a href="../classes/Orientation.html">Orientation</a></li>
                                 <li><a href="../classes/Sagen.html">Sagen</a></li>
                                 <li><a href="../classes/Viewport.html">Viewport</a></li>
@@ -90,7 +93,7 @@
 
 
         <div class="foundat">
-            Defined in: <a href="../files/src_device_Device.js.html#l50"><code>src&#x2F;device&#x2F;Device.js:50</code></a>
+            Defined in: <a href="../files/src_device_Device.js.html#l46"><code>src&#x2F;device&#x2F;Device.js:46</code></a>
         </div>
 
             Module: <a href="../modules/Device.html">Device</a><br>
@@ -100,7 +103,8 @@
 
 
 <div class="box intro">
-    
+    <p>端末判定を行います</p>
+
 </div>
 
     <div class="constructor">
@@ -121,7 +125,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_device_Device.js.html#l50"><code>src&#x2F;device&#x2F;Device.js:50</code></a>
+        <a href="../files/src_device_Device.js.html#l46"><code>src&#x2F;device&#x2F;Device.js:46</code></a>
         </p>
 
 
@@ -154,93 +158,93 @@
                     <h3>Methods</h3>
 
                     <ul class="index-list methods">
-                            <li class="index-item method private">
-                                <a href="#method__android">_android</a>
-
-                                    <span class="flag static">static</span>
-                            </li>
-                            <li class="index-item method private">
-                                <a href="#method__canvas">_canvas</a>
-
-                                    <span class="flag static">static</span>
-                            </li>
-                            <li class="index-item method private">
-                                <a href="#method__chrome">_chrome</a>
-
-                                    <span class="flag static">static</span>
-                            </li>
-                            <li class="index-item method private">
-                                <a href="#method__css3">_css3</a>
-
-                                    <span class="flag static">static</span>
-                            </li>
-                            <li class="index-item method private">
-                                <a href="#method__default">_default</a>
-
-                                    <span class="flag static">static</span>
-                            </li>
-                            <li class="index-item method private">
-                                <a href="#method__element">_element</a>
-
-                                    <span class="flag static">static</span>
-                            </li>
-                            <li class="index-item method private">
-                                <a href="#method__firefox">_firefox</a>
-
-                                    <span class="flag static">static</span>
-                            </li>
-                            <li class="index-item method private">
-                                <a href="#method__firefox">_firefox</a>
-
-                                    <span class="flag static">static</span>
-                            </li>
-                            <li class="index-item method private">
-                                <a href="#method__fxios">_fxios</a>
-
-                                    <span class="flag static">static</span>
-                            </li>
-                            <li class="index-item method private">
-                                <a href="#method__ie">_ie</a>
-
-                                    <span class="flag static">static</span>
-                            </li>
-                            <li class="index-item method private">
-                                <a href="#method__ios">_ios</a>
-
-                                    <span class="flag static">static</span>
-                            </li>
-                            <li class="index-item method private">
-                                <a href="#method__onOrientation">_onOrientation</a>
-
-                                    <span class="flag static">static</span>
-                            </li>
-                            <li class="index-item method private">
-                                <a href="#method__option">_option</a>
-
-                                    <span class="flag static">static</span>
-                            </li>
-                            <li class="index-item method private">
-                                <a href="#method__os">_os</a>
-
-                                    <span class="flag static">static</span>
-                            </li>
-                            <li class="index-item method private">
-                                <a href="#method__safari">_safari</a>
-
-                                    <span class="flag static">static</span>
-                            </li>
-                            <li class="index-item method private">
-                                <a href="#method__version">_version</a>
+                            <li class="index-item method">
+                                <a href="#method_android">android</a>
 
                                     <span class="flag static">static</span>
                             </li>
                             <li class="index-item method">
-                                <a href="#method_call">call</a>
+                                <a href="#method_canvas">canvas</a>
+
+                                    <span class="flag static">static</span>
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_chrome">chrome</a>
+
+                                    <span class="flag static">static</span>
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_css3">css3</a>
+
+                                    <span class="flag static">static</span>
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_default">default</a>
+
+                                    <span class="flag static">static</span>
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_edge">edge</a>
+
+                                    <span class="flag static">static</span>
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_element">element</a>
+
+                                    <span class="flag static">static</span>
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_execute">execute</a>
+
+                                    <span class="flag static">static</span>
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_firefox">firefox</a>
+
+                                    <span class="flag static">static</span>
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_fxios">fxios</a>
+
+                                    <span class="flag static">static</span>
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_ie">ie</a>
 
                                     <span class="flag static">static</span>
                             </li>
                             <li class="index-item method">
                                 <a href="#method_init">init</a>
+
+                                    <span class="flag static">static</span>
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_ios">ios</a>
+
+                                    <span class="flag static">static</span>
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_onOrientation">onOrientation</a>
+
+                                    <span class="flag static">static</span>
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_option">option</a>
+
+                                    <span class="flag static">static</span>
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_os">os</a>
+
+                                    <span class="flag static">static</span>
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_safari">safari</a>
+
+                                    <span class="flag static">static</span>
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_version">version</a>
 
                                     <span class="flag static">static</span>
                             </li>
@@ -252,7 +256,7 @@
 
                     <ul class="index-list properties">
                             <li class="index-item property private">
-                                <a href="#property__classes">_classes</a>
+                                <a href="#property_classSymbol">classSymbol</a>
 
                                     <span class="flag static">static</span>
                             </li>
@@ -265,8 +269,8 @@
             <div id="methods" class="api-class-tabpanel">
                 <h2 class="off-left">Methods</h2>
 
-<div id="method__android" class="method item private">
-    <h3 class="name"><code>_android</code></h3>
+<div id="method_android" class="method item">
+    <h3 class="name"><code>android</code></h3>
 
         <div class="args">
             <span class="paren">(</span><ul class="args-list inline commas">
@@ -281,7 +285,6 @@
         </span>
 
 
-        <span class="flag private">private</span>
 
 
         <span class="flag static">static</span>
@@ -291,7 +294,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_device_Device.js.html#l223"><code>src&#x2F;device&#x2F;Device.js:223</code></a>
+        <a href="../files/src_device_Device.js.html#l193"><code>src&#x2F;device&#x2F;Device.js:193</code></a>
         </p>
 
 
@@ -299,7 +302,8 @@
     </div>
 
     <div class="description">
-        
+        <p>Android 関連を判定します</p>
+
     </div>
 
         <div class="params">
@@ -312,7 +316,8 @@
 
 
                     <div class="param-description">
-                         
+                        <p>Classes instance を書きこみに使用します</p>
+
                     </div>
 
                 </li>
@@ -324,13 +329,15 @@
 
             <div class="returns-description">
                         <span class="type"><a href="../classes/Device.html" class="crosslink">Device</a></span>:
+                    <p>method chain 可能にします</p>
+
             </div>
         </div>
 
 
 </div>
-<div id="method__canvas" class="method item private">
-    <h3 class="name"><code>_canvas</code></h3>
+<div id="method_canvas" class="method item">
+    <h3 class="name"><code>canvas</code></h3>
 
         <div class="args">
             <span class="paren">(</span><ul class="args-list inline commas">
@@ -345,7 +352,6 @@
         </span>
 
 
-        <span class="flag private">private</span>
 
 
         <span class="flag static">static</span>
@@ -355,7 +361,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_device_Device.js.html#l542"><code>src&#x2F;device&#x2F;Device.js:542</code></a>
+        <a href="../files/src_device_Device.js.html#l439"><code>src&#x2F;device&#x2F;Device.js:439</code></a>
         </p>
 
 
@@ -363,7 +369,8 @@
     </div>
 
     <div class="description">
-        
+        <p>canvas 判定を行います</p>
+
     </div>
 
         <div class="params">
@@ -376,7 +383,8 @@
 
 
                     <div class="param-description">
-                         
+                        <p>Classes instance を書きこみに使用します</p>
+
                     </div>
 
                 </li>
@@ -388,13 +396,15 @@
 
             <div class="returns-description">
                         <span class="type"><a href="../classes/Device.html" class="crosslink">Device</a></span>:
+                    <p>method chain 可能にします</p>
+
             </div>
         </div>
 
 
 </div>
-<div id="method__chrome" class="method item private">
-    <h3 class="name"><code>_chrome</code></h3>
+<div id="method_chrome" class="method item">
+    <h3 class="name"><code>chrome</code></h3>
 
         <div class="args">
             <span class="paren">(</span><ul class="args-list inline commas">
@@ -409,7 +419,6 @@
         </span>
 
 
-        <span class="flag private">private</span>
 
 
         <span class="flag static">static</span>
@@ -419,7 +428,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_device_Device.js.html#l415"><code>src&#x2F;device&#x2F;Device.js:415</code></a>
+        <a href="../files/src_device_Device.js.html#l337"><code>src&#x2F;device&#x2F;Device.js:337</code></a>
         </p>
 
 
@@ -427,7 +436,8 @@
     </div>
 
     <div class="description">
-        
+        <p>Chrome 判定を行います</p>
+
     </div>
 
         <div class="params">
@@ -440,7 +450,8 @@
 
 
                     <div class="param-description">
-                         
+                        <p>Classes instance を書きこみに使用します</p>
+
                     </div>
 
                 </li>
@@ -452,13 +463,15 @@
 
             <div class="returns-description">
                         <span class="type"><a href="../classes/Device.html" class="crosslink">Device</a></span>:
+                    <p>method chain 可能にします</p>
+
             </div>
         </div>
 
 
 </div>
-<div id="method__css3" class="method item private">
-    <h3 class="name"><code>_css3</code></h3>
+<div id="method_css3" class="method item">
+    <h3 class="name"><code>css3</code></h3>
 
         <div class="args">
             <span class="paren">(</span><ul class="args-list inline commas">
@@ -473,7 +486,6 @@
         </span>
 
 
-        <span class="flag private">private</span>
 
 
         <span class="flag static">static</span>
@@ -483,7 +495,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_device_Device.js.html#l274"><code>src&#x2F;device&#x2F;Device.js:274</code></a>
+        <a href="../files/src_device_Device.js.html#l231"><code>src&#x2F;device&#x2F;Device.js:231</code></a>
         </p>
 
 
@@ -491,7 +503,8 @@
     </div>
 
     <div class="description">
-        
+        <p>CSS3 判定を行います</p>
+
     </div>
 
         <div class="params">
@@ -504,7 +517,8 @@
 
 
                     <div class="param-description">
-                         
+                        <p>Classes instance を書きこみに使用します</p>
+
                     </div>
 
                 </li>
@@ -516,13 +530,15 @@
 
             <div class="returns-description">
                         <span class="type"><a href="../classes/Device.html" class="crosslink">Device</a></span>:
+                    <p>method chain 可能にします</p>
+
             </div>
         </div>
 
 
 </div>
-<div id="method__default" class="method item private">
-    <h3 class="name"><code>_default</code></h3>
+<div id="method_default" class="method item">
+    <h3 class="name"><code>default</code></h3>
 
         <div class="args">
             <span class="paren">(</span><ul class="args-list inline commas">
@@ -537,7 +553,6 @@
         </span>
 
 
-        <span class="flag private">private</span>
 
 
         <span class="flag static">static</span>
@@ -547,7 +562,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_device_Device.js.html#l93"><code>src&#x2F;device&#x2F;Device.js:93</code></a>
+        <a href="../files/src_device_Device.js.html#l86"><code>src&#x2F;device&#x2F;Device.js:86</code></a>
         </p>
 
 
@@ -555,7 +570,8 @@
     </div>
 
     <div class="description">
-        
+        <p>端末 OS 判定処理を行います</p>
+
     </div>
 
         <div class="params">
@@ -568,7 +584,8 @@
 
 
                     <div class="param-description">
-                         
+                        <p>Classes instance を書きこみに使用します</p>
+
                     </div>
 
                 </li>
@@ -580,13 +597,15 @@
 
             <div class="returns-description">
                         <span class="type"><a href="../classes/Device.html" class="crosslink">Device</a></span>:
+                    <p>method chain 可能にします</p>
+
             </div>
         </div>
 
 
 </div>
-<div id="method__element" class="method item private">
-    <h3 class="name"><code>_element</code></h3>
+<div id="method_edge" class="method item">
+    <h3 class="name"><code>edge</code></h3>
 
         <div class="args">
             <span class="paren">(</span><ul class="args-list inline commas">
@@ -601,7 +620,6 @@
         </span>
 
 
-        <span class="flag private">private</span>
 
 
         <span class="flag static">static</span>
@@ -611,7 +629,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_device_Device.js.html#l322"><code>src&#x2F;device&#x2F;Device.js:322</code></a>
+        <a href="../files/src_device_Device.js.html#l378"><code>src&#x2F;device&#x2F;Device.js:378</code></a>
         </p>
 
 
@@ -619,7 +637,8 @@
     </div>
 
     <div class="description">
-        
+        <p>Edge 判定を行います</p>
+
     </div>
 
         <div class="params">
@@ -632,7 +651,8 @@
 
 
                     <div class="param-description">
-                         
+                        <p>Classes instance を書きこみに使用します</p>
+
                     </div>
 
                 </li>
@@ -644,13 +664,15 @@
 
             <div class="returns-description">
                         <span class="type"><a href="../classes/Device.html" class="crosslink">Device</a></span>:
+                    <p>method chain 可能にします</p>
+
             </div>
         </div>
 
 
 </div>
-<div id="method__firefox" class="method item private">
-    <h3 class="name"><code>_firefox</code></h3>
+<div id="method_element" class="method item">
+    <h3 class="name"><code>element</code></h3>
 
         <div class="args">
             <span class="paren">(</span><ul class="args-list inline commas">
@@ -665,7 +687,6 @@
         </span>
 
 
-        <span class="flag private">private</span>
 
 
         <span class="flag static">static</span>
@@ -675,7 +696,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_device_Device.js.html#l440"><code>src&#x2F;device&#x2F;Device.js:440</code></a>
+        <a href="../files/src_device_Device.js.html#l265"><code>src&#x2F;device&#x2F;Device.js:265</code></a>
         </p>
 
 
@@ -683,7 +704,8 @@
     </div>
 
     <div class="description">
-        
+        <p>element 関連判定を行います</p>
+
     </div>
 
         <div class="params">
@@ -696,7 +718,8 @@
 
 
                     <div class="param-description">
-                         
+                        <p>Classes instance を書きこみに使用します</p>
+
                     </div>
 
                 </li>
@@ -708,13 +731,70 @@
 
             <div class="returns-description">
                         <span class="type"><a href="../classes/Device.html" class="crosslink">Device</a></span>:
+                    <p>method chain 可能にします</p>
+
             </div>
         </div>
 
 
 </div>
-<div id="method__firefox" class="method item private">
-    <h3 class="name"><code>_firefox</code></h3>
+<div id="method_execute" class="method item">
+    <h3 class="name"><code>execute</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>func</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+
+
+
+
+        <span class="flag static">static</span>
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/src_device_Device.js.html#l76"><code>src&#x2F;device&#x2F;Device.js:76</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>引数関数を実行します</p>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">func</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function" class="crosslink external" target="_blank">Function</a></span>
+
+
+                    <div class="param-description">
+                        <p>実行する関数</p>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+
+</div>
+<div id="method_firefox" class="method item">
+    <h3 class="name"><code>firefox</code></h3>
 
         <div class="args">
             <span class="paren">(</span><ul class="args-list inline commas">
@@ -729,7 +809,6 @@
         </span>
 
 
-        <span class="flag private">private</span>
 
 
         <span class="flag static">static</span>
@@ -739,7 +818,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_device_Device.js.html#l465"><code>src&#x2F;device&#x2F;Device.js:465</code></a>
+        <a href="../files/src_device_Device.js.html#l358"><code>src&#x2F;device&#x2F;Device.js:358</code></a>
         </p>
 
 
@@ -747,7 +826,8 @@
     </div>
 
     <div class="description">
-        
+        <p>Firefox 判定を行います</p>
+
     </div>
 
         <div class="params">
@@ -760,7 +840,8 @@
 
 
                     <div class="param-description">
-                         
+                        <p>Classes instance を書きこみに使用します</p>
+
                     </div>
 
                 </li>
@@ -772,13 +853,15 @@
 
             <div class="returns-description">
                         <span class="type"><a href="../classes/Device.html" class="crosslink">Device</a></span>:
+                    <p>method chain 可能にします</p>
+
             </div>
         </div>
 
 
 </div>
-<div id="method__fxios" class="method item private">
-    <h3 class="name"><code>_fxios</code></h3>
+<div id="method_fxios" class="method item">
+    <h3 class="name"><code>fxios</code></h3>
 
         <div class="args">
             <span class="paren">(</span><ul class="args-list inline commas">
@@ -793,7 +876,6 @@
         </span>
 
 
-        <span class="flag private">private</span>
 
 
         <span class="flag static">static</span>
@@ -803,7 +885,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_device_Device.js.html#l490"><code>src&#x2F;device&#x2F;Device.js:490</code></a>
+        <a href="../files/src_device_Device.js.html#l398"><code>src&#x2F;device&#x2F;Device.js:398</code></a>
         </p>
 
 
@@ -811,7 +893,7 @@
     </div>
 
     <div class="description">
-        <p>Mac Firefox check</p>
+        <p>iOS Firefox check</p>
 
     </div>
 
@@ -825,7 +907,8 @@
 
 
                     <div class="param-description">
-                         
+                        <p>Classes instance を書きこみに使用します</p>
+
                     </div>
 
                 </li>
@@ -837,13 +920,15 @@
 
             <div class="returns-description">
                         <span class="type"><a href="../classes/Device.html" class="crosslink">Device</a></span>:
+                    <p>method chain 可能にします</p>
+
             </div>
         </div>
 
 
 </div>
-<div id="method__ie" class="method item private">
-    <h3 class="name"><code>_ie</code></h3>
+<div id="method_ie" class="method item">
+    <h3 class="name"><code>ie</code></h3>
 
         <div class="args">
             <span class="paren">(</span><ul class="args-list inline commas">
@@ -858,7 +943,6 @@
         </span>
 
 
-        <span class="flag private">private</span>
 
 
         <span class="flag static">static</span>
@@ -868,7 +952,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_device_Device.js.html#l517"><code>src&#x2F;device&#x2F;Device.js:517</code></a>
+        <a href="../files/src_device_Device.js.html#l419"><code>src&#x2F;device&#x2F;Device.js:419</code></a>
         </p>
 
 
@@ -876,7 +960,8 @@
     </div>
 
     <div class="description">
-        
+        <p>IE 判定を行います</p>
+
     </div>
 
         <div class="params">
@@ -889,7 +974,8 @@
 
 
                     <div class="param-description">
-                         
+                        <p>Classes instance を書きこみに使用します</p>
+
                     </div>
 
                 </li>
@@ -901,13 +987,47 @@
 
             <div class="returns-description">
                         <span class="type"><a href="../classes/Device.html" class="crosslink">Device</a></span>:
+                    <p>method chain 可能にします</p>
+
             </div>
         </div>
 
 
 </div>
-<div id="method__ios" class="method item private">
-    <h3 class="name"><code>_ios</code></h3>
+<div id="method_init" class="method item">
+    <h3 class="name"><code>init</code></h3>
+
+        <span class="paren">()</span>
+
+
+
+
+
+        <span class="flag static">static</span>
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/src_device_Device.js.html#l58"><code>src&#x2F;device&#x2F;Device.js:58</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>端末判定処理を始めます</p>
+
+    </div>
+
+
+
+
+</div>
+<div id="method_ios" class="method item">
+    <h3 class="name"><code>ios</code></h3>
 
         <div class="args">
             <span class="paren">(</span><ul class="args-list inline commas">
@@ -922,7 +1042,6 @@
         </span>
 
 
-        <span class="flag private">private</span>
 
 
         <span class="flag static">static</span>
@@ -932,7 +1051,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_device_Device.js.html#l178"><code>src&#x2F;device&#x2F;Device.js:178</code></a>
+        <a href="../files/src_device_Device.js.html#l159"><code>src&#x2F;device&#x2F;Device.js:159</code></a>
         </p>
 
 
@@ -940,7 +1059,8 @@
     </div>
 
     <div class="description">
-        
+        <p>iOS 関連を判定します</p>
+
     </div>
 
         <div class="params">
@@ -953,7 +1073,8 @@
 
 
                     <div class="param-description">
-                         
+                        <p>Classes instance を書きこみに使用します</p>
+
                     </div>
 
                 </li>
@@ -965,13 +1086,15 @@
 
             <div class="returns-description">
                         <span class="type"><a href="../classes/Device.html" class="crosslink">Device</a></span>:
+                    <p>method chain 可能にします</p>
+
             </div>
         </div>
 
 
 </div>
-<div id="method__onOrientation" class="method item private">
-    <h3 class="name"><code>_onOrientation</code></h3>
+<div id="method_onOrientation" class="method item">
+    <h3 class="name"><code>onOrientation</code></h3>
 
         <div class="args">
             <span class="paren">(</span><ul class="args-list inline commas">
@@ -983,7 +1106,6 @@
 
 
 
-        <span class="flag private">private</span>
 
 
         <span class="flag static">static</span>
@@ -993,7 +1115,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_device_Device.js.html#l567"><code>src&#x2F;device&#x2F;Device.js:567</code></a>
+        <a href="../files/src_device_Device.js.html#l458"><code>src&#x2F;device&#x2F;Device.js:458</code></a>
         </p>
 
 
@@ -1015,7 +1137,8 @@
 
 
                     <div class="param-description">
-                         
+                        <p>orientation event</p>
+
                     </div>
 
                 </li>
@@ -1025,8 +1148,8 @@
 
 
 </div>
-<div id="method__option" class="method item private">
-    <h3 class="name"><code>_option</code></h3>
+<div id="method_option" class="method item">
+    <h3 class="name"><code>option</code></h3>
 
         <div class="args">
             <span class="paren">(</span><ul class="args-list inline commas">
@@ -1041,7 +1164,6 @@
         </span>
 
 
-        <span class="flag private">private</span>
 
 
         <span class="flag static">static</span>
@@ -1051,7 +1173,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_device_Device.js.html#l111"><code>src&#x2F;device&#x2F;Device.js:111</code></a>
+        <a href="../files/src_device_Device.js.html#l104"><code>src&#x2F;device&#x2F;Device.js:104</code></a>
         </p>
 
 
@@ -1059,7 +1181,8 @@
     </div>
 
     <div class="description">
-        
+        <p>dataset-browser, dataset-canvas, dataset-orientation option 処理を行います</p>
+
     </div>
 
         <div class="params">
@@ -1072,7 +1195,8 @@
 
 
                     <div class="param-description">
-                         
+                        <p>Classes instance を書きこみに使用します</p>
+
                     </div>
 
                 </li>
@@ -1084,13 +1208,15 @@
 
             <div class="returns-description">
                         <span class="type"><a href="../classes/Device.html" class="crosslink">Device</a></span>:
+                    <p>method chain 可能にします</p>
+
             </div>
         </div>
 
 
 </div>
-<div id="method__os" class="method item private">
-    <h3 class="name"><code>_os</code></h3>
+<div id="method_os" class="method item">
+    <h3 class="name"><code>os</code></h3>
 
         <div class="args">
             <span class="paren">(</span><ul class="args-list inline commas">
@@ -1105,7 +1231,6 @@
         </span>
 
 
-        <span class="flag private">private</span>
 
 
         <span class="flag static">static</span>
@@ -1115,7 +1240,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_device_Device.js.html#l346"><code>src&#x2F;device&#x2F;Device.js:346</code></a>
+        <a href="../files/src_device_Device.js.html#l283"><code>src&#x2F;device&#x2F;Device.js:283</code></a>
         </p>
 
 
@@ -1123,7 +1248,8 @@
     </div>
 
     <div class="description">
-        
+        <p>OS 関連判定を行います</p>
+
     </div>
 
         <div class="params">
@@ -1136,7 +1262,8 @@
 
 
                     <div class="param-description">
-                         
+                        <p>Classes instance を書きこみに使用します</p>
+
                     </div>
 
                 </li>
@@ -1148,13 +1275,15 @@
 
             <div class="returns-description">
                         <span class="type"><a href="../classes/Device.html" class="crosslink">Device</a></span>:
+                    <p>method chain 可能にします</p>
+
             </div>
         </div>
 
 
 </div>
-<div id="method__safari" class="method item private">
-    <h3 class="name"><code>_safari</code></h3>
+<div id="method_safari" class="method item">
+    <h3 class="name"><code>safari</code></h3>
 
         <div class="args">
             <span class="paren">(</span><ul class="args-list inline commas">
@@ -1169,7 +1298,6 @@
         </span>
 
 
-        <span class="flag private">private</span>
 
 
         <span class="flag static">static</span>
@@ -1179,7 +1307,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_device_Device.js.html#l390"><code>src&#x2F;device&#x2F;Device.js:390</code></a>
+        <a href="../files/src_device_Device.js.html#l317"><code>src&#x2F;device&#x2F;Device.js:317</code></a>
         </p>
 
 
@@ -1187,7 +1315,8 @@
     </div>
 
     <div class="description">
-        
+        <p>Safari 判定を行います</p>
+
     </div>
 
         <div class="params">
@@ -1200,7 +1329,8 @@
 
 
                     <div class="param-description">
-                         
+                        <p>Classes instance を書きこみに使用します</p>
+
                     </div>
 
                 </li>
@@ -1212,13 +1342,15 @@
 
             <div class="returns-description">
                         <span class="type"><a href="../classes/Device.html" class="crosslink">Device</a></span>:
+                    <p>method chain 可能にします</p>
+
             </div>
         </div>
 
 
 </div>
-<div id="method__version" class="method item private">
-    <h3 class="name"><code>_version</code></h3>
+<div id="method_version" class="method item">
+    <h3 class="name"><code>version</code></h3>
 
         <div class="args">
             <span class="paren">(</span><ul class="args-list inline commas">
@@ -1239,7 +1371,6 @@
         </span>
 
 
-        <span class="flag private">private</span>
 
 
         <span class="flag static">static</span>
@@ -1249,7 +1380,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_device_Device.js.html#l150"><code>src&#x2F;device&#x2F;Device.js:150</code></a>
+        <a href="../files/src_device_Device.js.html#l136"><code>src&#x2F;device&#x2F;Device.js:136</code></a>
         </p>
 
 
@@ -1257,7 +1388,8 @@
     </div>
 
     <div class="description">
-        
+        <p>browser / OS version を書き込みます</p>
+
     </div>
 
         <div class="params">
@@ -1270,7 +1402,8 @@
 
 
                     <div class="param-description">
-                         
+                        <p>Classes instance を書きこみに使用します</p>
+
                     </div>
 
                 </li>
@@ -1280,7 +1413,8 @@
 
 
                     <div class="param-description">
-                         
+                        <p>iphone, ipad... な端末識別子</p>
+
                     </div>
 
                 </li>
@@ -1290,7 +1424,8 @@
 
 
                     <div class="param-description">
-                         
+                        <p>version を配列形式</p>
+
                     </div>
 
                 </li>
@@ -1302,92 +1437,10 @@
 
             <div class="returns-description">
                         <span class="type"><a href="../classes/Device.html" class="crosslink">Device</a></span>:
+                    <p>method chain 可能にします</p>
+
             </div>
         </div>
-
-
-</div>
-<div id="method_call" class="method item">
-    <h3 class="name"><code>call</code></h3>
-
-        <div class="args">
-            <span class="paren">(</span><ul class="args-list inline commas">
-                <li class="arg">
-                        <code>func</code>
-                </li>
-            </ul><span class="paren">)</span>
-        </div>
-
-
-
-
-
-        <span class="flag static">static</span>
-
-
-
-    <div class="meta">
-                <p>
-                Defined in
-        <a href="../files/src_device_Device.js.html#l82"><code>src&#x2F;device&#x2F;Device.js:82</code></a>
-        </p>
-
-
-
-    </div>
-
-    <div class="description">
-        
-    </div>
-
-        <div class="params">
-            <h4>Parameters:</h4>
-
-            <ul class="params-list">
-                <li class="param">
-                        <code class="param-name">func</code>
-                        <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function" class="crosslink external" target="_blank">Function</a></span>
-
-
-                    <div class="param-description">
-                         
-                    </div>
-
-                </li>
-            </ul>
-        </div>
-
-
-
-</div>
-<div id="method_init" class="method item">
-    <h3 class="name"><code>init</code></h3>
-
-        <span class="paren">()</span>
-
-
-
-
-
-        <span class="flag static">static</span>
-
-
-
-    <div class="meta">
-                <p>
-                Defined in
-        <a href="../files/src_device_Device.js.html#l62"><code>src&#x2F;device&#x2F;Device.js:62</code></a>
-        </p>
-
-
-
-    </div>
-
-    <div class="description">
-        
-    </div>
-
-
 
 
 </div>
@@ -1396,8 +1449,8 @@
             <div id="properties" class="api-class-tabpanel">
                 <h2 class="off-left">Properties</h2>
 
-<div id="property__classes" class="property item private">
-    <h3 class="name"><code>_classes</code></h3>
+<div id="property_classSymbol" class="property item private">
+    <h3 class="name"><code>classSymbol</code></h3>
     <span class="type"><a href="../classes/Classes.html" class="crosslink">Classes</a></span>
 
 
@@ -1409,7 +1462,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_device_Device.js.html#l42"><code>src&#x2F;device&#x2F;Device.js:42</code></a>
+        <a href="../files/src_device_Device.js.html#l38"><code>src&#x2F;device&#x2F;Device.js:38</code></a>
         </p>
 
 

@@ -36,7 +36,8 @@ var cached = require( 'gulp-cached' );
 var replace = require('gulp-replace-task');
 var sourceMaps = require( 'gulp-sourcemaps' );
 var requireDir = require('require-dir');
-var jshint = require('gulp-jshint');
+// var jshint = require('gulp-jshint');
+var eslint = require('gulp-eslint');
 
 // ----------------------------------------------------------------
 //  project directory list
@@ -87,7 +88,8 @@ module.exports = {
     sourceMaps: sourceMaps,
     replace: replace,
     requireDir: requireDir,
-    jshint: jshint
+    // jshint: jshint,
+    eslint: eslint,
   },
   patterns: [
     {

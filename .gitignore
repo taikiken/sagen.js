@@ -6,4 +6,5 @@ dependencies
 # out
 out
 _output
-/npm-debug.log
+
+npm-debug.log

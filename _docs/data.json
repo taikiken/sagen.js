@@ -54,7 +54,11 @@
             "modules": {
                 "Sagen": 1
             },
-            "classes": {},
+            "classes": {
+                "Browser": 1,
+                "Dom": 1,
+                "EventDispatcher": 1
+            },
             "fors": {
                 "Sagen": 1
             },
@@ -83,6 +87,9 @@
                 "Device": 1,
                 "Orientation": 1,
                 "Viewport": 1,
+                "Browser": 1,
+                "Dom": 1,
+                "EventDispatcher": 1,
                 "Sagen": 1
             },
             "fors": {
@@ -90,9 +97,9 @@
             },
             "namespaces": {},
             "tag": "module",
-            "file": "src/device/Viewport.js",
-            "line": 48,
-            "description": "## Browser detect helper\n\n htmlタグへCSS classをセットします。<br>\n scriptタグdata属性から追加classをセットします<br>\n     <script type=\"text/javascript\" src=\"/js/sagen.min.js\"\n          id=\"sagen\"\n          data-orientation=\"true\"\n          data-browser=\"true\">\n      </script>\n     // html へ class を追加した例\n      // OS X Chrome\n\n      <html class=\"transition transform matchMedia background-size mac other chrome chrome41 chrome41_0 chrome41_0_2272 chrome41_0_2272_118 canvas webgl\">\n     // Browser / 端末判定にも使えます\n\n      if ( Sagen.Browser.iOS.is() ) {\n        // iOS\n      }\n     // orientation 監視にも使えます(iOS, Android)\n      var Orientation = Sagen.Orientation;\n     Orientation.on( Orientation.CHANGE_ORIENTATION, function ( event ) {\n\n        var direction = event.direction;\n\n        if ( direction === 'portrait' ) {\n          // portrait\n        }\n\n        if ( direction === 'landscape' ) {\n          // landscape\n        }\n\n      } );\n\n      Orientation.listen();",
+            "file": "src/Sagen.js",
+            "line": 176,
+            "description": "## Browser detect helper\n\nhtmlタグへCSS classをセットします。<br>\nscriptタグdata属性から追加classをセットします<br>\n\n\n     <script type=\"text/javascript\" src=\"/js/sagen.min.js\"\n         id=\"sagen\"\n         data-orientation=\"true\"\n         data-browser=\"true\">\n     </script>\n\n\n     // html へ class を追加した例\n     // OS X Chrome\n\n     <html class=\"transition transform matchMedia background-size mac other chrome chrome41 chrome41_0 chrome41_0_2272 chrome41_0_2272_118 canvas webgl\">\n\n\n     // Browser / 端末判定にも使えます\n\n     if ( Sagen.Browser.iOS.is() ) {\n       // iOS\n     }\n\n\n     // orientation 監視にも使えます(iOS, Android)\n     var Orientation = Sagen.Orientation;\n\n\n     Orientation.on( Orientation.CHANGE_ORIENTATION, function ( event ) {\n\n       var direction = event.direction;\n\n       if ( direction === 'portrait' ) {\n         // portrait\n       }\n\n       if ( direction === 'landscape' ) {\n         // landscape\n       }\n\n     } );\n\n     Orientation.listen();",
             "type": "{{}}"
         },
         "Classes": {
@@ -108,7 +115,7 @@
             "module": "Sagen",
             "namespace": "",
             "file": "src/device/Classes.js",
-            "line": 34,
+            "line": 28,
             "description": "html tag へ class を付与します",
             "requires": [
                 "Sagen.Dom"
@@ -127,7 +134,8 @@
             "module": "Sagen",
             "namespace": "",
             "file": "src/device/Device.js",
-            "line": 50
+            "line": 46,
+            "description": "端末判定を行います"
         },
         "Orientation": {
             "name": "Orientation",
@@ -142,7 +150,7 @@
             "module": "Sagen",
             "namespace": "",
             "file": "src/device/Orientation.js",
-            "line": 69,
+            "line": 75,
             "description": "orientation 監視"
         },
         "Viewport": {
@@ -158,7 +166,7 @@
             "module": "Sagen",
             "namespace": "",
             "file": "src/device/Viewport.js",
-            "line": 48,
+            "line": 46,
             "description": "meta viewport rewrite / write"
         }
     },
@@ -175,22 +183,24 @@
             "submodule": "Classes",
             "namespace": "",
             "file": "src/device/Classes.js",
-            "line": 34,
+            "line": 28,
+            "description": "html tag へ class を追加・削除します",
             "params": [
                 {
                     "name": "classes",
-                    "description": "",
+                    "description": "処理クラス名称配列",
                     "type": "Array",
-                    "optional": true
+                    "optional": true,
+                    "optdefault": "[]"
                 },
                 {
                     "name": "dom",
                     "description": "CSS Class Add target HTML Element, default document.documentElement (html)",
                     "type": "Element",
-                    "optional": true
+                    "optional": true,
+                    "optdefault": "document.documentElement"
                 }
             ],
-            "default": "document.documentElement",
             "is_constructor": 1
         },
         "Device": {
@@ -205,7 +215,8 @@
             "submodule": "Device",
             "namespace": "",
             "file": "src/device/Device.js",
-            "line": 50,
+            "line": 46,
+            "description": "端末判定を行います",
             "static": 1,
             "is_constructor": 1
         },
@@ -221,7 +232,7 @@
             "submodule": "Orientation",
             "namespace": "",
             "file": "src/device/Orientation.js",
-            "line": 69,
+            "line": 75,
             "description": "portrait / landscape 切替を監視",
             "uses": [
                 "EventDispatcher"
@@ -241,9 +252,57 @@
             "submodule": "Viewport",
             "namespace": "",
             "file": "src/device/Viewport.js",
-            "line": 48,
+            "line": 46,
+            "description": "viewport 関連処理を行います",
             "static": 1,
             "is_constructor": 1
+        },
+        "Browser": {
+            "name": "Browser",
+            "shortname": "Browser",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "Sagen",
+            "namespace": "",
+            "file": "src/Sagen.js",
+            "line": 164,
+            "description": "wakegi.Browser",
+            "type": "{wakegi.Browser}"
+        },
+        "Dom": {
+            "name": "Dom",
+            "shortname": "Dom",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "Sagen",
+            "namespace": "",
+            "file": "src/Sagen.js",
+            "line": 170,
+            "description": "wakegi.Dom",
+            "type": "{wakegi.Dom}"
+        },
+        "EventDispatcher": {
+            "name": "EventDispatcher",
+            "shortname": "EventDispatcher",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [
+                "Orientation"
+            ],
+            "module": "Sagen",
+            "namespace": "",
+            "file": "src/Sagen.js",
+            "line": 176,
+            "description": "Gasane.EventDispatcher",
+            "type": "{Gasane.EventDispatcher}"
         },
         "Sagen": {
             "name": "Sagen",
@@ -267,42 +326,67 @@
         },
         {
             "file": "src/device/Classes.js",
-            "line": 47,
+            "line": 42,
+            "description": "処理クラス名称配列",
             "itemtype": "property",
-            "name": "_classes",
+            "name": "classes",
             "type": "{Array}",
-            "access": "private",
-            "tagname": "",
             "class": "Classes",
             "module": "Sagen",
             "submodule": "Classes"
         },
         {
             "file": "src/device/Classes.js",
-            "line": 53,
+            "line": 48,
+            "description": "class tag を追加する element を wakegi.Dom instance",
             "itemtype": "property",
-            "name": "_dom",
+            "name": "dom",
             "type": "{Dom}",
-            "access": "private",
-            "tagname": "",
             "class": "Classes",
             "module": "Sagen",
             "submodule": "Classes"
         },
         {
             "file": "src/device/Classes.js",
-            "line": 64,
+            "line": 54,
+            "description": "class を追加する Element",
+            "itemtype": "property",
+            "name": "tag",
+            "type": "{Element}",
+            "class": "Classes",
+            "module": "Sagen",
+            "submodule": "Classes"
+        },
+        {
+            "file": "src/device/Classes.js",
+            "line": 65,
+            "description": "不正値を削除します",
+            "itemtype": "method",
+            "name": "clean",
+            "return": {
+                "description": "クリーン後の classes 配列",
+                "type": "Array"
+            },
+            "class": "Classes",
+            "module": "Sagen",
+            "submodule": "Classes"
+        },
+        {
+            "file": "src/device/Classes.js",
+            "line": 86,
+            "description": "class 追加",
             "itemtype": "method",
             "name": "add",
             "params": [
                 {
                     "name": "className",
-                    "description": ""
+                    "description": "追加するクラス名称",
+                    "type": "String"
                 }
             ],
             "return": {
-                "description": "",
-                "type": "Classes"
+                "description": "true: added",
+                "type": "Boolean"
             },
             "class": "Classes",
             "module": "Sagen",
@@ -310,12 +394,13 @@
         },
         {
             "file": "src/device/Classes.js",
-            "line": 83,
+            "line": 104,
+            "description": "tag へクラスを書き込みます",
             "itemtype": "method",
             "name": "write",
             "return": {
-                "description": "",
-                "type": "Classes"
+                "description": "write したクラス名称",
+                "type": "String"
             },
             "class": "Classes",
             "module": "Sagen",
@@ -323,19 +408,20 @@
         },
         {
             "file": "src/device/Classes.js",
-            "line": 94,
+            "line": 115,
+            "description": "tag へ class を追加します",
             "itemtype": "method",
             "name": "addClass",
             "params": [
                 {
                     "name": "className",
-                    "description": "",
+                    "description": "追加する class 名称",
                     "type": "String"
                 }
             ],
             "return": {
-                "description": "",
-                "type": "Classes"
+                "description": "true: 追加成功",
+                "type": "Boolean"
             },
             "class": "Classes",
             "module": "Sagen",
@@ -343,19 +429,20 @@
         },
         {
             "file": "src/device/Classes.js",
-            "line": 105,
+            "line": 124,
+            "description": "tag から class を削除します",
             "itemtype": "method",
             "name": "removeClass",
             "params": [
                 {
                     "name": "className",
-                    "description": "",
+                    "description": "削除する class 名称",
                     "type": "String"
                 }
             ],
             "return": {
-                "description": "",
-                "type": "Classes"
+                "description": "true: 削除成功",
+                "type": "Boolean"
             },
             "class": "Classes",
             "module": "Sagen",
@@ -370,9 +457,9 @@
         },
         {
             "file": "src/device/Device.js",
-            "line": 42,
+            "line": 38,
             "itemtype": "property",
-            "name": "_classes",
+            "name": "classSymbol",
             "static": 1,
             "access": "private",
             "tagname": "",
@@ -383,7 +470,8 @@
         },
         {
             "file": "src/device/Device.js",
-            "line": 62,
+            "line": 58,
+            "description": "端末判定処理を始めます",
             "itemtype": "method",
             "name": "init",
             "static": 1,
@@ -393,14 +481,15 @@
         },
         {
             "file": "src/device/Device.js",
-            "line": 82,
+            "line": 76,
+            "description": "引数関数を実行します",
             "itemtype": "method",
-            "name": "call",
+            "name": "execute",
             "static": 1,
             "params": [
                 {
                     "name": "func",
-                    "description": "",
+                    "description": "実行する関数",
                     "type": "Function"
                 }
             ],
@@ -410,376 +499,358 @@
         },
         {
             "file": "src/device/Device.js",
-            "line": 93,
+            "line": 86,
+            "description": "端末 OS 判定処理を行います",
             "itemtype": "method",
-            "name": "_default",
+            "name": "default",
             "static": 1,
             "params": [
                 {
                     "name": "classes",
-                    "description": "",
+                    "description": "Classes instance を書きこみに使用します",
                     "type": "Classes"
                 }
             ],
             "return": {
-                "description": "",
+                "description": "method chain 可能にします",
                 "type": "Device"
             },
-            "access": "private",
-            "tagname": "",
             "class": "Device",
             "module": "Sagen",
             "submodule": "Device"
         },
         {
             "file": "src/device/Device.js",
-            "line": 111,
+            "line": 104,
+            "description": "dataset-browser, dataset-canvas, dataset-orientation option 処理を行います",
             "itemtype": "method",
-            "name": "_option",
+            "name": "option",
             "static": 1,
             "params": [
                 {
                     "name": "classes",
-                    "description": "",
+                    "description": "Classes instance を書きこみに使用します",
                     "type": "Classes"
                 }
             ],
             "return": {
-                "description": "",
+                "description": "method chain 可能にします",
                 "type": "Device"
             },
-            "access": "private",
-            "tagname": "",
             "class": "Device",
             "module": "Sagen",
             "submodule": "Device"
         },
         {
             "file": "src/device/Device.js",
-            "line": 150,
+            "line": 136,
+            "description": "browser / OS version を書き込みます",
             "itemtype": "method",
-            "name": "_version",
+            "name": "version",
             "static": 1,
             "params": [
                 {
                     "name": "classes",
-                    "description": "",
+                    "description": "Classes instance を書きこみに使用します",
                     "type": "Classes"
                 },
                 {
                     "name": "prefix",
-                    "description": "",
+                    "description": "iphone, ipad... な端末識別子",
                     "type": "String"
                 },
                 {
                     "name": "numbers",
-                    "description": "",
+                    "description": "version を配列形式",
                     "type": "Array"
                 }
             ],
             "return": {
-                "description": "",
+                "description": "method chain 可能にします",
                 "type": "Device"
             },
-            "access": "private",
-            "tagname": "",
             "class": "Device",
             "module": "Sagen",
             "submodule": "Device"
         },
         {
             "file": "src/device/Device.js",
-            "line": 178,
+            "line": 159,
+            "description": "iOS 関連を判定します",
             "itemtype": "method",
-            "name": "_ios",
+            "name": "ios",
             "static": 1,
             "params": [
                 {
                     "name": "classes",
-                    "description": "",
+                    "description": "Classes instance を書きこみに使用します",
                     "type": "Classes"
                 }
             ],
             "return": {
-                "description": "",
+                "description": "method chain 可能にします",
                 "type": "Device"
             },
-            "access": "private",
-            "tagname": "",
             "class": "Device",
             "module": "Sagen",
             "submodule": "Device"
         },
         {
             "file": "src/device/Device.js",
-            "line": 223,
+            "line": 193,
+            "description": "Android 関連を判定します",
             "itemtype": "method",
-            "name": "_android",
+            "name": "android",
             "static": 1,
             "params": [
                 {
                     "name": "classes",
-                    "description": "",
+                    "description": "Classes instance を書きこみに使用します",
                     "type": "Classes"
                 }
             ],
             "return": {
-                "description": "",
+                "description": "method chain 可能にします",
                 "type": "Device"
             },
-            "access": "private",
-            "tagname": "",
             "class": "Device",
             "module": "Sagen",
             "submodule": "Device"
         },
         {
             "file": "src/device/Device.js",
-            "line": 274,
+            "line": 231,
+            "description": "CSS3 判定を行います",
             "itemtype": "method",
-            "name": "_css3",
+            "name": "css3",
             "static": 1,
             "params": [
                 {
                     "name": "classes",
-                    "description": "",
+                    "description": "Classes instance を書きこみに使用します",
                     "type": "Classes"
                 }
             ],
             "return": {
-                "description": "",
+                "description": "method chain 可能にします",
                 "type": "Device"
             },
-            "access": "private",
-            "tagname": "",
             "class": "Device",
             "module": "Sagen",
             "submodule": "Device"
         },
         {
             "file": "src/device/Device.js",
-            "line": 322,
+            "line": 265,
+            "description": "element 関連判定を行います",
             "itemtype": "method",
-            "name": "_element",
+            "name": "element",
             "static": 1,
             "params": [
                 {
                     "name": "classes",
-                    "description": "",
+                    "description": "Classes instance を書きこみに使用します",
                     "type": "Classes"
                 }
             ],
             "return": {
-                "description": "",
+                "description": "method chain 可能にします",
                 "type": "Device"
             },
-            "access": "private",
-            "tagname": "",
             "class": "Device",
             "module": "Sagen",
             "submodule": "Device"
         },
         {
             "file": "src/device/Device.js",
-            "line": 346,
+            "line": 283,
+            "description": "OS 関連判定を行います",
             "itemtype": "method",
-            "name": "_os",
+            "name": "os",
             "static": 1,
             "params": [
                 {
                     "name": "classes",
-                    "description": "",
+                    "description": "Classes instance を書きこみに使用します",
                     "type": "Classes"
                 }
             ],
             "return": {
-                "description": "",
+                "description": "method chain 可能にします",
                 "type": "Device"
             },
-            "access": "private",
-            "tagname": "",
             "class": "Device",
             "module": "Sagen",
             "submodule": "Device"
         },
         {
             "file": "src/device/Device.js",
-            "line": 390,
+            "line": 317,
+            "description": "Safari 判定を行います",
             "itemtype": "method",
-            "name": "_safari",
+            "name": "safari",
             "static": 1,
             "params": [
                 {
                     "name": "classes",
-                    "description": "",
+                    "description": "Classes instance を書きこみに使用します",
                     "type": "Classes"
                 }
             ],
             "return": {
-                "description": "",
+                "description": "method chain 可能にします",
                 "type": "Device"
             },
-            "access": "private",
-            "tagname": "",
             "class": "Device",
             "module": "Sagen",
             "submodule": "Device"
         },
         {
             "file": "src/device/Device.js",
-            "line": 415,
+            "line": 337,
+            "description": "Chrome 判定を行います",
             "itemtype": "method",
-            "name": "_chrome",
+            "name": "chrome",
             "static": 1,
             "params": [
                 {
                     "name": "classes",
-                    "description": "",
+                    "description": "Classes instance を書きこみに使用します",
                     "type": "Classes"
                 }
             ],
             "return": {
-                "description": "",
+                "description": "method chain 可能にします",
                 "type": "Device"
             },
-            "access": "private",
-            "tagname": "",
             "class": "Device",
             "module": "Sagen",
             "submodule": "Device"
         },
         {
             "file": "src/device/Device.js",
-            "line": 440,
+            "line": 358,
+            "description": "Firefox 判定を行います",
             "itemtype": "method",
-            "name": "_firefox",
+            "name": "firefox",
             "static": 1,
             "params": [
                 {
                     "name": "classes",
-                    "description": "",
+                    "description": "Classes instance を書きこみに使用します",
                     "type": "Classes"
                 }
             ],
             "return": {
-                "description": "",
+                "description": "method chain 可能にします",
                 "type": "Device"
             },
-            "access": "private",
-            "tagname": "",
             "class": "Device",
             "module": "Sagen",
             "submodule": "Device"
         },
         {
             "file": "src/device/Device.js",
-            "line": 465,
+            "line": 378,
+            "description": "Edge 判定を行います",
             "itemtype": "method",
-            "name": "_firefox",
+            "name": "edge",
             "static": 1,
             "params": [
                 {
                     "name": "classes",
-                    "description": "",
+                    "description": "Classes instance を書きこみに使用します",
                     "type": "Classes"
                 }
             ],
             "return": {
-                "description": "",
+                "description": "method chain 可能にします",
                 "type": "Device"
             },
-            "access": "private",
-            "tagname": "",
             "class": "Device",
             "module": "Sagen",
             "submodule": "Device"
         },
         {
             "file": "src/device/Device.js",
-            "line": 490,
-            "description": "Mac Firefox check",
+            "line": 398,
+            "description": "iOS Firefox check",
             "itemtype": "method",
-            "name": "_fxios",
+            "name": "fxios",
             "static": 1,
             "params": [
                 {
                     "name": "classes",
-                    "description": "",
+                    "description": "Classes instance を書きこみに使用します",
                     "type": "Classes"
                 }
             ],
             "return": {
-                "description": "",
+                "description": "method chain 可能にします",
                 "type": "Device"
             },
-            "access": "private",
-            "tagname": "",
             "class": "Device",
             "module": "Sagen",
             "submodule": "Device"
         },
         {
             "file": "src/device/Device.js",
-            "line": 517,
+            "line": 419,
+            "description": "IE 判定を行います",
             "itemtype": "method",
-            "name": "_ie",
+            "name": "ie",
             "static": 1,
             "params": [
                 {
                     "name": "classes",
-                    "description": "",
+                    "description": "Classes instance を書きこみに使用します",
                     "type": "Classes"
                 }
             ],
             "return": {
-                "description": "",
+                "description": "method chain 可能にします",
                 "type": "Device"
             },
-            "access": "private",
-            "tagname": "",
             "class": "Device",
             "module": "Sagen",
             "submodule": "Device"
         },
         {
             "file": "src/device/Device.js",
-            "line": 542,
+            "line": 439,
+            "description": "canvas 判定を行います",
             "itemtype": "method",
-            "name": "_canvas",
+            "name": "canvas",
             "static": 1,
             "params": [
                 {
                     "name": "classes",
-                    "description": "",
+                    "description": "Classes instance を書きこみに使用します",
                     "type": "Classes"
                 }
             ],
             "return": {
-                "description": "",
+                "description": "method chain 可能にします",
                 "type": "Device"
             },
-            "access": "private",
-            "tagname": "",
             "class": "Device",
             "module": "Sagen",
             "submodule": "Device"
         },
         {
             "file": "src/device/Device.js",
-            "line": 567,
+            "line": 458,
             "description": "orientation event handler",
             "itemtype": "method",
-            "name": "_onOrientation",
+            "name": "onOrientation",
             "static": 1,
             "params": [
                 {
                     "name": "event",
-                    "description": "",
+                    "description": "orientation event",
                     "type": "Object"
                 }
             ],
-            "access": "private",
-            "tagname": "",
             "class": "Device",
             "module": "Sagen",
             "submodule": "Device"
@@ -793,9 +864,10 @@
         },
         {
             "file": "src/device/Orientation.js",
-            "line": 38,
+            "line": 34,
+            "description": "orientation 可能フラッグ",
             "itemtype": "property",
-            "name": "_orientation",
+            "name": "orientation",
             "static": 1,
             "type": "{boolean}",
             "access": "private",
@@ -806,9 +878,10 @@
         },
         {
             "file": "src/device/Orientation.js",
-            "line": 45,
+            "line": 42,
+            "description": "監視するイベント種類",
             "itemtype": "property",
-            "name": "_eventType",
+            "name": "eventType",
             "static": 1,
             "type": "{string}",
             "access": "private",
@@ -819,9 +892,10 @@
         },
         {
             "file": "src/device/Orientation.js",
-            "line": 52,
+            "line": 50,
+            "description": "監視イベントハンドラ",
             "itemtype": "property",
-            "name": "_handler",
+            "name": "handler",
             "static": 1,
             "type": "{Function}",
             "access": "private",
@@ -832,9 +906,10 @@
         },
         {
             "file": "src/device/Orientation.js",
-            "line": 59,
+            "line": 58,
+            "description": "matchMedia object",
             "itemtype": "property",
-            "name": "_mediaQuery",
+            "name": "mediaQuery",
             "static": 1,
             "type": "{MediaQueryList}",
             "access": "private",
@@ -845,7 +920,22 @@
         },
         {
             "file": "src/device/Orientation.js",
-            "line": 84,
+            "line": 66,
+            "description": "start flag",
+            "itemtype": "property",
+            "name": "started",
+            "static": 1,
+            "access": "private",
+            "tagname": "",
+            "type": "{boolean}",
+            "class": "Orientation",
+            "module": "Sagen",
+            "submodule": "Orientation"
+        },
+        {
+            "file": "src/device/Orientation.js",
+            "line": 89,
+            "description": "orientation change event",
             "itemtype": "event",
             "name": "CHANGE_ORIENTATION",
             "static": 1,
@@ -856,7 +946,8 @@
         },
         {
             "file": "src/device/Orientation.js",
-            "line": 93,
+            "line": 99,
+            "description": "orientation event 監視を開始します",
             "itemtype": "method",
             "name": "init",
             "static": 1,
@@ -866,12 +957,13 @@
         },
         {
             "file": "src/device/Orientation.js",
-            "line": 103,
+            "line": 107,
+            "description": "orientation event を使用可能か調べます",
             "itemtype": "method",
             "name": "canOrientation",
             "static": 1,
             "return": {
-                "description": "",
+                "description": "true: orientation event を使用可能",
                 "type": "Boolean"
             },
             "class": "Orientation",
@@ -881,11 +973,12 @@
         {
             "file": "src/device/Orientation.js",
             "line": 119,
+            "description": "監視する event type, orientation event を使用不可の時は resize を監視します",
             "itemtype": "method",
             "name": "eventType",
             "static": 1,
             "return": {
-                "description": "",
+                "description": "orientationchange or resize",
                 "type": "String"
             },
             "class": "Orientation",
@@ -894,8 +987,8 @@
         },
         {
             "file": "src/device/Orientation.js",
-            "line": 135,
-            "description": "Orientation.CHANGE_ORIENTATIONをdispatchし directionを \"portrait\" にします",
+            "line": 131,
+            "description": "Orientation.CHANGE_ORIENTATION を dispatchし directionを \"portrait\" にします",
             "itemtype": "method",
             "name": "portrait",
             "static": 1,
@@ -905,7 +998,7 @@
         },
         {
             "file": "src/device/Orientation.js",
-            "line": 145,
+            "line": 139,
             "description": "Orientation.CHANGE_ORIENTATIONをdispatchし directionを \"landscape\" にします",
             "itemtype": "method",
             "name": "landscape",
@@ -916,12 +1009,13 @@
         },
         {
             "file": "src/device/Orientation.js",
-            "line": 155,
+            "line": 147,
+            "description": "orientation event 監視を開始します",
             "itemtype": "method",
             "name": "listen",
             "static": 1,
             "return": {
-                "description": "",
+                "description": "method chain 可能にします",
                 "type": "Orientation"
             },
             "class": "Orientation",
@@ -930,7 +1024,8 @@
         },
         {
             "file": "src/device/Orientation.js",
-            "line": 194,
+            "line": 174,
+            "description": "イベント監視を停止します",
             "itemtype": "method",
             "name": "abort",
             "static": 1,
@@ -940,7 +1035,7 @@
         },
         {
             "file": "src/device/Orientation.js",
-            "line": 207,
+            "line": 184,
             "description": "イベントを強制的に発火させます",
             "itemtype": "method",
             "name": "fire",
@@ -951,28 +1046,70 @@
         },
         {
             "file": "src/device/Orientation.js",
-            "line": 225,
+            "line": 196,
+            "description": "orientation 監視を開始します",
             "itemtype": "method",
-            "name": "_listenOrientation",
+            "name": "listenOrientation",
             "static": 1,
-            "access": "private",
-            "tagname": "",
             "class": "Orientation",
             "module": "Sagen",
             "submodule": "Orientation"
         },
         {
             "file": "src/device/Orientation.js",
-            "line": 266,
+            "line": 222,
+            "description": "角度を測ります",
             "itemtype": "method",
-            "name": "_checkDegree",
+            "name": "checkDegree",
             "static": 1,
             "return": {
-                "description": "",
+                "description": "true: 90degree",
                 "type": "Boolean"
             },
-            "access": "private",
-            "tagname": "",
+            "class": "Orientation",
+            "module": "Sagen",
+            "submodule": "Orientation"
+        },
+        {
+            "file": "src/device/Orientation.js",
+            "line": 231,
+            "description": "縦横比を測ります",
+            "itemtype": "method",
+            "name": "checkAspect",
+            "static": 1,
+            "return": {
+                "description": "true: portrait",
+                "type": "Boolean"
+            },
+            "class": "Orientation",
+            "module": "Sagen",
+            "submodule": "Orientation"
+        },
+        {
+            "file": "src/device/Orientation.js",
+            "line": 243,
+            "description": "Experia Z(Sony Tablet), portrait / landscape 表示が逆なのでwindow比率で判定する",
+            "itemtype": "method",
+            "name": "onExperiaZ",
+            "static": 1,
+            "class": "Orientation",
+            "module": "Sagen",
+            "submodule": "Orientation"
+        },
+        {
+            "file": "src/device/Orientation.js",
+            "line": 259,
+            "description": "window.matchMedia listener handler",
+            "itemtype": "method",
+            "name": "onRotate",
+            "static": 1,
+            "params": [
+                {
+                    "name": "mediaQueryList",
+                    "description": "MediaQueryList object",
+                    "type": "MediaQueryList"
+                }
+            ],
             "class": "Orientation",
             "module": "Sagen",
             "submodule": "Orientation"
@@ -980,71 +1117,21 @@
         {
             "file": "src/device/Orientation.js",
             "line": 277,
+            "description": "orientation change event handler",
             "itemtype": "method",
-            "name": "_checkAspect",
+            "name": "onOrientationChange",
             "static": 1,
-            "return": {
-                "description": "",
-                "type": "Boolean"
-            },
-            "access": "private",
-            "tagname": "",
             "class": "Orientation",
             "module": "Sagen",
             "submodule": "Orientation"
         },
         {
             "file": "src/device/Orientation.js",
-            "line": 292,
-            "description": "Experia Z(Sony Tablet), portrait / landscape 表示が逆なのでwindow比率で判定する",
+            "line": 291,
+            "description": "matchMedia 監視を開始します",
             "itemtype": "method",
-            "name": "_experiaZ",
-            "access": "private",
-            "tagname": "",
-            "class": "Orientation",
-            "module": "Sagen",
-            "submodule": "Orientation"
-        },
-        {
-            "file": "src/device/Orientation.js",
-            "line": 314,
-            "description": "window.matchMedia listener handler",
-            "itemtype": "method",
-            "name": "_onRotate",
+            "name": "listenMatchMedia",
             "static": 1,
-            "params": [
-                {
-                    "name": "mediaQuery",
-                    "description": "",
-                    "type": "MediaQueryList"
-                }
-            ],
-            "access": "private",
-            "tagname": "",
-            "class": "Orientation",
-            "module": "Sagen",
-            "submodule": "Orientation"
-        },
-        {
-            "file": "src/device/Orientation.js",
-            "line": 339,
-            "itemtype": "method",
-            "name": "_onOrientationChange",
-            "static": 1,
-            "access": "private",
-            "tagname": "",
-            "class": "Orientation",
-            "module": "Sagen",
-            "submodule": "Orientation"
-        },
-        {
-            "file": "src/device/Orientation.js",
-            "line": 360,
-            "itemtype": "method",
-            "name": "_listenMatchMedia",
-            "static": 1,
-            "access": "private",
-            "tagname": "",
             "class": "Orientation",
             "module": "Sagen",
             "submodule": "Orientation"
@@ -1058,9 +1145,10 @@
         },
         {
             "file": "src/device/Viewport.js",
-            "line": 33,
+            "line": 29,
+            "description": "viewport tag",
             "itemtype": "property",
-            "name": "_viewport",
+            "name": "viewport",
             "static": 1,
             "type": "{HTMLElement|String}",
             "access": "private",
@@ -1071,9 +1159,10 @@
         },
         {
             "file": "src/device/Viewport.js",
-            "line": 40,
+            "line": 37,
+            "description": "viewport.content",
             "itemtype": "property",
-            "name": "_content",
+            "name": "content",
             "static": 1,
             "type": "{string}",
             "access": "private",
@@ -1084,7 +1173,8 @@
         },
         {
             "file": "src/device/Viewport.js",
-            "line": 61,
+            "line": 59,
+            "description": "data-ios が true の時に minimalUi を実行します",
             "itemtype": "method",
             "name": "init",
             "static": 1,
@@ -1094,12 +1184,13 @@
         },
         {
             "file": "src/device/Viewport.js",
-            "line": 74,
+            "line": 69,
+            "description": "viewport tag と viewport.content を取得します",
             "itemtype": "method",
             "name": "find",
             "static": 1,
             "return": {
-                "description": "",
+                "description": "method chain 可能にします",
                 "type": "Viewport"
             },
             "class": "Viewport",
@@ -1108,12 +1199,13 @@
         },
         {
             "file": "src/device/Viewport.js",
-            "line": 102,
+            "line": 90,
+            "description": "viewport tag を取得します",
             "itemtype": "method",
             "name": "Viewport",
             "static": 1,
             "return": {
-                "description": "",
+                "description": "viewport tag",
                 "type": "HTMLElement|*"
             },
             "class": "Viewport",
@@ -1122,12 +1214,13 @@
         },
         {
             "file": "src/device/Viewport.js",
-            "line": 113,
+            "line": 100,
+            "description": "viewport.content を取得します",
             "itemtype": "method",
             "name": "content",
             "static": 1,
             "return": {
-                "description": "",
+                "description": "viewport.content",
                 "type": "String"
             },
             "class": "Viewport",
@@ -1136,19 +1229,20 @@
         },
         {
             "file": "src/device/Viewport.js",
-            "line": 124,
+            "line": 110,
+            "description": "viewport tag を書き込みます",
             "itemtype": "method",
             "name": "write",
             "static": 1,
             "params": [
                 {
-                    "name": "content",
-                    "description": "",
+                    "name": "contentOption",
+                    "description": "viewport.content データ",
                     "type": "String"
                 }
             ],
             "return": {
-                "description": "",
+                "description": "method chain 可能にします",
                 "type": "Viewport"
             },
             "class": "Viewport",
@@ -1157,19 +1251,20 @@
         },
         {
             "file": "src/device/Viewport.js",
-            "line": 151,
+            "line": 131,
+            "description": "viewport に追加します",
             "itemtype": "method",
             "name": "add",
             "static": 1,
             "params": [
                 {
                     "name": "option",
-                    "description": "",
+                    "description": "追加オプション",
                     "type": "String"
                 }
             ],
             "return": {
-                "description": "",
+                "description": "method chain 可能にします",
                 "type": "Viewport"
             },
             "class": "Viewport",
@@ -1178,24 +1273,25 @@
         },
         {
             "file": "src/device/Viewport.js",
-            "line": 179,
+            "line": 150,
+            "description": "viewport を一部書き換えます",
             "itemtype": "method",
             "name": "replace",
             "static": 1,
             "params": [
                 {
                     "name": "oldOption",
-                    "description": "",
+                    "description": "置換え元",
                     "type": "String"
                 },
                 {
                     "name": "newOption",
-                    "description": "",
+                    "description": "置換える viewport",
                     "type": "String"
                 }
             ],
             "return": {
-                "description": "",
+                "description": "method chain 可能にします",
                 "type": "Viewport"
             },
             "class": "Viewport",
@@ -1204,20 +1300,20 @@
         },
         {
             "file": "src/device/Viewport.js",
-            "line": 210,
+            "line": 171,
             "description": "viewport content 引数で書換",
             "itemtype": "method",
             "name": "rewrite",
             "static": 1,
             "params": [
                 {
-                    "name": "content",
-                    "description": "",
+                    "name": "contentOption",
+                    "description": "新規 content 文字列",
                     "type": "String"
                 }
             ],
             "return": {
-                "description": "",
+                "description": "method chain 可能にします",
                 "type": "Viewport"
             },
             "class": "Viewport",
@@ -1226,7 +1322,8 @@
         },
         {
             "file": "src/device/Viewport.js",
-            "line": 230,
+            "line": 185,
+            "description": "`minimal-ui` を追加します, iOS 7.1 ~ 8.0未満の時に実行されます",
             "itemtype": "method",
             "name": "minimalUi",
             "static": 1,
@@ -1236,30 +1333,75 @@
         },
         {
             "file": "src/Sagen.js",
-            "line": 169,
+            "line": 182,
+            "description": "script#sagen data 属性を捜査しオプションフラッグを調べます",
+            "itemtype": "method",
+            "name": "init",
+            "static": 1,
+            "access": "private",
+            "tagname": "",
+            "return": {
+                "description": "Object を保障します",
+                "type": "*"
+            },
+            "class": "EventDispatcher",
+            "module": "Sagen"
+        },
+        {
+            "file": "src/Sagen.js",
+            "line": 214,
+            "description": "data option が存在するかを調べます",
+            "itemtype": "method",
+            "name": "check",
+            "access": "private",
+            "tagname": "",
+            "static": 1,
+            "params": [
+                {
+                    "name": "data",
+                    "description": "data 属性パース済み object",
+                    "type": "Object"
+                }
+            ],
+            "return": {
+                "description": "true: data 属性あり",
+                "type": "Boolean"
+            },
+            "class": "EventDispatcher",
+            "module": "Sagen"
+        },
+        {
+            "file": "src/Sagen.js",
+            "line": 238,
+            "description": "data 属性オプション を調べます",
             "itemtype": "method",
             "name": "dataSet",
             "static": 1,
             "params": [
                 {
                     "name": "type",
-                    "description": "",
+                    "description": "data key 名称 `data-xxx` `xxx` 部分",
                     "type": "String"
                 }
             ],
+            "return": {
+                "description": "オプション有無",
+                "type": "Boolean"
+            },
             "class": "Sagen",
             "module": "Sagen"
         },
         {
             "file": "src/Sagen.js",
-            "line": 181,
-            "description": "dataSet alias",
-            "deprecated": true,
-            "deprecationMessage": "instead use dataSet",
+            "line": 249,
+            "description": "data 属性オプションが存在するかを調べます",
             "itemtype": "method",
-            "name": "dataset",
+            "name": "flag",
             "static": 1,
-            "type": "{Function|*}",
+            "return": {
+                "description": "true: 存在します",
+                "type": "Boolean"
+            },
             "class": "Sagen",
             "module": "Sagen"
         },
@@ -1279,6 +1421,10 @@
         }
     ],
     "warnings": [
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " src/Sagen.js:182"
+        },
         {
             "message": "Missing item type\nlicense inazumatv.com\nauthor (at)taikiken / http://inazumatv.com\ndate 2015/04/10 - 16:02\n\nCopyright (c) 2011-2015 inazumatv.com, inc.\n\nDistributed under the terms of the MIT license.\nhttp://www.opensource.org/licenses/mit-license.html\n\nThis notice shall be included in all copies or substantial portions of the Software.",
             "line": " src/device/Classes.js:1"

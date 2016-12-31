@@ -38,8 +38,11 @@
                 
                         <div id="api-tabview-panel">
                             <ul id="api-classes" class="apis classes">
+                                <li><a href="../classes/Browser.html">Browser</a></li>
                                 <li><a href="../classes/Classes.html">Classes</a></li>
                                 <li><a href="../classes/Device.html">Device</a></li>
+                                <li><a href="../classes/Dom.html">Dom</a></li>
+                                <li><a href="../classes/EventDispatcher.html">EventDispatcher</a></li>
                                 <li><a href="../classes/Orientation.html">Orientation</a></li>
                                 <li><a href="../classes/Sagen.html">Sagen</a></li>
                                 <li><a href="../classes/Viewport.html">Viewport</a></li>
@@ -96,7 +99,7 @@
 
 
         <div class="foundat">
-            Defined in: <a href="../files/src_device_Orientation.js.html#l69"><code>src&#x2F;device&#x2F;Orientation.js:69</code></a>
+            Defined in: <a href="../files/src_device_Orientation.js.html#l75"><code>src&#x2F;device&#x2F;Orientation.js:75</code></a>
         </div>
 
             Module: <a href="../modules/Orientation.html">Orientation</a><br>
@@ -128,7 +131,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_device_Orientation.js.html#l69"><code>src&#x2F;device&#x2F;Orientation.js:69</code></a>
+        <a href="../files/src_device_Orientation.js.html#l75"><code>src&#x2F;device&#x2F;Orientation.js:75</code></a>
         </p>
 
 
@@ -162,40 +165,6 @@
                     <h3>Methods</h3>
 
                     <ul class="index-list methods">
-                            <li class="index-item method private">
-                                <a href="#method__checkAspect">_checkAspect</a>
-
-                                    <span class="flag static">static</span>
-                            </li>
-                            <li class="index-item method private">
-                                <a href="#method__checkDegree">_checkDegree</a>
-
-                                    <span class="flag static">static</span>
-                            </li>
-                            <li class="index-item method private">
-                                <a href="#method__experiaZ">_experiaZ</a>
-
-                            </li>
-                            <li class="index-item method private">
-                                <a href="#method__listenMatchMedia">_listenMatchMedia</a>
-
-                                    <span class="flag static">static</span>
-                            </li>
-                            <li class="index-item method private">
-                                <a href="#method__listenOrientation">_listenOrientation</a>
-
-                                    <span class="flag static">static</span>
-                            </li>
-                            <li class="index-item method private">
-                                <a href="#method__onOrientationChange">_onOrientationChange</a>
-
-                                    <span class="flag static">static</span>
-                            </li>
-                            <li class="index-item method private">
-                                <a href="#method__onRotate">_onRotate</a>
-
-                                    <span class="flag static">static</span>
-                            </li>
                             <li class="index-item method">
                                 <a href="#method_abort">abort</a>
 
@@ -203,6 +172,16 @@
                             </li>
                             <li class="index-item method">
                                 <a href="#method_canOrientation">canOrientation</a>
+
+                                    <span class="flag static">static</span>
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_checkAspect">checkAspect</a>
+
+                                    <span class="flag static">static</span>
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_checkDegree">checkDegree</a>
 
                                     <span class="flag static">static</span>
                             </li>
@@ -232,6 +211,31 @@
                                     <span class="flag static">static</span>
                             </li>
                             <li class="index-item method">
+                                <a href="#method_listenMatchMedia">listenMatchMedia</a>
+
+                                    <span class="flag static">static</span>
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_listenOrientation">listenOrientation</a>
+
+                                    <span class="flag static">static</span>
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_onExperiaZ">onExperiaZ</a>
+
+                                    <span class="flag static">static</span>
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_onOrientationChange">onOrientationChange</a>
+
+                                    <span class="flag static">static</span>
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_onRotate">onRotate</a>
+
+                                    <span class="flag static">static</span>
+                            </li>
+                            <li class="index-item method">
                                 <a href="#method_portrait">portrait</a>
 
                                     <span class="flag static">static</span>
@@ -244,22 +248,27 @@
 
                     <ul class="index-list properties">
                             <li class="index-item property private">
-                                <a href="#property__eventType">_eventType</a>
+                                <a href="#property_eventType">eventType</a>
 
                                     <span class="flag static">static</span>
                             </li>
                             <li class="index-item property private">
-                                <a href="#property__handler">_handler</a>
+                                <a href="#property_handler">handler</a>
 
                                     <span class="flag static">static</span>
                             </li>
                             <li class="index-item property private">
-                                <a href="#property__mediaQuery">_mediaQuery</a>
+                                <a href="#property_mediaQuery">mediaQuery</a>
 
                                     <span class="flag static">static</span>
                             </li>
                             <li class="index-item property private">
-                                <a href="#property__orientation">_orientation</a>
+                                <a href="#property_orientation">orientation</a>
+
+                                    <span class="flag static">static</span>
+                            </li>
+                            <li class="index-item property private">
+                                <a href="#property_started">started</a>
 
                                     <span class="flag static">static</span>
                             </li>
@@ -283,273 +292,6 @@
             <div id="methods" class="api-class-tabpanel">
                 <h2 class="off-left">Methods</h2>
 
-<div id="method__checkAspect" class="method item private">
-    <h3 class="name"><code>_checkAspect</code></h3>
-
-        <span class="paren">()</span>
-
-        <span class="returns-inline">
-            <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>
-        </span>
-
-
-        <span class="flag private">private</span>
-
-
-        <span class="flag static">static</span>
-
-
-
-    <div class="meta">
-                <p>
-                Defined in
-        <a href="../files/src_device_Orientation.js.html#l277"><code>src&#x2F;device&#x2F;Orientation.js:277</code></a>
-        </p>
-
-
-
-    </div>
-
-    <div class="description">
-        
-    </div>
-
-
-        <div class="returns">
-            <h4>Returns:</h4>
-
-            <div class="returns-description">
-                        <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>:
-            </div>
-        </div>
-
-
-</div>
-<div id="method__checkDegree" class="method item private">
-    <h3 class="name"><code>_checkDegree</code></h3>
-
-        <span class="paren">()</span>
-
-        <span class="returns-inline">
-            <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>
-        </span>
-
-
-        <span class="flag private">private</span>
-
-
-        <span class="flag static">static</span>
-
-
-
-    <div class="meta">
-                <p>
-                Defined in
-        <a href="../files/src_device_Orientation.js.html#l266"><code>src&#x2F;device&#x2F;Orientation.js:266</code></a>
-        </p>
-
-
-
-    </div>
-
-    <div class="description">
-        
-    </div>
-
-
-        <div class="returns">
-            <h4>Returns:</h4>
-
-            <div class="returns-description">
-                        <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>:
-            </div>
-        </div>
-
-
-</div>
-<div id="method__experiaZ" class="method item private">
-    <h3 class="name"><code>_experiaZ</code></h3>
-
-        <span class="paren">()</span>
-
-
-
-        <span class="flag private">private</span>
-
-
-
-
-
-    <div class="meta">
-                <p>
-                Defined in
-        <a href="../files/src_device_Orientation.js.html#l292"><code>src&#x2F;device&#x2F;Orientation.js:292</code></a>
-        </p>
-
-
-
-    </div>
-
-    <div class="description">
-        <p>Experia Z(Sony Tablet), portrait / landscape 表示が逆なのでwindow比率で判定する</p>
-
-    </div>
-
-
-
-
-</div>
-<div id="method__listenMatchMedia" class="method item private">
-    <h3 class="name"><code>_listenMatchMedia</code></h3>
-
-        <span class="paren">()</span>
-
-
-
-        <span class="flag private">private</span>
-
-
-        <span class="flag static">static</span>
-
-
-
-    <div class="meta">
-                <p>
-                Defined in
-        <a href="../files/src_device_Orientation.js.html#l360"><code>src&#x2F;device&#x2F;Orientation.js:360</code></a>
-        </p>
-
-
-
-    </div>
-
-    <div class="description">
-        
-    </div>
-
-
-
-
-</div>
-<div id="method__listenOrientation" class="method item private">
-    <h3 class="name"><code>_listenOrientation</code></h3>
-
-        <span class="paren">()</span>
-
-
-
-        <span class="flag private">private</span>
-
-
-        <span class="flag static">static</span>
-
-
-
-    <div class="meta">
-                <p>
-                Defined in
-        <a href="../files/src_device_Orientation.js.html#l225"><code>src&#x2F;device&#x2F;Orientation.js:225</code></a>
-        </p>
-
-
-
-    </div>
-
-    <div class="description">
-        
-    </div>
-
-
-
-
-</div>
-<div id="method__onOrientationChange" class="method item private">
-    <h3 class="name"><code>_onOrientationChange</code></h3>
-
-        <span class="paren">()</span>
-
-
-
-        <span class="flag private">private</span>
-
-
-        <span class="flag static">static</span>
-
-
-
-    <div class="meta">
-                <p>
-                Defined in
-        <a href="../files/src_device_Orientation.js.html#l339"><code>src&#x2F;device&#x2F;Orientation.js:339</code></a>
-        </p>
-
-
-
-    </div>
-
-    <div class="description">
-        
-    </div>
-
-
-
-
-</div>
-<div id="method__onRotate" class="method item private">
-    <h3 class="name"><code>_onRotate</code></h3>
-
-        <div class="args">
-            <span class="paren">(</span><ul class="args-list inline commas">
-                <li class="arg">
-                        <code>mediaQuery</code>
-                </li>
-            </ul><span class="paren">)</span>
-        </div>
-
-
-
-        <span class="flag private">private</span>
-
-
-        <span class="flag static">static</span>
-
-
-
-    <div class="meta">
-                <p>
-                Defined in
-        <a href="../files/src_device_Orientation.js.html#l314"><code>src&#x2F;device&#x2F;Orientation.js:314</code></a>
-        </p>
-
-
-
-    </div>
-
-    <div class="description">
-        <p>window.matchMedia listener handler</p>
-
-    </div>
-
-        <div class="params">
-            <h4>Parameters:</h4>
-
-            <ul class="params-list">
-                <li class="param">
-                        <code class="param-name">mediaQuery</code>
-                        <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/API/MediaQueryList" class="crosslink external" target="_blank">MediaQueryList</a></span>
-
-
-                    <div class="param-description">
-                         
-                    </div>
-
-                </li>
-            </ul>
-        </div>
-
-
-
-</div>
 <div id="method_abort" class="method item">
     <h3 class="name"><code>abort</code></h3>
 
@@ -566,7 +308,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_device_Orientation.js.html#l194"><code>src&#x2F;device&#x2F;Orientation.js:194</code></a>
+        <a href="../files/src_device_Orientation.js.html#l174"><code>src&#x2F;device&#x2F;Orientation.js:174</code></a>
         </p>
 
 
@@ -574,7 +316,8 @@
     </div>
 
     <div class="description">
-        
+        <p>イベント監視を停止します</p>
+
     </div>
 
 
@@ -600,7 +343,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_device_Orientation.js.html#l103"><code>src&#x2F;device&#x2F;Orientation.js:103</code></a>
+        <a href="../files/src_device_Orientation.js.html#l107"><code>src&#x2F;device&#x2F;Orientation.js:107</code></a>
         </p>
 
 
@@ -608,7 +351,8 @@
     </div>
 
     <div class="description">
-        
+        <p>orientation event を使用可能か調べます</p>
+
     </div>
 
 
@@ -617,6 +361,96 @@
 
             <div class="returns-description">
                         <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>:
+                    <p>true: orientation event を使用可能</p>
+
+            </div>
+        </div>
+
+
+</div>
+<div id="method_checkAspect" class="method item">
+    <h3 class="name"><code>checkAspect</code></h3>
+
+        <span class="paren">()</span>
+
+        <span class="returns-inline">
+            <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>
+        </span>
+
+
+
+
+        <span class="flag static">static</span>
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/src_device_Orientation.js.html#l231"><code>src&#x2F;device&#x2F;Orientation.js:231</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>縦横比を測ります</p>
+
+    </div>
+
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                        <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>:
+                    <p>true: portrait</p>
+
+            </div>
+        </div>
+
+
+</div>
+<div id="method_checkDegree" class="method item">
+    <h3 class="name"><code>checkDegree</code></h3>
+
+        <span class="paren">()</span>
+
+        <span class="returns-inline">
+            <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>
+        </span>
+
+
+
+
+        <span class="flag static">static</span>
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/src_device_Orientation.js.html#l222"><code>src&#x2F;device&#x2F;Orientation.js:222</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>角度を測ります</p>
+
+    </div>
+
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                        <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>:
+                    <p>true: 90degree</p>
+
             </div>
         </div>
 
@@ -649,7 +483,8 @@
     </div>
 
     <div class="description">
-        
+        <p>監視する event type, orientation event を使用不可の時は resize を監視します</p>
+
     </div>
 
 
@@ -658,6 +493,8 @@
 
             <div class="returns-description">
                         <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>:
+                    <p>orientationchange or resize</p>
+
             </div>
         </div>
 
@@ -679,7 +516,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_device_Orientation.js.html#l207"><code>src&#x2F;device&#x2F;Orientation.js:207</code></a>
+        <a href="../files/src_device_Orientation.js.html#l184"><code>src&#x2F;device&#x2F;Orientation.js:184</code></a>
         </p>
 
 
@@ -711,7 +548,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_device_Orientation.js.html#l93"><code>src&#x2F;device&#x2F;Orientation.js:93</code></a>
+        <a href="../files/src_device_Orientation.js.html#l99"><code>src&#x2F;device&#x2F;Orientation.js:99</code></a>
         </p>
 
 
@@ -719,7 +556,8 @@
     </div>
 
     <div class="description">
-        
+        <p>orientation event 監視を開始します</p>
+
     </div>
 
 
@@ -742,7 +580,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_device_Orientation.js.html#l145"><code>src&#x2F;device&#x2F;Orientation.js:145</code></a>
+        <a href="../files/src_device_Orientation.js.html#l139"><code>src&#x2F;device&#x2F;Orientation.js:139</code></a>
         </p>
 
 
@@ -777,7 +615,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_device_Orientation.js.html#l155"><code>src&#x2F;device&#x2F;Orientation.js:155</code></a>
+        <a href="../files/src_device_Orientation.js.html#l147"><code>src&#x2F;device&#x2F;Orientation.js:147</code></a>
         </p>
 
 
@@ -785,7 +623,8 @@
     </div>
 
     <div class="description">
-        
+        <p>orientation event 監視を開始します</p>
+
     </div>
 
 
@@ -794,8 +633,193 @@
 
             <div class="returns-description">
                         <span class="type"><a href="../classes/Orientation.html" class="crosslink">Orientation</a></span>:
+                    <p>method chain 可能にします</p>
+
             </div>
         </div>
+
+
+</div>
+<div id="method_listenMatchMedia" class="method item">
+    <h3 class="name"><code>listenMatchMedia</code></h3>
+
+        <span class="paren">()</span>
+
+
+
+
+
+        <span class="flag static">static</span>
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/src_device_Orientation.js.html#l291"><code>src&#x2F;device&#x2F;Orientation.js:291</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>matchMedia 監視を開始します</p>
+
+    </div>
+
+
+
+
+</div>
+<div id="method_listenOrientation" class="method item">
+    <h3 class="name"><code>listenOrientation</code></h3>
+
+        <span class="paren">()</span>
+
+
+
+
+
+        <span class="flag static">static</span>
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/src_device_Orientation.js.html#l196"><code>src&#x2F;device&#x2F;Orientation.js:196</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>orientation 監視を開始します</p>
+
+    </div>
+
+
+
+
+</div>
+<div id="method_onExperiaZ" class="method item">
+    <h3 class="name"><code>onExperiaZ</code></h3>
+
+        <span class="paren">()</span>
+
+
+
+
+
+        <span class="flag static">static</span>
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/src_device_Orientation.js.html#l243"><code>src&#x2F;device&#x2F;Orientation.js:243</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>Experia Z(Sony Tablet), portrait / landscape 表示が逆なのでwindow比率で判定する</p>
+
+    </div>
+
+
+
+
+</div>
+<div id="method_onOrientationChange" class="method item">
+    <h3 class="name"><code>onOrientationChange</code></h3>
+
+        <span class="paren">()</span>
+
+
+
+
+
+        <span class="flag static">static</span>
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/src_device_Orientation.js.html#l277"><code>src&#x2F;device&#x2F;Orientation.js:277</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>orientation change event handler</p>
+
+    </div>
+
+
+
+
+</div>
+<div id="method_onRotate" class="method item">
+    <h3 class="name"><code>onRotate</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>mediaQueryList</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+
+
+
+
+        <span class="flag static">static</span>
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/src_device_Orientation.js.html#l259"><code>src&#x2F;device&#x2F;Orientation.js:259</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>window.matchMedia listener handler</p>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">mediaQueryList</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/API/MediaQueryList" class="crosslink external" target="_blank">MediaQueryList</a></span>
+
+
+                    <div class="param-description">
+                        <p>MediaQueryList object</p>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
 
 
 </div>
@@ -815,7 +839,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_device_Orientation.js.html#l135"><code>src&#x2F;device&#x2F;Orientation.js:135</code></a>
+        <a href="../files/src_device_Orientation.js.html#l131"><code>src&#x2F;device&#x2F;Orientation.js:131</code></a>
         </p>
 
 
@@ -823,7 +847,7 @@
     </div>
 
     <div class="description">
-        <p>Orientation.CHANGE_ORIENTATIONをdispatchし directionを &quot;portrait&quot; にします</p>
+        <p>Orientation.CHANGE_ORIENTATION を dispatchし directionを &quot;portrait&quot; にします</p>
 
     </div>
 
@@ -836,8 +860,8 @@
             <div id="properties" class="api-class-tabpanel">
                 <h2 class="off-left">Properties</h2>
 
-<div id="property__eventType" class="property item private">
-    <h3 class="name"><code>_eventType</code></h3>
+<div id="property_eventType" class="property item private">
+    <h3 class="name"><code>eventType</code></h3>
     <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
 
 
@@ -849,21 +873,22 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_device_Orientation.js.html#l45"><code>src&#x2F;device&#x2F;Orientation.js:45</code></a>
+        <a href="../files/src_device_Orientation.js.html#l42"><code>src&#x2F;device&#x2F;Orientation.js:42</code></a>
         </p>
 
 
     </div>
 
     <div class="description">
-        
+        <p>監視するイベント種類</p>
+
     </div>
 
 
 
 </div>
-<div id="property__handler" class="property item private">
-    <h3 class="name"><code>_handler</code></h3>
+<div id="property_handler" class="property item private">
+    <h3 class="name"><code>handler</code></h3>
     <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function" class="crosslink external" target="_blank">Function</a></span>
 
 
@@ -875,21 +900,22 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_device_Orientation.js.html#l52"><code>src&#x2F;device&#x2F;Orientation.js:52</code></a>
+        <a href="../files/src_device_Orientation.js.html#l50"><code>src&#x2F;device&#x2F;Orientation.js:50</code></a>
         </p>
 
 
     </div>
 
     <div class="description">
-        
+        <p>監視イベントハンドラ</p>
+
     </div>
 
 
 
 </div>
-<div id="property__mediaQuery" class="property item private">
-    <h3 class="name"><code>_mediaQuery</code></h3>
+<div id="property_mediaQuery" class="property item private">
+    <h3 class="name"><code>mediaQuery</code></h3>
     <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/API/MediaQueryList" class="crosslink external" target="_blank">MediaQueryList</a></span>
 
 
@@ -901,21 +927,22 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_device_Orientation.js.html#l59"><code>src&#x2F;device&#x2F;Orientation.js:59</code></a>
+        <a href="../files/src_device_Orientation.js.html#l58"><code>src&#x2F;device&#x2F;Orientation.js:58</code></a>
         </p>
 
 
     </div>
 
     <div class="description">
-        
+        <p>matchMedia object</p>
+
     </div>
 
 
 
 </div>
-<div id="property__orientation" class="property item private">
-    <h3 class="name"><code>_orientation</code></h3>
+<div id="property_orientation" class="property item private">
+    <h3 class="name"><code>orientation</code></h3>
     <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>
 
 
@@ -927,14 +954,42 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_device_Orientation.js.html#l38"><code>src&#x2F;device&#x2F;Orientation.js:38</code></a>
+        <a href="../files/src_device_Orientation.js.html#l34"><code>src&#x2F;device&#x2F;Orientation.js:34</code></a>
         </p>
 
 
     </div>
 
     <div class="description">
-        
+        <p>orientation 可能フラッグ</p>
+
+    </div>
+
+
+
+</div>
+<div id="property_started" class="property item private">
+    <h3 class="name"><code>started</code></h3>
+    <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>
+
+
+        <span class="flag private">private</span>
+
+
+        <span class="flag static">static</span>
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/src_device_Orientation.js.html#l66"><code>src&#x2F;device&#x2F;Orientation.js:66</code></a>
+        </p>
+
+
+    </div>
+
+    <div class="description">
+        <p>start flag</p>
+
     </div>
 
 
@@ -958,14 +1013,15 @@
                         <div class="meta">
                                     <p>
                                     Defined in
-                            <a href="../files/src_device_Orientation.js.html#l84"><code>src&#x2F;device&#x2F;Orientation.js:84</code></a>
+                            <a href="../files/src_device_Orientation.js.html#l89"><code>src&#x2F;device&#x2F;Orientation.js:89</code></a>
                             </p>
                     
                     
                         </div>
                     
                         <div class="description">
-                            
+                            <p>orientation change event</p>
+                    
                         </div>
                     
                     

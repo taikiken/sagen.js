@@ -20,8 +20,8 @@
 	show_css.innerHTML = html_element.className;
 
 	function _onOrientation ( eventObj ) {
-		var direction = eventObj.params[ 0 ];
-
+		var direction = eventObj.direction;
+    console.log('direction', direction);
 		show_css.innerHTML = html_element.className;
 	}
 

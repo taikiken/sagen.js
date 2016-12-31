@@ -13,15 +13,11 @@
  */
 /**
  * execute Sagen default method
- *
- *
  */
-( function ( window ){
+(function(window) {
   'use strict';
-
   var
     Sagen = window.Sagen,
-
     Device = Sagen.Device,
     Viewport = Sagen.Viewport;
 
@@ -29,5 +25,4 @@
   // insert class at html
   Device.init();
   Viewport.init();
-
-}( window ) );
+}(window));
