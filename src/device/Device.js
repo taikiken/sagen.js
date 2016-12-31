@@ -126,6 +126,7 @@
 
     // orientation
     // ToDo: orientation change
+    // console.log('Sagen.dataSet("orientation")', Sagen.dataSet('orientation'), iOS.is());
     if (Sagen.dataSet('orientation') && (iOS.is() || Android.is())) {
       Orientation.on(Orientation.CHANGE_ORIENTATION, Device.onOrientation);
       Orientation.init();
@@ -461,16 +462,16 @@
    * @static
    * @param {Object} event orientation event
    */
-  Device.onOrientation = function( event ) {
+  Device.onOrientation = function(event) {
     var
       direction = event.direction;
-
+    // console.log('Device.onOrientation', event, direction, direction === 'portrait');
     if (direction === 'portrait') {
       classSymbol.removeClass('landscape');
       classSymbol.addClass('portrait');
     } else if (direction === 'landscape') {
-      classSymbol.removeClass( 'portrait' );
-      classSymbol.addClass( 'landscape' );
+      classSymbol.removeClass('portrait');
+      classSymbol.addClass('landscape');
     }
   };
 

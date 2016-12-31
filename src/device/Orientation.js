@@ -102,7 +102,8 @@
    * @static
    */
   Orientation.init = function() {
-    Orientation.listen().fire();
+    Orientation.listen();
+    Orientation.fire();
   };
   /**
    * orientation event を使用可能か調べます
@@ -157,6 +158,7 @@
       started = true;
       // addEventListener が使えるは必須
       if (typeof window.addEventListener !== 'undefined') {
+        // console.log('Css3.matchMedia()', Css3.matchMedia());
         if (Css3.matchMedia()) {
           // can use matchMedia
           // handler = Orientation.listenMatchMedia;
@@ -263,6 +265,7 @@
    * @param {MediaQueryList} mediaQueryList MediaQueryList object
    */
   Orientation.onRotate = function(mediaQueryList) {
+    // console.log('Orientation.onRotate', mediaQueryList.matches, mediaQueryList);
     // use matchMedia
     if (mediaQueryList.matches) {
       // portrait
@@ -280,7 +283,7 @@
    * @static
    */
   Orientation.onOrientationChange = function() {
-    if ( Orientation.checkDegree() ) {
+    if (Orientation.checkDegree()) {
       // portrait
       Orientation.portrait();
     } else {
@@ -308,6 +311,7 @@
       // iOS 5 以下だと mql.addListener が作動しないのでorientationchangeを使用します
       window.addEventListener(Orientation.eventType(), Orientation.onOrientationChange, false);
     } else {
+      // console.log('mql', mql);
       mql.addListener(Orientation.onRotate);
     }
   };

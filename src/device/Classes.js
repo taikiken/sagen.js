@@ -108,8 +108,17 @@
    */
   p.write = function() {
     // return this.dom.addClass(this.classes.join(' '));
-    var classNames = this.classes.join(' ');
-    this.tag.className = classNames;
+    // var classNames = this.classes.join(' ');
+    var
+      classes = this.classes,
+      classNames = classes.join(' '),
+      dom = this.dom,
+      i = 0,
+      limit = classes.length;
+    for(;i < limit; i = (i + 1) | 0) {
+      dom.addClass(classes[i]);
+    }
+    // this.tag.className = classNames;
     return classNames;
   };
   /**
@@ -119,7 +128,7 @@
    * @return {boolean} true: 追加成功
    */
   p.addClass = function(className) {
-    return this.dom.addClass( className );
+    return this.dom.addClass(className);
   };
   /**
    * tag から class を削除します

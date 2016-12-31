@@ -1,33 +1,35 @@
 <!DOCTYPE html>
 <html dir="ltr" lang="ja">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width" />
-	<script type="text/javascript" src="../libs/sagen.js" id="sagen" data-browser="true" data-orientation="true" data-canvas="true" data-ios="true"></script>
-	<title>Sagen test</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width" />
+  <script type="text/javascript" src="../libs/sagen.js" id="sagen" data-browser="true" data-orientation="true" data-canvas="true" data-ios="true"></script>
+  <title>Sagen test</title>
 </head>
 <body>
 <strong>html tag class name</strong>
 <div id="show_css" style="max-width: 100%; padding: 6px; border: 1px solid #ccc;white-space: normal;"></div>
+<p id="show_ua" style="max-width: 100%; padding: 6px; border: 1px solid #ccc;white-space: normal;"></p>
 <script type="text/javascript">
-	( function ( window ){
-		"use strict";
-		var
-			document = window.document,
-			show_css = document.getElementById( "show_css" ),
-			html_element = document.documentElement,
+  ( function ( window ){
+    "use strict";
+    var
+      document = window.document,
+      show_css = document.getElementById( "show_css" ),
+      html_element = document.documentElement,
+      uaElement = document.getElementById('show_ua'),
+      Sagen = window.Sagen;
 
-			Sagen = window.Sagen;
+    function output () {
+      show_css.innerHTML = html_element.className;
+      uaElement.innerHTML = navigator.userAgent;
+    }
 
-		function output () {
-			show_css.innerHTML = html_element.className;
-		}
+    output();
 
-		output();
+    Sagen.Orientation.on( Sagen.Orientation.CHANGE_ORIENTATION, output );
 
-		Sagen.Orientation.on( Sagen.Orientation.CHANGE_ORIENTATION, output );
-
-	}( window ) );
+  }( window ) );
 </script>
 </body>
 </html>
