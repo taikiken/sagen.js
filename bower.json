@@ -35,6 +35,7 @@
     "*.iml",
     "*.memo",
     "*.json",
-    "*.html"
+    "*.html",
+    "*.yml"
   ]
 }
