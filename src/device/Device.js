@@ -67,7 +67,7 @@
     classSymbol = classes;
 
     Device
-      .default(classes)
+      .standard(classes)
       .option(classes)
       .execute(function() {
         classes.write();
@@ -85,13 +85,13 @@
 
   /**
    * 端末 OS 判定処理を行います
-   * @method default
+   * @method standard
    * @static
    * @param {Classes} classes Classes instance を書きこみに使用します
    * @return {Device} method chain 可能にします
    */
-  Device.default = function(classes) {
-    // default
+  Device.standard = function(classes) {
+    // standard
     if (Sagen.flag()) {
       Device.ios(classes)
         .android(classes)

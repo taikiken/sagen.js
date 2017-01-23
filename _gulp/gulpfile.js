@@ -39,4 +39,4 @@ $.requireDir('./task', { recurse: true });
 // ----------------------------------------------------------------
 //  task
 // ----------------------------------------------------------------
-gulp.task( 'build', ['script-build'], function () {} );
+gulp.task( 'build', ['script:build'], function () {} );
