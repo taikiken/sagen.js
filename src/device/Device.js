@@ -39,7 +39,7 @@
      * @property classSymbol
      * @static
      * @private
-     * @type {Classes}
+     * @type {Classes|undefined}
      */
     classSymbol;
 

@@ -108,7 +108,14 @@ gulp.task( 'script-min', function () {
     } ) )
     // concat libName-version
     .pipe( gulp.dest( dir.libs ) )
-    .pipe( $.uglify( { preserveComments: 'some' } ) )
+    // .pipe( $.uglify( { preserveComments: 'some' } ) )
+    .pipe($.uglify(
+      {
+        output: {
+          comments: 'some'
+        }
+      }
+    ))
     .pipe( $.rename( { suffix: '.min' } ) )
     // minified libName-version.min
     .pipe( gulp.dest( dir.libs ) )
