@@ -112,7 +112,9 @@ gulp.task( 'script-min', function () {
     .pipe($.uglify(
       {
         output: {
-          comments: 'some'
+          comments: 'some',
+          // comments: /^!|^\*!/,
+          // comments: 'license',
         }
       }
     ))

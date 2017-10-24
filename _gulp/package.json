@@ -1,7 +1,7 @@
 {
   "name": "Sagen.js",
   "version": "0.5.1",
-  "description": "【Gulp Task 開発環境構築】を行い環境構築後作業します",
+  "description": "Browser & OS detector",
   "main": "gulpfile.js",
   "devDependencies": {
     "del": "^3.0.0",
