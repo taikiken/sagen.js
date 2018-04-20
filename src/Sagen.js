@@ -76,91 +76,8 @@ var Sagen = window.Sagen || {};
     Gasane = window.Gasane,
     wakegi = window.wakegi,
     dataSet = {},
-    flag = false;
-
-  //   dataSet = ( function ( window ){
-  //
-  //     var
-  //       document = window.document,
-  //       element = document.getElementById( 'sagen' ),
-  //       results = {},
-  //       data;
-  //
-  //     function modern ( result, data ) {
-  //
-  //       var
-  //         key,
-  //         //dataKey,
-  //         val;
-  //
-  //       for ( key in data ) {
-  //
-  //         if ( typeof data.hasOwnProperty === 'function' && data.hasOwnProperty( key ) ) {
-  //
-  //           //dataKey = key;
-  //
-  //           val = data[ key ].toLowerCase();
-  //           results[ key ] = val === 'true';
-  //
-  //         } else {
-  //
-  //           val = data[ key ].toLowerCase();
-  //           results[ key ] = val === 'true';
-  //
-  //         }
-  //       }
-  //
-  //       return result;
-  //
-  //     }
-  //
-  //     function legacy ( result, data ) {
-  //
-  //       var
-  //         i, limit, attribute, nodeName, dataKey;
-  //
-  //       for ( i = 0, limit = data.length; i < limit; i = i + 1 ) {
-  //
-  //         attribute = data[ i ];
-  //         nodeName = attribute.nodeName.toLowerCase();
-  //
-  //         if ( nodeName.indexOf( 'data-' ) !== -1 ) {
-  //
-  //           dataKey = nodeName.replace( 'data-', '' );
-  //           results[ dataKey ] = attribute.nodeValue.toLowerCase() === 'true';
-  //
-  //         }
-  //
-  //       }
-  //
-  //       return result;
-  //
-  //     }
-  //
-  //     if ( !!element ) {
-  //
-  //       // id: sagen defined
-  //
-  //       if ( typeof element.dataset !== 'undefined' ) {
-  //
-  //         // can use dataset
-  //         data = element.dataset;
-  //         results = modern( results, data );
-  //
-  //       } else {
-  //
-  //         // use attributes
-  //         data = element.attributes;
-  //         //attributes = true;
-  //         results = legacy( results, data );
-  //
-  //       }
-  //
-  //     }// sagen
-  //
-  //     return results;
-  //
-  // }( window ) );
+    flag = false,
+    selector = 'sagen';
 
   // copy Class
   /**
@@ -184,13 +101,15 @@ var Sagen = window.Sagen || {};
   /**
    * script#sagen data 属性を捜査しオプションフラッグを調べます
    * @method init
+   * @param {string} id - script tag selector id - default `sagen`
    * @static
    * @private
    * @returns {*} Object を保障します
    */
-  function init() {
+  function init(id) {
     var
-      element = document.getElementById('sagen'),
+      element = document.getElementById(id),
+      // element = document.getElementById('sagen'),
       data,
       results,
       key,
@@ -234,7 +153,7 @@ var Sagen = window.Sagen || {};
     return result;
   }
   // 初期処理を行います
-  dataSet = init();
+  dataSet = init(selector);
   flag = check(dataSet);
 
   /**
@@ -257,14 +176,12 @@ var Sagen = window.Sagen || {};
   Sagen.flag = function() {
     return flag;
   };
-  // /**
-  //  * dataSet alias
-  //  * @deprecated instead use dataSet
-  //  * @method dataset
-  //  * @static
-  //  * @for Sagen
-  //  * @type {Function|*}
-  //  */
-  // Sagen.dataset = Sagen.dataSet;
-
+  /**
+   * 外部解放初期化関数
+   * @param {string} id script selector id
+   */
+  Sagen.start = function(id) {
+    dataSet = init(id);
+    flag = check(dataSet);
+  };
 }(window));
