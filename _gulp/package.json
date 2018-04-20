@@ -1,6 +1,6 @@
 {
   "name": "Sagen.js",
-  "version": "0.5.1",
+  "version": "0.5.2",
   "description": "Browser & OS detector",
   "main": "gulpfile.js",
   "devDependencies": {
