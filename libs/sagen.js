@@ -45,8 +45,8 @@ var wakegi=window.wakegi||{};wakegi.int=parseInt,wakegi.float=parseFloat,functio
  * This notice shall be included in all copies or substantial portions of the Software.
  *
  * Sagen
- * version 0.5.1
- * build 2018-4-20 14:29:52
+ * version 0.5.2
+ * build 2018-4-20 14:35:09
  * github: https://github.com/taikiken/sagen.js
  *
  * @requires kaketsugi.js, wakegi.js, gasane.js
@@ -211,7 +211,10 @@ var Sagen = window.Sagen || {};
   Sagen.flag = function() {
     return flag;
   };
-
+  /**
+   * 外部解放初期化関数
+   * @param {string} id script selector id
+   */
   Sagen.start = function(id) {
     dataSet = init(id);
     flag = check(dataSet);

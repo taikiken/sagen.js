@@ -46,7 +46,7 @@ var wakegi=window.wakegi||{};wakegi.int=parseInt,wakegi.float=parseFloat,functio
  *
  * Sagen
  * version 0.5.1
- * build 2018-4-20 14:29:34
+ * build 2018-4-20 14:29:52
  * github: https://github.com/taikiken/sagen.js
  *
  * @requires kaketsugi.js, wakegi.js, gasane.js
@@ -215,7 +215,7 @@ var Sagen = window.Sagen || {};
   Sagen.start = function(id) {
     dataSet = init(id);
     flag = check(dataSet);
-  }
+  };
 }(window));
 
 /**
