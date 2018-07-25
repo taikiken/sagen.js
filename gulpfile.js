@@ -1,7 +1,7 @@
 /**
  * @license inazumatv.com
  * @author (at)taikiken / http://inazumatv.com
- * @date 2015/04/10 - 15:06
+ * @date 2015/03/16 - 14:54
  *
  * Copyright (c) 2011-2015 inazumatv.com, inc.
  *
@@ -11,11 +11,10 @@
  * This notice shall be included in all copies or substantial portions of the Software.
  */
 /*jslint node: true */
-"use strict";
 
 // ----------------------------------------------------------------
-// setting
-var settings = require( '../setting.js' );
+"use strict";
+var settings = require( './gulp_setting.js' );
 
 // ----------------------------------------------------------------
 // Directory
@@ -31,6 +30,11 @@ var version = settings.version;
 // gulp
 var gulp = settings.gulp;
 var $ = settings.plugin;
+
+// ----------------------------------------------------------------
+// import task directory
+// $.requireDir('./task', { recurse: true });
+// ----------------------------------------------------------------
 
 // ----------------------------------------------------------------
 // scripts
@@ -185,16 +189,8 @@ gulp.task( 'script:build', function () {
 
 } );
 
-//gulp.task( 'build', ['script-build'], function () {} );
 
-// compile & api
-//gulp.task( 'script-build-api', function () {
-//
-//  $.runSequence(
-//    [
-//      'script-build',
-//      'script-api'
-//    ]
-//  );
-
-//} );
+// ----------------------------------------------------------------
+//  task
+// ----------------------------------------------------------------
+gulp.task( 'build', ['script:build'], function () {} );
