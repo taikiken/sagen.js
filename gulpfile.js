@@ -49,7 +49,7 @@ var scripts = [];
 // scripts.push( dir.dependencies + '/wakegi.min.js');
 
 // kaketsugi
-scripts.push(dir.src + '/kaketsgi/kaketsugi.js');
+scripts.push(dir.src + '/kaketsugi/kaketsugi.js');
 
 // gasane
 scripts.push(dir.src + '/gasane/Gasane.js');

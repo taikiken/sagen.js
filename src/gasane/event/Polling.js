@@ -150,4 +150,4 @@
     }
   };
   Gasane.Polling = Polling;
-}( window ) );
+}(window));
