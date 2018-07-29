@@ -14,7 +14,7 @@
 
 // ----------------------------------------------------------------
 "use strict";
-var settings = require( './gulp_setting.js' );
+var settings = require( './gulp_setting.js');
 
 // ----------------------------------------------------------------
 // Directory
@@ -44,36 +44,84 @@ var libName = 'sagen.js';
 var scripts = [];
 
 // dependencies
-scripts.push( dir.dependencies + '/kaketsugi.min.js' );
-scripts.push( dir.dependencies + '/gasane.min.js' );
-scripts.push( dir.dependencies + '/wakegi.min.js' );
+// scripts.push( dir.dependencies + '/kaketsugi.min.js');
+// scripts.push( dir.dependencies + '/gasane.min.js');
+// scripts.push( dir.dependencies + '/wakegi.min.js');
 
-// Sagen
-scripts.push( dir.src + '/Sagen.js' );
+// kaketsugi
+scripts.push(dir.src + '/kaketsgi/kaketsugi.js');
+
+// gasane
+scripts.push(dir.src + '/gasane/Gasane.js');
+scripts.push(dir.src + '/gasane/event/EventDispatcher.js');
+scripts.push(dir.src + '/gasane/event/Cycle.js');
+scripts.push(dir.src + '/gasane/event/Fps.js');
+scripts.push(dir.src + '/gasane/event/Polling.js');
+
+// wakegi
+scripts.push(dir.src + '/wakegi/wakegi.js');
+
+// Browser
+scripts.push(dir.src + '/wakegi/Browser.js');
+
+// Utility
+scripts.push(dir.src + '/wakegi/util/Iro.js');
+scripts.push(dir.src + '/wakegi/util/Util.js');
+
+// CSS3
+scripts.push(dir.src + '/wakegi/css/Patterns.js');
+scripts.push(dir.src + '/wakegi/css/Css3.js');
+scripts.push(dir.src + '/wakegi/css/Transition.js');
+scripts.push(dir.src + '/wakegi/css/Transform.js');
+
+// document
+scripts.push(dir.src + '/wakegi/document/Element.js');
+scripts.push(dir.src + '/wakegi/document/Dom.js');
+scripts.push(dir.src + '/wakegi/document/Dataset.js');
 
 // device
-scripts.push( dir.src + '/device/Orientation.js' );
-scripts.push( dir.src + '/device/Classes.js' );
-scripts.push( dir.src + '/device/Device.js' );
-scripts.push( dir.src + '/device/Viewport.js' );
+scripts.push(dir.src + '/wakegi/device/Windows.js');
 
-scripts.push( dir.src + '/execute.js' );
+scripts.push(dir.src + '/wakegi/device/iOS.js');
+
+scripts.push(dir.src + '/wakegi/device/Mac.js');
+
+scripts.push(dir.src + '/wakegi/device/Android.js');
+scripts.push(dir.src + '/wakegi/device/Touch.js');
+scripts.push(dir.src + '/wakegi/device/Mobile.js');
+
+// ua
+scripts.push(dir.src + '/wakegi/browser/FxiOS.js');
+scripts.push(dir.src + '/wakegi/browser/Edge.js');
+scripts.push(dir.src + '/wakegi/browser/IE.js');
+scripts.push(dir.src + '/wakegi/browser/CriOS.js');
+scripts.push(dir.src + '/wakegi/browser/Chrome.js');
+scripts.push(dir.src + '/wakegi/browser/Firefox.js');
+scripts.push(dir.src + '/wakegi/browser/Safari.js');
+
+// Sagen
+scripts.push(dir.src + '/Sagen.js');
+
+// device
+scripts.push(dir.src + '/sagen/device/Orientation.js');
+scripts.push(dir.src + '/sagen/device/Classes.js');
+scripts.push(dir.src + '/sagen/device/Device.js');
+scripts.push(dir.src + '/sagen/device/Viewport.js');
+
+scripts.push(dir.src + '/sagen/execute.js');
 
 // ----------------------------------------------------------------
 // task
 // ----------------------------------------------------------------
 
 // move old folder
-gulp.task( 'script-move-old', function () {
+gulp.task('script:move:old', function() {
+  return gulp.src(dir.libs + '/*')
+    .pipe(gulp.dest(dir.old))
+    .pipe($.size( { title: '*** script:move:old ***' }));
+});
 
-  return gulp.src( dir.libs + '/*' )
-    .pipe( gulp.dest( dir.old ) )
-    .pipe( $.size( { title: '*** script-move-old ***' } ) );
-
-} );
-
-gulp.task( 'script-clean-libs', function () {
-
+gulp.task('script:clean:libs', function() {
   //$.del.bind(null,
   //  [ dir.libs + '/*' ],
   //  {
@@ -84,34 +132,31 @@ gulp.task( 'script-clean-libs', function () {
   //);
   $.del(
     [
-      dir.libs + '/*'
+      dir.libs + '/*',
     ],
     {
       base: process.cwd(),
       dot: true,
-      force: true
+      force: true,
     },
-    function (err, deletedFiles) {
+    function(err, deletedFiles) {
       console.log('files deleted:' + deletedFiles.length + "\n" + deletedFiles.join("\n"));
-    } );
+    });
 
-} );
+});
 
 // build
-gulp.task( 'script-min', function () {
-
-  return gulp.src( scripts )
-    .pipe( $.concat( libName ) )
-    .pipe( $.replace( { patterns: patterns } ) )
+gulp.task('script:min', function() {
+  return gulp.src(scripts)
+    .pipe($.concat(libName))
+    .pipe($.replace({ patterns: patterns }))
     // concat libName
-    .pipe( gulp.dest( dir.libs ) )
-    .pipe( $.rename( function ( path ) {
-
+    .pipe(gulp.dest(dir.libs))
+    .pipe($.rename(function(path) {
       path.basename = path.basename + '-' + version;
-
-    } ) )
+    } ))
     // concat libName-version
-    .pipe( gulp.dest( dir.libs ) )
+    .pipe(gulp.dest(dir.libs))
     // .pipe( $.uglify( { preserveComments: 'some' } ) )
     .pipe($.uglify(
       {
@@ -122,32 +167,30 @@ gulp.task( 'script-min', function () {
         }
       }
     ))
-    .pipe( $.rename( { suffix: '.min' } ) )
+    .pipe($.rename({ suffix: '.min' }))
     // minified libName-version.min
-    .pipe( gulp.dest( dir.libs ) )
-    .pipe( $.rename( function ( path ) {
-      path.basename = path.basename.replace( '-' + version, '' );
-    }) )
+    .pipe(gulp.dest(dir.libs))
+    .pipe($.rename(function(path) {
+      path.basename = path.basename.replace( '-' + version, '');
+    }))
     // minified libName.min
-    .pipe( gulp.dest( dir.libs ) )
-    .pipe( $.size( { title: '*** script-min ***' } ) );
-} );
+    .pipe(gulp.dest(dir.libs))
+    .pipe($.size({ title: '*** script-min ***' }));
+});
 
 // api
-gulp.task( 'script-api', function () {
-
-  return gulp.src( [
-
-    dir.src + '/Sagen.js',
-    dir.src + '/execute.js',
-    dir.src + '/device/*.js'
-
+gulp.task('script:api', function() {
+  return gulp.src([
+    // dir.src + '/Sagen.js',
+    // dir.src + '/execute.js',
+    // dir.src + '/device/*.js',
+    dir.src + '/**/*.js',
   ] )
-    .pipe( $.yuidoc() )
-    .pipe( $.yuidoc.parser() )
-    .pipe( gulp.dest( dir.docs ) );
+    .pipe($.yuidoc())
+    .pipe($.yuidoc.parser())
+    .pipe(gulp.dest(dir.docs));
 
-} );
+});
 
 
 // // Lint JavaScript
@@ -169,7 +212,7 @@ gulp.task('js:eslint', function() {
       configFile: './eslint.es5.yml'
     }))
     .pipe($.eslint.format())
-    .pipe($.size( { title: '*** js:eslint ***' } ) );
+    .pipe($.size( { title: '*** js:eslint ***' } ));
 });
 
 
@@ -177,20 +220,19 @@ gulp.task('js:eslint', function() {
 // ----------------------------------------------------------------
 // sequence
 // compile & api
-gulp.task( 'script:build', function () {
+gulp.task('script:build', function() {
 
   $.runSequence(
     'js:eslint',
-    // 'script-hint',
-    'script-move-old',
-    'script-clean-libs',
-    'script-min'
-  );
+    'script:move:old',
+    'script:clean:libs',
+    'script:min'
+ );
 
-} );
+});
 
 
 // ----------------------------------------------------------------
 //  task
 // ----------------------------------------------------------------
-gulp.task( 'build', ['script:build'], function () {} );
+gulp.task('build', ['script:build'], function() {});
