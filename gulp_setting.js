@@ -43,12 +43,12 @@ var eslint = require('gulp-eslint');
 //  project directory list
 // ----------------------------------------------------------------
 
-var src = '../src';
-var libs = '../libs';
-var old = '../old';
-var docs = '../_docs';
-var example = '../example';
-var dependencies = '../dependencies';
+var src = './src';
+var libs = './libs';
+var old = './old';
+var docs = './_docs';
+var example = './example';
+var dependencies = './dependencies';
 
 // ----------------------------------------------------------------
 // package.json

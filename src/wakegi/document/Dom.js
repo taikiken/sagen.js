@@ -186,7 +186,7 @@
     if (!!styleProp) {
       // IE
       // sanitize property name to camelCase
-      styleProp = styleProp.replace(/\-(\w)/g, function(str, letter) {
+      styleProp = styleProp.replace(/-(\w)/g, function(str, letter) {
         return letter.toUpperCase();
       });
 

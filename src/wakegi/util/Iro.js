@@ -319,11 +319,11 @@
     // Expand shorthand form (e.g. "03F") to full form (e.g. "0033FF")
     var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hexString);
     return result ?
-    {
-      r: mathInt(result[1], 16),
-      g: mathInt(result[2], 16),
-      b: mathInt(result[3], 16)
-    } : null;
+      {
+        r: mathInt(result[1], 16),
+        g: mathInt(result[2], 16),
+        b: mathInt(result[3], 16)
+      } : null;
   };
 
   /**

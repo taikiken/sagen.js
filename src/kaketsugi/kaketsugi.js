@@ -14,11 +14,11 @@
  * version: @@version
  * url @@url
  */
-/*jshint bitwise: false*/
+/* jshint bitwise: false */
 (function(window) {
   'use strict';
   var
-    //document = window.document,
+    // document = window.document,
     mathMax = Math.max,
     mathAbs = Math.abs;
 
@@ -47,13 +47,17 @@
       window.requestAnimationFrame = function(callback) {
         var currTime = Date.now(),
           timeToCall = mathMax(0, 16 - (currTime - lastTime));
-        var id = window.setTimeout(function() {callback(currTime + timeToCall);}, timeToCall);
+        var id = window.setTimeout(function() {
+          callback(currTime + timeToCall);
+        }, timeToCall);
         lastTime = currTime + timeToCall;
         return id;
       };
     }
     if(typeof window.cancelAnimationFrame === 'undefined' && typeof window.clearTimeout !== 'undefined') {
-      window.cancelAnimationFrame = function ( id ) { window.clearTimeout( id ); };
+      window.cancelAnimationFrame = function(id) {
+        window.clearTimeout(id);
+      };
     }
   }());
 
@@ -65,6 +69,10 @@
     // Reference: http://es5.github.io/#x15.2.3.5
     Object.create = (function() {
       // To save on memory, use a shared constructor
+      /**
+       * To save on memory, use a shared constructor
+       * @constructor
+       */
       function Temp() {}
       // make a safe reference to Object.prototype.hasOwnProperty
       var hasOwn = Object.prototype.hasOwnProperty;
@@ -99,7 +107,7 @@
         // 5. Return obj
         return obj;
       };
-    })();
+    }());
   }
 
   // Firefox < 4, Chrome < 5, IE < 9, Safari < 5
@@ -117,6 +125,7 @@
   // Production steps of ECMA-262, Edition 5, 15.4.4.14
   // Reference: http://es5.github.io/#x15.4.4.14
   if (!Array.prototype.indexOf) {
+    // eslint-disable-next-line no-extend-native
     Array.prototype.indexOf = function(searchElement, fromIndex) {
       var k;
       // 1. Let O be the result of calling ToObject passing
@@ -177,9 +186,10 @@
   // Production steps of ECMA-262, Edition 5, 15.4.4.18
   // Reference: http://es5.github.io/#x15.4.4.18
   if (!Array.prototype.forEach) {
+    // eslint-disable-next-line no-extend-native
     Array.prototype.forEach = function(callback, thisArg) {
       var T, k;
-      //if (this == null) {
+      // if (this == null) {
       if (this === null || typeof this === 'undefined') {
         throw new TypeError('"this" is null or not defined');
       }
@@ -225,6 +235,7 @@
   // https://github.com/madrobby/zepto/blob/master/src/ios3.js
   // from https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Array/reduce
   if (Array.prototype.reduce === 'undefined') {
+    // eslint-disable-next-line no-extend-native
     Array.prototype.reduce = function(fun) {
       if (this === void 0 || this === null) {
         throw new TypeError();
@@ -252,10 +263,12 @@
           if (++k >= len) {
             throw new TypeError();
           }
+          // eslint-disable-next-line no-constant-condition
         } while (true);
       }
       while (k < len) {
         if (k in t) {
+          // eslint-disable-next-line no-undefined
           accumulator = fun.call(undefined, accumulator, t[k], k, t);
         }
         k++;
@@ -268,6 +281,7 @@
   // Function.prototype.bind
   // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/bind
   if (!Function.prototype.bind) {
+    // eslint-disable-next-line no-extend-native, func-style
     Function.prototype.bind = function(oThis) {
       if (typeof this !== 'function') {
         // closest thing possible to the ECMAScript 5 internal IsCallable function
@@ -276,9 +290,12 @@
 
       var aArgs = Array.prototype.slice.call(arguments, 1),
         fToBind = this,
+        // eslint-disable-next-line func-style
         FnOP = function() {},
+        // eslint-disable-next-line func-style
         fBound = function() {
           return fToBind.apply(
+            // eslint-disable-next-line no-invalid-this
             this instanceof FnOP && oThis ? this : oThis,
             aArgs.concat(Array.prototype.slice.call(arguments))
           );
@@ -296,6 +313,7 @@
     (function() {
       // Make sure we trim BOM and NBSP
       var rtrim = /^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g;
+      // eslint-disable-next-line no-extend-native
       String.prototype.trim = function() {
         return this.replace( rtrim, '' );
       };
@@ -322,12 +340,12 @@
   // console
   if (!window.console) {
     window.console = {
-      info: function (){},
-      log: function  (){},
-      debug: function (){},
-      warn: function (){},
-      error: function (){},
-      table: function (){},
+      info: function() {},
+      log: function() {},
+      debug: function() {},
+      warn: function() {},
+      error: function() {},
+      table: function() {},
     };
   }
 }(window));

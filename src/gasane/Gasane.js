@@ -26,6 +26,7 @@
  * @property Gasane
  * @type {{}}
  */
+// eslint-disable-next-line no-unused-vars
 var Gasane = window.Gasane || {};
 
 // (function(window) {

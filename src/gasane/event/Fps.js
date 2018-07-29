@@ -1,4 +1,4 @@
-  /**
+/**
  * Fps, Polling 時間管理eventを発行します
  *
  * @module Gasane

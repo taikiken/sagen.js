@@ -166,7 +166,7 @@ gulp.task('js:eslint', function() {
   return gulp.src(dir.src + '/**/*.js')
     .pipe($.eslint({
       useEslintrc: false,
-      configFile: '../eslint.es5.yml'
+      configFile: './eslint.es5.yml'
     }))
     .pipe($.eslint.format())
     .pipe($.size( { title: '*** js:eslint ***' } ) );
