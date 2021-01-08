@@ -33,6 +33,6 @@
   "author": "Hiroaki Okubo <@taikiken>",
   "license": "MIT",
   "dependencies": {
-    "bower": "^1.8.2"
+    "bower": "^1.8.8"
   }
 }
