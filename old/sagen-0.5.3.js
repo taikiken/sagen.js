@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2011-2018 inazumatv.com, inc.
+ * Copyright (c) 2011-2021 inazumatv.com, inc.
  * @author (at)taikiken / http://inazumatv.com
  * @date 2015/03/16 - 14:02
  *
@@ -10,8 +10,8 @@
  *
  * Polyfill
  *
- * build: 2018-7-29 23:04:31
- * version: 0.5.2
+ * build: 2021-1-8 17:38:57
+ * version: 0.5.3
  * url https://github.com/taikiken/sagen.js
  */
 /* jshint bitwise: false */
@@ -351,7 +351,7 @@
 }(window));
 
 /**
- * Copyright (c) 2011-2018 inazumatv.com, inc.
+ * Copyright (c) 2011-2021 inazumatv.com, inc.
  * @author (at)taikiken / http://inazumatv.com
  * @date 2015/03/24 - 12:10
  *
@@ -360,8 +360,8 @@
  *
  * This notice shall be included in all copies or substantial portions of the Software.
  *
- * @build 2018-7-29 23:04:31
- * @version 0.5.2
+ * @build 2021-1-8 17:38:57
+ * @version 0.5.3
  * @git @@repository
  *
  */
@@ -1153,10 +1153,10 @@ var Gasane = window.Gasane || {};
     }
   };
   Gasane.Polling = Polling;
-}( window ) );
+}(window));
 
 /*!
- * Copyright (c) 2011-2018 inazumatv.com, inc.
+ * Copyright (c) 2011-2021 inazumatv.com, inc.
  * @author (at)taikiken / http://inazumatv.com
  * @date 2015/03/17 - 12:37
  *
@@ -1165,8 +1165,8 @@ var Gasane = window.Gasane || {};
  *
  * This notice shall be included in all copies or substantial portions of the Software.
  *
- * build 2018-7-29 23:04:31
- * version 0.5.2
+ * build 2021-1-8 17:38:57
+ * version 0.5.3
  * github: https://github.com/taikiken/sagen.js
  */
 
@@ -4802,7 +4802,7 @@ wakegi.float = parseFloat;
 }(window));
 
 /**
- * Copyright (c) 2011-2018 inazumatv.com, inc.
+ * Copyright (c) 2011-2021 inazumatv.com, inc.
  * @author (at)taikiken / htp://inazumatv.com
  * date 2014/02/06 - 13:17
  *
@@ -4813,8 +4813,8 @@ wakegi.float = parseFloat;
  * This notice shall be included in all copies or substantial portions of the Software.
  *
  * Sagen
- * version 0.5.2
- * build 2018-7-29 23:04:31
+ * version 0.5.3
+ * build 2021-1-8 17:38:57
  * github: https://github.com/taikiken/sagen.js
  *
  * @requires kaketsugi.js, wakegi.js, gasane.js
@@ -4988,6 +4988,8 @@ var Sagen = window.Sagen || {};
     dataSet = init(id);
     flag = check(dataSet);
   };
+
+  window.Sagen = Sagen;
 }(window));
 
 /**
