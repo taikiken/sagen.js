@@ -178,6 +178,7 @@ var Sagen = window.Sagen || {};
   };
   /**
    * 外部解放初期化関数
+   * @method start
    * @param {string} id script selector id
    */
   Sagen.start = function(id) {
